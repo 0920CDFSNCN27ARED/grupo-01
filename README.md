@@ -1,7 +1,18 @@
 # Winederful
 
 ## Temática del Market Place
-Seremos un ecommerce de **vinos**. También ofreceremos el servicio de **reserva de tours o catas**, donde la bodega cargara sus días y horarios disponibles para realizarlos y los usuarios reservarán desde el sitio.
+Seremos un ecommerce de **vinos**. También ofreceremos el servicio de **reserva de tours o catas**, donde la bodega cargara sus días y horarios disponibles para realizarlos y los usuarios reservarán desde el sitio. El diferencial de nuestro e commerce será que este, ofreceraá una modalidad (a parte de la de venta de productos tradicional) en la que nuestra plataforma guiará, a los clientes que asi lo deseen, durante el proceso de eleccion del vino, buscando facilitarle una eleccion mas informada, siempre con terminos que el usuario pueda entender.
+La idea es que la pagina web sea un espacio en el cual a parte de facilitar la compra y venta de vinos asi como las reservas de visitas a bodegas, haya informacion clara, ordeanada y entendible por el usuario joven que lo ayude a adentrarse en el mundo de los vinos sin desistir en el intento.
+
+*Algunas ideas potenciales para llegar a la finalidad mencionada arriba:*
+
+1) Seccion de videos cortos con explicacion de pasos para catar un vino (o para elegirlo)
+2) encuesta "personalizada" para guiarte a elegir tu vino favorito
+3) Recomendaciones personales de expertos
+4) Recomendaciones de recetas que van bien con x tipo de vino (o x vino para x ocasion)
+5) ... 
+
+
 
 ## Definición del público objetivo
 Decidimos apuntar a un público **joven**, entre **25 y 40 años**, con un poder adquisitivo **medio-alto**. Usaremos un **tono joven, cotidiano y simple**. **Tendremos una estética moderna y limpia**.
