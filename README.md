@@ -28,6 +28,7 @@ Nuestro público también serán las **bodegas**. Ya que ellos serán quienes ut
 3. Por la estética
     1. [FransHals Museum](https://www.franshalsmuseum.nl/en/): uso de colores, movimientos y animaciones divertidas.
     2. [Koox](https://koox.co.uk/)
+    3. [Healthy Humor](https://www.healthyhumorinc.org/)
 4. Por las funcionalidad implementadas
     1. [Mercado Libre](https://www.mercadolibre.com.ar/): por la visual a la hora de mostrar un producto. La información se muestra organizada y prolija.
     2. youcanbookme: la funcionalidad de turnos es visualmente prolija. 
