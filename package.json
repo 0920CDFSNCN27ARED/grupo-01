@@ -1,0 +1,23 @@
+{
+  "name": "grupo-01",
+  "version": "1.0.0",
+  "description": "Seremos un ecommerce de **vinos**. También ofreceremos el servicio de **reserva de tours o catas**, donde la bodega cargara sus días y horarios disponibles para realizarlos y los usuarios reservarán desde el sitio. El diferencial de nuestro e commerce será que este, ofreceraá una modalidad (a parte de la de venta de productos tradicional) en la que nuestra plataforma guiará, a los clientes que asi lo deseen, durante el proceso de eleccion del vino, buscando facilitarle una eleccion mas informada, siempre con terminos que el usuario pueda entender.\r La idea es que la pagina web sea un espacio en el cual a parte de facilitar la compra y venta de vinos asi como las reservas de visitas a bodegas, haya informacion clara, ordeanada y entendible por el usuario joven que lo ayude a adentrarse en el mundo de los vinos sin desistir en el intento.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0920CDFSNCN27ARED/grupo-01.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0920CDFSNCN27ARED/grupo-01/issues"
+  },
+  "homepage": "https://github.com/0920CDFSNCN27ARED/grupo-01#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^15.0.1"
+  }
+}
