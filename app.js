@@ -6,21 +6,26 @@ app.listen(3000, ()=>{
     console.log("Server running in port 3000");
 });
 
-app.use(express.static(__dirname + "/public"));
+const staticFileRouter = express.static("public");
+app.use(staticFileRouter);
 
+//home
+app.get("/",(req,res)=>{
+    res.sendFile(path.resolve(__dirname,"views/index.html"))
+})
 
 
 // Cart and derives (gabi)
 app.get("/carritoDeCompras",(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"views","productCart.html"))
+    res.sendFile(path.resolve(__dirname,"views/productCart.html"))
 })
 
 app.get("/productosGuardados",(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"views","savedProducts.html"))
+    res.sendFile(path.resolve(__dirname,"views/savedProducts.html"))
 })
 
 app.get("/favoritos",(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"views","favourites.html"))
+    res.sendFile(path.resolve(__dirname,"views/favourites.html"))
 })
 
 
