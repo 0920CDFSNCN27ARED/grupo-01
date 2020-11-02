@@ -1,14 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
     <title>Carrito de compras</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header class="header-back">
+      <img
+        class="logo-size logo-location"
+        src="/images/WINEDERFULL_logo-02.jpg"
+        alt="Logo"
+      />
 
+      <i class="fas fa-search"></i>
+      <form class="form" action="">
+        <label for="search"></label>
+        <input class="search" type="search" name="search" />
+      </form>
+
+      <ul class="in-line">
+        <li><a href="">Categorías</a></li>
+        <li><a href="">Historial</a></li>
+      </ul>
+    </header>
+
+    <section id="categories">
+      <a href="/carritoDeCompras">Carrito</a>
+      <a href="/productosGuardados">Guardados</a>
+      <a href="/favoritos">Favoritos</a>
+    </section>
+
+    <section id="products-view">
+      <article>
+        <img class="wine" src="/images/Vino-x-prueba.png" alt="wineProduct" />
+        <p class="in-line product-name">Luigi Bosca Malbec 750</p>
+        <input class="in-line quantitybox-shape" type="number" placeholder="1" />
+        <p class="in-line price-location">$350</p>
+        
+        
+            <ul id="article-options">
+                <li><button class="article-options" type="button">Eliminar</button></li>
+                <li><button class="article-options" type="button">Guardar para despues</button></li>
+                <li><button class="article-options" type="button">Marcar como favorito</button></li>
+                <li><button class="article-options" type="button">Recetas recomendadas</button></li>
+            </ul>
+       
+        
+    </article>
+
+
+     <article>
+        <img class="wine" src="/images/Vino-x-prueba.png" alt="wineProduct" />
+        <p class="in-line product-name">Luigi Bosca Malbec 750</p>
+        <input class="in-line quantitybox-shape" type="number" placeholder="1" />
+        <p class="in-line price-location">$350</p>
+        
+        
+            <ul id="article-options">
+                <li><button class="article-options" type="button">Eliminar</button></li>
+                <li><button class="article-options" type="button">Guardar para despues</button></li>
+                <li><button class="article-options" type="button">Marcar como favorito</button></li>
+                <li><button class="article-options" type="button">Recetas recomendadas</button></li>
+            </ul>
+        
+    </article>
+
+    <button id= "submit-button" type="submit">Comprar</button>
     
-    
-</body>
+</section>
+  </body>
 </html>
