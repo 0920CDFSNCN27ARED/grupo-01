@@ -3,6 +3,8 @@
 
 body {
     font-family: 'Spartan', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 /* Gabi */
@@ -171,6 +173,11 @@ font-size: 12px;
 }
 
 
+.side-bar-open {
+    display: none;
+}
+
+
 .round-button {
     border-radius: 50%;
     background-color: #D4C0DC;
@@ -183,4 +190,35 @@ font-size: 12px;
     font-weight: bold;
     font-size: 13px;
     padding: 20% 7%;   
+}
+
+.overflow{
+    overflow: hidden;
+}
+
+.slideshow{
+    display: grid;
+    grid-template-columns: 100% 100% 100%;
+    animation: slider 30s infinite;
+    position: relative;
+}
+
+@keyframes slider{
+10%{
+    right: 0%;
+}
+30%{
+    right: 100%;
+}
+
+60%{
+    right: 200%;
+}
+to{
+    right: 0%;
+}
+}
+
+.slideshow img{
+    width: 100%;
 }
