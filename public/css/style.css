@@ -11,16 +11,6 @@ body {
     
 }
 
-/* IMAGES */
-
-.logo-size {
-    width: 6%;
-    height: 4%;
-}
-
-.logo-location {
-    padding: 15px 20px
-}
 
 .wine {
     height: 80px;
@@ -46,7 +36,7 @@ li {
     padding: 15px 50px;
 
 }
-.header-back {
+/*.header-back {
 
     width: 100%;
     padding: 0px;
@@ -55,7 +45,7 @@ li {
     margin-bottom: 5%;
     color: whitesmoke;
 }
-
+*/
 .in-line {
     display: inline;
 }
@@ -143,6 +133,18 @@ font-size: 12px;
     width: 50px;
     height: 25px;
 }
+
+/* LOGO */
+
+/*.logo-size {
+    width: 6%;
+    height: 4%;
+}
+
+.logo-location {
+    padding: 15px 20px
+}
+*/
 
 /* Vero */
 .header-index {
