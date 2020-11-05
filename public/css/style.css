@@ -180,15 +180,15 @@ font-size: 12px;
     border-radius: 50%;
     background-color: #D4C0DC;
     color: black;
-    padding: 9% 9%;
-    font-size: 20px;
+    padding: 17% 17%;
+    font-size: 13px;
 }
 
-.font{
-    font-weight: bold;
-    font-size: 13px;
-    padding: 20% 7%;   
+.round-button:hover{
+    color: #f1f1f1;
 }
+
+
 
 .overflow{
     overflow: hidden;
@@ -220,3 +220,63 @@ to{
 .slideshow img{
     width: 100%;
 }
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    background-color: #D4C0DC;
+    overflow-x: hidden;
+    transition: 1s;
+    padding-top: 60px;
+  }
+  
+  .sidebar a {
+    margin: 20px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  
+  .openbtn:hover {
+    background-color: #444;
+  }
+
+  #winederful-mode{
+      background-color: #A97CB7;
+      border-radius: 50px;
+      font-size: 15px;
+      margin-top: 20px;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      margin-left: 10px;
+  }
+
+  #winederful-mode:hover{
+    color: #f1f1f1;
+  }
