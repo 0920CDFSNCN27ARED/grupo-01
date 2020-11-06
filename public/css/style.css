@@ -8,10 +8,12 @@ body {
 }
 
 /* Gabi */
+/*
 .body-cart {
     background-image: url("../images/imagen-bodega2.jpg");
     
 }
+*/
 
 
 .wine {
@@ -30,10 +32,6 @@ li {
 }
 
 
-.search {
-    border-radius: 10px;
-}
-
 .form{
     padding: 15px 50px;
 
@@ -48,8 +46,18 @@ li {
     color: whitesmoke;
 }
 */
+
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+
+}
 .in-line {
     display: inline;
+    
 }
 
 
@@ -112,41 +120,19 @@ article{
    
 }
 
-#article-options{
-    padding-left: 16%;
-    padding-top: 3%;
-}
+
 .article-options{
 text-decoration: none;
 color: blue;
-background-color: rgba(245, 222, 179, 0.2);
+background-color: #D4C0DC;
 border: none;
 box-shadow: none;
-padding-right: 3%;
 font-size: 12px;
+width: 100%;
 }
 
-#submit-button{
 
-    margin: 5% 25% 5% 75%;
-    background-color: rgba(10, 150, 230, 0.8);
-    font-style: bold;
-    color: white;
-    width: 50px;
-    height: 25px;
-}
 
-/* LOGO */
-
-/*.logo-size {
-    width: 6%;
-    height: 4%;
-}
-
-.logo-location {
-    padding: 15px 20px
-}
-*/
 
 /* Vero */
 .header-index {

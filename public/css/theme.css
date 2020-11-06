@@ -1,0 +1,75 @@
+body{
+    background-color: 
+}
+
+.background-color-main{
+    background-color: white
+    ;
+}
+
+.background-color-secondary{
+    background-color: #D4C0DC}
+
+.display-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.display-flex-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+
+#logo{
+    width:25%;
+}
+
+.order-nmbr-2{
+    order:1
+}
+
+.order-nmbr-3{
+    order:2
+}
+.order-nmbr-4{
+    order:3
+}
+
+.order-last{
+    order:50
+}
+
+.search-bar{
+    align-self: flex-end;
+    width: 97%;
+
+}
+
+#toggle-winderful-mode{
+align-self: flex-start;
+order: 3;
+font-size: 25px;
+padding-top: 10px;
+
+}
+
+.section-separation{
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.submit-button{
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-bottom: 2%;
+    position: relative;
+    left: 35%;
+    
+}
