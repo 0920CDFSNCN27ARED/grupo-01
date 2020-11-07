@@ -22,7 +22,7 @@ app.get("/productDetail", (req, res) => {
 
 // Cart and derives (gabi)
 app.get("/carritoDeCompras",(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"views/carrito2.html"))
+    res.sendFile(path.resolve(__dirname,"views/productCart.html"))
 })
 
 app.get("/productosGuardados",(req,res)=>{
