@@ -1,0 +1,160 @@
+/* COLORS */
+body{
+    background-color: white
+}
+
+.background-color-main{
+    background-color: white
+    ;
+}
+
+.background-color-secondary{
+    background-color: #aad5e9}
+
+/* POSITIONS AND DISPLAY*/
+
+.display-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.display-flex-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.justify-right{
+    justify-content: flex-end;
+}
+
+.justify-evenly{
+    justify-content: space-evenly;
+}
+
+.final-price{
+    align-self: flex-end;
+    position: relative;
+    right: 12%
+}
+
+.position-right{
+    position: relative;
+    left: 35%;
+}
+.position-right-2{
+    position: relative;
+    left: 8%;
+}
+
+.section-separation{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin:2%;
+    border-radius: 2%;
+}
+.padding-bottom{
+    padding-bottom: 3%;
+}
+
+
+/*  ORDERS */
+.order-nmbr-2{
+    order:1
+}
+
+.order-nmbr-3{
+    order:2
+}
+.order-nmbr-4{
+    order:3
+}
+
+.order-last{
+    order:50
+}
+
+/**/
+.search-bar{
+    align-self: flex-end;
+    width: 97%;
+  
+}
+
+#toggle-winderful-mode{
+align-self: flex-start;
+order: 3;
+font-size: 25px;
+padding-top: 10px;
+
+}
+
+
+/* SEPECIFIC TAGS */
+.submit-button-specs{
+    background-color: #289af7;
+    width: 200px;
+    height: 40px;
+    color: white;
+    font-style: bold;
+    border-radius: 5px;
+}
+
+.article-options{
+    text-decoration: none;
+    color: blue;
+    background-color:#aad5e9;
+    border: none;
+    box-shadow: none;
+    font-size: 12px;
+    width: 100%;
+    
+    }
+
+
+#logo{
+    width:25%;
+}
+
+.quantitybox-shape {
+
+    width: 40px;
+}
+
+.article{
+    width: 90% ;
+    border-bottom: solid 1px rgba(10, 10, 10, 1); 
+    position: relative;
+    left: 3%;
+}
+
+li {
+    display: inline;
+    text-decoration: none;
+    color: white;
+    
+}
+
+a{
+    
+    text-decoration: none;
+}
+
+.wine {
+    height: 5%;
+    width: 6%;
+    padding-left: 4%;
+    padding-top: 40px;
+    padding-right: 5%;
+}
+
+
+/* TYPO */
+
+.bold{
+   font-weight: bold; 
+}

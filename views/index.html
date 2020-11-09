@@ -1,65 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>HOME | Winderful</title>
-</head>
-<body>
-    <header class="header-index">
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <a href="#">Mi cuenta</a>
-            <a href="#">Mis favoritos</a>
-            <a href="#" id="winederful-mode">MODO WINDERFUL</a>
-        </div>
+  </head>
+  <body>
+    <div id="mySidebar" class="sidebar">
+      <a class="closebtn" onclick="closeNav()">×</a>
+      <a href="#">Mi cuenta</a>
+      <a href="/favourites.html">Mis favoritos</a>
+      <a href="#" id="winederful-mode">MODO WINDERFUL</a>
+    </div>
+    <section class="body-index" id="body-index">
+      <header class="header-index">
         <div class="side-bar">
-            <a class="round-button" onclick="openNav()"><i class="fas fa-bars"></i></a>
+          <a class="round-button" onclick="openNav()"
+            ><i class="fas fa-bars"></i
+          ></a>
         </div>
         <div class="logo-image">
-            <a href="/"><img src="images\WINEDERFULL_logo-02.jpg" alt=""></a>
+          <a href="/"><img src="images\WINEDERFULL_logo-02.jpg" alt="" /></a>
         </div>
         <div class="cart">
-            <a class="round-button" href="/carritoDeCompras"><i class="fas fa-shopping-cart"></i></a>
-           
+          <a class="round-button" href="/carritoDeCompras"
+            ><i class="fas fa-shopping-cart"></i
+          ></a>
         </div>
-    </header>
-    <main>
+      </header>
+      <main>
         <div class="overflow">
-            <div class="slideshow">
-                <div>
-                    <img src="https://images.pexels.com/photos/4156294/pexels-photo-4156294.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                </div>
-                <div>
-                    <img src="https://images.pexels.com/photos/696219/pexels-photo-696219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                </div>
-                <div>
-                    <img src="https://images.pexels.com/photos/696215/pexels-photo-696215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                </div>
+          <div class="slideshow">
+            <div>
+              <img
+                src="https://images.pexels.com/photos/4156294/pexels-photo-4156294.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt=""
+              />
             </div>
+            <div>
+              <img
+                src="https://images.pexels.com/photos/696219/pexels-photo-696219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                src="https://images.pexels.com/photos/696215/pexels-photo-696215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt=""
+              />
+            </div>
+          </div>
         </div>
         <div class="slideshow-prod">
-            <div>
-                
-            </div>
+          <div></div>
         </div>
-    </main>
-    <footer>
-
-    </footer>
+      </main>
+      <footer></footer>
+    </section>
     <script>
-        function openNav() {
-          document.getElementById("mySidebar").style.width = "200px";
-          document.getElementById("main").style.marginLeft = "200px";
-        }
-        
-        function closeNav() {
-          document.getElementById("mySidebar").style.width = "0";
-          document.getElementById("main").style.marginLeft= "0";
-        }
-        </script>
-</body>
+      function openNav() {
+        document.getElementById("mySidebar").style.marginLeft = "200px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidebar").style.marginLeft = "0";
+      }
+    </script>
+  </body>
 </html>

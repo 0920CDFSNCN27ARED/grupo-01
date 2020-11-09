@@ -12,71 +12,137 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <title>Carrito de compras</title>
+    <link rel="stylesheet" href="/css/gabi.css" />
+    <title>Carrito de compras | WINDERFUL</title>
   </head>
-  <body class="body-cart">
-    <header class="header-back">
-      <img
-        class="logo-size logo-location"
-        src="/images/WINEDERFULL_logo-02.jpg"
-        alt="Logo"
-      />
 
-      <i class="fas fa-search"></i>
-      <form class="form" action="">
-        <label for="search"></label>
-        <input class="search" type="search" name="search" />
-      </form>
+  <body>
+    <header class="background-color-main display-flex">
+      <nav class="display-flex">
+        <img
+          class="order-nmbr-2"
+          id="logo"
+          src="/images/WINEDERFULL_logo-02.jpg"
+          alt="Logo"
+        />
+        <i id="toggle-winderful-mode" class="fas fa-toggle-off"></i>
+        <ul>
+          <li><a href="">Categorías |</a></li>
+          <li><a href="">Historial</a></li>
+        </ul>
 
-      <ul class="in-line">
-        <li><a href="">Categorías</a></li>
-        <li><a href="">Historial</a></li>
-      </ul>
+        <ul class="order-nmbr-3">
+          <li><a href="">Aprendé |</a></li>
+          <li><a href="">Eventos</a></li>
+        </ul>
+
+        <div class="search-bar order-nmbr-4 background-color-main">
+          <form action="">
+            <i class="fas fa-search"></i>
+            <label for="search"></label>
+            <input
+              class="search-bar"
+              type="search"
+              name="search"
+              placeholder="Encontrá tu vino favorito"
+            />
+          </form>
+        </div>
+      </nav>
     </header>
 
-    <section id="categories">
-      <a href="/carritoDeCompras">Carrito</a>
-      <a href="/productosGuardados">Guardados</a>
-      <a href="/favoritos">Favoritos</a>
-    </section>
+    <main
+      class="display-flex-left section-separation background-color-secondary"
+    >
+      <nav>
+        <ul class="display-flex  ">
+          <li><a href="/carritoDeCompras">Carrito (2) |</a></li>
+          <li><a href="/productosGuardados">Guardados (2) |</a></li>
+          <li><a href="/favoritos">Favoritos (3) </a></li>
+        </ul>
+      </nav>
 
-    <section id="products-view">
-      <article>
+      <article class="display-flex article">
         <img class="wine" src="/images/Vino-x-prueba.png" alt="wineProduct" />
-        <p class="in-line product-name">Luigi Bosca Malbec 750</p>
-        <input class="in-line quantitybox-shape" type="number" placeholder="1" />
-        <p class="in-line price-location">$350</p>
-        
-        
-            <ul id="article-options">
-                <li><button class="article-options" type="button">Eliminar</button></li>
-                <li><button class="article-options" type="button">Guardar para despues</button></li>
-                <li><button class="article-options" type="button">Marcar como favorito</button></li>
-                <li><button class="article-options" type="button">Recetas recomendadas</button></li>
-            </ul>
+        <p>Luigi Bosca Malbec 750</p>
+        <input
+          class="quantitybox-shape"
+          type="number"
+          placeholder="1"
+        />
+        <p class="bold">$350</p>
+
+        <ul class="display-flex article-options justify-evenly">
+          <li>
+            <button class="article-options" type="button">Eliminar</button>
+          </li>
+          <li>
+            <button class="article-options" type="button">
+              Guardar para despues
+            </button>
+          </li>
+          <li>
+            <button class="article-options" type="button">
+              Marcar como favorito
+            </button>
+          </li>
+          <li>
+            <button class="article-options" type="button">
+              Recetas recomendadas
+            </button>
+          </li>
+        </ul>
        
-        
-    </article>
+      </article>
 
-
-     <article>
+      <article class="display-flex article">
         <img class="wine" src="/images/Vino-x-prueba.png" alt="wineProduct" />
-        <p class="in-line product-name">Luigi Bosca Malbec 750</p>
-        <input class="in-line quantitybox-shape" type="number" placeholder="1" />
-        <p class="in-line price-location">$350</p>
-        
-        
-            <ul id="article-options">
-                <li><button class="article-options" type="button">Eliminar</button></li>
-                <li><button class="article-options" type="button">Guardar para despues</button></li>
-                <li><button class="article-options" type="button">Marcar como favorito</button></li>
-                <li><button class="article-options" type="button">Recetas recomendadas</button></li>
-            </ul>
-        
-    </article>
+        <p>Luigi Bosca Malbec 750</p>
+        <input
+          class="quantitybox-shape"
+          type="number"
+          placeholder="1"
+        />
+        <p class="bold">$350</p>
 
-    <button id= "submit-button" type="submit">Comprar</button>
-    
-</section>
+        <ul class="display-flex article-options justify-evenly">
+          <li>
+            <button class="article-options" type="button">Eliminar</button>
+          </li>
+          <li>
+            <button class="article-options" type="button">
+              Guardar para despues
+            </button>
+          </li>
+          <li >
+            <button class="article-options" type="button">
+              Marcar como favorito
+            </button>
+          </li>
+          <li>
+            <button class="article-options" type="button">
+              Recetas recomendadas
+            </button>
+          </li>
+        </ul>
+      </article>
+
+
+      <section class="display-flex-column padding-bottom bold">
+        <div class="display-flex">
+          <p class="position-right">Total</p>
+          <p class= "position-right-2" >$700</p>
+        </div>
+        <button  class= "submit-button-specs final-price " type="submit">
+            Comprar
+        </button>
+      </section>
+
+    </main>
+
+
+
+
+    <footer></footer>
   </body>
 </html>
