@@ -1,0 +1,92 @@
+/* Fuente */
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+    font-family: "Spartan", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: white;
+}
+
+.header ul li1 a {
+    color: #000;
+    font-size: 8px;
+    background-color: tomato;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.header ul li2 a {
+    color: #000;
+    background-color: thistle;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.header ul li3 a {
+    color: #000;
+    background-color: teal;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.header ul li4 a {
+    color: #000;
+    background-color: #748ac4;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    top: -100px;
+    right: -200px;
+}
+
+.menu-vertical {
+    font-size: 10px;
+    color: black;
+    background-color: #8dc19d;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 10px;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    display: inline;
+    padding-right: 8px;
+    padding-left: 8px;
+    margin-left: 30px;
+}
+
+.menu-vertical il {
+    padding-bottom: 15px;
+}
+
+.producto {
+    display: flex;
+    position: relative;
+    left: 130px;
+    top: -380px;
+}
+
+.font-description {
+    font-size: 7px;
+    font-weight: bold;
+    display: flex;
+    position: relative;
+}
+
+.descripcion {
+    font-size: 8px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 400px;
+    bottom: 700px;
+}
