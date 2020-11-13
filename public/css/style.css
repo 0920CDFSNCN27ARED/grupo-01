@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 /* Gabi */
 .body-cart {
   background-image: url("../images/imagen-bodega2.jpg");
@@ -221,6 +222,7 @@ article {
   color: black;
   display: block;
   transition: 0.3s;
+  vertical-align: baseline;
 }
 
 .sidebar a:hover {
@@ -264,3 +266,93 @@ article {
 }
 
 /* fin sidebar */
+
+/*slider de productos*/
+.slideshow-prod {
+  display: grid;
+  grid-template-columns: 1% 98% 1%;
+  padding: 10px;
+}
+
+.prod-container {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 100% 100% 100% 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.prod {
+  display: grid;
+  grid-template-rows: auto 300px 0 auto;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+.previous,
+.next {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+  cursor: pointer;
+}
+
+.prod-love-box i {
+  position: relative;
+  left: 90%;
+  top: 0px;
+  font-size: 30px;
+  color: #748ac4;
+}
+
+.prod-img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.prod-img-box img {
+  width: 100%;
+}
+
+.prod-name-box p {
+  position: relative;
+  left: 15px;
+  bottom: 50px;
+}
+
+.prod-price-cart-box {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  padding: 10px;
+}
+
+.prod-price-cart-box button {
+  color: white;
+  background-color: #748ac4;
+  border: 0;
+  border-radius: 5px;
+  font-size: 19px;
+}
+
+.subtitle {
+  padding-left: 15px;
+  display: grid;
+  grid-template-rows: 0 auto;
+}
+
+.background-text {
+  background-color: #8dc19d;
+  z-index: -1;
+  height: 25px;
+  width: 70%;
+  position: relative;
+  top: 30px;
+}
+
+/*fin de slider de productos*/
