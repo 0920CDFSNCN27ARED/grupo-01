@@ -1,178 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>HOME | Winderful</title>
-  </head>
-  <body>
-    <div id="mySidebar" class="sidebar">
-      <a class="closebtn" onclick="closeNav()">×</a>
-      <a href="#">Mi cuenta</a>
-      <a href="/favourites.html">Mis favoritos</a>
-      <a href="#" id="winederful-mode">MODO WINDERFUL</a>
-    </div>
-    <section class="body-index" id="body-index">
-      <header class="header-index">
-        <div class="side-bar">
-          <a class="round-button" onclick="openNav()"
-            ><i class="fas fa-bars"></i
-          ></a>
-        </div>
-        <div class="logo-image">
-          <a href="/"><img src="images\WINEDERFULL_logo-02.jpg" alt="" /></a>
-        </div>
-        <div class="cart">
-          <a class="round-button" href="/carritoDeCompras"
-            ><i class="fas fa-shopping-cart"></i
-          ></a>
-        </div>
-      </header>
-      <main>
-        <div class="overflow">
-          <div class="slideshow">
-            <div>
-              <img
-                src="https://images.pexels.com/photos/4156294/pexels-photo-4156294.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt=""
-              />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>HOME | Winderful</title>
+    </head>
+    <body>
+        <!-- Inicio de sidebar -->
+        <header class="header-index">
+            <div class="logo-image">
+                <a href="/"
+                    ><img src="images\WINEDERFULL_logo-02.jpg" alt=""
+                /></a>
             </div>
-            <div>
-              <img
-                src="https://images.pexels.com/photos/696219/pexels-photo-696219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src="https://images.pexels.com/photos/696215/pexels-photo-696215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-        <div class="subtitle bestSeller">
-          <div class="background-text"></div>
-          <h2>Los más vendidos</h2>
-        </div>
-        <section class="slideshow-prod">
-          <div class="previous">
-            <i class="fas fa-angle-left arrow"></i>
-          </div>
-          <div class="prod-container">
-            <article class="prod">
-              <div class="prod-love-box">
-                <i class="far fa-heart"></i>
-              </div>
-              <div class="prod-img-box">
-                <img
-                  src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/t/o/tolentino_malbec.png"
-                  alt="Vino tinto"
-                />
-              </div>
-              <div class="prod-name-box">
-                <p>name</p>
-              </div>
-              <div class="prod-price-cart-box">
-                <p>$XXXX</p>
-                <button>
-                  <i class="fas fa-shopping-cart"></i>
-                </button>
-              </div>
-            </article>
-            <article class="prod">
-              <div class="prod-love-box">
-                <i class="far fa-heart"></i>
-              </div>
-              <div class="prod-img-box">
-                <img
-                  src="https://www.lariojanawinestore.com.ar/IMG/arton53.png?1551447194"
-                  alt="Vino tinto"
-                />
-              </div>
-              <div class="prod-name-box">
-                <p>name</p>
-              </div>
-              <div class="prod-price-cart-box">
-                <p>$XXXX</p>
-                <button>
-                  <i class="fas fa-shopping-cart"></i>
-                </button>
-              </div>
-            </article>
-            <article class="prod">
-              <div class="prod-love-box">
-                <i class="far fa-heart"></i>
-              </div>
-              <div class="prod-img-box">
-                <img
-                  src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/c/o/coleccion_blend_1200.png"
-                  alt="Vino tinto"
-                />
-              </div>
-              <div class="prod-name-box">
-                <p>name</p>
-              </div>
-              <div class="prod-price-cart-box">
-                <p>$XXXX</p>
-                <button>
-                  <i class="fas fa-shopping-cart"></i>
-                </button>
-              </div>
-            </article>
-            <article class="prod">
-              <div class="prod-love-box">
-                <i class="far fa-heart"></i>
-              </div>
-              <div class="prod-img-box">
-                <img
-                  src="https://media-verticommnetwork1.netdna-ssl.com/wines/catena-zapata-malbec-appellations-vista-flores-1683148-s732.png"
-                  alt="Vino tinto"
-                />
-              </div>
-              <div class="prod-name-box">
-                <p>name</p>
-              </div>
-              <div class="prod-price-cart-box">
-                <p>$XXXX</p>
-                <button>
-                  <i class="fas fa-shopping-cart"></i>
-                </button>
-              </div>
-            </article>
-          </div>
-          <div class="next">
-            <i class="fas fa-angle-right arrow"></i>
-          </div>
-        </section>
-      </main>
-      <footer class="footer-index">
-        <section class="values">
-          <article class="value">
-            <div class="value-img-box">
-              <img src="" alt="" />
-            </div>
-            <div class="value-text-box">
-              <p></p>
-            </div>
-          </article>
-        </section>
-      </footer>
-    </section>
-    <script>
-      function openNav() {
-        document.getElementById("mySidebar").style.marginLeft = "200px";
-      }
+            <nav class="under-nav">
+                <ul>
+                    <li class="user-box">
+                        <a href=""><i class="fas fa-user"></i></a>
+                    </li>
+                    <li class="search-box">
+                        <a href=""><i class="fas fa-search"></i></a>
+                    </li>
+                    <li class="cart-box">
+                        <a href="/carritoDeCompras"
+                            ><i class="fas fa-shopping-cart"></i
+                        ></a>
+                    </li>
+                    <li class="ticket-box">
+                        <a href=""><i class="fas fa-ticket-alt rotate"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-      function closeNav() {
-        document.getElementById("mySidebar").style.marginLeft = "0";
-      }
-    </script>
-  </body>
+        <main>
+            <div class="overflow">
+                <div class="slideshow">
+                    <div>
+                        <img
+                            src="https://images.pexels.com/photos/4156294/pexels-photo-4156294.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            alt=""
+                        />
+                    </div>
+                    <div>
+                        <img
+                            src="https://images.pexels.com/photos/696219/pexels-photo-696219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            alt=""
+                        />
+                    </div>
+                    <div>
+                        <img
+                            src="https://images.pexels.com/photos/696215/pexels-photo-696215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            alt=""
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="subtitle bestSeller">
+                <div class="background-text"></div>
+                <h2>Los más vendidos</h2>
+            </div>
+            <section class="slideshow-prod">
+                <div class="previous">
+                    <i class="fas fa-angle-left arrow"></i>
+                </div>
+                <div class="prod-container">
+                    <article class="prod">
+                        <div class="prod-love-box">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="prod-img-box">
+                            <img
+                                src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/t/o/tolentino_malbec.png"
+                                alt="Vino tinto"
+                            />
+                        </div>
+                        <div class="prod-name-box">
+                            <p>name</p>
+                        </div>
+                        <div class="prod-price-cart-box">
+                            <p>$XXXX</p>
+                            <button>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="prod">
+                        <div class="prod-love-box">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="prod-img-box">
+                            <img
+                                src="https://www.lariojanawinestore.com.ar/IMG/arton53.png?1551447194"
+                                alt="Vino tinto"
+                            />
+                        </div>
+                        <div class="prod-name-box">
+                            <p>name</p>
+                        </div>
+                        <div class="prod-price-cart-box">
+                            <p>$XXXX</p>
+                            <button>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="prod">
+                        <div class="prod-love-box">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="prod-img-box">
+                            <img
+                                src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/c/o/coleccion_blend_1200.png"
+                                alt="Vino tinto"
+                            />
+                        </div>
+                        <div class="prod-name-box">
+                            <p>name</p>
+                        </div>
+                        <div class="prod-price-cart-box">
+                            <p>$XXXX</p>
+                            <button>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="prod">
+                        <div class="prod-love-box">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="prod-img-box">
+                            <img
+                                src="https://media-verticommnetwork1.netdna-ssl.com/wines/catena-zapata-malbec-appellations-vista-flores-1683148-s732.png"
+                                alt="Vino tinto"
+                            />
+                        </div>
+                        <div class="prod-name-box">
+                            <p>name</p>
+                        </div>
+                        <div class="prod-price-cart-box">
+                            <p>$XXXX</p>
+                            <button>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+                <div class="next">
+                    <i class="fas fa-angle-right arrow"></i>
+                </div>
+            </section>
+        </main>
+        <footer class="footer-index">
+            <section class="values">
+                <article class="value">
+                    <div class="value-img-box">
+                        <img src="" alt="" />
+                    </div>
+                    <div class="value-text-box">
+                        <p></p>
+                    </div>
+                </article>
+                <article class="value">
+                    <div class="value-img-box">
+                        <img src="" alt="" />
+                    </div>
+                    <div class="value-text-box">
+                        <p></p>
+                    </div>
+                </article>
+                <article class="value">
+                    <div class="value-img-box">
+                        <img src="" alt="" />
+                    </div>
+                    <div class="value-text-box">
+                        <p></p>
+                    </div>
+                </article>
+            </section>
+        </footer>
+    </body>
 </html>
