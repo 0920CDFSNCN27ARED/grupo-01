@@ -1,6 +1,12 @@
 /* COLORS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 body{
-    background-color: white
+    background-color: white;
+    
 }
 
 .background-color-main{
@@ -8,8 +14,40 @@ body{
     ;
 }
 
-.background-color-secondary{
-    background-color: #aad5e9}
+/*
+.box{
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+.red{
+    background-color: rgb(192, 147, 147);
+}
+*/
+.article-p{
+    font-size: 0.75em;
+    width: 100%;
+
+}
+
+.padding-l-5{
+    padding-left: 5%;
+    padding-top: 3%;
+}
+#logo-chart{
+    width: 17%;
+
+}
+#head{
+    height: 7vh;
+    width: 100%;
+    text-align: center;
+    
+}
+
+
+
 
 /* POSITIONS AND DISPLAY*/
 
@@ -18,16 +56,35 @@ body{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
+    width: 100%;
 }
 
+
+
+.display-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20%;
+}
+.align-center{
+    align-items: center;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
 .display-flex-column{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
+    
 }
 
+.wrap{
+    flex-wrap: wrap;
+}
 .justify-right{
     justify-content: flex-end;
 }
@@ -36,11 +93,11 @@ body{
     justify-content: space-evenly;
 }
 
-.final-price{
-    align-self: flex-end;
-    position: relative;
-    right: 12%
+.final-price:hover .fa-wine-bottle{
+transform: rotate(60deg);
+transition: transform 2s;
 }
+
 
 .position-right{
     position: relative;
@@ -51,16 +108,23 @@ body{
     left: 8%;
 }
 
-.section-separation{
-    padding-top: 2%;
-    padding-bottom: 2%;
-    margin:2%;
-    border-radius: 2%;
-}
+
 .padding-bottom{
     padding-bottom: 3%;
 }
 
+
+.height70{
+    height: 70%;
+}
+
+.height50{
+    height: 50vh;
+}
+
+.flex-grow{
+    flex-grow: 3;
+}
 
 /*  ORDERS */
 .order-nmbr-2{
@@ -79,17 +143,27 @@ body{
 }
 
 /**/
+
 .search-bar{
-    align-self: flex-end;
-    width: 97%;
-  
+    border: none;
+    
+}
+
+#search-bar{
+    background-color: white;
+    border: solid 1px gray ;
+    border-radius: 15%;
+    width: 80%;
+    padding-left:2%;
+    display: flex;
+    justify-content: space-between;
 }
 
 #toggle-winderful-mode{
 align-self: flex-start;
 order: 3;
 font-size: 25px;
-padding-top: 10px;
+padding-top: 2%px;
 
 }
 
@@ -97,24 +171,34 @@ padding-top: 10px;
 /* SEPECIFIC TAGS */
 .submit-button-specs{
     background-color: #289af7;
-    width: 200px;
-    height: 40px;
+    width: 85%;
+    height: 33%;
     color: white;
     font-style: bold;
     border-radius: 5px;
+    align-self: center;
 }
 
 .article-options{
     text-decoration: none;
-    color: blue;
-    background-color:#aad5e9;
+    color: mediumvioletred;
     border: none;
     box-shadow: none;
     font-size: 12px;
     width: 100%;
+    padding: 2% 0;
+    justify-content: space-between;
     
     }
 
+.space-between{
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#price-section{
+    justify-content: flex-end;
+}
 
 #logo{
     width:25%;
@@ -127,9 +211,10 @@ padding-top: 10px;
 
 .article{
     width: 90% ;
-    border-bottom: solid 1px rgba(10, 10, 10, 1); 
-    position: relative;
-    left: 3%;
+    height: 21vh ;
+    background-color: aquamarine;
+    box-shadow: 11px -5px 10px pink;
+    border-radius: 60%;
 }
 
 li {
@@ -145,16 +230,115 @@ a{
 }
 
 .wine {
-    height: 5%;
-    width: 6%;
-    padding-left: 4%;
-    padding-top: 40px;
-    padding-right: 5%;
+   
+    width: 17%
 }
 
+#products-section{
+    height: 76%;
+}
+#product-options{
+    border-top: solid 1px gray;
+    border-bottom: solid 1px rgba(10, 10, 10, 1); 
+    margin: 2% 0;
+    background-color: white;
+}
 
 /* TYPO */
 
 .bold{
    font-weight: bold; 
+}
+
+.coments-typo{
+    font-size: 8px;
+    
+}
+
+.font-size-mobile{
+    font-size: 10px;
+}
+
+.txt-center{
+text-align: center;
+}
+
+/*VIEW*/
+
+.display-off{
+    display: none;
+}
+
+/*MOVEMENT*/
+
+#winderful-mode:hover{
+display: inline-block;
+}
+
+/*-------*/
+
+#categories{
+    padding-top: 5%;
+    height: 4%;
+}
+#categories > ul > li{
+    font-size: 0.80em;
+}
+ul{
+    padding: 0;
+}
+
+.width-100{
+    width: 100%;
+}
+.width-90{
+    width: 90%;
+}
+
+.width-50{
+width: 50%;
+
+}
+#price{
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+#product-options  ul  li i{
+    font-size: 1.5em;
+    background-color: white;
+}
+
+#more i{
+    color: gray;
+}
+
+#header{
+    height: 8vh;
+}
+#footer-ul{
+    height: 5vh;
+}
+
+#main{
+    height: 87vh;
+    justify-content: flex-start;
+}
+
+#section-buy{
+    background-color: beige;
+    height: 20%;
+    
+
+}
+
+/*
+.section-separation{
+    padding:2%;
+    margin:2%;
+   
+}*/
+
+.display-contents{
+    display: contents;
 }
