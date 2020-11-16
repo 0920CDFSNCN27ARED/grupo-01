@@ -8,72 +8,108 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
     />
     <link rel="stylesheet" href="css/product.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    
+    
     <title>PRODUCT | Winderful</title>
   </head>
   <body>
     <header class="header">
+      
       <div>
-        <img
-          src="images\WINEDERFULL_logo-02.jpg"
-          width="180"
-          alt="Logo Winederfull"
-        />
+          <a  href="/"> <img class="logo" src="images\WINEDERFULL_logo-02.jpg" alt="Logo Winederfull"></a>
       </div>
-
+      
+      <div>
       <ul class="menu">                                                                                                         
-        <li1><a href="#">HOME</a></li>
-        <li2><a href="#">PRODUCTOS</a></li>
-        <li3><a href="#">AGENDA DEGUSTACIONES</a></li>
-        <li4><a href="#">CARRITO DE COMPRAS</a></li>
+        <li1><a href="#">PRODUCTOS</a></li>
+        <li2><a href="#">AGENDA DE DEGUSTACIONES</a></li>
+        <li3><a href="#">FAVORITOS</a></li>
+        <li4><a href="/carritodecompras">CARRITO DE COMPRAS</a></li>
       </ul>
-    
+     </div>
     </header>
-    <section>
-            <ul class="menu-vertical">
-                <il>Vino Tinto</il>
-                <il>Vino Blanco</il>
-                <il>Vino Rosado</il>
-                <il>Vino Espumante</il>
-                <il>Vino Dulce</il>
-            </ul>                                                                                                
-             
-        
-            <span class="producto">
-                  <img 
-                     src="images\botella-de-vino.png"
-                    width="160"
-                    alt="Logo Winederfull"/>
-            </span>
-    </section>
-    <section class="descripcion">
-        
-                <p>AÑADA:</p>
-                <p>UVA:</p>
-                <p>PAIS:</p>
-                <p>ZONA:</p>
-                <p>PRODUCTOR:</p>
-                <p>VISTA:</p>
-                <p>AROMAS:</p>
-                <p>SABORES:</p>
-                <p>TEMPERATURA:</p>
-                <p>GUARDA:</p>
-
-        <form action="product.html" method="GET">
-        <label>CANTIDAD</label>
-        <select name="Cantidad">
-          <option value="1">1</option>  
-          <option value="2">2</option> 
-          <option value="3">3</option>  
-          <option value="4">4</option> 
-          <option value="5">5</option>   
-          <option value="6">6</option> 
-
-                
-
          
+    <div> 
+    <img class="product" src="images\botella-de-vino.png" width="160"   alt="botella de vino"> 
+    </div> 
+    
+        
+    <table class="font-description description">
+      <tbody>
+        <tr>
+          <td>AÑADA: </td>
+          <td class="data"> 1993 </td>
+       </tr>
 
-    </section>
-  </body>
+       <tr>
+          <td>UVA: </td>
+          <td class="data"> MERLOT </td>
+       </tr>
+
+       <tr>
+          <td>PAIS: </td>
+          <td class="data"> ARGENTINA </td>
+       </tr>
+
+       <tr>
+          <td>ZONA:</td>
+          <td class="data"> LOS CHACAYES </td>
+       </tr>
+
+       <tr>
+          <td>PRODUCTOR:</td>
+          <td class="data"> VER SACRUM </td>
+       </tr>
+
+       <tr>
+          <td>VISTA:</td>
+          <td class="data"> COLOR RUBI INTENSO </td>
+       </tr>
+
+       <tr>
+          <td>AROMAS:</td>
+          <td class="data"> CEREZAS, PIMIENTA, FLORES BLANCAS </td>
+       </tr>
+
+       <tr>
+          <td>SABORES:</td>
+          <td class="data"> FRUTAS ROJAS </td>
+       </tr>
+
+       <tr>
+          <td>TEMPERATURA:</td>
+          <td class="data"> 15º A 17º </td>
+       </tr>
+
+       <tr>
+          <td>GUARDA:</td>
+          <td class="data"> 10 AÑOS </td>
+       </tr>
+     </tbody>
+    
+   </table>
+       
+   <section >
+     <span>
+           <a class="button" href="/productosGuardados">AGREGAR A LA BODEGA</a>
+           <a class="button-blue" href="/favoritos">AGREGAR A FAVORITOS</a>
+           <input class="quantity-box" type="number" placeholder="1"/>
+           <a class="button-blue" href="/favoritos">COMPRAR</a>
+           <input type="number" id="quantity-box" name="quantity" value="1" min="1" class="product-form__input" pattern="[0-9]*" data-quantity-input="">
+           
+     </span>
+   </section>
+
+   <section>
+    <div> 
+    <img class="product" src="images\grafico-animado.png" width="300"   alt="botella de vino"> 
+    </div> 
+
+   </section>
+
+
+
+
+
+</body>
 </html>
