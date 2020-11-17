@@ -17,22 +17,14 @@
     </head>
 
     <body>
-        <header id="header" >
-            <div class=" display-flex wrap padding-l-5">
-                <a class="display-contents" href="/">
-                    <img
-                        id="logo-chart"
-                        src="images\WINEDERFULL_logo-02.jpg"
-                        alt=""
+        <header class="header-index">
+            <div class="logo-image">
+                <a href="/"
+                    ><img src="images\WINEDERFULL_logo-02.jpg" alt=""
                 /></a>
-                <div id="search-bar" >
-                    <button class="search-bar" ><input class="search-bar" type="search" placeholder="Encontrá el vino para vos"> </button>
-                    <i class="fas fa-search"></i>
-                </div>
-                
             </div>
             <nav class="under-nav">
-                <ul id="footer-ul">
+                <ul>
                     <li class="user-box">
                         <a href=""><i class="fas fa-user"></i></a>
                     </li>
@@ -51,19 +43,19 @@
             </nav>
         </header>
 
-        <main id= "main" class="display-flex-column >
+        <main id="main" class="display-flex-column">
             <div class="display-flex">
                 <nav id="categories" class="width-100">
-                    <ul class="display-flex">
+                    <ul class="display-flex font-size-11">
                         <li>
                             <a href="/carritoDeCompras"
-                                ><i class="fas fa-shopping-cart"></i> (2) |</a
-                            >
+                                ><i class="fas fa-shopping-cart"></i> (2)
+                            </a>
                         </li>
                         <li>
                             <a href="/productosGuardados"
-                                ><i class="fas fa-archive"></i> (2) |</a
-                            >
+                                ><i class="fas fa-archive"></i> (2)
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -71,17 +63,17 @@
 
             <section id="products-section" class="display-column">
                 <article class="display-flex-column article align-center">
-                    <div class="display-flex">
-                        <p class="article-p">Luigi Bosca Malbec 750</p>
-                    </div>
+                    <div class="display-flex"></div>
                     <div class="display-flex space-between width-90">
                         <img
                             class="wine"
                             src="/images/Vino-x-prueba.png"
                             alt="wineProduct"
                         />
+                        <p class="article-p align-center">
+                            Luigi Bosca Malbec 750
+                        </p>
                         <div id="price-section" class="display-flex">
-                    
                             <input
                                 class="quantitybox-shape"
                                 type="number"
@@ -147,17 +139,16 @@
                 </article>
 
                 <article class="display-flex-column article align-center">
-                    <div class="display-flex">
-                        <p class="article-p">Luigi Bosca Malbec 750</p>
-                    </div>
                     <div class="display-flex space-between width-90">
                         <img
                             class="wine"
                             src="/images/Vino-x-prueba.png"
                             alt="wineProduct"
                         />
+                        <p class="article-p align-center">
+                            Luigi Bosca Malbec 750
+                        </p>
                         <div id="price-section" class="display-flex">
-                    
                             <input
                                 class="quantitybox-shape"
                                 type="number"
@@ -223,14 +214,108 @@
                 </article>
             </section>
 
-            <section id="section-buy" class="display-flex-column bold height-20">
+            <section
+                id="section-buy"
+                class="display-flex-column bold height-20"
+            >
                 <div class="display-flex">
-                    <p >Total</p>
-                    <p >$700</p>
+                    <p>Total</p>
+                    <p>$700</p>
                 </div>
                 <button class="submit-button-specs final-price" type="submit">
-                    Comprar <i class="fas fa-wine-bottle"></i> 
+                    Comprar <i class="fas fa-wine-bottle"></i>
                 </button>
+            </section>
+
+            <section class="slideshow-prod">
+                <div class="previous">
+                    <i class="fas fa-angle-left arrow"></i>
+                </div>
+                <div class="prod-container">
+                    <article class="prod">
+                        <div class="prod-love-box">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="prod-img-box">
+                            <img
+                                src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/t/o/tolentino_malbec.png"
+                                alt="Vino tinto"
+                            />
+                        </div>
+                        <div class="prod-name-box">
+                            <p>name</p>
+                        </div>
+                        <div class="prod-price-cart-box">
+                            <p>$XXXX</p>
+                            <button>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="prod">
+                        <div class="prod-love-box">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="prod-img-box">
+                            <img
+                                src="https://www.lariojanawinestore.com.ar/IMG/arton53.png?1551447194"
+                                alt="Vino tinto"
+                            />
+                        </div>
+                        <div class="prod-name-box">
+                            <p>name</p>
+                        </div>
+                        <div class="prod-price-cart-box">
+                            <p>$XXXX</p>
+                            <button>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="prod">
+                        <div class="prod-love-box">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="prod-img-box">
+                            <img
+                                src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/c/o/coleccion_blend_1200.png"
+                                alt="Vino tinto"
+                            />
+                        </div>
+                        <div class="prod-name-box">
+                            <p>name</p>
+                        </div>
+                        <div class="prod-price-cart-box">
+                            <p>$XXXX</p>
+                            <button>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="prod">
+                        <div class="prod-love-box">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="prod-img-box">
+                            <img
+                                src="https://media-verticommnetwork1.netdna-ssl.com/wines/catena-zapata-malbec-appellations-vista-flores-1683148-s732.png"
+                                alt="Vino tinto"
+                            />
+                        </div>
+                        <div class="prod-name-box">
+                            <p>name</p>
+                        </div>
+                        <div class="prod-price-cart-box">
+                            <p>$XXXX</p>
+                            <button>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+                <div class="next">
+                    <i class="fas fa-angle-right arrow"></i>
+                </div>
             </section>
         </main>
 

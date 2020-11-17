@@ -1,12 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Guardados</title>
-</head>
-<body>
-    <p>asdasdfasdfasdfasdf</p>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/gabi.css" />
+        <title>Carrito de compras | WINDERFUL</title>
+    </head>
+
+    <body>
+        <header class="header-index">
+            <div class="logo-image">
+                <a href="/"
+                    ><img src="images\WINEDERFULL_logo-02.jpg" alt=""
+                /></a>
+            </div>
+            <nav class="under-nav">
+                <ul>
+                    <li class="user-box">
+                        <a href=""><i class="fas fa-user"></i></a>
+                    </li>
+                    <li class="search-box">
+                        <a href=""><i class="fas fa-search"></i></a>
+                    </li>
+                    <li class="cart-box">
+                        <a href="/carritoDeCompras"
+                            ><i class="fas fa-shopping-cart"></i
+                        ></a>
+                    </li>
+                    <li class="ticket-box">
+                        <a href=""><i class="fas fa-ticket-alt rotate"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main" class="display-flex-column">
+            <div class="display-flex">
+                <nav id="categories" class="width-100">
+                    <ul class="display-flex font-size-11">
+                        <li>
+                            <a href="/carritoDeCompras"
+                                ><i class="fas fa-shopping-cart"></i> (2)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/productosGuardados"
+                                ><i class="fas fa-archive"></i> (2)
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <section id="products-section" class="display-column">
+                <article class="display-flex-column article align-center">
+                    <div class="display-flex space-between width-90">
+                        <img
+                            class="wine"
+                            src="/images/Vino-x-prueba.png"
+                            alt="wineProduct"
+                        />
+                        <p class="article-p align-center">
+                            Luigi Bosca Malbec 750
+                        </p>
+                        <p>Descripcion</p>
+                        <div id="price-section" class="display-flex">
+                            <input
+                                class="quantitybox-shape"
+                                type="number"
+                                placeholder="1"
+                            />
+
+                            <p id="price">$350</p>
+                        </div>
+                    </div>
+
+                    <div id="product-options" class="display-flex">
+                        <ul class="display-flex article-options justify-evenly">
+                            <div class="display-flex width-50">
+                                <li>
+                                    <button
+                                        id="add"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </li>
+
+                                <li>
+                                    <button
+                                        id="erase"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </li>
+
+                                <li>
+                                    <button
+                                        id="favourites"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        id="recipies"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-utensils"></i>
+                                    </button>
+                                </li>
+                            </div>
+
+                            <li>
+                                <button
+                                    id="more"
+                                    class="article-options"
+                                    type="button"
+                                >
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="display-flex-column article align-center">
+                    <div class="display-flex space-between width-90">
+                        <img
+                            class="wine"
+                            src="/images/Vino-x-prueba.png"
+                            alt="wineProduct"
+                        />
+                        <p class="article-p align-center">
+                            Luigi Bosca Malbec 750
+                        </p>
+                        <p>Descripcion</p>
+                        <div id="price-section" class="display-flex">
+                            <input
+                                class="quantitybox-shape"
+                                type="number"
+                                placeholder="1"
+                            />
+                            <p id="price">$350</p>
+                        </div>
+                    </div>
+
+                    <div id="product-options" class="display-flex">
+                        <ul class="display-flex article-options justify-evenly">
+                            <div class="display-flex width-50">
+                                <li>
+                                    <button
+                                        id="add"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </li>
+
+                                <li>
+                                    <button
+                                        id="erase"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </li>
+
+                                <li>
+                                    <button
+                                        id="favourites"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        id="recipies"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-utensils"></i>
+                                    </button>
+                                </li>
+                            </div>
+
+                            <li>
+                                <button
+                                    id="more"
+                                    class="article-options"
+                                    type="button"
+                                >
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <section
+                id="section-buy"
+                class="display-flex-column bold height-20"
+            >
+                <div class="display-flex"></div>
+                <button class="submit-button-specs final-price" type="submit">
+                    Llevar todo al carrito <i class="fas fa-wine-bottle"></i>
+                </button>
+            </section>
+        </main>
+
+        <footer></footer>
+    </body>
 </html>
