@@ -16,30 +16,6 @@ body {
     padding-left: 0%;
 }
 
-.header ul li1 a {
-    text-align: center;
-    color: #000;
-    font-size: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    background-color: tomato;
-    border-radius: 3px;
-    padding: 3px;
-    margin-left: 1px;
-}
-
-.header ul li2 a {
-    background-color: thistle;
-}
-
-.header ul li3 a {
-    background-color: teal;
-}
-
-.header ul li4 a {
-    background-color: #748ac4;
-}
-
 .menu-vertical {
     font-size: 10px;
     color: black;
@@ -63,11 +39,17 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 5%;
+}
+
+.wine {
+    text-align: center;
+    font-size: 10px;
 }
 
 .font-description {
-    font-size: 10px;
-    font-weight: bold;
+    font-size: 13px;
+
     margin: 2%;
     width: 100%;
     max-width: 100%;
@@ -85,6 +67,8 @@ body {
     background-color: thistle;
     padding-left: 1%;
     border-radius: 3px;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 .data {
@@ -97,45 +81,93 @@ body {
     flex-grow: 1;
 }
 
-.button {
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 10px;
-    color: black;
-    background-color: tomato;
-    border-radius: 3px;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-bottom: 2%;
-    padding: 1%;
-}
-
-.button-blue {
-    display: inline;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 10px;
-    color: black;
-    background-color: #748ac4;
-    border-radius: 3px;
-    margin-left: 25%;
-    margin-right: 25%;
-    padding: 1%;
+.buy-display {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 
 .quantity-box {
-    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Spartan", sans-serif;
     padding: 2px 2px;
-    display: block;
-    width: 10%;
+    width: 9%;
     border: 1px solid #949494;
-    background-color: #fff;
-    color: #000;
+    background-color: teal;
+    color: white;
     max-width: 100%;
     line-height: 1.2;
     border-radius: 2px;
     touch-action: manipulation;
-    margin-left: 38%;
+}
+
+.width-shopping-cart {
+    width: 20%;
+}
+
+.list-style {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.display {
+    display: grid;
+    grid-template-rows: auto;
+    text-align: center;
+}
+
+.favourite-button {
+    color: white;
+    background-color: tomato;
+    border-radius: 5%;
+    font-size: 21px;
+    padding: 1% 3% 1% 3%;
+    margin: auto;
+    margin-top: 1%;
+}
+
+.cart-button {
+    color: white;
+    background-color: #748ac4;
+    border-radius: 5%;
+    font-size: 21px;
+    padding: 1% 3% 1% 3%;
+    margin: auto;
+    margin-top: 1%;
+}
+
+.background-similar-wine {
+    background-color: #fbca8f;
+    z-index: -1;
+    height: 25px;
+    width: 70%;
+    position: relative;
+    top: 30px;
+}
+
+.subtitle-wine {
+    padding-left: 70px;
+    display: grid;
+    grid-template-rows: 0 auto;
+}
+
+.background-winetext {
+    border-top: solid 3px #9a345c;
+    z-index: -1;
+    height: 25px;
+    width: 70%;
+    position: relative;
+    top: 26px;
+    padding-top: 2%;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: normal;
+    padding-top: 3%;
 }
