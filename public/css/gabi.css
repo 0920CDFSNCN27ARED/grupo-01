@@ -253,6 +253,9 @@ a {
 }
 #products-section{
     overflow: scroll;
+    justify-content: flex-start;
+    height: 60vh;
+    margin-bottom: 50%;
 }
 
 /* TYPO */
@@ -340,10 +343,7 @@ ul {
     height: 5vh;
 }
 
-#main {
-    justify-content: flex-start;
-    height: 60vh;
-}
+
 
 #section-buy {
     background-color: rgba(116, 138, 196, 1);
@@ -420,6 +420,5 @@ footer{
 }
 
 .recomend{
-    position: absolute;
-    top:100%
+    margin-top: 5%
 }
