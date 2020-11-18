@@ -94,6 +94,7 @@ body {
     list-style: none;
     display: grid;
     grid-template-columns: 1fr;
+    padding: inherit;
 }
 
 .display {
@@ -160,14 +161,30 @@ body {
 }
 
 @media (min-width: 768px) {
-    .display {
+    .description {
+        position: absolute;
+        top: 260px;
+        left: 300px;
+        padding: 2%;
+    }
+
+    .list-style {
+        padding-left: 2%;
+    }
+
+    .product {
         text-align: left;
     }
 
-    .description {
-        position: relative;
-        bottom: 750px;
-        left: 300px;
-        padding: 2%;
+    .subtitle-wine {
+        padding-left: 21%;
+    }
+    .price {
+        padding-top: 4%;
+    }
+
+    .animation {
+        margin-left: 14%;
+        width: auto;
     }
 }
