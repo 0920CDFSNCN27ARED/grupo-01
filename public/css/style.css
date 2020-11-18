@@ -139,6 +139,7 @@ body {
 
 .slideshow img {
     width: 100%;
+    height: 100%;
 }
 
 /* fin slider */
@@ -236,11 +237,24 @@ body {
 /*valores*/
 
 section.values {
-    margin-top: 30px;
+    margin-top: 20px;
     display: grid;
     grid-template-rows: auto auto auto;
     grid-template-columns: 60%;
     justify-content: center;
+}
+
+.value {
+    margin-top: 20px;
+}
+
+.background-text {
+    background-color: #d4c0dc;
+    z-index: -1;
+    height: 25px;
+    width: 70%;
+    position: relative;
+    top: 35px;
 }
 
 .value-img-box {
@@ -265,11 +279,37 @@ section.values {
     bottom: 40px;
     background-color: white;
 }
+
+/* fin valores */
 /*footer index*/
 .footer-index {
     background-color: #eedcc6;
     padding: 8px;
     padding-top: 30px;
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+.logo-links {
+    display: grid;
+    grid-template-rows: auto 150px;
+}
+
+.links {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-gap: 3%;
+}
+.links h4 {
+    margin: 0;
+    margin-top: 15px;
+    padding-left: 10px;
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+    padding-left: 20px;
 }
 
 .social-list {
@@ -294,7 +334,7 @@ section.values {
     padding-top: 5px;
 }
 
-@media (min-width: 550px) {
+@media (min-width: 500px) {
     .prod-container {
         display: grid;
         grid-template-rows: auto;
@@ -308,6 +348,7 @@ section.values {
         grid-template-columns: 30% 30%;
         justify-content: space-around;
     }
+
     .otro {
         position: relative;
         left: 75%;
@@ -324,11 +365,35 @@ section.values {
     .body-index {
         padding-bottom: 0;
     }
+
+    .footer-index {
+        padding-bottom: 45px;
+    }
+
+    .logo-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 150px;
+    }
+    .logo-image {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-index .logo-image img {
+        width: 50%;
+    }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 750px) {
     .under-nav {
         display: none;
+    }
+
+    .slideshow {
+        display: grid;
+        grid-template-rows: 350px;
     }
     .header-index {
         display: grid;
@@ -343,14 +408,15 @@ section.values {
     }
     .sidebar {
         height: 100%;
-        width: 300px;
+        width: 250px;
         position: fixed;
         z-index: 1;
         display: block;
         background-color: #d4c0dc;
-        left: -300px;
+        left: -270px;
         transition: 1s;
-        padding-top: 60px;
+        padding-top: 90px;
+        padding-left: 20px;
     }
 
     .sidebar ul {
@@ -360,11 +426,18 @@ section.values {
         padding: 0;
     }
 
+    .sidebar ul li {
+        padding-bottom: 30px;
+    }
+
+    .sidebar ul li a i {
+        margin-right: 10px;
+    }
+
     .sidebar a {
         text-decoration: none;
         font-size: 18px;
         color: black;
-        transition: 0.3s;
         vertical-align: baseline;
     }
 
@@ -392,22 +465,12 @@ section.values {
         margin-left: 50px;
     }
 
-    #winederful-mode {
-        background-color: #a97cb7;
-        border-radius: 50px;
-        font-size: 20px;
-        margin-top: 30px;
-        font-weight: bold;
-        margin-left: 10px;
-        display: grid;
-        justify-content: center;
-        align-items: center;
+    .closebtn {
+        cursor: pointer;
+        padding-top: 20px;
     }
 
-    #winederful-mode:hover {
-        color: #f1f1f1;
-    }
-
+    /* fin sidebar */
     .prod-container {
         display: grid;
         grid-template-rows: auto;
@@ -435,12 +498,9 @@ section.values {
         width: 35%;
     }
     .footer-index {
-        background-color: #eedcc6;
-        padding: 8px;
-        padding-top: 30px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
+        grid-template-rows: 200px auto auto;
+        padding-bottom: 15px;
     }
 
     .social-copy-box {
@@ -451,7 +511,11 @@ section.values {
     }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
+    .slideshow {
+        display: grid;
+        grid-template-rows: 500px;
+    }
     .prod-container {
         display: grid;
         grid-template-rows: auto;
@@ -464,5 +528,22 @@ section.values {
 
     .round-button {
         font-size: 25px;
+    }
+
+    .background-text {
+        width: 25%;
+    }
+
+    .logo-links {
+        grid-template-rows: 250px;
+    }
+
+    .footer-index {
+        display: grid;
+        grid-template-rows: 300px auto auto;
+    }
+    .links {
+        display: grid;
+        justify-content: center;
     }
 }
