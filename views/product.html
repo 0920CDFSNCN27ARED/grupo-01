@@ -1,79 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/product.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>PRODUCT | Winderful</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="css/product.css" />
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>PRODUCT | Winderful</title>
   </head>
   <body>
-    <header class="header">
-      <div>
-        <img
-          src="images\WINEDERFULL_logo-02.jpg"
-          width="180"
-          alt="Logo Winederfull"
-        />
-      </div>
-
-      <ul class="menu">                                                                                                         
-        <li1><a href="#">HOME</a></li>
-        <li2><a href="#">PRODUCTOS</a></li>
-        <li3><a href="#">AGENDA DEGUSTACIONES</a></li>
-        <li4><a href="#">CARRITO DE COMPRAS</a></li>
-      </ul>
-    
-    </header>
-    <section>
-            <ul class="menu-vertical">
-                <il>Vino Tinto</il>
-                <il>Vino Blanco</il>
-                <il>Vino Rosado</il>
-                <il>Vino Espumante</il>
-                <il>Vino Dulce</il>
-            </ul>                                                                                                
-             
-        
-            <span class="producto">
-                  <img 
-                     src="images\botella-de-vino.png"
-                    width="160"
-                    alt="Logo Winederfull"/>
-            </span>
-    </section>
-    <section class="descripcion">
-        
-                <p>AÑADA:</p>
-                <p>UVA:</p>
-                <p>PAIS:</p>
-                <p>ZONA:</p>
-                <p>PRODUCTOR:</p>
-                <p>VISTA:</p>
-                <p>AROMAS:</p>
-                <p>SABORES:</p>
-                <p>TEMPERATURA:</p>
-                <p>GUARDA:</p>
-
-        <form action="product.html" method="GET">
-        <label>CANTIDAD</label>
-        <select name="Cantidad">
-          <option value="1">1</option>  
-          <option value="2">2</option> 
-          <option value="3">3</option>  
-          <option value="4">4</option> 
-          <option value="5">5</option>   
-          <option value="6">6</option> 
-
+        <header class="header-index">
+            <div class="logo-image">
+                <a href="/"
+                    ><img src="images\WINEDERFULL_logo-02.jpg" alt=""
+                /></a>
+            </div>
+            <nav class="under-nav">
+                <ul>
+                    <li class="user-box">
+                        <a href=""><i class="fas fa-user"></i></a>
+                    </li>
+                    <li class="search-box">
+                        <a href=""><i class="fas fa-search"></i></a>
+                    </li>
+                    <li class="cart-box">
+                        <a href="/carritoDeCompras"
+                            ><i class="fas fa-shopping-cart"></i
+                        ></a>
+                    </li>
+                    <li class="ticket-box">
+                        <a href=""><i class="fas fa-ticket-alt rotate"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="display">
+           <div>
+                <ul class=" list-style">
+                  <li><img class="product"
+                      src="images\botella-de-vino.png"
+                      width="160"
+                      alt="botella de vino"/>
+                  </li>
+                  <li><h1 class="subtitle-wine BestSeller background-winetext">Ver Sacrum - Monastrell</h1>
+                  </li>
+                  <li><h2 class="price">$1200</h2>
+                  </li>
+                  <li>
+                    <input class="quantity-box" type="number" placeholder="1" />
+                  </li>
+                  <li class="favourite-button">
+                    <a href="/favoritos"></a><i class="fas fa-heart"></i>
+                  </li>
+                  <li class="cart-button">
+                    <a href="/carritoDeCompras"></a><i class="fas fa-shopping-cart" ></i>
+                  </li>
+                </ul>
                 
+       </section>
+        <table class="font-description description">
+            <tbody>
+                <tr>
+                    <td>AÑADA:</td>
+                    <td class="data">1993</td>
+                </tr>
 
-         
+                <tr>
+                    <td>UVA:</td>
+                    <td class="data">MERLOT</td>
+                </tr>
 
-    </section>
+                <tr>
+                    <td>PAIS:</td>
+                    <td class="data">ARGENTINA</td>
+                </tr>
+
+                <tr>
+                    <td>ZONA:</td>
+                    <td class="data">LOS CHACAYES</td>
+                </tr>
+
+                <tr>
+                    <td>PRODUCTOR:</td>
+                    <td class="data">VER SACRUM</td>
+                </tr>
+
+                <tr>
+                    <td>VISTA:</td>
+                    <td class="data">COLOR RUBI INTENSO</td>
+                </tr>
+
+                <tr>
+                    <td>AROMAS:</td>
+                    <td class="data">CEREZAS, PIMIENTA, FLORES BLANCAS</td>
+                </tr>
+
+                <tr>
+                    <td>SABORES:</td>
+                    <td class="data">FRUTAS ROJAS</td>
+                </tr>
+
+                <tr>
+                    <td>TEMPERATURA:</td>
+                    <td class="data">15º A 17º</td>
+                </tr>
+
+                <tr>
+                    <td>GUARDA:</td>
+                    <td class="data">10 AÑOS</td>
+                </tr>
+            </tbody>
+        </table>
+
+      
+
+        <section>
+            <div>
+                <img
+                    class="product"
+                    src="images\grafico-animado.png"
+                    width="400"
+                    alt="botella de vino"
+                />
+            </div>
+        </section>
+
+        <div class="subtitle bestSeller">
+                <div class="background-similar-wine"></div>
+                <h2>Vinos similares al que estás buscando</h2>
+            </div>
+            <section class="slideshow-prod">
+                <div class="previous">
+                    <i class="fas fa-angle-left arrow"></i>
+                </div>
+                <div class="prod-container">
+                    <article class="prod">
+                        <div class="prod-love-box">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="prod-img-box">
+                            <img
+                                src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/t/o/tolentino_malbec.png"
+                                alt="Vino tinto"
+                            />
+                        </div>
+                        <div class="prod-name-box">
+                            <p>name</p>
+                        </div>
+                        <div class="prod-price-cart-box">
+                            <p>$XXXX</p>
+                            <button>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="prod">
+                        <div class="prod-love-box">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="prod-img-box">
+                            <img
+                                src="https://www.lariojanawinestore.com.ar/IMG/arton53.png?1551447194"
+                                alt="Vino tinto"
+                            />
+                        </div>
+                        <div class="prod-name-box">
+                            <p>name</p>
+                        </div>
+                        <div class="prod-price-cart-box">
+                            <p>$XXXX</p>
+                            <button>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="prod">
+                        <div class="prod-love-box">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="prod-img-box">
+                            <img
+                                src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/c/o/coleccion_blend_1200.png"
+                                alt="Vino tinto"
+                            />
+                        </div>
+                        <div class="prod-name-box">
+                            <p>name</p>
+                        </div>
+                        <div class="prod-price-cart-box">
+                            <p>$XXXX</p>
+                            <button>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="prod">
+                        <div class="prod-love-box">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="prod-img-box">
+                            <img
+                                src="https://media-verticommnetwork1.netdna-ssl.com/wines/catena-zapata-malbec-appellations-vista-flores-1683148-s732.png"
+                                alt="Vino tinto"
+                            />
+                        </div>
+                        <div class="prod-name-box">
+                            <p>name</p>
+                        </div>
+                        <div class="prod-price-cart-box">
+                            <p>$XXXX</p>
+                            <button>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+                <div class="next">
+                    <i class="fas fa-angle-right arrow"></i>
+                </div>
+            </section>
+        </main>
+        <footer class="footer-index">
+            <section class="values">
+                <article class="value">
+                    <div class="value-img-box">
+                        <img src="" alt="" />
+                    </div>
+                    <div class="value-text-box">
+                        <p></p>
+                    </div>
+                </article>
+                <article class="value">
+                    <div class="value-img-box">
+                        <img src="" alt="" />
+                    </div>
+                    <div class="value-text-box">
+                        <p></p>
+                    </div>
+                </article>
+                <article class="value">
+                    <div class="value-img-box">
+                        <img src="" alt="" />
+                    </div>
+                    <div class="value-text-box">
+                        <p></p>
+                    </div>
+                </article>
+            </section>
+            
+        </footer>
+  
   </body>
 </html>

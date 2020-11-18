@@ -1,148 +1,592 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/gabi.css" />
-    <title>Carrito de compras | WINDERFUL</title>
-  </head>
-
-  <body>
-    <header class="background-color-main display-flex">
-      <nav class="display-flex">
-        <img
-          class="order-nmbr-2"
-          id="logo"
-          src="/images/WINEDERFULL_logo-02.jpg"
-          alt="Logo"
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
         />
-        <i id="toggle-winderful-mode" class="fas fa-toggle-off"></i>
-        <ul>
-          <li><a href="">Categorías |</a></li>
-          <li><a href="">Historial</a></li>
-        </ul>
-
-        <ul class="order-nmbr-3">
-          <li><a href="">Aprendé |</a></li>
-          <li><a href="">Eventos</a></li>
-        </ul>
-
-        <div class="search-bar order-nmbr-4 background-color-main">
-          <form action="">
-            <i class="fas fa-search"></i>
-            <label for="search"></label>
-            <input
-              class="search-bar"
-              type="search"
-              name="search"
-              placeholder="Encontrá tu vino favorito"
-            />
-          </form>
-        </div>
-      </nav>
-    </header>
-
-    <main
-      class="display-flex-left section-separation background-color-secondary"
-    >
-      <nav>
-        <ul class="display-flex  ">
-          <li><a href="/carritoDeCompras">Carrito (2) |</a></li>
-          <li><a href="/productosGuardados">Guardados (2) |</a></li>
-          <li><a href="/favoritos">Favoritos (3) </a></li>
-        </ul>
-      </nav>
-
-      <article class="display-flex article">
-        <img class="wine" src="/images/Vino-x-prueba.png" alt="wineProduct" />
-        <p>Luigi Bosca Malbec 750</p>
-        <input
-          class="quantitybox-shape"
-          type="number"
-          placeholder="1"
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet"
         />
-        <p class="bold">$350</p>
+        <link rel="stylesheet" href="/css/product.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/gabi.css" />
+        <title>Carrito de compras | WINDERFUL</title>
+    </head>
 
-        <ul class="display-flex article-options justify-evenly">
-          <li>
-            <button class="article-options" type="button">Eliminar</button>
-          </li>
-          <li>
-            <button class="article-options" type="button">
-              Guardar para despues
-            </button>
-          </li>
-          <li>
-            <button class="article-options" type="button">
-              Marcar como favorito
-            </button>
-          </li>
-          <li>
-            <button class="article-options" type="button">
-              Recetas recomendadas
-            </button>
-          </li>
-        </ul>
-       
-      </article>
+    <body>
+        <header class="header-index">
+            <div class="logo-image">
+                <a href="/"
+                    ><img src="images\WINEDERFULL_logo-02.jpg" alt=""
+                /></a>
+            </div>
+            <nav class="under-nav">
+                <ul>
+                    <li class="user-box">
+                        <a href=""><i class="fas fa-user"></i></a>
+                    </li>
+                    <li class="search-box">
+                        <a href=""><i class="fas fa-search"></i></a>
+                    </li>
+                    <li class="cart-box">
+                        <a href="/carritoDeCompras"
+                            ><i class="fas fa-shopping-cart"></i
+                        ></a>
+                    </li>
+                    <li class="ticket-box">
+                        <a href=""><i class="fas fa-ticket-alt rotate"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-      <article class="display-flex article">
-        <img class="wine" src="/images/Vino-x-prueba.png" alt="wineProduct" />
-        <p>Luigi Bosca Malbec 750</p>
-        <input
-          class="quantitybox-shape"
-          type="number"
-          placeholder="1"
-        />
-        <p class="bold">$350</p>
+        <main id="main" class="display-flex-column">
+            <div class="display-flex">
+                <nav id="categories" class="width-100">
+                    <ul class="display-flex font-size-11">
+                        <li>
+                            <a href="/carritoDeCompras"
+                                ><i class="fas fa-shopping-cart"></i> (2)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/productosGuardados"
+                                ><i class="fas fa-archive"></i> (2)
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
-        <ul class="display-flex article-options justify-evenly">
-          <li>
-            <button class="article-options" type="button">Eliminar</button>
-          </li>
-          <li>
-            <button class="article-options" type="button">
-              Guardar para despues
-            </button>
-          </li>
-          <li >
-            <button class="article-options" type="button">
-              Marcar como favorito
-            </button>
-          </li>
-          <li>
-            <button class="article-options" type="button">
-              Recetas recomendadas
-            </button>
-          </li>
-        </ul>
-      </article>
+            <section id="products-section" class="display-column">
+                <article class="display-flex-column article align-center">
+                    <div class="display-flex"></div>
+                    <div class="display-flex space-between width-90">
+                        <img
+                            class="wine"
+                            src="/images/Vino-x-prueba.png"
+                            alt="wineProduct"
+                        />
+                        <p class="article-p align-center">
+                            Luigi Bosca Malbec 750
+                        </p>
+                        <div id="display-table">
+                            <i class="fas fa-clipboard"></i>
+                        </div>
+                        <div id="price-section" class="display-flex">
+                            <input
+                                class="quantity-box"
+                                type="number"
+                                placeholder="1"
+                            />
+                            <p id="price">$350</p>
+                        </div>
+                    </div>
 
+                    <div id="product-options" class="display-flex">
+                        <ul class="display-flex article-options justify-evenly">
+                            <div class="display-flex width-50">
+                                <li>
+                                    <button
+                                        id="erase"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        id="save"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-archive"></i>
+                                    </button>
+                                </li>
 
-      <section class="display-flex-column padding-bottom bold">
-        <div class="display-flex">
-          <p class="position-right">Total</p>
-          <p class= "position-right-2" >$700</p>
-        </div>
-        <button  class= "submit-button-specs final-price " type="submit">
-            Comprar
-        </button>
-      </section>
+                                <li>
+                                    <button
+                                        id="favourites"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        id="recipies"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-utensils"></i>
+                                    </button>
+                                </li>
+                            </div>
 
-    </main>
+                            <li class="margin-r-1">
+                                <button
+                                    id="more"
+                                    class="article-options"
+                                    type="button"
+                                >
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
 
+                <article class="display-flex-column article align-center">
+                    <div class="display-flex"></div>
+                    <div class="display-flex space-between width-90">
+                        <img
+                            class="wine"
+                            src="/images/Vino-x-prueba.png"
+                            alt="wineProduct"
+                        />
+                        <p class="article-p align-center">
+                            Luigi Bosca Malbec 750
+                        </p>
+                        <div id="display-table">
+                            <i class="fas fa-clipboard"></i>
+                        </div>
+                        <div id="price-section" class="display-flex">
+                            <input
+                                class="quantity-box"
+                                type="number"
+                                placeholder="1"
+                            />
+                            <p id="price">$350</p>
+                        </div>
+                    </div>
 
+                    <div id="product-options" class="display-flex">
+                        <ul class="display-flex article-options justify-evenly">
+                            <div class="display-flex width-50">
+                                <li>
+                                    <button
+                                        id="erase"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        id="save"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-archive"></i>
+                                    </button>
+                                </li>
 
+                                <li>
+                                    <button
+                                        id="favourites"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        id="recipies"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-utensils"></i>
+                                    </button>
+                                </li>
+                            </div>
 
-    <footer></footer>
-  </body>
+                            <li class="margin-r-1">
+                                <button
+                                    id="more"
+                                    class="article-options"
+                                    type="button"
+                                >
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="display-flex-column article align-center">
+                    <div class="display-flex space-between width-90">
+                        <img
+                            class="wine"
+                            src="/images/Vino-x-prueba.png"
+                            alt="wineProduct"
+                        />
+                        <p class="article-p align-center">
+                            Luigi Bosca Malbec 750
+                        </p>
+                        <div id="price-section" class="display-flex">
+                            <input
+                                class="quantity-box"
+                                type="number"
+                                placeholder="1"
+                            />
+                            <p id="price">$350</p>
+                        </div>
+                    </div>
+
+                    <div id="product-options" class="display-flex">
+                        <ul class="display-flex article-options justify-evenly">
+                            <div class="display-flex width-50">
+                                <li>
+                                    <button
+                                        id="erase"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        id="save"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-archive"></i>
+                                    </button>
+                                </li>
+
+                                <li>
+                                    <button
+                                        id="favourites"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        id="recipies"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-utensils"></i>
+                                    </button>
+                                </li>
+                            </div>
+
+                            <li class="margin-r-1">
+                                <button
+                                    id="more"
+                                    class="article-options"
+                                    type="button"
+                                >
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="display-flex-column article align-center">
+                    <div class="display-flex space-between width-90">
+                        <img
+                            class="wine"
+                            src="/images/Vino-x-prueba.png"
+                            alt="wineProduct"
+                        />
+                        <p class="article-p align-center">
+                            Luigi Bosca Malbec 750
+                        </p>
+                        <div id="price-section" class="display-flex">
+                            <input
+                                class="quantity-box"
+                                type="number"
+                                placeholder="1"
+                            />
+                            <p id="price">$350</p>
+                        </div>
+                    </div>
+
+                    <div id="product-options" class="display-flex">
+                        <ul class="display-flex article-options justify-evenly">
+                            <div class="display-flex width-50">
+                                <li>
+                                    <button
+                                        id="erase"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        id="save"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-archive"></i>
+                                    </button>
+                                </li>
+
+                                <li>
+                                    <button
+                                        id="favourites"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        id="recipies"
+                                        class="article-options"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-utensils"></i>
+                                    </button>
+                                </li>
+                            </div>
+
+                            <li class="margin-r-1">
+                                <button
+                                    id="more"
+                                    class="article-options"
+                                    type="button"
+                                >
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <div></div>
+
+            
+                <section
+                    id="section-buy"
+                    class="display-flex-column bold "
+                >
+                    <div class="display-flex">
+                        <p>Total</p>
+                        <p>$700</p>
+                    </div>
+                    <button
+                        class="submit-button-specs final-price"
+                        type="submit"
+                    >Comprar <i class="fas fa-wine-bottle"></i>
+                    </button>
+                </section>
+            
+
+            <section class="recomend">
+                <div class="subtitle bestSeller">
+                    <div class="background-similar-wine"></div>
+                    <h2>Vinos que podrían gustarte</h2>
+                </div>
+                <div class="slideshow-prod">
+                    <div class="previous">
+                        <i class="fas fa-angle-left arrow"></i>
+                    </div>
+                    <div class="prod-container">
+                        <article class="prod">
+                            <div class="prod-love-box">
+                                <i class="far fa-heart"></i>
+                            </div>
+                            <div class="prod-img-box">
+                                <img
+                                    src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/t/o/tolentino_malbec.png"
+                                    alt="Vino tinto"
+                                />
+                            </div>
+                            <div class="prod-name-box">
+                                <p>name</p>
+                            </div>
+                            <div class="prod-price-cart-box">
+                                <p>$XXXX</p>
+                                <button>
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="prod">
+                            <div class="prod-love-box">
+                                <i class="far fa-heart"></i>
+                            </div>
+                            <div class="prod-img-box">
+                                <img
+                                    src="https://www.lariojanawinestore.com.ar/IMG/arton53.png?1551447194"
+                                    alt="Vino tinto"
+                                />
+                            </div>
+                            <div class="prod-name-box">
+                                <p>name</p>
+                            </div>
+                            <div class="prod-price-cart-box">
+                                <p>$XXXX</p>
+                                <button>
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="prod">
+                            <div class="prod-love-box">
+                                <i class="far fa-heart"></i>
+                            </div>
+                            <div class="prod-img-box">
+                                <img
+                                    src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/c/o/coleccion_blend_1200.png"
+                                    alt="Vino tinto"
+                                />
+                            </div>
+                            <div class="prod-name-box">
+                                <p>name</p>
+                            </div>
+                            <div class="prod-price-cart-box">
+                                <p>$XXXX</p>
+                                <button>
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="prod">
+                            <div class="prod-love-box">
+                                <i class="far fa-heart"></i>
+                            </div>
+                            <div class="prod-img-box">
+                                <img
+                                    src="https://media-verticommnetwork1.netdna-ssl.com/wines/catena-zapata-malbec-appellations-vista-flores-1683148-s732.png"
+                                    alt="Vino tinto"
+                                />
+                            </div>
+                            <div class="prod-name-box">
+                                <p>name</p>
+                            </div>
+                            <div class="prod-price-cart-box">
+                                <p>$XXXX</p>
+                                <button>
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="next">
+                        <i class="fas fa-angle-right arrow"></i>
+                    </div>
+                </div>
+            </section>
+            <section class="recomend">
+                <div class="subtitle bestSeller">
+                    <div class="background-similar-wine"></div>
+                    <h2>Bodegas cerca tuyo para conocer</h2>
+                </div>
+                <div class="slideshow-prod">
+                    <div class="previous">
+                        <i class="fas fa-angle-left arrow"></i>
+                    </div>
+                    <div class="prod-container">
+                        <article class="prod">
+                            <div class="prod-love-box">
+                                <i class="far fa-heart"></i>
+                            </div>
+                            <div class="prod-img-box">
+                                <img
+                                    src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/t/o/tolentino_malbec.png"
+                                    alt="Vino tinto"
+                                />
+                            </div>
+                            <div class="prod-name-box">
+                                <p>name</p>
+                            </div>
+                            <div class="prod-price-cart-box">
+                                <p>$XXXX</p>
+                                <button>
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="prod">
+                            <div class="prod-love-box">
+                                <i class="far fa-heart"></i>
+                            </div>
+                            <div class="prod-img-box">
+                                <img
+                                    src="https://www.lariojanawinestore.com.ar/IMG/arton53.png?1551447194"
+                                    alt="Vino tinto"
+                                />
+                            </div>
+                            <div class="prod-name-box">
+                                <p>name</p>
+                            </div>
+                            <div class="prod-price-cart-box">
+                                <p>$XXXX</p>
+                                <button>
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="prod">
+                            <div class="prod-love-box">
+                                <i class="far fa-heart"></i>
+                            </div>
+                            <div class="prod-img-box">
+                                <img
+                                    src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/c/o/coleccion_blend_1200.png"
+                                    alt="Vino tinto"
+                                />
+                            </div>
+                            <div class="prod-name-box">
+                                <p>name</p>
+                            </div>
+                            <div class="prod-price-cart-box">
+                                <p>$XXXX</p>
+                                <button>
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="prod">
+                            <div class="prod-love-box">
+                                <i class="far fa-heart"></i>
+                            </div>
+                            <div class="prod-img-box">
+                                <img
+                                    src="https://media-verticommnetwork1.netdna-ssl.com/wines/catena-zapata-malbec-appellations-vista-flores-1683148-s732.png"
+                                    alt="Vino tinto"
+                                />
+                            </div>
+                            <div class="prod-name-box">
+                                <p>name</p>
+                            </div>
+                            <div class="prod-price-cart-box">
+                                <p>$XXXX</p>
+                                <button>
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="next">
+                        <i class="fas fa-angle-right arrow"></i>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Copyright 2020 - WINDERFUL</p>
+        </footer>
+    </body>
 </html>

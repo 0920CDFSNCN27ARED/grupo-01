@@ -1,123 +1,217 @@
 /* COLORS */
-body{
-    background-color: white
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.background-color-main{
-    background-color: white
-    ;
+body {
+    background-color: white;
+
 }
 
-.background-color-secondary{
-    background-color: #aad5e9}
+.background-color-main {
+    background-color: white;
+}
+
+/*
+.box{
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+.red{
+    background-color: rgb(192, 147, 147);
+}
+*/
+.article-p {
+    font-size: 0.75em;
+    width: 100%;
+
+}
+
+.padding-l-5 {
+    padding-left: 5%;
+    padding-top: 3%;
+}
+
+.padding-t-5{
+    padding-top: 5%;
+}
+
+#logo-chart {
+    width: 17%;
+
+}
+
+#head {
+    height: 7vh;
+    width: 100%;
+    text-align: center;
+
+}
+
+
+
 
 /* POSITIONS AND DISPLAY*/
 
-.display-flex{
+.display-flex {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
+}
+
+
+
+.display-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-wrap {
     flex-wrap: wrap;
 }
 
-.display-flex-column{
+.display-flex-column {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 
 }
 
-.justify-right{
+.wrap {
+    flex-wrap: wrap;
+}
+
+.justify-right {
     justify-content: flex-end;
 }
 
-.justify-evenly{
+.justify-evenly {
     justify-content: space-evenly;
 }
 
-.final-price{
-    align-self: flex-end;
-    position: relative;
-    right: 12%
+.final-price:hover .fa-wine-bottle {
+    transform: rotate(60deg);
+    transition: transform 2s;
 }
 
-.position-right{
+
+
+.position-right {
     position: relative;
     left: 35%;
 }
-.position-right-2{
+
+.position-right-2 {
     position: relative;
     left: 8%;
 }
 
-.section-separation{
-    padding-top: 2%;
-    padding-bottom: 2%;
-    margin:2%;
-    border-radius: 2%;
-}
-.padding-bottom{
+
+.padding-bottom {
     padding-bottom: 3%;
 }
 
 
+.height70 {
+    height: 70%;
+}
+
+.height50 {
+    height: 50vh;
+}
+
+.flex-grow {
+    flex-grow: 3;
+}
+
 /*  ORDERS */
-.order-nmbr-2{
-    order:1
+.order-nmbr-2 {
+    order: 1
 }
 
-.order-nmbr-3{
-    order:2
-}
-.order-nmbr-4{
-    order:3
+.order-nmbr-3 {
+    order: 2
 }
 
-.order-last{
-    order:50
+.order-nmbr-4 {
+    order: 3
+}
+
+.order-last {
+    order: 50
 }
 
 /**/
-.search-bar{
-    align-self: flex-end;
-    width: 97%;
-  
+
+.search-bar {
+    border: none;
+
 }
 
-#toggle-winderful-mode{
-align-self: flex-start;
-order: 3;
-font-size: 25px;
-padding-top: 10px;
+#search-bar {
+    background-color: white;
+    border: solid 1px gray;
+    border-radius: 15%;
+    width: 80%;
+    padding-left: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#toggle-winderful-mode {
+    align-self: flex-start;
+    order: 3;
+    font-size: 25px;
+    padding-top: 2%px;
 
 }
 
 
 /* SEPECIFIC TAGS */
-.submit-button-specs{
+.submit-button-specs {
     background-color: #289af7;
-    width: 200px;
-    height: 40px;
+    width: 85%;
+    height: 33%;
     color: white;
     font-style: bold;
     border-radius: 5px;
+    align-self: center;
 }
 
-.article-options{
+.article-options {
     text-decoration: none;
-    color: blue;
-    background-color:#aad5e9;
     border: none;
     box-shadow: none;
     font-size: 12px;
     width: 100%;
-    
-    }
+    padding: 2% 0;
+    justify-content: space-between;
 
+}
 
-#logo{
-    width:25%;
+.space-between {
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#price-section {
+    justify-content: flex-end;
+}
+
+#logo {
+    width: 25%;
 }
 
 .quantitybox-shape {
@@ -125,36 +219,206 @@ padding-top: 10px;
     width: 40px;
 }
 
-.article{
-    width: 90% ;
-    border-bottom: solid 1px rgba(10, 10, 10, 1); 
-    position: relative;
-    left: 3%;
+.article {
+    width: 90%;
+    background-color:thistle;
+    margin-bottom: 10%;
+    border-radius: 3%;
+    padding-top: 5%;
 }
 
 li {
     display: inline;
     text-decoration: none;
     color: white;
-    
+
 }
 
-a{
-    
+a {
+
     text-decoration: none;
 }
 
 .wine {
-    height: 5%;
-    width: 6%;
-    padding-left: 4%;
-    padding-top: 40px;
-    padding-right: 5%;
+
+    width: 17%
 }
 
 
+#product-options {
+    border-top: solid 1px gray;
+    border-bottom: solid 1px rgba(10, 10, 10, 1);
+    margin: 2% 0;
+    background-color: white;
+}
+#products-section{
+    overflow: scroll;
+    justify-content: flex-start;
+    height: 60vh;
+    margin-bottom: 50%;
+}
+
 /* TYPO */
 
-.bold{
-   font-weight: bold; 
+.bold {
+    font-weight: bold;
+}
+
+.coments-typo {
+    font-size: 8px;
+
+}
+
+.font-size-mobile {
+    font-size: 10px;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.align-center {
+    align-self: center;
+}
+
+/*VIEW*/
+
+.display-off {
+    display: none;
+}
+
+/*MOVEMENT*/
+
+#winderful-mode:hover {
+    display: inline-block;
+}
+
+/*-------*/
+
+#categories {
+    padding-top: 5%;
+    margin-bottom: 5%;
+}
+
+#categories>ul>li {
+    font-size: 0.80em;
+}
+
+ul {
+    padding: 0;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.width-90 {
+    width: 90%;
+}
+
+.width-50 {
+    width: 50%;
+
+}
+
+#price {
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+#product-options ul li i {
+    font-size: 1.5em;
+    background-color: white;
+}
+
+#more i {
+    color: gray;
+}
+
+#header {
+    height: 8vh;
+}
+
+#footer-ul {
+    height: 5vh;
+}
+
+
+
+#section-buy {
+    background-color: rgba(116, 138, 196, 1);
+    width: 100%;
+    margin-bottom: 5%;
+    padding: 5% 0;
+    position: absolute;
+    top:86%
+}
+
+/*
+.section-separation{
+    padding:2%;
+    margin:2%;
+   
+}*/
+
+.display-contents {
+    display: contents;
+}
+
+
+ul li button {
+    color: #748ac4
+}
+
+.font-size-11 {
+    font-size: 1.1em;
+}
+
+
+.quantity-box {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Spartan", sans-serif;
+    padding: 2px 2px;
+    width: 25%;
+    border: 1px solid #949494;
+    background-color: teal;
+    color: white;
+    max-width: 100%;
+    line-height: 0.5;
+    border-radius: 2px;
+    touch-action: manipulation;
+    margin-right: 5%;
+}
+
+.margin-r-1{
+    margin-right: 1%;
+}
+
+footer{
+
+    margin-bottom: 50%;
+    margin-top: 10%;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+#table-display{
+    display: none;
+}
+.fa-clipboard{
+    font-size: 2em;
+    color: brown;
+    align-self: center;
+    display: none;
+}
+
+
+.fa-clipboard:hover table[id=table-display]{
+    background-color: lawngreen;
+}
+
+.recomend{
+    margin-top: 5%
 }
