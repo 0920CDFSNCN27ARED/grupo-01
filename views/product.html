@@ -11,37 +11,58 @@
         <link rel="stylesheet" href="css/style.css" />
 
         <title>PRODUCT | Winderful</title>
-  </head>
-  <body>
-        <header class="header-index">
-            <div class="logo-image">
-                <a href="/"
-                    ><img src="images\WINEDERFULL_logo-02.jpg" alt=""
-                /></a>
-            </div>
-            <nav class="under-nav">
-                <ul>
-                    <li class="user-box">
-                        <a href=""><i class="fas fa-user"></i></a>
-                    </li>
-                    <li class="search-box">
-                        <a href=""><i class="fas fa-search"></i></a>
-                    </li>
-                    <li class="cart-box">
-                        <a href="/carritoDeCompras"
-                            ><i class="fas fa-shopping-cart"></i
-                        ></a>
-                    </li>
-                    <li class="ticket-box">
-                        <a href=""><i class="fas fa-ticket-alt rotate"></i></a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <section class="display">
-           <div>
+    </head>
+    <body class="body-index">
+        <div id="mySidebar" class="sidebar">
+            <a class="closebtn" onclick="closeNav()">×</a>
+            <ul>
+                <li><a href="#">Mi cuenta</a></li>
+                <li><a href="/favourites.html">Mis favoritos</a></li>
+                <li id="winederful-mode"><a href="#" >MODO WINDERFUL</a></li>
+            </ul>            
+          </div>
+            <!-- Inicio de sidebar mobile-->
+            <header class="header-index">
+                <div class="side-bar" >
+                    <a class="round-button" onclick="openNav()"
+                      ><i class="fas fa-bars"></i
+                    ></a>
+                  </div>
+                <div class="logo-image">
+                    <a href="/"
+                        ><img src="images\WINEDERFULL_logo-02.png" alt=""
+                    /></a>
+                </div>
+                <div class="cart">
+                    <a class="round-button" href="/carritoDeCompras"
+                      ><i class="fas fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                <nav class="under-nav">
+                    <ul>
+                        <li class="user-box">
+                            <a href=""><i class="fas fa-user"></i></a>
+                        </li>
+                        <li class="search-box">
+                            <a href=""><i class="fas fa-search"></i></a>
+                        </li>
+                        <li class="cart-box">
+                            <a href="/carritoDeCompras"
+                                ><i class="fas fa-shopping-cart"></i
+                            ></a>
+                        </li>
+                        <li class="ticket-box">
+                            <a href=""
+                                ><i class="fas fa-ticket-alt rotate"></i
+                            ></a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        <section>
+           <div class="display">
                 <ul class=" list-style">
-                  <li><img class="product"
+                  <li><img 
                       src="images\botella-de-vino.png"
                       width="160"
                       alt="botella de vino"/>
@@ -53,15 +74,15 @@
                   <li>
                     <input class="quantity-box" type="number" placeholder="1" />
                   </li>
-                  <li class="favourite-button">
-                    <a href="/favoritos"></a><i class="fas fa-heart"></i>
+                  <li >
+                    <a href="/favoritos"></a><i class="fas fa-heart favourite-button"></i>
                   </li>
-                  <li class="cart-button">
-                    <a href="/carritoDeCompras"></a><i class="fas fa-shopping-cart" ></i>
+                  <li>
+                    <a href="/carritoDeCompras"></a><i class="fas fa-shopping-cart cart-button" ></i>
                   </li>
                 </ul>
                 
-       </section>
+       
         <table class="font-description description">
             <tbody>
                 <tr>
@@ -115,15 +136,15 @@
                 </tr>
             </tbody>
         </table>
-
+       </section>
       
 
         <section>
             <div>
                 <img
-                    class="product"
+                    class="animation"
                     src="images\grafico-animado.png"
-                    width="400"
+                    width="300"
                     alt="botella de vino"
                 />
             </div>
@@ -224,35 +245,45 @@
                 </div>
             </section>
         </main>
-        <footer class="footer-index">
-            <section class="values">
-                <article class="value">
-                    <div class="value-img-box">
-                        <img src="" alt="" />
-                    </div>
-                    <div class="value-text-box">
-                        <p></p>
-                    </div>
-                </article>
-                <article class="value">
-                    <div class="value-img-box">
-                        <img src="" alt="" />
-                    </div>
-                    <div class="value-text-box">
-                        <p></p>
-                    </div>
-                </article>
-                <article class="value">
-                    <div class="value-img-box">
-                        <img src="" alt="" />
-                    </div>
-                    <div class="value-text-box">
-                        <p></p>
-                    </div>
-                </article>
-            </section>
+        
+                
             
-        </footer>
-  
-  </body>
+         <footer class="footer-index">
+                <div class="logo-image">
+                    <a href="#top"
+                        ><img src="images\WINEDERFULL_logo-02.png" alt=""
+                    /></a>
+                </div>
+                <div class="social-copy-box">
+                    <div class="social">
+                        <ul class="social-list">
+                            <li>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fab fa-youtube"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="copy">
+                        <p>© 2020 - Todos los derechos reservados</p>
+                    </div>
+                </div>
+            </footer>
+        </section>
+         <script>
+            function openNav() {
+              document.getElementById("mySidebar").style.marginLeft = "300px";
+            }
+      
+            function closeNav() {
+              document.getElementById("mySidebar").style.marginLeft = "0";
+            }
+          </script>
+    </body>
 </html>
+  
+

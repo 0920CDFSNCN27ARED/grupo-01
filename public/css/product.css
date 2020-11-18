@@ -7,9 +7,8 @@ body {
     padding: 0;
 }
 .logo {
-    width: 130px;
-    display: block;
-    margin: auto;
+    width: 30%;
+    text-align: center;
 }
 
 .menu {
@@ -35,35 +34,16 @@ body {
     padding-bottom: 15px;
 }
 
-.product {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 5%;
-}
-
-.wine {
-    text-align: center;
-    font-size: 10px;
-}
-
 .font-description {
     font-size: 13px;
-
+    text-align: left;
     margin: 2%;
+    max-width: max-content;
     width: 100%;
-    max-width: 100%;
-}
-
-.items {
-    background-color: thistle;
-    padding-left: 2%;
-    padding-top: 1%;
-    border-radius: 3px;
-    margin-right: 9%;
 }
 
 .description {
+    position: relative;
     background-color: thistle;
     padding-left: 1%;
     border-radius: 3px;
@@ -75,6 +55,7 @@ body {
     background: white;
     border-radius: 3px;
     margin: 2%;
+    text-align: left;
 }
 
 .flex-grow {
@@ -127,8 +108,9 @@ body {
     border-radius: 5%;
     font-size: 21px;
     padding: 1% 3% 1% 3%;
-    margin: auto;
+    width: max-content;
     margin-top: 1%;
+    text-align: center;
 }
 
 .cart-button {
@@ -137,8 +119,9 @@ body {
     border-radius: 5%;
     font-size: 21px;
     padding: 1% 3% 1% 3%;
-    margin: auto;
+    width: max-content;
     margin-top: 1%;
+    text-align: center;
 }
 
 .background-similar-wine {
@@ -160,14 +143,31 @@ body {
     border-top: solid 3px #9a345c;
     z-index: -1;
     height: 25px;
-    width: 70%;
+    width: 57%;
     position: relative;
-    top: 26px;
+    top: 24px;
     padding-top: 2%;
 }
 
 .price {
     font-size: 18px;
     font-weight: normal;
-    padding-top: 3%;
+    padding-top: 12%;
+}
+
+.animation {
+    margin-left: 9%;
+}
+
+@media (min-width: 768px) {
+    .display {
+        text-align: left;
+    }
+
+    .description {
+        position: relative;
+        bottom: 750px;
+        left: 300px;
+        padding: 2%;
+    }
 }
