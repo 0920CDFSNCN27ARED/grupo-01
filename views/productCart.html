@@ -17,12 +17,22 @@
         <title>Carrito de compras | WINDERFUL</title>
     </head>
 
-    <body>
+    <body cl>
         <header class="header-index">
+            <div class="side-bar">
+                <a class="round-button" onclick="openNav()"
+                    ><i class="fas fa-bars"></i
+                ></a>
+            </div>
             <div class="logo-image">
                 <a href="/"
                     ><img src="images\WINEDERFULL_logo-02.png" alt=""
                 /></a>
+            </div>
+            <div class="cart">
+                <a class="round-button" href="/carritoDeCompras"
+                    ><i class="fas fa-shopping-cart"></i
+                ></a>
             </div>
             <nav class="under-nav">
                 <ul>
@@ -45,17 +55,30 @@
         </header>
 
         <main id="main" class="display-flex-column">
-            <div class="display-flex">
+            <div id="nav-container" class="display-flex">
                 <nav id="categories" class="width-100">
-                    <ul class="display-flex font-size-11">
+                    <ul class="display-flex font-size-11 display-sm">
                         <li>
-                            <a href="/carritoDeCompras"
-                                ><i class="fas fa-shopping-cart"></i> (2)
+                            <a href="/carritoDeCompras">
+                                <i class="fas fa-shopping-cart"></i> (2)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/productosGuardados">
+                                <i class="fas fa-archive"></i> (2)
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="display-flex font-size-11 display-md">
+                        <li>
+                            <a id="actual-nav" href="/carritoDeCompras">
+                                Carrito <i class="fas fa-shopping-cart"></i> (2)
                             </a>
                         </li>
                         <li>
                             <a href="/productosGuardados"
-                                ><i class="fas fa-archive"></i> (2)
+                                >Guardados <i class="fas fa-archive"></i> (2)
                             </a>
                         </li>
                     </ul>
@@ -67,7 +90,7 @@
                     <div class="display-flex"></div>
                     <div class="display-flex space-between width-90">
                         <img
-                            class="wine"
+                            class="wine-logo"
                             src="/images/Vino-x-prueba.png"
                             alt="wineProduct"
                         />
@@ -129,24 +152,39 @@
                                 </li>
                             </div>
 
-                            <li class="margin-r-1">
-                                <button
-                                    id="more"
-                                    class="article-options"
-                                    type="button"
-                                >
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                            </li>
+                            <div id="option-display" class="margin-r-1">
+                                <li id="more-opt-align">
+                                    <button
+                                        id="more"
+                                        class="article-options width-10 background-color-main"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+
+                                    <select
+                                        size="2"
+                                        name="more-options"
+                                        id="more-options"
+                                    >
+                                        <option value="buy-now">
+                                            Comprar ahora
+                                        </option>
+                                        <option value="same-seller">
+                                            Ver vendedor
+                                        </option>
+                                    </select>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </article>
 
-                <article class="display-flex-column article align-center">
+                <article class="display-flex-column article align-center beige">
                     <div class="display-flex"></div>
                     <div class="display-flex space-between width-90">
                         <img
-                            class="wine"
+                            class="wine-logo"
                             src="/images/Vino-x-prueba.png"
                             alt="wineProduct"
                         />
@@ -208,23 +246,38 @@
                                 </li>
                             </div>
 
-                            <li class="margin-r-1">
-                                <button
-                                    id="more"
-                                    class="article-options"
-                                    type="button"
-                                >
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                            </li>
+                            <div id="option-display" class="margin-r-1">
+                                <li id="more-opt-align">
+                                    <button
+                                        id="more"
+                                        class="article-options width-10 background-color-main"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+
+                                    <select
+                                        size="2"
+                                        name="more-options"
+                                        id="more-options"
+                                    >
+                                        <option value="buy-now">
+                                            Comprar ahora
+                                        </option>
+                                        <option value="same-seller">
+                                            Ver vendedor
+                                        </option>
+                                    </select>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </article>
 
-                <article class="display-flex-column article align-center">
+                <article class="display-flex-column article align-center grey">
                     <div class="display-flex space-between width-90">
                         <img
-                            class="wine"
+                            class="wine-logo"
                             src="/images/Vino-x-prueba.png"
                             alt="wineProduct"
                         />
@@ -283,23 +336,40 @@
                                 </li>
                             </div>
 
-                            <li class="margin-r-1">
-                                <button
-                                    id="more"
-                                    class="article-options"
-                                    type="button"
-                                >
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                            </li>
+                            <div id="option-display" class="margin-r-1">
+                                <li id="more-opt-align">
+                                    <button
+                                        id="more"
+                                        class="article-options width-10 background-color-main"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+
+                                    <select
+                                        size="2"
+                                        name="more-options"
+                                        id="more-options"
+                                    >
+                                        <option value="buy-now">
+                                            Comprar ahora
+                                        </option>
+                                        <option value="same-seller">
+                                            Ver vendedor
+                                        </option>
+                                    </select>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </article>
 
-                <article class="display-flex-column article align-center">
+                <article
+                    class="display-flex-column article align-center yellow"
+                >
                     <div class="display-flex space-between width-90">
                         <img
-                            class="wine"
+                            class="wine-logo"
                             src="/images/Vino-x-prueba.png"
                             alt="wineProduct"
                         />
@@ -358,36 +428,55 @@
                                 </li>
                             </div>
 
-                            <li class="margin-r-1">
-                                <button
-                                    id="more"
-                                    class="article-options"
-                                    type="button"
-                                >
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                            </li>
+                            <div id="option-display" class="margin-r-1">
+                                <li id="more-opt-align">
+                                    <button
+                                        id="more"
+                                        class="article-options width-10 background-color-main"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+
+                                    <select
+                                        size="2"
+                                        name="more-options"
+                                        id="more-options"
+                                    >
+                                        <option value="buy-now">
+                                            Comprar ahora
+                                        </option>
+                                        <option value="same-seller">
+                                            Ver vendedor
+                                        </option>
+                                    </select>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </article>
             </section>
-
-            <div></div>
 
             <section id="section-buy" class="display-flex-column bold">
                 <div class="display-flex">
                     <p>Total</p>
                     <p>$700</p>
                 </div>
-                <button class="submit-button-specs final-price" type="submit">
-                    Comprar <i class="fas fa-wine-bottle"></i>
-                </button>
+                <div id="button-container">
+                    <button
+                        class="submit-button-specs final-price"
+                        type="submit"
+                    >
+                        Comprar <i class="fas fa-wine-bottle"></i>
+                    </button>
+                </div>
             </section>
 
             <section class="recomend">
                 <div class="subtitle bestSeller">
-                    <div class="background-similar-wine"></div>
-                    <h2>Vinos que podrían gustarte</h2>
+                    <img class="hand" src="images/hand-01.png" alt="hand" />
+                    <div class="background-text"></div>
+                    <h2 class="wine">VINOS QUE PODRIAN GUSTARTE</h2>
                 </div>
                 <div class="slideshow-prod">
                     <div class="previous">
@@ -482,8 +571,9 @@
             </section>
             <section class="recomend">
                 <div class="subtitle bestSeller">
+                    <img class="hand" src="images/hand-01.png" alt="hand" />
                     <div class="background-similar-wine"></div>
-                    <h2>Bodegas cerca tuyo para conocer</h2>
+                    <h2 class="wine">BODEGAS CERCA TUYO</h2>
                 </div>
                 <div class="slideshow-prod">
                     <div class="previous">
@@ -578,8 +668,45 @@
             </section>
         </main>
 
-        <footer>
-            <p>Copyright 2020 - WINDERFUL</p>
+        <footer class="footer-index">
+            <div class="logo-links">
+                <div class="logo-image">
+                    <a href="#top"
+                        ><img src="images\WINEDERFULL_logo-02.png" alt=""
+                    /></a>
+                </div>
+                <div class="links">
+                    <h4>Enlaces de interés</h4>
+                    <a href="">Terminos y condiciones</a>
+                    <a href="">FAQ</a>
+                    <a href="">Quienes somos</a>
+                </div>
+            </div>
+            <div class="social">
+                <ul class="social-list">
+                    <li>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fab fa-youtube"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copy">
+                <p>© 2020 - Todos los derechos reservados</p>
+            </div>
         </footer>
+        <script>
+            function openNav() {
+                document.getElementById("mySidebar").style.marginLeft = "270px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidebar").style.marginLeft = "0";
+            }
+        </script>
     </body>
 </html>

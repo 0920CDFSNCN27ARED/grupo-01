@@ -19,6 +19,10 @@ app.get("/productDetail", (req, res) => {
     res.sendFile(path.resolve(__dirname, "views/product.html"));
 });
 
+app.get("/products", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "views/products.html"));
+});
+
 // Cart and derives (gabi)
 app.get("/carritoDeCompras", (req, res) => {
     res.sendFile(path.resolve(__dirname, "views/productCart.html"));
@@ -32,12 +36,12 @@ app.get("/favoritos", (req, res) => {
     res.sendFile(path.resolve(__dirname, "views/favourites.html"));
 });
 
-//login
-app.get("/signup", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "views/register.html"));
-});
 app.get("/login", (req, res) => {
     res.sendFile(path.resolve(__dirname, "views/login.html"));
+});
+
+app.get("/signup", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "views/signup.html"));
 });
 
 // Default route

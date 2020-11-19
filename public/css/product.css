@@ -15,6 +15,19 @@ body {
     padding-left: 0%;
 }
 
+.hand {
+    width: 22%;
+    text-align: left;
+    position: relative;
+    top: 42px;
+    right: 28px;
+}
+
+.wine {
+    padding-left: 24px;
+    font-size: 22px;
+}
+
 .menu-vertical {
     font-size: 10px;
     color: black;
@@ -32,6 +45,9 @@ body {
 
 .menu-vertical il {
     padding-bottom: 15px;
+}
+.product {
+    width: 40%;
 }
 
 .font-description {
@@ -103,6 +119,18 @@ body {
     text-align: center;
 }
 
+.food-mix {
+    display: none;
+}
+
+.list-food-mix {
+    display: none;
+}
+
+.list-food-mix-background {
+    display: none;
+}
+
 .favourite-button {
     color: white;
     background-color: tomato;
@@ -123,6 +151,15 @@ body {
     width: max-content;
     margin-top: 1%;
     text-align: center;
+}
+
+.food-mix {
+    text-align: left;
+}
+
+.list-food-mix {
+    text-align: right;
+    background-color: #748ac4;
 }
 
 .background-similar-wine {
@@ -161,6 +198,20 @@ body {
 }
 
 @media (min-width: 768px) {
+    .hand {
+        width: 13%;
+        text-align: left;
+        position: relative;
+        top: 42px;
+        right: 28px;
+        transition: 1s;
+    }
+
+    .wine {
+        padding-left: 42px;
+        font-size: 22px;
+    }
+
     .description {
         position: absolute;
         top: 260px;
@@ -173,7 +224,9 @@ body {
     }
 
     .product {
-        text-align: left;
+        display: flex;
+        position: relative;
+        width: 20%;
     }
 
     .subtitle-wine {
@@ -186,5 +239,73 @@ body {
     .animation {
         margin-left: 14%;
         width: auto;
+    }
+}
+
+@media (min-width: 1000px) {
+    .hand {
+        width: 9%;
+        text-align: left;
+        position: relative;
+        top: 31px;
+        right: 28px;
+        transition: 1s;
+    }
+
+    .wine {
+        padding-left: 60px;
+        font-size: 25px;
+    }
+    .product {
+        margin-left: 14%;
+        display: flex;
+        position: relative;
+        width: 15%;
+        padding-left: 4%;
+        transition: 1s;
+    }
+
+    .description {
+        position: absolute;
+        top: 380px;
+        left: 560px;
+        padding: 2%;
+    }
+
+    .food {
+        display: flex;
+        position: relative;
+        left: 600px;
+        bottom: 600px;
+        width: max-content;
+        transition: 1s;
+    }
+
+    .food-mix {
+        display: flex;
+        text-align: left;
+        font-size: 18px;
+        font-weight: normal;
+    }
+
+    .list-food-mix {
+        text-align: left;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        background-color: #748ac4;
+        border-radius: 4px;
+        padding: 3%;
+        max-width: max-content;
+        list-style: none;
+    }
+
+    .list-food-mix-background {
+        display: flex;
+        background: white;
+        border-radius: 3px;
+        padding: 2%;
+        margin: 3%;
+        width: max-content;
     }
 }
