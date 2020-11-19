@@ -1,7 +1,6 @@
 /* COLORS */
 * {
     padding: 0;
-    margin: 0;
     box-sizing: border-box;
 }
 
@@ -86,6 +85,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: initial;
+    
 
 }
 
@@ -183,13 +184,17 @@ body {
 .submit-button-specs {
     background-color: #289af7;
     width: 85%;
-    height: 33%;
+    height: 5vh;
     color: white;
     font-style: bold;
     border-radius: 5px;
     align-self: center;
 }
 
+#button-container{
+    text-align: center;
+    height: 100%;
+}
 .article-options {
     text-decoration: none;
     border: none;
@@ -255,7 +260,7 @@ a {
     overflow: scroll;
     justify-content: flex-start;
     height: 60vh;
-    margin-bottom: 50%;
+    margin-bottom: 30%;
 }
 
 /* TYPO */
@@ -339,19 +344,19 @@ ul {
     height: 8vh;
 }
 
-#footer-ul {
-    height: 5vh;
-}
+
 
 
 
 #section-buy {
-    background-color: rgba(116, 138, 196, 1);
-    width: 100%;
-    margin-bottom: 5%;
-    padding: 5% 0;
+    background-color: white;
+    width: 98%;
+    padding-bottom: 5%;
     position: absolute;
-    top:86%
+    top:82%;
+    height: 13vh;
+    box-shadow: 1px -1px grey;
+    align-self: center;
 }
 
 /*
@@ -395,13 +400,7 @@ ul li button {
     margin-right: 1%;
 }
 
-footer{
 
-    margin-bottom: 50%;
-    margin-top: 10%;
-    font-size: 12px;
-    text-align: center;
-}
 
 
 #table-display{
@@ -421,4 +420,40 @@ footer{
 
 .recomend{
     margin-top: 5%
+}
+
+#nav-container{
+    height: 7vh;
+}
+
+
+@media(min-width:768px){
+    #section-buy{
+        position: initial;
+
+    }
+
+#nav-container{
+    height: 12vh;
+}
+#products-section{
+ 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 5%;
+}
+.article{
+    width: 40%;
+}
+
+#categories{
+
+}
+
+}
+
+@media (min-width: 1100px) {
+
+
 }
