@@ -17,12 +17,22 @@
         <title>Carrito de compras | WINDERFUL</title>
     </head>
 
-    <body>
+    <body cl>
         <header class="header-index">
+            <div class="side-bar">
+                <a class="round-button" onclick="openNav()"
+                    ><i class="fas fa-bars"></i
+                ></a>
+            </div>
             <div class="logo-image">
                 <a href="/"
                     ><img src="images\WINEDERFULL_logo-02.png" alt=""
                 /></a>
+            </div>
+            <div class="cart">
+                <a class="round-button" href="/carritoDeCompras"
+                    ><i class="fas fa-shopping-cart"></i
+                ></a>
             </div>
             <nav class="under-nav">
                 <ul>
@@ -45,17 +55,17 @@
         </header>
 
         <main id="main" class="display-flex-column">
-            <div class="display-flex">
+            <div id="nav-container" class="display-flex">
                 <nav id="categories" class="width-100">
                     <ul class="display-flex font-size-11">
                         <li>
-                            <a href="/carritoDeCompras"
-                                ><i class="fas fa-shopping-cart"></i> (2)
+                            <a href="/carritoDeCompras">
+                                Carrito <i class="fas fa-shopping-cart"></i> (2)
                             </a>
                         </li>
                         <li>
                             <a href="/productosGuardados"
-                                ><i class="fas fa-archive"></i> (2)
+                                >Guardados <i class="fas fa-archive"></i> (2)
                             </a>
                         </li>
                     </ul>
@@ -379,9 +389,15 @@
                     <p>Total</p>
                     <p>$700</p>
                 </div>
-                <button class="submit-button-specs final-price" type="submit">
-                    Comprar <i class="fas fa-wine-bottle"></i>
-                </button>
+                <div id="button-container">
+                    <button
+                        class="submit-button-specs final-price"
+                        type="submit"
+                    >
+                        Comprar <i class="fas fa-wine-bottle"></i>
+                    </button>
+                </div>
+               
             </section>
 
             <section class="recomend">
@@ -578,8 +594,45 @@
             </section>
         </main>
 
-        <footer>
-            <p>Copyright 2020 - WINDERFUL</p>
+        <footer class="footer-index">
+            <div class="logo-links">
+                <div class="logo-image">
+                    <a href="#top"
+                        ><img src="images\WINEDERFULL_logo-02.png" alt=""
+                    /></a>
+                </div>
+                <div class="links">
+                    <h4>Enlaces de interés</h4>
+                    <a href="">Terminos y condiciones</a>
+                    <a href="">FAQ</a>
+                    <a href="">Quienes somos</a>
+                </div>
+            </div>
+            <div class="social">
+                <ul class="social-list">
+                    <li>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fab fa-youtube"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copy">
+                <p>© 2020 - Todos los derechos reservados</p>
+            </div>
         </footer>
+        <script>
+            function openNav() {
+                document.getElementById("mySidebar").style.marginLeft = "270px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidebar").style.marginLeft = "0";
+            }
+        </script>
     </body>
 </html>
