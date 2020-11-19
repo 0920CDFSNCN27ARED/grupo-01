@@ -215,8 +215,9 @@ body {
     justify-content: flex-end;
 }
 
-#logo {
-    width: 25%;
+
+.width-10{
+    width: 10%;
 }
 
 .quantitybox-shape {
@@ -244,7 +245,7 @@ a {
     text-decoration: none;
 }
 
-.wine {
+.wine-logo {
 
     width: 17%
 }
@@ -354,7 +355,6 @@ ul {
     padding-bottom: 5%;
     position: absolute;
     top:82%;
-    height: 13vh;
     box-shadow: 1px -1px grey;
     align-self: center;
 }
@@ -396,9 +396,7 @@ ul li button {
     margin-right: 5%;
 }
 
-.margin-r-1{
-    margin-right: 1%;
-}
+
 
 
 
@@ -427,6 +425,72 @@ ul li button {
 }
 
 
+
+
+
+.display-md{
+    display: none;
+}
+
+.yellow{
+    background-color: #fbca8f;
+}
+
+.grey{
+    background-color: silver;
+}
+
+.beige{
+    background-color: floralwhite;
+}
+
+#option-display{
+    margin-right: 1%;
+    width: 4%;
+    text-align: center;
+    width: 50%;
+}
+
+#more-options{
+    display: none;
+    text-align: center;
+    padding: 5px;
+    box-shadow: 0px 1px grey;
+}
+option{
+    padding:5px;
+    background-color: white;
+    color: gray;
+    font-weight:500 ;
+}
+
+#more-opt-align{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+div[id= "option-display"]:active #more-options{
+    display: block;
+}
+
+#actual-nav{
+    font-weight: bold;
+}
+
+
+
+@media(min-width:500px){
+    .display-sm{
+        display: none;
+}
+    .display-md{
+        display: flex;
+    }
+
+}
+
+
 @media(min-width:768px){
     #section-buy{
         position: initial;
@@ -447,13 +511,33 @@ ul li button {
     width: 40%;
 }
 
-#categories{
 
-}
 
 }
 
 @media (min-width: 1100px) {
+    .article {
+        width: 85%;
+        margin-bottom: 10%;
+        border-radius: 3%;
+        padding-top: 5%;
+        height: 28vh;
+        box-shadow: 5px -1px lightgrey;;
+    }
 
+    .wine-logo{
+        width: 7%;
+    }
 
+    #products-section{
+ 
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-bottom: 5%;
+        overflow: initial;
+        height: fit-content;
+    }
+
+    
 }

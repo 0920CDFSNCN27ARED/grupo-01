@@ -57,9 +57,22 @@
         <main id="main" class="display-flex-column">
             <div id="nav-container" class="display-flex">
                 <nav id="categories" class="width-100">
-                    <ul class="display-flex font-size-11">
+                    <ul class="display-flex font-size-11 display-sm">
                         <li>
                             <a href="/carritoDeCompras">
+                                <i class="fas fa-shopping-cart"></i> (2)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/productosGuardados">
+                                <i class="fas fa-archive"></i> (2)
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="display-flex font-size-11 display-md">
+                        <li>
+                            <a id="actual-nav" href="/carritoDeCompras">
                                 Carrito <i class="fas fa-shopping-cart"></i> (2)
                             </a>
                         </li>
@@ -77,7 +90,7 @@
                     <div class="display-flex"></div>
                     <div class="display-flex space-between width-90">
                         <img
-                            class="wine"
+                            class="wine-logo"
                             src="/images/Vino-x-prueba.png"
                             alt="wineProduct"
                         />
@@ -139,24 +152,39 @@
                                 </li>
                             </div>
 
-                            <li class="margin-r-1">
-                                <button
-                                    id="more"
-                                    class="article-options"
-                                    type="button"
-                                >
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                            </li>
+                            <div id="option-display" class="margin-r-1">
+                                <li id="more-opt-align">
+                                    <button
+                                        id="more"
+                                        class="article-options width-10 background-color-main"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+
+                                    <select
+                                        size="2"
+                                        name="more-options"
+                                        id="more-options"
+                                    >
+                                        <option value="buy-now">
+                                            Comprar ahora
+                                        </option>
+                                        <option value="same-seller">
+                                            Ver vendedor
+                                        </option>
+                                    </select>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </article>
 
-                <article class="display-flex-column article align-center">
+                <article class="display-flex-column article align-center beige">
                     <div class="display-flex"></div>
                     <div class="display-flex space-between width-90">
                         <img
-                            class="wine"
+                            class="wine-logo"
                             src="/images/Vino-x-prueba.png"
                             alt="wineProduct"
                         />
@@ -218,23 +246,38 @@
                                 </li>
                             </div>
 
-                            <li class="margin-r-1">
-                                <button
-                                    id="more"
-                                    class="article-options"
-                                    type="button"
-                                >
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                            </li>
+                            <div id="option-display" class="margin-r-1">
+                                <li id="more-opt-align">
+                                    <button
+                                        id="more"
+                                        class="article-options width-10 background-color-main"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+
+                                    <select
+                                        size="2"
+                                        name="more-options"
+                                        id="more-options"
+                                    >
+                                        <option value="buy-now">
+                                            Comprar ahora
+                                        </option>
+                                        <option value="same-seller">
+                                            Ver vendedor
+                                        </option>
+                                    </select>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </article>
 
-                <article class="display-flex-column article align-center">
+                <article class="display-flex-column article align-center grey">
                     <div class="display-flex space-between width-90">
                         <img
-                            class="wine"
+                            class="wine-logo"
                             src="/images/Vino-x-prueba.png"
                             alt="wineProduct"
                         />
@@ -293,23 +336,40 @@
                                 </li>
                             </div>
 
-                            <li class="margin-r-1">
-                                <button
-                                    id="more"
-                                    class="article-options"
-                                    type="button"
-                                >
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                            </li>
+                            <div id="option-display" class="margin-r-1">
+                                <li id="more-opt-align">
+                                    <button
+                                        id="more"
+                                        class="article-options width-10 background-color-main"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+
+                                    <select
+                                        size="2"
+                                        name="more-options"
+                                        id="more-options"
+                                    >
+                                        <option value="buy-now">
+                                            Comprar ahora
+                                        </option>
+                                        <option value="same-seller">
+                                            Ver vendedor
+                                        </option>
+                                    </select>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </article>
 
-                <article class="display-flex-column article align-center">
+                <article
+                    class="display-flex-column article align-center yellow"
+                >
                     <div class="display-flex space-between width-90">
                         <img
-                            class="wine"
+                            class="wine-logo"
                             src="/images/Vino-x-prueba.png"
                             alt="wineProduct"
                         />
@@ -368,21 +428,34 @@
                                 </li>
                             </div>
 
-                            <li class="margin-r-1">
-                                <button
-                                    id="more"
-                                    class="article-options"
-                                    type="button"
-                                >
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                            </li>
+                            <div id="option-display" class="margin-r-1">
+                                <li id="more-opt-align">
+                                    <button
+                                        id="more"
+                                        class="article-options width-10 background-color-main"
+                                        type="button"
+                                    >
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+
+                                    <select
+                                        size="2"
+                                        name="more-options"
+                                        id="more-options"
+                                    >
+                                        <option value="buy-now">
+                                            Comprar ahora
+                                        </option>
+                                        <option value="same-seller">
+                                            Ver vendedor
+                                        </option>
+                                    </select>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </article>
             </section>
-
-            <div></div>
 
             <section id="section-buy" class="display-flex-column bold">
                 <div class="display-flex">
@@ -397,13 +470,13 @@
                         Comprar <i class="fas fa-wine-bottle"></i>
                     </button>
                 </div>
-               
             </section>
 
             <section class="recomend">
                 <div class="subtitle bestSeller">
-                    <div class="background-similar-wine"></div>
-                    <h2>Vinos que podrían gustarte</h2>
+                    <img class="hand" src="images/hand-01.png" alt="hand" />
+                    <div class="background-text"></div>
+                    <h2 class="wine">VINOS QUE PODRIAN GUSTARTE</h2>
                 </div>
                 <div class="slideshow-prod">
                     <div class="previous">
@@ -498,8 +571,9 @@
             </section>
             <section class="recomend">
                 <div class="subtitle bestSeller">
+                    <img class="hand" src="images/hand-01.png" alt="hand" />
                     <div class="background-similar-wine"></div>
-                    <h2>Bodegas cerca tuyo para conocer</h2>
+                    <h2 class="wine">BODEGAS CERCA TUYO</h2>
                 </div>
                 <div class="slideshow-prod">
                     <div class="previous">
