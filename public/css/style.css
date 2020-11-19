@@ -7,10 +7,6 @@ body {
     padding: 0;
 }
 
-.body-index {
-    padding-bottom: 45px;
-}
-
 .sidebar,
 .side-bar,
 .cart {
@@ -29,6 +25,7 @@ body {
 .header-index {
     display: grid;
     grid-template-columns: 100%;
+    box-shadow: 0px 0px 5px 5px lightgrey;
 }
 
 .logo-image {
@@ -289,6 +286,7 @@ section.values {
     padding-top: 30px;
     display: grid;
     grid-template-rows: auto auto auto;
+    padding-bottom: 45px;
 }
 
 .logo-links {
@@ -335,14 +333,27 @@ section.values {
     padding-top: 5px;
 }
 
-/*registro*/
+/*registro login*/
+.login-main {
+    background-image: url("https://images.pexels.com/photos/290316/pexels-photo-290316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    /* background-attachment: fixed; */
+    background-size: cover;
+    padding: 20px;
+}
+
+.signup-main {
+    background-image: url("https://images.pexels.com/photos/6289/lights-night-alcohol-party.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    /* background-attachment: fixed; */
+    background-size: cover;
+    padding: 20px;
+}
 
 section.form {
     border-radius: 10px;
-    box-shadow: 0px 0px 3px 2px grey;
-    width: 80%;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    margin: 30px 15px;
     padding: 20px;
-    margin: 30px 10px 30px 10px;
+    background-color: white;
 }
 
 form.form {
@@ -357,16 +368,24 @@ form.form label {
 form.form input {
     margin-bottom: 15px;
     font-size: 18px;
+    padding: 5px;
+    border: 1px solid black;
 }
 
 form.form a {
     text-align: center;
-    margin-top: 10px;
 }
 section.form h2 {
     margin-top: 10px;
 }
-/*fin registro*/
+
+form.form button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px 0;
+}
+/*fin registro login*/
 /*tablet*/
 
 @media (min-width: 500px) {
@@ -397,10 +416,6 @@ section.form h2 {
         width: 50%;
     }
 
-    .body-index {
-        padding-bottom: 0;
-    }
-
     .footer-index {
         padding-bottom: 45px;
     }
@@ -417,7 +432,7 @@ section.form h2 {
     }
 
     .footer-index .logo-image img {
-        width: 50%;
+        width: 40%;
     }
 }
 
@@ -536,7 +551,7 @@ section.form h2 {
     }
     .footer-index {
         display: grid;
-        grid-template-rows: 200px auto auto;
+        grid-template-rows: auto auto auto;
         padding-bottom: 15px;
     }
 
@@ -545,6 +560,14 @@ section.form h2 {
         grid-template-rows: auto auto;
         justify-content: center;
         align-items: center;
+    }
+
+    section.form {
+        width: 50%;
+    }
+
+    section.form-main {
+        margin-left: 40%;
     }
 }
 
@@ -579,10 +602,11 @@ section.form h2 {
 
     .footer-index {
         display: grid;
-        grid-template-rows: 300px auto auto;
+        grid-template-rows: auto auto auto;
     }
     .links {
         display: grid;
         justify-content: center;
+        grid-template-rows: 50px 50px 50px;
     }
 }
