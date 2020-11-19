@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Registro | Winderful</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+        
+    </head>
+    <body>
+        <div id="mySidebar" class="sidebar">
+            <a class="closebtn" onclick="closeNav()">×</a>
+            <ul>
+                <li><a href="/favourites.html"><i class="fas fa-wine-bottle"></i></i
+                    >Productos</a></li>
+                <li><a href=""><i class="fas fa-search"></i>Buscar</a></li>
+                <li><a href="#"><i class="fas fa-user"></i>Mi cuenta</a></li>
+            </ul>            
+          </div>
+            <!-- Inicio de sidebar mobile-->
+            <header class="header-index">
+                <div class="side-bar" >
+                    <a class="round-button" onclick="openNav()"
+                      ><i class="fas fa-bars"></i
+                    ></a>
+                  </div>
+                <div class="logo-image">
+                    <a href="/"
+                        ><img src="images\WINEDERFULL_logo-02.jpg" alt=""
+                    /></a>
+                </div>
+                <div class="cart">
+                    <a class="round-button" href="/carritoDeCompras"
+                      ><i class="fas fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                <nav class="under-nav">
+                    <ul>
+                        <li class="user-box">
+                            <a href=""><i class="fas fa-user"></i></a>
+                        </li>
+                        <li class="search-box">
+                            <a href=""><i class="fas fa-search"></i></a>
+                        </li>
+                        <li class="cart-box">
+                            <a href="/carritoDeCompras"
+                                ><i class="fas fa-shopping-cart"></i
+                            ></a>
+                        </li>
+                        <li class="ticket-box">
+                            <a href=""
+                                ><i class="fas fa-ticket-alt rotate"></i
+                            ></a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        <main>
+            
+        </main>
+        <footer class="footer-index">
+            <div class="logo-links">
+                <div class="logo-image">
+                    <a href="#top"
+                        ><img src="images\WINEDERFULL_logo-02.jpg" alt=""
+                    /></a>
+                </div>
+                <div class="links">
+                    <h4>Enlaces de interés</h4>
+                    <a href="">Terminos y condiciones</a>
+                    <a href="">FAQ</a>
+                    <a href="">Quienes somos</a>
+                </div>
+            </div>
+            <div class="social">
+                <ul class="social-list">
+                    <li>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fab fa-youtube"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copy">
+                <p>© 2020 - Todos los derechos reservados</p>
+            </div>
+        </footer>
+        <script>
+            function openNav() {
+              document.getElementById("mySidebar").style.marginLeft = "270px";
+            }
+      
+            function closeNav() {
+              document.getElementById("mySidebar").style.marginLeft = "0";
+            }
+          </script>
+    </body>
+</html>

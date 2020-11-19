@@ -334,6 +334,11 @@ section.values {
     padding-top: 5px;
 }
 
+/*registro*/
+
+/*fin registro*/
+/*tablet*/
+
 @media (min-width: 500px) {
     .prod-container {
         display: grid;
@@ -385,6 +390,8 @@ section.values {
         width: 50%;
     }
 }
+
+/*tablet*/
 
 @media (min-width: 750px) {
     .under-nav {
@@ -510,6 +517,8 @@ section.values {
         align-items: center;
     }
 }
+
+/*desktop*/
 
 @media (min-width: 1000px) {
     .slideshow {
