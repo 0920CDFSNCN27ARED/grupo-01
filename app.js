@@ -9,6 +9,10 @@ app.listen(3000, () => {
 const staticFileRouter = express.static("public");
 app.use(staticFileRouter);
 
+// Setting ejs
+app.set("view engine", "ejs")
+
+
 //home
 app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "views/index.html"));
@@ -23,18 +27,16 @@ app.get("/products", (req, res) => {
     res.sendFile(path.resolve(__dirname, "views/products.html"));
 });
 
-// Cart and derives (gabi)
-app.get("/carritoDeCompras", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "views/productCart.html"));
-});
+// Cart routes (gabi)
 
-app.get("/productosGuardados", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "views/savedProducts.html"));
-});
+const cartRoute = require("./routes/cartRoutes")
+app.use("/carrito",cartRoute)
 
-app.get("/favoritos", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "views/favourites.html"));
-});
+const favouritesRoute = require("./routes/favouritesRoute")
+app.use("/favoritos",favouritesRoute)
+
+
+
 
 app.get("/login", (req, res) => {
     res.sendFile(path.resolve(__dirname, "views/login.html"));
