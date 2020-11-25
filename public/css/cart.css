@@ -4,55 +4,14 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: white;
 
-}
-
-.background-color-main {
-    background-color: white;
-}
-
-/*
-.box{
-    width: 20%;
-    height: 100%;
-    text-align: center;
-    vertical-align: middle;
-}
-.red{
-    background-color: rgb(192, 147, 147);
-}
-*/
-.article-p {
+.font-size-075{
     font-size: 0.75em;
+}
+
+.width-100 {
     width: 100%;
-
 }
-
-.padding-l-5 {
-    padding-left: 5%;
-    padding-top: 3%;
-}
-
-.padding-t-5{
-    padding-top: 5%;
-}
-
-#logo-chart {
-    width: 17%;
-
-}
-
-#head {
-    height: 7vh;
-    width: 100%;
-    text-align: center;
-
-}
-
-
-
 
 /* POSITIONS AND DISPLAY*/
 
@@ -66,37 +25,15 @@ body {
 
 
 
-.display-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.align-center {
-    align-items: center;
-}
-
-.flex-wrap {
-    flex-wrap: wrap;
-}
 
 .display-flex-column {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: initial;
-    
 
 }
 
-.wrap {
-    flex-wrap: wrap;
-}
-
-.justify-right {
-    justify-content: flex-end;
-}
 
 .justify-evenly {
     justify-content: space-evenly;
@@ -108,76 +45,11 @@ body {
 }
 
 
-
-.position-right {
-    position: relative;
-    left: 35%;
-}
-
-.position-right-2 {
-    position: relative;
-    left: 8%;
-}
-
-
-.padding-bottom {
-    padding-bottom: 3%;
-}
-
-
-.height70 {
-    height: 70%;
-}
-
-.height50 {
-    height: 50vh;
-}
-
-.flex-grow {
-    flex-grow: 3;
-}
-
-/*  ORDERS */
-.order-nmbr-2 {
-    order: 1
-}
-
-.order-nmbr-3 {
-    order: 2
-}
-
-.order-nmbr-4 {
-    order: 3
-}
-
-.order-last {
-    order: 50
-}
-
 /**/
 
-.search-bar {
-    border: none;
 
-}
 
-#search-bar {
-    background-color: white;
-    border: solid 1px gray;
-    border-radius: 15%;
-    width: 80%;
-    padding-left: 2%;
-    display: flex;
-    justify-content: space-between;
-}
 
-#toggle-winderful-mode {
-    align-self: flex-start;
-    order: 3;
-    font-size: 25px;
-    padding-top: 2%px;
-
-}
 
 
 /* SEPECIFIC TAGS */
@@ -211,7 +83,7 @@ body {
     align-items: flex-end;
 }
 
-#price-section {
+.justify-end {
     justify-content: flex-end;
 }
 
@@ -220,10 +92,6 @@ body {
     width: 10%;
 }
 
-.quantitybox-shape {
-
-    width: 40px;
-}
 
 .article {
     width: 90%;
@@ -270,34 +138,12 @@ a {
     font-weight: bold;
 }
 
-.coments-typo {
-    font-size: 8px;
-
-}
-
-.font-size-mobile {
-    font-size: 10px;
-}
-
-.txt-center {
-    text-align: center;
-}
 
 .align-center {
     align-self: center;
 }
 
-/*VIEW*/
-
-.display-off {
-    display: none;
-}
-
 /*MOVEMENT*/
-
-#winderful-mode:hover {
-    display: inline-block;
-}
 
 /*-------*/
 
@@ -314,9 +160,6 @@ ul {
     padding: 0;
 }
 
-.width-100 {
-    width: 100%;
-}
 
 .width-90 {
     width: 90%;
@@ -327,27 +170,19 @@ ul {
 
 }
 
-#price {
-    font-weight: bold;
+.self-end{
     align-self: flex-end;
 }
+
 
 #product-options ul li i {
     font-size: 1.5em;
     background-color: white;
 }
 
-#more i {
+.gray{
     color: gray;
 }
-
-#header {
-    height: 8vh;
-}
-
-
-
-
 
 #section-buy {
     background-color: white;
@@ -357,17 +192,6 @@ ul {
     top:82%;
     box-shadow: 1px -1px grey;
     align-self: center;
-}
-
-/*
-.section-separation{
-    padding:2%;
-    margin:2%;
-   
-}*/
-
-.display-contents {
-    display: contents;
 }
 
 
@@ -397,13 +221,6 @@ ul li button {
 }
 
 
-
-
-
-
-#table-display{
-    display: none;
-}
 .fa-clipboard{
     font-size: 2em;
     color: brown;
@@ -416,7 +233,7 @@ ul li button {
     background-color: lawngreen;
 }
 
-.recomend{
+.top-marg-5{
     margin-top: 5%
 }
 
@@ -424,21 +241,10 @@ ul li button {
     height: 7vh;
 }
 
-
-
-
-
 .display-md{
     display: none;
 }
 
-.yellow{
-    background-color: #fbca8f;
-}
-
-.grey{
-    background-color: silver;
-}
 
 .beige{
     background-color: floralwhite;
@@ -473,12 +279,6 @@ option{
 div[id= "option-display"]:active #more-options{
     display: block;
 }
-
-#actual-nav{
-    font-weight: bold;
-}
-
-
 
 @media(min-width:500px){
     .display-sm{

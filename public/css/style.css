@@ -6,22 +6,14 @@ body {
     margin: 0;
     padding: 0;
 }
-
+w
 .sidebar,
 .side-bar,
 .cart {
     display: none;
 }
 
-/* Gabi */
-/*
-.body-cart {
-  background-image: url("../images/imagen-bodega2.jpg");
-}
-*/
 
-/* Vero */
-/* header */
 .header-index {
     display: grid;
     grid-template-columns: 100%;
