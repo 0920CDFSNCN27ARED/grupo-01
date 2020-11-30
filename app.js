@@ -10,13 +10,11 @@ const staticFileRouter = express.static("public");
 app.use(staticFileRouter);
 
 // Setting ejs
-app.set("view engine", "ejs")
-
+app.set("view engine", "ejs");
 
 //home
-app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "views/index.html"));
-});
+const indexRoute = require("./routes/indexRoutes");
+app.use("/", indexRoute);
 
 //product
 app.get("/productDetail", (req, res) => {
@@ -29,22 +27,18 @@ app.get("/products", (req, res) => {
 
 // Cart routes (gabi)
 
-const cartRoute = require("./routes/cartRoutes")
-app.use("/carrito",cartRoute)
+const cartRoute = require("./routes/cartRoutes");
+app.use("/carrito", cartRoute);
 
-const favouritesRoute = require("./routes/favouritesRoute")
-app.use("/favoritos",favouritesRoute)
+const favouritesRoute = require("./routes/favouritesRoute");
+app.use("/favoritos", favouritesRoute);
 
+//Sign Up & Log In
+const loginRoute = require("./routes/loginRoutes");
+app.use("/login", loginRoute);
 
-
-
-app.get("/login", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "views/login.html"));
-});
-
-app.get("/signup", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "views/signup.html"));
-});
+const signupRoute = require("./routes/signupRoutes");
+app.use("/signup", signupRoute);
 
 // Default route
 app.get("*", (req, res) => {

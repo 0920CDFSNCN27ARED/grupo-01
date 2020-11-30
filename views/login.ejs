@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+    <body>
+        <%- include("./partials/header.ejs") %>
+        <main class="login-main">
+            <section class="form">
+                <h2>Inicia sesión</h2>
+                <form action="" class="form">
+                    <label for="email">E-mail</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="E-mail"
+                    />
+                    <label for="password">Contraseña</label>
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Contraseña"
+                    />
+                    <a href="">Olvidé mi contraseña</a>
+                    <button class="button">Entrar</button>
+                    <a href="/signup">Crear una cuenta</a>
+                </form>
+            </section>
+        </main>
+        <%- include("./partials/footer.ejs") %>
+        <script>
+            function openNav() {
+                document.getElementById("mySidebar").style.marginLeft = "270px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidebar").style.marginLeft = "0";
+            }
+        </script>
+    </body>
+</html>
