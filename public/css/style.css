@@ -6,13 +6,11 @@ body {
     margin: 0;
     padding: 0;
 }
-w
 .sidebar,
 .side-bar,
 .cart {
     display: none;
 }
-
 
 .header-index {
     display: grid;
