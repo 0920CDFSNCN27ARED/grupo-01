@@ -17,13 +17,11 @@ const indexRoute = require("./routes/indexRoutes");
 app.use("/", indexRoute);
 
 //product
-app.get("/productDetail", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "views/product.html"));
-});
+const productDetailRoute = require("./routes/productDetailRoutes");
+app.use("/productDetail", productDetailRoute);
 
-app.get("/products", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "views/products.html"));
-});
+const productsRoute = require("./routes/productsRoutes");
+app.use("/products", productsRoute);
 
 // Cart routes (gabi)
 
