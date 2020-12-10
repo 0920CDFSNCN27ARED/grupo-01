@@ -1,0 +1,18 @@
+[
+    {
+        "brand": "marca",
+        "model": "modelo",
+        "price": 500,
+        "discount": 0,
+        "id": 1,
+        "logo": "/images/Vino-x-prueba.png"
+    },
+    {
+        "brand": "marca",
+        "model": "modelo",
+        "price": 200,
+        "discount": 0,
+        "id": 1,
+        "logo": "/images/Vino-x-prueba.png"
+    }
+]

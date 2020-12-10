@@ -28,8 +28,8 @@ app.use("/products", productsRoute);
 const cartRoute = require("./routes/cartRoutes");
 app.use("/carrito", cartRoute);
 
-//const favouritesRoute = require("./routes/favouritesRoute");
-//app.use("/favoritos", favouritesRoute);
+const favouritesRoute = require("./routes/favouritesRoute");
+app.use("/favoritos", favouritesRoute);
 
 //Sign Up & Log In
 const loginRoute = require("./routes/loginRoutes");

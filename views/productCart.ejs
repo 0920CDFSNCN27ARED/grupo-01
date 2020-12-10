@@ -41,13 +41,11 @@
             </div>
 
             <section id="products-section" class="display-flex-column align-center">
-                <%- include("partials/cart/article") %>
-
-                <%- include("partials/cart/article") %>
-
-                <%- include("partials/cart/article") %>
-
-                <%- include("partials/cart/article") %>
+                
+                <% for(let i = 0; i < products.length; i++) {%>
+                <%- include("partials/cart/article", {product: products[i]}) %>
+               <% } %>
+               
             </section>
 
             <section id="section-buy" class="display-flex-column bold">
