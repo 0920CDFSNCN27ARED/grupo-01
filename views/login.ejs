@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include("./partials/head.ejs") %>
+    <head>
+        <%- include("./partials/head.ejs") %>
+
+        <title>LOG IN | Winderful</title>
+    </head>
     <body>
         <%- include("./partials/header.ejs") %>
         <main class="login-main">
@@ -27,7 +31,7 @@
                 </form>
             </section>
         </main>
-        <%- include("./partials/footer.ejs") %>
+
         <script>
             function openNav() {
                 document.getElementById("mySidebar").style.marginLeft = "270px";

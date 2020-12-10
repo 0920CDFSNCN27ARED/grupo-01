@@ -1,23 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="/css/product.css" />
-        <link rel="stylesheet" href="/css/style.css" />
-        <link rel="stylesheet" href="/css/cart.css" />
-        <title>Carrito de compras | WINDERFUL</title>
+        <%- include("./partials/head.ejs") %>
     </head>
 
-    <body >
+    <body>
         <%- include("partials/header") %>
 
         <main id="main" class="display-flex-column">
@@ -51,12 +38,13 @@
                 </nav>
             </div>
 
-            <section id="products-section" class="display-flex-column align-center">
-              <%- include("partials/cart/articleSaved") %>
-
-               <%- include("partials/cart/articleSaved") %>
-
-               <%- include("partials/cart/articleSaved") %>
+            <section
+                id="products-section"
+                class="display-flex-column align-center"
+            >
+                <%- include("partials/cart/articleSaved") %> <%-
+                include("partials/cart/articleSaved") %> <%-
+                include("partials/cart/articleSaved") %>
             </section>
 
             <section id="section-buy" class="display-flex-column bold">
@@ -92,8 +80,8 @@
             </section>
         </main>
 
-             <%- include("partials/footer") %>
-        
+        <%- include("partials/footer") %>
+
         <script>
             function openNav() {
                 document.getElementById("mySidebar").style.marginLeft = "270px";
