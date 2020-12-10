@@ -7,7 +7,7 @@
             alt="wineProduct"
         />
         <p class= "width-100 font-size-075 align-center">
-            Luigi Bosca Malbec 750
+            <%= product.brand %>
         </p>
         <div id="display-table">
             <i class="fas fa-clipboard"></i>
@@ -17,8 +17,9 @@
                 class="quantity-box"
                 type="number"
                 placeholder="1"
+                min="0"
             />
-            <p class="self-end bold">$350</p>
+            <p class="self-end bold"><%= product.price %> </p>
         </div>
     </div>
 
