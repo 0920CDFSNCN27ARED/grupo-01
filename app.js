@@ -11,6 +11,7 @@ app.use(staticFileRouter);
 
 // Setting ejs
 app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, 'views'));
 
 //home
 const indexRoute = require("./routes/indexRoutes");
