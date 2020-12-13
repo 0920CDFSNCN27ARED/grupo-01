@@ -376,6 +376,17 @@ form.form button {
     padding: 10px 0;
 }
 /*fin registro login*/
+
+/* Nuevo producto */
+.reveal {
+    display: none;
+}
+
+.form-newProduct {
+    width: 79%;
+    padding: 15px;
+}
+/* Fin Nuevo producto */
 /*tablet*/
 
 @media (min-width: 500px) {
@@ -552,12 +563,24 @@ form.form button {
         align-items: center;
     }
 
-    section.form {
+    section.form-register-login {
         width: 50%;
     }
 
-    section.form-main {
+    .signup-main .form-register-login {
         margin-left: 40%;
+    }
+    .form-newProduct {
+        width: 80%;
+    }
+
+    .main-newProduct {
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        padding: 15px;
+    }
+    .reveal {
+        display: block;
     }
 }
 
@@ -598,5 +621,9 @@ form.form button {
         display: grid;
         justify-content: center;
         grid-template-rows: 50px 50px 50px;
+    }
+
+    .form-newProduct {
+        width: 85%;
     }
 }
