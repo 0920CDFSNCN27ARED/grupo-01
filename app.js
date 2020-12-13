@@ -21,8 +21,6 @@ app.use("/", indexRoute);
 const productDetailRoute = require("./routes/productDetailRoutes");
 app.use("/productDetail", productDetailRoute);
 
-const newProductRoute = require("./routes/newProductRoutes");
-app.use("/nuevoProducto", newProductRoute);
 
 const productsRoute = require("./routes/productsRoutes");
 app.use("/products", productsRoute);

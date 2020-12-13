@@ -1,18 +1,20 @@
 [
     {
-        "brand": "marca",
-        "model": "modelo",
+        "name": "marca",
+        "description": "modelo",
         "price": 500,
         "discount": 0,
         "id": 1,
-        "logo": "/images/Vino-x-prueba.png"
+        "image": "/images/Vino-x-prueba.png",
+        "category": "in-sale"
     },
     {
-        "brand": "marca",
-        "model": "modelo",
+        "name": "marca",
+        "description": "modelo",
         "price": 200,
         "discount": 0,
         "id": 1,
-        "logo": "/images/Vino-x-prueba.png"
+        "image": "/images/Vino-x-prueba.png",
+        "category": "in-sale"
     }
 ]

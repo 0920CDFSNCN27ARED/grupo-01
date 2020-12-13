@@ -1,6 +1,6 @@
 const favouritesController = {
     showFavourites: (req, res) => {
-        res.render("favourites");
+        res.render("products/favourites");
     },
 };
 

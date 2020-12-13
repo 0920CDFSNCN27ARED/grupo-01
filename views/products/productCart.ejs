@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <%- include("partials/head", {title: "Guardados | WINDERFUL"})%>
-
+        <%- include("../partials/head", {title: "Carrito | WINDERFUL"})%>
         <link rel="stylesheet" href="/css/cart.css" />
+       
     </head>
 
     <body>
-        <%- include("partials/header") %>
+        <%- include("../partials/header")%>
 
         <main id="main" class="display-flex-column">
             <div id="nav-container" class="display-flex">
@@ -27,12 +27,12 @@
 
                     <ul class="display-flex font-size-11 display-md">
                         <li>
-                            <a href="/carrito">
+                            <a class="bold" href="/carrito">
                                 Carrito <i class="fas fa-shopping-cart"></i> (2)
                             </a>
                         </li>
                         <li>
-                            <a class="bold" href="/carrito/guardados"
+                            <a href="/carrito/guardados"
                                 >Guardados <i class="fas fa-archive"></i> (2)
                             </a>
                         </li>
@@ -40,13 +40,14 @@
                 </nav>
             </div>
 
-            <section
-                id="products-section"
-                class="display-flex-column align-center"
-            >
-                <%- include("partials/cart/articleSaved") %> <%-
-                include("partials/cart/articleSaved") %> <%-
-                include("partials/cart/articleSaved") %>
+
+            <section id="products-section" class="display-flex-column align-center">
+                
+                <% for(let i = 0; i < products.length; i++) {%>
+                <%- include("../partials/cart/article", {product: products[i]}) %>
+               <% } %>
+               
+
             </section>
 
             <section id="section-buy" class="display-flex-column bold">
@@ -59,7 +60,7 @@
                         class="submit-button-specs final-price"
                         type="submit"
                     >
-                        Llevar todo al carrito
+                        Comprar <i class="fas fa-wine-bottle"></i>
                     </button>
                 </div>
             </section>
@@ -70,7 +71,7 @@
                     <div class="background-text"></div>
                     <h2 class="wine">VINOS QUE PODRIAN GUSTARTE</h2>
                 </div>
-                <%- include("partials/slideshowSection") %>
+                <%- include("../partials/slideshowSection") %>
             </section>
             <section class="top-marg-5">
                 <div class="subtitle bestSeller">
@@ -78,12 +79,11 @@
                     <div class="background-similar-wine"></div>
                     <h2 class="wine">BODEGAS CERCA TUYO</h2>
                 </div>
-                <%- include("partials/slideshowSection") %>
+                <%- include("../partials/slideshowSection") %>
             </section>
         </main>
 
-        <%- include("partials/footer") %>
-
+        <%- include("../partials/footer") %>
         <script>
             function openNav() {
                 document.getElementById("mySidebar").style.marginLeft = "270px";

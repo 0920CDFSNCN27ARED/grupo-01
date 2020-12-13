@@ -361,6 +361,12 @@ form.form input {
     padding: 5px;
     border: 1px solid black;
 }
+form.form select{
+    margin-bottom: 15px;
+    font-size: 18px;
+    padding: 5px;
+    border: 1px solid black;
+}
 
 form.form a {
     text-align: center;

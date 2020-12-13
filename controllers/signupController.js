@@ -1,6 +1,6 @@
 const signupController = {
     showSignup: (req, res) => {
-        res.render("signup");
+        res.render("users/signup");
     },
 };
 

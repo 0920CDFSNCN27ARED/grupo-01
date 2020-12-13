@@ -12,11 +12,11 @@ return JSON.parse(productsJSON)
 const cartController={
 showCart: (req, res) => {
 const products = getCartProducts()
-res.render("productCart", {products:products});
+res.render("products/productCart", {products:products});
 },
 
 showSaved:(req, res) => {
-    res.render("savedProducts");
+    res.render("products/savedProducts");
 }
 
 }
