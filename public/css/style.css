@@ -338,7 +338,7 @@ section.values {
     padding: 20px;
 }
 
-section.form {
+section.form-register-login {
     border-radius: 10px;
     box-shadow: 0px 0px 3px 2px lightgrey;
     margin: 30px 15px;
@@ -361,7 +361,7 @@ form.form input {
     padding: 5px;
     border: 1px solid black;
 }
-form.form select{
+form.form select {
     margin-bottom: 15px;
     font-size: 18px;
     padding: 5px;
