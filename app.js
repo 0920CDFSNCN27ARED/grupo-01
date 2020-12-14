@@ -11,7 +11,7 @@ app.use(staticFileRouter);
 
 // Setting ejs
 app.set("view engine", "ejs");
-app.set('views', path.join(__dirname, 'views'));
+app.set("views", path.join(__dirname, "views"));
 
 //home
 const indexRoute = require("./routes/indexRoutes");
@@ -19,11 +19,12 @@ app.use("/", indexRoute);
 
 //product
 const productDetailRoute = require("./routes/productDetailRoutes");
-app.use("/productDetail", productDetailRoute);
-
+app.use("/detalleProducto", productDetailRoute);
 
 const productsRoute = require("./routes/productsRoutes");
-app.use("/products", productsRoute);
+app.use("/productos", productsRoute);
+app.use("/editarProducto", productsRoute);
+app.use("/nuevoProducto", productsRoute);
 
 // Cart routes (gabi)
 
