@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <%- include("./partials/head.ejs") %>
+        <%- include("../partials/head.ejs") %>
 
         <title>EDITAR PRODUCTO | Winderful</title>
     </head>
     <body>
-        <%- include("./partials/header.ejs") %>
+        <%- include("../partials/header.ejs") %>
         <main class="main-newProduct">
             <section class="reveal">
                 <p>aca se va cargando lo que pone la persona</p>
@@ -38,12 +38,12 @@
                         <option value="">1</option>
                     </select>
 
-                    <label for="productQuantity">Categoría</label>
-                    <select name="productQuantity" id="productQuantity">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                    </select>
+                    <label for="productQuantity">Cantidad</label>
+                    <input
+                        type="number"
+                        name="productQuantity"
+                        id="productQuantity"
+                    />
 
                     <label for="productPrice">Precio</label>
                     <input
@@ -52,10 +52,12 @@
                         id="productPrice"
                     />
 
-                    <button type="submit" class="button">Crear producto</button>
+                    <button type="submit" class="button">
+                        Editar producto
+                    </button>
                 </form>
             </section>
         </main>
-        <%- include("./partials/footer.ejs") %>
+        <%- include("../partials/footer.ejs") %>
     </body>
 </html>

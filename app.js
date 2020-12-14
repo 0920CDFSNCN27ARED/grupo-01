@@ -23,8 +23,7 @@ app.use("/detalleProducto", productDetailRoute);
 
 const productsRoute = require("./routes/productsRoutes");
 app.use("/productos", productsRoute);
-app.use("/editarProducto", productsRoute);
-app.use("/nuevoProducto", productsRoute);
+
 
 // Cart routes (gabi)
 
