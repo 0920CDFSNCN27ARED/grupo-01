@@ -149,8 +149,7 @@ body {
 
 .prod {
     display: grid;
-    grid-template-rows: auto 300px 0 auto;
-    width: 100%;
+    grid-template-rows: 300px auto auto;
     scroll-snap-align: start;
 }
 
@@ -165,11 +164,8 @@ body {
     cursor: pointer;
 }
 
-.prod-love-box i {
-    position: relative;
-    left: 80%;
-    top: 50px;
-    font-size: 30px;
+.love {
+    font-size: 20px;
     color: #748ac4;
 }
 
@@ -177,23 +173,31 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
 }
 
 .prod-img-box img {
     width: 80%;
 }
 
+.prod-name-box {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
 .prod-name-box p {
-    position: relative;
-    left: 15px;
-    bottom: 50px;
+    padding-left: 15px;
 }
 
 .prod-price-cart-box {
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    padding: 10px;
+    grid-template-rows: auto auto;
+    margin-bottom: 10px;
+}
+
+.prod-price-cart-box p {
+    padding-left: 15px;
+    margin: 10px 0;
 }
 
 .prod-price-cart-box button,
@@ -203,12 +207,13 @@ body {
     border: 0;
     border-radius: 5px;
     font-size: 19px;
+    padding: 10px 5px;
+    margin: 0 15px;
 }
 
 .subtitle {
     padding-left: 15px;
     display: grid;
-    grid-template-rows: 0 auto;
 }
 
 .background-text {
@@ -348,7 +353,6 @@ section.form-register-login {
 
 form.form {
     display: grid;
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
 }
 
 form.form label {
@@ -393,9 +397,43 @@ form.form button {
     padding: 15px;
 }
 /* Fin Nuevo producto */
+/*prods*/
+.showAll {
+    display: grid;
+}
+
+.hand {
+    width: 20%;
+    text-align: left;
+    position: absolute;
+    left: -5px;
+    top: 130px;
+}
+
+.wine {
+    padding-left: 24px;
+    font-size: 22px;
+}
 /*tablet*/
 
 @media (min-width: 500px) {
+    .wine {
+        padding-left: 50px;
+    }
+    .hand {
+        width: 20%;
+        position: absolute;
+        left: -10px;
+        top: 180px;
+    }
+    .prod-name-box {
+        margin-top: 15px;
+    }
+    .showAll {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
     .prod-container {
         display: grid;
         grid-template-rows: auto;
@@ -446,6 +484,20 @@ form.form button {
 /*tablet*/
 
 @media (min-width: 750px) {
+    .wine {
+        padding-left: 60px;
+    }
+    .hand {
+        width: 15%;
+        position: absolute;
+        left: -10px;
+        top: 160px;
+    }
+
+    .showAll {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
     .under-nav {
         display: none;
     }
@@ -538,8 +590,7 @@ form.form button {
 
     .prod {
         display: grid;
-        grid-template-rows: auto auto 0 auto;
-        width: 100%;
+        grid-template-rows: auto auto auto auto;
     }
 
     section.values {
@@ -593,6 +644,20 @@ form.form button {
 /*desktop*/
 
 @media (min-width: 1000px) {
+    .wine {
+        padding-left: 75px;
+    }
+    .hand {
+        width: 10%;
+        position: absolute;
+        left: -10px;
+        top: 230px;
+    }
+
+    .showAll {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
     .slideshow {
         display: grid;
         grid-template-rows: 500px;

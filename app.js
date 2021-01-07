@@ -17,16 +17,11 @@ app.set("views", path.join(__dirname, "views"));
 const indexRoute = require("./routes/indexRoutes");
 app.use("/", indexRoute);
 
-//product
-const productDetailRoute = require("./routes/productDetailRoutes");
-app.use("/detalleProducto", productDetailRoute);
-
+//prods
 const productsRoute = require("./routes/productsRoutes");
 app.use("/productos", productsRoute);
 
-
 // Cart routes (gabi)
-
 const cartRoute = require("./routes/cartRoutes");
 app.use("/carrito", cartRoute);
 

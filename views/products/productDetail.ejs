@@ -1,219 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-     <%- include("../partials/head.ejs", {title:"Detalle del producto"}) %>
-
+    <head>
+        <%- include("../partials/head.ejs", {title:"Detalle del producto"}) %>
+        <link rel="stylesheet" href="/css/product2.css" />
         <title>PRODUCT | Winderful</title>
     </head>
     <body class="body-index">
-        <%- include("../partials/header.ejs")  %> 
-     <main>
-            
-           <div class="display">
-                <ul class=" list-style">
-                  <li ><img class="product zoom"
-                      src="images\botella-de-vino.png"
-                    
-                      alt="botella de vino"/>
-                  </li>
-                  <li><h1 class="subtitle-wine BestSeller background-winetext">Ver Sacrum - Monastrell</h1>
-                  </li>
-                  <li><h2 class="price">$1200</h2>
-                  </li>
-                  <li>
-                    <input class="quantity-box" type="number" placeholder="1" />
-                  </li>
-                  <li >
-                    <a href="/favoritos"></a><i class="fas fa-heart favourite-button"></i>
-                  </li>
-                  <li>
-                    <a href="/carrito"></a><i class="fas fa-shopping-cart cart-button" ></i>
-                  </li>
-                </ul>
-                
-       
-        <table class="font-description description">
-            <tbody>
-                <tr>
-                    <td>AÑADA:</td>
-                    <td class="data">1993</td>
-                </tr>
-
-                <tr>
-                    <td>UVA:</td>
-                    <td class="data">MERLOT</td>
-                </tr>
-
-                <tr>
-                    <td>PAIS:</td>
-                    <td class="data">ARGENTINA</td>
-                </tr>
-
-                <tr>
-                    <td>ZONA:</td>
-                    <td class="data">LOS CHACAYES</td>
-                </tr>
-
-                <tr>
-                    <td>PRODUCTOR:</td>
-                    <td class="data">VER SACRUM</td>
-                </tr>
-
-                <tr>
-                    <td>VISTA:</td>
-                    <td class="data">COLOR RUBI INTENSO</td>
-                </tr>
-
-                <tr>
-                    <td>AROMAS:</td>
-                    <td class="data">CEREZAS, PIMIENTA, FLORES BLANCAS</td>
-                </tr>
-
-                <tr>
-                    <td>SABORES:</td>
-                    <td class="data">FRUTAS ROJAS</td>
-                </tr>
-
-                <tr>
-                    <td>TEMPERATURA:</td>
-                    <td class="data">15º A 17º</td>
-                </tr>
-
-                <tr>
-                    <td>GUARDA:</td>
-                    <td class="data">10 AÑOS</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <span class="food">
-            <h1 class="food-mix ">COMBINA BIEN CON:</h1>
-             <ul class="list-food-mix">
-                 <li class="list-food-mix-background"><i class="fas fa-drumstick-bite"></i>CARNES</li>
-                 <li class="list-food-mix-background"><i class="fas fa-carrot"></i>VEGETALES</li>
-                 <li class= "list-food-mix-background"><i class="fas fa-pepper-hot"></i>PICANTES</li>
-             </ul>
-
-            </span>
-       </section>
-      
-
-        <section>
-            <div>
-                <img
-                    class="animation"
-                    src="images\grafico-animado.png"
-                    width="300"
-                    alt="botella de vino"
-                />
-            </div>
-        </section>
-     </main>
-        <div class="subtitle bestSeller">
-                <div class="background-similar-wine"></div>
-                <h2>Vinos similares al que estás buscando</h2>
-            </div>
-            <section class="slideshow-prod">
-                <div class="previous">
-                    <i class="fas fa-angle-left arrow"></i>
+        <%- include("../partials/header.ejs") %>
+        <main>
+            <section class="display-box">
+                <div class="mobile">
+                    <h2 class="subtitle-wine">
+                        <%= product.product_name %>
+                        <a href="/favoritos"
+                            ><i class="fas fa-heart favourite-button"></i
+                        ></a>
+                    </h2>
                 </div>
-                <div class="prod-container">
-                    <article class="prod">
-                        <div class="prod-love-box">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="prod-img-box">
-                            <img
-                                src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/t/o/tolentino_malbec.png"
-                                alt="Vino tinto"
-                            />
-                        </div>
-                        <div class="prod-name-box">
-                            <p>name</p>
-                        </div>
-                        <div class="prod-price-cart-box">
-                            <p>$XXXX</p>
-                            <button>
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </article>
-                    <article class="prod">
-                        <div class="prod-love-box">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="prod-img-box">
-                            <img
-                                src="https://www.lariojanawinestore.com.ar/IMG/arton53.png?1551447194"
-                                alt="Vino tinto"
-                            />
-                        </div>
-                        <div class="prod-name-box">
-                            <p>name</p>
-                        </div>
-                        <div class="prod-price-cart-box">
-                            <p>$XXXX</p>
-                            <button>
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </article>
-                    <article class="prod">
-                        <div class="prod-love-box">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="prod-img-box">
-                            <img
-                                src="https://www.storedevinos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/c/o/coleccion_blend_1200.png"
-                                alt="Vino tinto"
-                            />
-                        </div>
-                        <div class="prod-name-box">
-                            <p>name</p>
-                        </div>
-                        <div class="prod-price-cart-box">
-                            <p>$XXXX</p>
-                            <button>
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </article>
-                    <article class="prod">
-                        <div class="prod-love-box">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="prod-img-box">
-                            <img
-                                src="https://media-verticommnetwork1.netdna-ssl.com/wines/catena-zapata-malbec-appellations-vista-flores-1683148-s732.png"
-                                alt="Vino tinto"
-                            />
-                        </div>
-                        <div class="prod-name-box">
-                            <p>name</p>
-                        </div>
-                        <div class="prod-price-cart-box">
-                            <p>$XXXX</p>
-                            <button>
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </article>
+                <div class="product">
+                    <img src="<%= product.image %>" alt="botella de vino" />
                 </div>
-                <div class="next">
-                    <i class="fas fa-angle-right arrow"></i>
+                <div>
+                    <h2 class="desktop subtitle-wine">
+                        <%= product.product_name %>
+                        <a href="/favoritos"
+                            ><i class="fas fa-heart favourite-button"></i
+                        ></a>
+                    </h2>
+                    <h2 class="price"><%= product.price %></h2>
+                    <form action="" class="buying">
+                        <div class="quantity-box">
+                            <label for="quantity">Cantidad</label>
+                            <input
+                                type="number"
+                                name="quantity"
+                                id="quantity"
+                                value="1"
+                            />
+                        </div>
+                        <button class="button">
+                            Agregar al carrito
+                            <i class="fas fa-shopping-cart cart-button"></i>
+                        </button>
+                    </form>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ad ducimus iste pariatur animi, laboriosam nostrum
+                        deserunt laborum quasi sed ratione nobis necessitatibus
+                        quisquam aut distinctio nesciunt ex odit temporibus vel.
+                    </p>
                 </div>
             </section>
+            <div class="specific-suggest">
+                <section class="specific">
+                    <div id="colpase" class="colapse">
+                        <p>ESPECIFICACIONES</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+
+                    <div id="inside" class="font-description description">
+                        <div>
+                            <p>AÑADA:</p>
+                            <p class="data"><%= product.year %></p>
+                        </div>
+                        <div>
+                            <p>UVA:</p>
+                            <p class="data">MERLOT</p>
+                        </div>
+                        <div>
+                            <p>PAIS:</p>
+                            <p class="data"><%= product.country %></p>
+                        </div>
+                        <div>
+                            <p>ZONA:</p>
+                            <p class="data"><%= product.region %></p>
+                        </div>
+                        <div>
+                            <p>BODEGA:</p>
+                            <p class="data">MERLOT</p>
+                        </div>
+                        <div>
+                            <p>VISTA:</p>
+                            <p class="data"><%= product.view %></p>
+                        </div>
+                        <div>
+                            <p>AROMAS:</p>
+                            <p class="data"><%= product.smell %></p>
+                        </div>
+                        <div>
+                            <p>SABORES:</p>
+                            <p class="data"><%= product.taste %></p>
+                        </div>
+                        <div>
+                            <p>TEMPERATURA:</p>
+                            <p class="data"><%= product.temperature %></p>
+                        </div>
+                        <div>
+                            <p>GUARDA:</p>
+                            <p class="data"><%= product.aged %></p>
+                        </div>
+                    </div>
+
+                    <div class="colapse">
+                        <p>RESEÑAS</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </section>
+                <section class="suggest"></section>
+            </div>
         </main>
-         <%- include("../partials/footer.ejs") %> 
-        </section>
+        <%- include("../partials/footer.ejs") %>
         <script>
             function openNav() {
-              document.getElementById("mySidebar").style.marginLeft = "270px";
+                document.getElementById("mySidebar").style.marginLeft = "270px";
             }
-      
+
             function closeNav() {
-              document.getElementById("mySidebar").style.marginLeft = "0";
+                document.getElementById("mySidebar").style.marginLeft = "0";
             }
-          </script>
+        </script>
     </body>
 </html>

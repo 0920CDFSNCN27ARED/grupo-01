@@ -19,11 +19,48 @@
                     <label for="productDescription"
                         >Descripción del producto</label
                     >
-                    <input
-                        type="text"
+                    <textarea
                         name="productDescription"
                         id="productDescription"
+                        cols="30"
+                        rows="10"
+                    ></textarea>
+
+                    <label for="productYear">Añada</label>
+                    <input type="number" name="productYear" id="productYear" />
+
+                    <label for="productCountry">País</label>
+                    <select name="productCountry" id="productCountry">
+                        <option value="">1</option>
+                        <option value="">1</option>
+                    </select>
+
+                    <label for="productRegion">Region</label>
+                    <select name="productRegion" id="productRegion">
+                        <option value="">1</option>
+                        <option value="">1</option>
+                    </select>
+
+                    <label for="productView">A la vista</label>
+                    <input type="text" name="productView" id="productView" />
+
+                    <label for="productSmell">Aromas</label>
+                    <input type="text" name="productSmell" id="productSmell" />
+
+                    <label for="productTaste">Sabor en boca</label>
+                    <input type="text" name="productTaste" id="productTaste" />
+
+                    <label for="productTemperature"
+                        >Temperatura de servicio</label
+                    >
+                    <input
+                        type="number"
+                        name="productTemperature"
+                        id="productTemperature"
                     />
+
+                    <label for="productAged">Años de guarda</label>
+                    <input type="number" name="productAged" id="productAged" />
 
                     <label for="productPicture">Foto del producto</label>
                     <input
@@ -31,25 +68,25 @@
                         name="productPicture"
                         id="productPicture"
                     />
+                    <label for="productPrice">Precio</label>
+                    <input
+                        type="number"
+                        name="productPrice"
+                        id="productPrice"
+                    />
 
-                    <label for="productCategory">Categoría</label>
-                    <select name="productCategory" id="productCategory">
-                        <option value="">1</option>
-                        <option value="">1</option>
-                    </select>
-
-                    <label for="productQuantity">Cantidad</label>
+                    <label for="productQuantity">Stock</label>
                     <input
                         type="number"
                         name="productQuantity"
                         id="productQuantity"
                     />
 
-                    <label for="productPrice">Precio</label>
+                    <label for="productPairing">Marida bien con:</label>
                     <input
-                        type="number"
-                        name="productPrice"
-                        id="productPrice"
+                        type="text"
+                        name="productPairing"
+                        id="productPairing"
                     />
 
                     <button type="submit" class="button">Crear producto</button>
