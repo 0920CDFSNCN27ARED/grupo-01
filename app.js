@@ -9,6 +9,10 @@ app.listen(3000, () => {
 const staticFileRouter = express.static("public");
 app.use(staticFileRouter);
 
+//POST PROCESSING
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+
 // Setting ejs
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));

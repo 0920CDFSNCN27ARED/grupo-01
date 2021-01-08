@@ -1,4 +1,7 @@
 const getProducts = require("../utils/getProducts");
+const saveProducts = require("../utils/saveDbChanges");
+
+
 
 const productsController = {
     showAll: (req, res) => {
@@ -12,7 +15,7 @@ const productsController = {
         const requiredProduct = products.find((prod) => {
             return prod.id == req.params.id;
         });
-        if (requiredProduct == null) {
+        if (requiredProduct == undefined) {
             return res
                 .status(404)
                 .send("404 not found. <br> ¡Houston, poseemos problemas!");
@@ -24,6 +27,18 @@ const productsController = {
     },
     newProduct: (req, res) => {
         res.render("products/newProduct");
+    },
+    createProduct: (req,res)=>{
+        const products = getProducts();
+
+
+        const newProduct = req.body;
+        const id = products[products.length - 1].id;
+        newProduct.id = id + 1;
+
+        products.push(newProduct);
+        saveProducts("products.json",products);
+        res.redirect("/productos")
     },
     editProduct: (req, res) => {
         res.render("products/editProduct");
