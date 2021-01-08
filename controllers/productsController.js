@@ -30,15 +30,16 @@ const productsController = {
     },
     createProduct: (req,res)=>{
         const products = getProducts();
-
-
-        const newProduct = req.body;
+        
+        
+        const newProduct = {productName,productDescription,productYear,productCountry,productRegion,productView,productSmell,productTaste,productTemperature,productAged,productPrice,productQuantity,productPairing} = req.body;
         const id = products[products.length - 1].id;
         newProduct.id = id + 1;
+        newProduct.image = req.file.filename;
 
         products.push(newProduct);
         saveProducts("products.json",products);
-        res.redirect("/productos")
+        res.redirect(`/productos/${newProduct.id}`)
     },
     editProduct: (req, res) => {
         res.render("products/editProduct");

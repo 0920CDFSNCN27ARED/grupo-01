@@ -12,50 +12,50 @@
                 <p>aca se va cargando lo que pone la persona</p>
             </section>
             <section class="form form-newProduct">
-                <form action="/productos/crear" method="POST" class="form">
+                <form action="/productos/crear" method="POST" enctype="multipart/form-data" class="form">
                     <label for="productName">Nombre del producto</label>
-                    <input type="text" name="productName" id="productName" />
+                    <input type="text" name="product_name" id="productName" />
 
                     <label for="productDescription"
                         >Descripción del producto</label
                     >
                     <textarea
-                        name="productDescription"
+                        name="description"
                         id="productDescription"
                         cols="30"
                         rows="10"
                     ></textarea>
 
                     <label for="productYear">Añada</label>
-                    <input type="number" name="productYear" id="productYear" />
+                    <input type="number" name="year" id="productYear" />
 
                     <label for="productCountry">País</label>
-                    <select name="productCountry" id="productCountry">
+                    <select name="country" id="productCountry">
                         <option value="">1</option>
                         <option value="">1</option>
                     </select>
 
                     <label for="productRegion">Region</label>
-                    <select name="productRegion" id="productRegion">
+                    <select name="region" id="productRegion">
                         <option value="">1</option>
                         <option value="">1</option>
                     </select>
 
                     <label for="productView">A la vista</label>
-                    <input type="text" name="productView" id="productView" />
+                    <input type="text" name="view" id="productView" />
 
                     <label for="productSmell">Aromas</label>
-                    <input type="text" name="productSmell" id="productSmell" />
+                    <input type="text" name="smell" id="productSmell" />
 
                     <label for="productTaste">Sabor en boca</label>
-                    <input type="text" name="productTaste" id="productTaste" />
+                    <input type="text" name="taste" id="productTaste" />
 
                     <label for="productTemperature"
                         >Temperatura de servicio</label
                     >
                     <input
                         type="number"
-                        name="productTemperature"
+                        name="temperature"
                         id="productTemperature"
                     />
 
@@ -65,27 +65,27 @@
                     <label for="productPicture">Foto del producto</label>
                     <input
                         type="file"
-                        name="productPicture"
+                        name="image"
                         id="productPicture"
                     />
                     <label for="productPrice">Precio</label>
                     <input
                         type="number"
-                        name="productPrice"
+                        name="price"
                         id="productPrice"
                     />
 
                     <label for="productQuantity">Stock</label>
                     <input
                         type="number"
-                        name="productQuantity"
+                        name="stock"
                         id="productQuantity"
                     />
 
                     <label for="productPairing">Marida bien con:</label>
                     <input
                         type="text"
-                        name="productPairing"
+                        name="pairing"
                         id="productPairing"
                     />
 
