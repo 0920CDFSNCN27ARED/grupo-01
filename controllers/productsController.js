@@ -32,22 +32,18 @@ const productsController = {
 
         const newProduct = ({
             productName,
-            productDescription,
-            productYear,
-            productCountry,
-            productRegion,
-            productView,
-            productSmell,
-            productTaste,
-            productTemperature,
-            productAged,
-            productPrice,
-            productQuantity,
-            productPairing,
+            description,
+            grape,
+            year,
+            temperature,
+            aged,
+            price,
+            stock,
+            pairing,
         } = req.body);
+        newProduct.image = req.file.filename;
         const id = products[products.length - 1].id;
         newProduct.id = id + 1;
-        newProduct.image = req.file.filename;
 
         products.push(newProduct);
         saveProducts("products.json", products);
@@ -62,7 +58,8 @@ const productsController = {
         const searchedWords = searched.split(" ");
 
         let wordMatch;
-        const matchedProducts = products.filter((product) => {
+
+        matchedProducts = products.filter((product) => {
             wordMatch = searchedWords.find((word) => {
                 return product.product_name
                     .toLowerCase()
@@ -70,7 +67,7 @@ const productsController = {
             });
             return wordMatch;
         });
-        
+
         if (matchedProducts.length == 0) {
             res.render("products/products", {
                 products: products,

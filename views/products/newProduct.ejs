@@ -12,44 +12,26 @@
                 <p>aca se va cargando lo que pone la persona</p>
             </section>
             <section class="form form-newProduct">
-                <form action="/productos/crear" method="POST" enctype="multipart/form-data" class="form">
-                    <label for="productName">Nombre del producto</label>
+                <form
+                    action="/productos/crear"
+                    method="POST"
+                    enctype="multipart/form-data"
+                    class="form"
+                >
+                    <label for="productName">Nombre del vino</label>
                     <input type="text" name="product_name" id="productName" />
-
-                    <label for="productDescription"
-                        >Descripción del producto</label
-                    >
+                    <label for="productDescription">Descripción</label>
                     <textarea
                         name="description"
                         id="productDescription"
                         cols="30"
                         rows="10"
+                        placeholder="Agregue detalles que se aprecien a la vista, olores y sabores en boca."
                     ></textarea>
-
+                    <label for="productGrape">Varietal </label>
+                    <input type="text" name="grape" id="productGrape" />
                     <label for="productYear">Añada</label>
                     <input type="number" name="year" id="productYear" />
-
-                    <label for="productCountry">País</label>
-                    <select name="country" id="productCountry">
-                        <option value="">1</option>
-                        <option value="">1</option>
-                    </select>
-
-                    <label for="productRegion">Region</label>
-                    <select name="region" id="productRegion">
-                        <option value="">1</option>
-                        <option value="">1</option>
-                    </select>
-
-                    <label for="productView">A la vista</label>
-                    <input type="text" name="view" id="productView" />
-
-                    <label for="productSmell">Aromas</label>
-                    <input type="text" name="smell" id="productSmell" />
-
-                    <label for="productTaste">Sabor en boca</label>
-                    <input type="text" name="taste" id="productTaste" />
-
                     <label for="productTemperature"
                         >Temperatura de servicio</label
                     >
@@ -58,9 +40,8 @@
                         name="temperature"
                         id="productTemperature"
                     />
-
-                    <label for="productAged">Años de guarda</label>
-                    <input type="number" name="productAged" id="productAged" />
+                    <label for="productAged">Crianza</label>
+                    <input type="number" name="aged" id="productAged" />
 
                     <label for="productPicture">Foto del producto</label>
                     <input
@@ -89,7 +70,9 @@
                         id="productPairing"
                     />
 
-                    <button type="submit" class="button">Crear producto</button>
+                    <button type="submit" class="button margin">
+                        Crear producto
+                    </button>
                 </form>
             </section>
         </main>

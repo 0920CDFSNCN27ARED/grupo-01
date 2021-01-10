@@ -236,5 +236,18 @@
     "pairing": "Carnes",
     "id": 14,
     "image": "06bc893bc2975d1f1f4fe3f92264186f"
+  },
+  {
+    "product_name": "Un vino de prueba",
+    "description": "Un vino de re prueba",
+    "grape": "asdf",
+    "year": "8",
+    "temperature": "12",
+    "aged": "7",
+    "price": "222",
+    "stock": "100",
+    "pairing": "Carnes",
+    "image": "943d696dd9a088379ea04f5960dc6d34",
+    "id": 15
   }
 ]

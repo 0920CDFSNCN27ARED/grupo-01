@@ -9,6 +9,9 @@ app.listen(3000, () => {
 const staticFileRouter = express.static("public");
 app.use(staticFileRouter);
 
+app.locals.matchedProducts = null;
+
+
 //POST PROCESSING
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());

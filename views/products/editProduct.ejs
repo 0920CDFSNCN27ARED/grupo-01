@@ -13,17 +13,30 @@
             </section>
             <section class="form form-newProduct">
                 <form action="" class="form">
-                    <label for="productName">Nombre del producto</label>
+                    <label for="productName">Nombre del vino</label>
                     <input type="text" name="productName" id="productName" />
-
-                    <label for="productDescription"
-                        >Descripción del producto</label
-                    >
-                    <input
-                        type="text"
+                    <label for="productDescription">Descripción</label>
+                    <textarea
                         name="productDescription"
                         id="productDescription"
+                        cols="30"
+                        rows="10"
+                        placeholder="Agregue detalles que se aprecien a la vista, olores y sabores en boca."
+                    ></textarea>
+                    <label for="productGrape">Varietal </label>
+                    <input type="text" name="productGrape" id="productGrape" />
+                    <label for="productYear">Añada</label>
+                    <input type="number" name="productYear" id="productYear" />
+                    <label for="productTemperature"
+                        >Temperatura de servicio</label
+                    >
+                    <input
+                        type="number"
+                        name="productTemperature"
+                        id="productTemperature"
                     />
+                    <label for="productAged">Crianza</label>
+                    <input type="number" name="productAged" id="productAged" />
 
                     <label for="productPicture">Foto del producto</label>
                     <input
@@ -31,20 +44,6 @@
                         name="productPicture"
                         id="productPicture"
                     />
-
-                    <label for="productCategory">Categoría</label>
-                    <select name="productCategory" id="productCategory">
-                        <option value="">1</option>
-                        <option value="">1</option>
-                    </select>
-
-                    <label for="productQuantity">Cantidad</label>
-                    <input
-                        type="number"
-                        name="productQuantity"
-                        id="productQuantity"
-                    />
-
                     <label for="productPrice">Precio</label>
                     <input
                         type="number"
@@ -52,8 +51,22 @@
                         id="productPrice"
                     />
 
-                    <button type="submit" class="button">
-                        Editar producto
+                    <label for="productQuantity">Stock</label>
+                    <input
+                        type="number"
+                        name="productQuantity"
+                        id="productQuantity"
+                    />
+
+                    <label for="productPairing">Marida bien con:</label>
+                    <input
+                        type="text"
+                        name="productPairing"
+                        id="productPairing"
+                    />
+
+                    <button type="submit" class="button margin">
+                        Crear producto
                     </button>
                 </form>
             </section>

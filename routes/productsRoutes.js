@@ -14,4 +14,3 @@ router.get("/:id", productsController.showOne);
 router.get("/:id/edit", productsController.editProduct);
 
 module.exports = router;
-//
