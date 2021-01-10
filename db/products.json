@@ -236,5 +236,22 @@
     "pairing": "Carnes",
     "id": 14,
     "image": "06bc893bc2975d1f1f4fe3f92264186f"
+  },
+  {
+    "product_name": "Clos de los Siete",
+    "description": "",
+    "year": "1994",
+    "country": "",
+    "region": "",
+    "view": "",
+    "smell": "",
+    "taste": "",
+    "temperature": "",
+    "productAged": "",
+    "price": "",
+    "stock": "",
+    "pairing": "",
+    "id": 15,
+    "image": "fd0e28be879c70e33986c35e48d82ad0"
   }
 ]
