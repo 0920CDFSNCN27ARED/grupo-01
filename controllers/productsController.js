@@ -41,8 +41,8 @@ const productsController = {
             stock,
             pairing,
         } = req.body);
-        
-        if(req.file !== undefined){
+
+        if (req.file !== undefined) {
             newProduct.image = req.file.filename;
         }
         const id = products[products.length - 1].id;
@@ -53,11 +53,25 @@ const productsController = {
         res.redirect(`/productos/${newProduct.id}`);
     },
     editProduct: (req, res) => {
-        res.render("products/editProduct");
+        const products = getProducts();
+        const id = req.params.id;
+
+        const requiredProduct = products.find((product) => {
+            return product.id == id;
+        });
+        res.redirect("products/editProduct", { product: requiredProduct });
     },
 
     deleteProduct: (req, res) => {
-        res.render("products/products");
+        const products = getProducts();
+        const reqProductIndex = products.findIndex((product) => {
+            return product.id == id;
+        });
+
+        products.splice(reqProductIndex, 1);
+
+        saveDbChange(products);
+        res.redirect("/productos");
     },
 
     search: (req, res) => {

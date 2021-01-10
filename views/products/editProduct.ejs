@@ -66,10 +66,14 @@
                     />
 
                     <button type="submit" class="button margin">
-                        Crear producto
+                        Editar producto
                     </button>
                 </form>
-                <form class="form" method="POST" action="?_method=DELETE">
+                <form
+                    class="form"
+                    method="POST"
+                    action="/productos/<%= product.id%>/edit?_method=DELETE"
+                >
                     <button type="submit" class="button">
                         Borrar Producto
                     </button>
