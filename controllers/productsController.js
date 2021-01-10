@@ -41,7 +41,10 @@ const productsController = {
             stock,
             pairing,
         } = req.body);
-        newProduct.image = req.file.filename;
+        
+        if(req.file !== undefined){
+            newProduct.image = req.file.filename;
+        }
         const id = products[products.length - 1].id;
         newProduct.id = id + 1;
 
