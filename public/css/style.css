@@ -44,6 +44,10 @@ body {
     box-shadow: 0px 3px 10px 2px grey;
 }
 
+#search {
+    display: none;
+}
+
 .user-box {
     background-color: tomato;
 }
@@ -202,8 +206,8 @@ body {
 
 .prod-price-cart-box button,
 .button {
+    width: 100%;
     color: white;
-    background-color: #748ac4;
     border: 0;
     border-radius: 5px;
     font-size: 19px;
@@ -379,12 +383,6 @@ section.form h2 {
     margin-top: 10px;
 }
 
-form.form button {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    padding: 10px 0;
-}
 /*fin registro login*/
 
 /* Nuevo producto */
@@ -396,6 +394,22 @@ form.form button {
     width: 79%;
     padding: 15px;
 }
+.main-newProduct .form-newProduct {
+    width: 100%;
+}
+.save-erase-box {
+    padding-left: 0;
+}
+.erase {
+    color: white;
+    background-color: #d21f57;
+    border: 0;
+    border-radius: 5px;
+    font-size: 19px;
+    padding: 10px 5px;
+    margin: 0 15px;
+}
+
 /* Fin Nuevo producto */
 /*prods*/
 .showAll {
@@ -634,7 +648,6 @@ form.form button {
     .main-newProduct {
         display: grid;
         grid-template-columns: 1.25fr 1fr;
-        padding: 15px;
     }
     .reveal {
         display: block;
