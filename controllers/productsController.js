@@ -55,6 +55,11 @@ const productsController = {
     editProduct: (req, res) => {
         res.render("products/editProduct");
     },
+
+    deleteProduct: (req, res) => {
+        res.render("products/products");
+    },
+
     search: (req, res) => {
         const products = getProducts();
         const searched = req.query.search;
