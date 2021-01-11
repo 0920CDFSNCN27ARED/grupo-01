@@ -92,7 +92,15 @@ const productsController = {
     },
 
     deleteProduct: (req, res) => {
-        res.render("products/products");
+        const products = getProducts();
+        const reqProductIndex = products.findIndex((product) => {
+            return product.id == id;
+        });
+
+        products.splice(reqProductIndex, 1);
+
+        saveDbChange(products);
+        res.redirect("/productos");
     },
 
     search: (req, res) => {

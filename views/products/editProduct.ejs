@@ -97,14 +97,13 @@
                     />
 
                     <button type="submit" class="button create">
-                        Guardar cambios
+                        Editar producto
                     </button>
                 </form>
                 <form
-                    id="padding-erase"
                     class="form"
                     method="POST"
-                    action="?_method=DELETE"
+                    action="/productos/<%= product.id%>/edit?_method=DELETE"
                 >
                     <button type="submit" class="button erase">
                         Borrar Producto
