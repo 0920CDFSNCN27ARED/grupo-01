@@ -52,6 +52,7 @@ const productsController = {
         saveProducts("products.json", products);
         res.redirect(`/productos/${newProduct.id}`);
     },
+
     editProduct: (req, res) => {
         const products = getProducts();
         const requiredProduct = products.find((prod) => {
@@ -75,18 +76,18 @@ const productsController = {
 
         const filename = req.file ? req.file.filename : requiredProduct.image;
 
-        requiredProduct.product_name = req.body.productName;
-        requiredProduct.description = req.body.productDescription;
-        requiredProduct.grape = req.body.productGrape;
-        requiredProduct.year = req.body.productYear;
-        requiredProduct.temperature = req.body.productTemperature;
-        requiredProduct.aged = req.body.productAged;
-        requiredProduct.price = req.body.productPrice;
-        requiredProduct.stock = req.body.productQuantity;
-        requiredProduct.pairing = req.body.productPairing;
+        requiredProduct.product_name = req.body.product_name;
+        requiredProduct.description = req.body.description;
+        requiredProduct.grape = req.body.grape;
+        requiredProduct.year = req.body.year;
+        requiredProduct.temperature = req.body.temperature;
+        requiredProduct.aged = req.body.aged;
+        requiredProduct.price = req.body.price;
+        requiredProduct.stock = req.body.stock;
+        requiredProduct.pairing = req.body.pairing;
         requiredProduct.image = filename;
 
-        saveProducts(products);
+        saveProducts("products.json",products);
 
         res.redirect(`/productos/${req.params.id}`);
     },

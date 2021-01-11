@@ -13,7 +13,7 @@
             </section>
             <section class="form form-newProduct">
                 <form
-                    action="/productos/<%= product.id %>?_method=PUT"
+                    action="/productos/<%=product.id%>/editar?_method=PUT"
                     class="form"
                     method="POST"
                     enctype="multipart/form-data"
@@ -22,13 +22,13 @@
                     <input
                         value="<%= product.productName %>"
                         type="text"
-                        name="productName"
+                        name="product_name"
                         id="productName"
                     />
                     <label for="productDescription">Descripción</label>
                     <textarea
                         name="productDescription"
-                        id="productDescription"
+                        id="description"
                         cols="30"
                         rows="10"
                         placeholder="Agregue detalles que se aprecien a la vista, olores y sabores en boca."
@@ -38,14 +38,14 @@
                     <label for="productGrape">Varietal </label>
                     <input
                         type="text"
-                        name="productGrape"
+                        name="grape"
                         id="productGrape"
                         value="<%= product.grape %>"
                     />
                     <label for="productYear">Añada</label>
                     <input
                         type="number"
-                        name="productYear"
+                        name="year"
                         id="productYear"
                         value="<%= product.year %>"
                     />
@@ -54,14 +54,14 @@
                     >
                     <input
                         type="number"
-                        name="productTemperature"
+                        name="temperature"
                         id="productTemperature"
                         value="<%= product.temperature %>"
                     />
                     <label for="productAged">Crianza</label>
                     <input
                         type="number"
-                        name="productAged"
+                        name="aged"
                         id="productAged"
                         value="<%= product.aged %>"
                     />
@@ -69,13 +69,13 @@
                     <label for="productPicture">Foto del producto</label>
                     <input
                         type="file"
-                        name="productPicture"
+                        name="image"
                         id="productPicture"
                     />
                     <label for="productPrice">Precio</label>
                     <input
                         type="number"
-                        name="productPrice"
+                        name="price"
                         id="productPrice"
                         value="<%= product.price %>"
                     />
@@ -83,7 +83,7 @@
                     <label for="productQuantity">Stock</label>
                     <input
                         type="number"
-                        name="productQuantity"
+                        name="stock"
                         id="productQuantity"
                         value="<%= product.stock %>"
                     />
@@ -91,7 +91,7 @@
                     <label for="productPairing">Marida bien con:</label>
                     <input
                         type="text"
-                        name="productPairing"
+                        name="pairing"
                         id="productPairing"
                         value="<%= product.pairing %>"
                     />

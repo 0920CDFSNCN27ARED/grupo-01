@@ -12,6 +12,7 @@ router.get("/buscar", productsController.search);
 
 router.get("/:id", productsController.showOne);
 router.get("/:id/editar", productsController.editProduct);
+router.put("/:id/editar",upload.single("image"), productsController.edit);
 
 router.delete("/:id/edit", productsController.deleteProduct);
 
