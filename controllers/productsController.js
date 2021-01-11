@@ -87,7 +87,7 @@ const productsController = {
         requiredProduct.pairing = req.body.pairing;
         requiredProduct.image = filename;
 
-        saveProducts("products.json",products);
+        saveProducts("products.json", products);
 
         res.redirect(`/productos/${req.params.id}`);
     },
@@ -95,12 +95,12 @@ const productsController = {
     deleteProduct: (req, res) => {
         const products = getProducts();
         const reqProductIndex = products.findIndex((product) => {
-            return product.id == id;
+            return product.id == req.params.id;
         });
 
         products.splice(reqProductIndex, 1);
 
-        saveDbChange(products);
+        saveProducts("products.json", products);
         res.redirect("/productos");
     },
 

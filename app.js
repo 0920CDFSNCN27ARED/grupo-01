@@ -12,6 +12,7 @@ app.use(staticFileRouter);
 
 app.locals.matchedProducts = null;
 
+app.use(methodOverride("_method"));
 
 //POST PROCESSING
 app.use(express.urlencoded({ extended: false }));
@@ -21,6 +22,9 @@ app.use(express.json());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+//--------------------------------//
+
+// RUTAS //
 //home
 const indexRoute = require("./routes/indexRoutes");
 app.use("/", indexRoute);
@@ -28,7 +32,6 @@ app.use("/", indexRoute);
 //prods
 const productsRoute = require("./routes/productsRoutes");
 app.use("/productos", productsRoute);
-app.use(methodOverride("_method"));
 
 // Cart routes (gabi)
 const cartRoute = require("./routes/cartRoutes");
