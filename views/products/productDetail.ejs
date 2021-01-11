@@ -18,7 +18,7 @@
                     </h2>
                 </div>
                 <div class="product">
-                    <img src="/images/<%= product.image %>" alt="botella de vino" />
+                    <img src="<%= product.image %>" alt="botella de vino" />
                 </div>
                 <div>
                     <h2 class="desktop subtitle-wine">
@@ -27,7 +27,7 @@
                             ><i class="fas fa-heart favourite-button"></i
                         ></a>
                     </h2>
-                    <h2 class="price"><%= product.price %></h2>
+                    <h2 class="price">$<%= product.price %></h2>
                     <form action="" class="buying">
                         <div class="quantity-box">
                             <label for="quantity">Cantidad</label>
@@ -38,17 +38,12 @@
                                 value="1"
                             />
                         </div>
-                        <button class="button">
+                        <button class="button create">
                             Agregar al carrito
                             <i class="fas fa-shopping-cart cart-button"></i>
                         </button>
                     </form>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Ad ducimus iste pariatur animi, laboriosam nostrum
-                        deserunt laborum quasi sed ratione nobis necessitatibus
-                        quisquam aut distinctio nesciunt ex odit temporibus vel.
-                    </p>
+                    <p><%= product.description %></p>
                 </div>
             </section>
             <div class="specific-suggest">
@@ -65,7 +60,7 @@
                         </div>
                         <div>
                             <p>UVA:</p>
-                            <p class="data">MERLOT</p>
+                            <p class="data"><%= product.grape %></p>
                         </div>
                         <div>
                             <p>PAIS:</p>
@@ -80,24 +75,16 @@
                             <p class="data">MERLOT</p>
                         </div>
                         <div>
-                            <p>VISTA:</p>
-                            <p class="data"><%= product.view %></p>
-                        </div>
-                        <div>
-                            <p>AROMAS:</p>
-                            <p class="data"><%= product.smell %></p>
-                        </div>
-                        <div>
-                            <p>SABORES:</p>
-                            <p class="data"><%= product.taste %></p>
-                        </div>
-                        <div>
                             <p>TEMPERATURA:</p>
                             <p class="data"><%= product.temperature %></p>
                         </div>
                         <div>
                             <p>GUARDA:</p>
                             <p class="data"><%= product.aged %></p>
+                        </div>
+                        <div>
+                            <p>MARIDA BIEN CON:</p>
+                            <p class="data"><%= product.pairing %></p>
                         </div>
                     </div>
 

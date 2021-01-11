@@ -12,17 +12,58 @@
                 <p>aca se va cargando lo que pone la persona</p>
             </section>
             <section class="form form-newProduct">
-                <form action="" class="form">
-                    <label for="productName">Nombre del producto</label>
-                    <input type="text" name="productName" id="productName" />
-
-                    <label for="productDescription"
-                        >Descripción del producto</label
-                    >
+                <form
+                    action="/productos/<%= product.id %>?_method=PUT"
+                    class="form"
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
+                    <label for="productName">Nombre del vino</label>
                     <input
+                        value="<%= product.productName %>"
                         type="text"
+                        name="productName"
+                        id="productName"
+                    />
+                    <label for="productDescription">Descripción</label>
+                    <textarea
                         name="productDescription"
                         id="productDescription"
+                        cols="30"
+                        rows="10"
+                        placeholder="Agregue detalles que se aprecien a la vista, olores y sabores en boca."
+                    >
+                        <%= product.description %>
+                    </textarea>
+                    <label for="productGrape">Varietal </label>
+                    <input
+                        type="text"
+                        name="productGrape"
+                        id="productGrape"
+                        value="<%= product.grape %>"
+                    />
+                    <label for="productYear">Añada</label>
+                    <input
+                        type="number"
+                        name="productYear"
+                        id="productYear"
+                        value="<%= product.year %>"
+                    />
+                    <label for="productTemperature"
+                        >Temperatura de servicio</label
+                    >
+                    <input
+                        type="number"
+                        name="productTemperature"
+                        id="productTemperature"
+                        value="<%= product.temperature %>"
+                    />
+                    <label for="productAged">Crianza</label>
+                    <input
+                        type="number"
+                        name="productAged"
+                        id="productAged"
+                        value="<%= product.aged %>"
                     />
 
                     <label for="productPicture">Foto del producto</label>
@@ -31,34 +72,43 @@
                         name="productPicture"
                         id="productPicture"
                     />
-
-                    <label for="productCategory">Categoría</label>
-                    <select name="productCategory" id="productCategory">
-                        <option value="">1</option>
-                        <option value="">1</option>
-                    </select>
-
-                    <label for="productQuantity">Cantidad</label>
-                    <input
-                        type="number"
-                        name="productQuantity"
-                        id="productQuantity"
-                    />
-
                     <label for="productPrice">Precio</label>
                     <input
                         type="number"
                         name="productPrice"
                         id="productPrice"
+                        value="<%= product.price %>"
                     />
-                    <div class="save-erase-box">
-                        <button type="submit" class="button save">
-                            Editar producto
-                        </button>
-                        <button type="submit" class="button erase">
-                            Borrar producto
-                        </button>
-                    </div>
+
+                    <label for="productQuantity">Stock</label>
+                    <input
+                        type="number"
+                        name="productQuantity"
+                        id="productQuantity"
+                        value="<%= product.stock %>"
+                    />
+
+                    <label for="productPairing">Marida bien con:</label>
+                    <input
+                        type="text"
+                        name="productPairing"
+                        id="productPairing"
+                        value="<%= product.pairing %>"
+                    />
+
+                    <button type="submit" class="button create">
+                        Guardar cambios
+                    </button>
+                </form>
+                <form
+                    id="padding-erase"
+                    class="form"
+                    method="POST"
+                    action="?_method=DELETE"
+                >
+                    <button type="submit" class="button erase">
+                        Borrar Producto
+                    </button>
                 </form>
             </section>
         </main>

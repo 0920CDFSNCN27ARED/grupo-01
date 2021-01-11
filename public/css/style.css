@@ -212,7 +212,6 @@ body {
     border-radius: 5px;
     font-size: 19px;
     padding: 10px 5px;
-    margin: 0 15px;
 }
 
 .subtitle {
@@ -357,6 +356,7 @@ section.form-register-login {
 
 form.form {
     display: grid;
+    padding: 5%;
 }
 
 form.form label {
@@ -396,18 +396,21 @@ section.form h2 {
 }
 .main-newProduct .form-newProduct {
     width: 100%;
+    padding: 0;
 }
 .save-erase-box {
     padding-left: 0;
 }
+
+.create {
+    background-color: #748ac4;
+}
 .erase {
-    color: white;
     background-color: #d21f57;
-    border: 0;
-    border-radius: 5px;
-    font-size: 19px;
-    padding: 10px 5px;
-    margin: 0 15px;
+}
+
+#padding-erase {
+    padding-top: 0;
 }
 
 /* Fin Nuevo producto */

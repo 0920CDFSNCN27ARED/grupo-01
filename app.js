@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const methodOverride = require("method-override");
 
 app.listen(3000, () => {
     console.log("Server running in port 3000");
@@ -9,8 +10,11 @@ app.listen(3000, () => {
 const staticFileRouter = express.static("public");
 app.use(staticFileRouter);
 
+app.locals.matchedProducts = null;
+
+
 //POST PROCESSING
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Setting ejs
@@ -24,6 +28,7 @@ app.use("/", indexRoute);
 //prods
 const productsRoute = require("./routes/productsRoutes");
 app.use("/productos", productsRoute);
+app.use(methodOverride("_method"));
 
 // Cart routes (gabi)
 const cartRoute = require("./routes/cartRoutes");
