@@ -346,6 +346,12 @@ section.values {
     padding: 20px;
 }
 
+.signup-main-cellar {
+    background-image: url("https://images.pexels.com/photos/5272996/pexels-photo-5272996.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
+    padding: 20px;
+}
+
 section.form-register-login {
     border-radius: 10px;
     box-shadow: 0px 0px 3px 2px lightgrey;
