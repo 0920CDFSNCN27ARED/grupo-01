@@ -8,7 +8,7 @@
         <%- include("../partials/header.ejs") %>
         <main class="login-main">
             <section class="form-register-login">
-                <h2>Inicia sesión</h2>
+                <h2 class="padding">Inicia sesión</h2>
                 <form action="" class="form">
                     <label for="email">E-mail</label>
                     <input
@@ -24,9 +24,11 @@
                         id="password"
                         placeholder="Contraseña"
                     />
-                    <a href="">Olvidé mi contraseña</a>
-                    <button class="button">Entrar</button>
-                    <a href="/signup">Crear una cuenta</a>
+                    <a class="marginBottom" href="">Olvidé mi contraseña</a>
+                    <button class="button create">Entrar</button>
+                    <a class="marginTop" href="/usuarios/registro"
+                        >Crear una cuenta</a
+                    >
                 </form>
             </section>
         </main>

@@ -350,7 +350,6 @@ section.form-register-login {
     border-radius: 10px;
     box-shadow: 0px 0px 3px 2px lightgrey;
     margin: 30px 15px;
-    padding: 20px;
     background-color: white;
 }
 
@@ -381,6 +380,19 @@ form.form a {
 }
 section.form h2 {
     margin-top: 10px;
+}
+
+.marginTop {
+    margin-top: 20px;
+}
+
+.marginBottom {
+    margin-bottom: 20px;
+}
+
+.padding {
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
 /*fin registro login*/

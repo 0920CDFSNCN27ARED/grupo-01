@@ -3,8 +3,8 @@ const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
 
-app.listen(3000, () => {
-    console.log("Server running in port 3000");
+app.listen(3030, () => {
+    console.log("Server running in port 3030");
 });
 
 const staticFileRouter = express.static("public");
@@ -37,14 +37,12 @@ app.use("/productos", productsRoute);
 const usersRoute = require("./routes/usersRoute");
 app.use("/usuarios", usersRoute);
 
-
-// Cart routes -m 
+// Cart routes -m
 const cartRoute = require("./routes/cartRoutes");
 app.use("/carrito", cartRoute);
 
 const favouritesRoute = require("./routes/favouritesRoute");
 app.use("/favoritos", favouritesRoute);
-
 
 // Default route
 app.get("*", (req, res) => {

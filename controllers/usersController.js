@@ -7,6 +7,10 @@ const usersControllers = {
     showRegister: (req, res) => {
         res.render("users/signup");
     },
+
+    showRegisterWineCellar: (req, res) => {
+        res.render("users/signupWineCellar");
+    },
 };
 
 module.exports = usersControllers;

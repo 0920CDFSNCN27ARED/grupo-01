@@ -8,28 +8,42 @@
         <%- include("../partials/header.ejs") %>
         <main class="signup-main">
             <section class="form-register-login">
-                <h2 class="padding">Crea una cuenta</h2>
+                <h2 class="padding">Crea una cuenta empresa</h2>
                 <form action="" class="form">
-                    <label for="firstName">Nombre</label>
+                    <label for="cellarName">Nombre de la bodega</label>
                     <input
                         type="text"
-                        name="firstName"
-                        id="firstName"
-                        placeholder="Nombre"
+                        name="cellarName"
+                        id="cellarName"
+                        placeholder="Nombre de la bodega"
                     />
-                    <label for="lastName">Apellido</label>
+                    <label for="companyName">Razón social</label>
                     <input
                         type="text"
-                        name="lastName"
-                        id="lastName"
-                        placeholder="Apellido"
+                        name="companyName"
+                        id="companyName"
+                        placeholder="Razón social"
                     />
-                    <label for="dni">DNI</label>
+                    <label for="cuit">CUIT</label>
                     <input
                         type="number"
-                        name="dni"
-                        id="dni"
-                        placeholder="DNI"
+                        name="cuit"
+                        id="cuit"
+                        placeholder="CUIT"
+                    />
+                    <label for="country">País</label>
+                    <input
+                        type="text"
+                        name="country"
+                        id="country"
+                        placeholder="País"
+                    />
+                    <label for="province">Provincia</label>
+                    <input
+                        type="text"
+                        name="province"
+                        id="province"
+                        placeholder="Provincia"
                     />
                     <label for="email">E-mail</label>
                     <input
@@ -53,8 +67,8 @@
                     <a class="marginTop" href="/usuarios/login"
                         >Ya tengo una cuenta</a
                     >
-                    <a class="marginTop" href="/usuarios/registroBodega"
-                        >Crear una cuenta empresa</a
+                    <a class="marginTop" href="/usuarios/registro"
+                        >Crear una cuenta común</a
                     >
                 </form>
             </section>
