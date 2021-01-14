@@ -33,19 +33,18 @@ app.use("/", indexRoute);
 const productsRoute = require("./routes/productsRoutes");
 app.use("/productos", productsRoute);
 
-// Cart routes (gabi)
+//users
+const usersRoute = require("./routes/usersRoute");
+app.use("/usuarios", usersRoute);
+
+
+// Cart routes -m 
 const cartRoute = require("./routes/cartRoutes");
 app.use("/carrito", cartRoute);
 
 const favouritesRoute = require("./routes/favouritesRoute");
 app.use("/favoritos", favouritesRoute);
 
-//Sign Up & Log In
-const loginRoute = require("./routes/loginRoutes");
-app.use("/login", loginRoute);
-
-const signupRoute = require("./routes/signupRoutes");
-app.use("/signup", signupRoute);
 
 // Default route
 app.get("*", (req, res) => {
