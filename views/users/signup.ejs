@@ -9,7 +9,7 @@
         <main class="signup-main">
             <section class="form-register">
                 <h2 class="padding">Crea una cuenta</h2>
-                <form action="" class="form">
+                <form action="" class="form" enctype="multipart/form-data">
                     <label for="firstName">Nombre</label>
                     <input
                         type="text"
@@ -45,6 +45,8 @@
                         id="password"
                         placeholder="Contraseña"
                     />
+                    <label for="avatar">Foto de perfil</label>
+                    <input type="file" name="image" id="avatar">
                     <label for="terms">
                         <input type="checkbox" name="terms" id="terms" />Acepto
                         los Terminos y Condiciones</label
@@ -56,6 +58,7 @@
                     <a class="marginTop" href="/usuarios/registroBodega"
                         >Crear una cuenta empresa</a
                     >
+                    
                 </form>
             </section>
         </main>

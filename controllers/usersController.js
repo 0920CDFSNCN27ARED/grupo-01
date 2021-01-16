@@ -7,6 +7,9 @@ const usersControllers = {
     showRegister: (req, res) => {
         res.render("users/signup");
     },
+    newUser: (req,res)=>{
+        
+    },
 
     showRegisterWineCellar: (req, res) => {
         res.render("users/signupWineCellar");

@@ -1,18 +1,12 @@
 const fs = require("fs");
 const path = require("path");
+const getProducts = require("../utils/getProducts");
 
-// FUNCTION TO READ AND PARSE PRODUCTS
-const getCartProducts = () => {
-    const productsJSON = fs.readFileSync(
-        path.resolve(__dirname, "../data/cartProducts.json"),
-        { encoding: "utf-8" }
-    );
-    return JSON.parse(productsJSON);
-};
+
 
 const cartController = {
     showCart: (req, res) => {
-        const products = getCartProducts();
+        const products = getProducts();
         res.render("products/productCart", { products: products });
     },
 
