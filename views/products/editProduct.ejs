@@ -27,7 +27,7 @@
                     />
                     <label for="productDescription">Descripción</label>
                     <textarea
-                        name="productDescription"
+                        name="description"
                         id="description"
                         cols="30"
                         rows="10"
@@ -66,34 +66,34 @@
                         value="<%= product.aged %>"
                     />
 
+                    <label for="productPrice">Precio</label>
+                    <input
+                    type="number"
+                    name="price"
+                    id="productPrice"
+                    value="<%= product.price %>"
+                    />
+                    
+                    <label for="productQuantity">Stock</label>
+                    <input
+                    type="number"
+                    name="stock"
+                    id="productQuantity"
+                    value="<%= product.stock %>"
+                    />
+                    
+                    <label for="productPairing">Marida bien con:</label>
+                    <input
+                    type="text"
+                    name="pairing"
+                    id="productPairing"
+                    value="<%= product.pairing %>"
+                    />
                     <label for="productPicture">Foto del producto</label>
                     <input
                         type="file"
                         name="image"
                         id="productPicture"
-                    />
-                    <label for="productPrice">Precio</label>
-                    <input
-                        type="number"
-                        name="price"
-                        id="productPrice"
-                        value="<%= product.price %>"
-                    />
-
-                    <label for="productQuantity">Stock</label>
-                    <input
-                        type="number"
-                        name="stock"
-                        id="productQuantity"
-                        value="<%= product.stock %>"
-                    />
-
-                    <label for="productPairing">Marida bien con:</label>
-                    <input
-                        type="text"
-                        name="pairing"
-                        id="productPairing"
-                        value="<%= product.pairing %>"
                     />
 
                     <button type="submit" class="button create">

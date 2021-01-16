@@ -37,7 +37,7 @@ app.use("/productos", productsRoute);
 const usersRoute = require("./routes/usersRoute");
 app.use("/usuarios", usersRoute);
 
-// Cart routes -m
+// Cart routes 
 const cartRoute = require("./routes/cartRoutes");
 app.use("/carrito", cartRoute);
 

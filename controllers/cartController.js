@@ -1,12 +1,13 @@
 const fs = require("fs");
 const path = require("path");
-const getProducts = require("../utils/getProducts");
+const getProducts = require("../utils/getDbFile");
+const fileToGet = "products.json"
 
 
 
 const cartController = {
     showCart: (req, res) => {
-        const products = getProducts();
+        const products = getProducts(fileToGet);
         res.render("products/productCart", { products: products });
     },
 
