@@ -11,7 +11,7 @@ function edit(getFileCb, fileToGet, req) {
     const itemId = dbFile[requiredItemIndex].id;
 
     const actualImage = dbFile[requiredItemIndex].image;
-    console.log(actualImage);
+
     dbFile[requiredItemIndex] = {
         id: itemId,
         ...req.body,

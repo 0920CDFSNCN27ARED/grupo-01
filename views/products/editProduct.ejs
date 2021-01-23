@@ -20,7 +20,7 @@
                 >
                     <label for="productName">Nombre del vino</label>
                     <input
-                        value="<%= product.productName %>"
+                        value="<%= product.product_name %>"
                         type="text"
                         name="product_name"
                         id="productName"
@@ -68,32 +68,33 @@
 
                     <label for="productPrice">Precio</label>
                     <input
-                    type="number"
-                    name="price"
-                    id="productPrice"
-                    value="<%= product.price %>"
+                        type="number"
+                        name="price"
+                        id="productPrice"
+                        value="<%= product.price %>"
                     />
-                    
+
                     <label for="productQuantity">Stock</label>
                     <input
-                    type="number"
-                    name="stock"
-                    id="productQuantity"
-                    value="<%= product.stock %>"
+                        type="number"
+                        name="stock"
+                        id="productQuantity"
+                        value="<%= product.stock %>"
                     />
-                    
+
                     <label for="productPairing">Marida bien con:</label>
                     <input
-                    type="text"
-                    name="pairing"
-                    id="productPairing"
-                    value="<%= product.pairing %>"
+                        type="text"
+                        name="pairing"
+                        id="productPairing"
+                        value="<%= product.pairing %>"
                     />
                     <label for="productPicture">Foto del producto</label>
                     <input
                         type="file"
                         name="image"
                         id="productPicture"
+                        filename="<%= product.image %>"
                     />
 
                     <button type="submit" class="button create">
@@ -112,5 +113,14 @@
             </section>
         </main>
         <%- include("../partials/footer.ejs") %>
+        <script>
+            function openNav() {
+                document.getElementById("mySidebar").style.marginLeft = "270px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidebar").style.marginLeft = "0";
+            }
+        </script>
     </body>
 </html>

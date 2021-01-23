@@ -19,6 +19,12 @@ const usersControllers = {
     showRegisterWineCellar: (req, res) => {
         res.render("users/signupWineCellar");
     },
+
+    newWineCellarUser: (req, res) => {
+        const createUser = require("../utils/createNew");
+        createUser(getUsers, fileToGet, req);
+        res.redirect("/productos");
+    },
 };
 
 module.exports = usersControllers;

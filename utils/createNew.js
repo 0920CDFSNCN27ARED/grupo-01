@@ -4,12 +4,11 @@ function createNew(getFileCb, fileToGet, req) {
 
     const itemId = dbFile[dbFile.length - 1].id;
 
-
     const newElement = {
         id: itemId + 1,
         ...req.body,
     };
-    if (req.file !== undefined) {
+    if (req.file.typeOf == undefined) {
         newElement.image = req.file.filename;
     } else {
         newElement.image = "";

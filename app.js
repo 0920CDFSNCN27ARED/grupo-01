@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
+const logsMiddleware = require("./middlewares/logsMiddleware");
 
 app.listen(3030, () => {
     console.log("Server running in port 3030");
@@ -13,6 +14,9 @@ app.use(staticFileRouter);
 app.locals.matchedProducts = null;
 
 app.use(methodOverride("_method"));
+
+//Logs
+app.use(logsMiddleware);
 
 //POST PROCESSING
 app.use(express.urlencoded({ extended: false }));
@@ -37,7 +41,7 @@ app.use("/productos", productsRoute);
 const usersRoute = require("./routes/usersRoute");
 app.use("/usuarios", usersRoute);
 
-// Cart routes 
+// Cart routes
 const cartRoute = require("./routes/cartRoutes");
 app.use("/carrito", cartRoute);
 

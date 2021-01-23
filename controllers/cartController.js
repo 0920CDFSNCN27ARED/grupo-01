@@ -1,9 +1,5 @@
-const fs = require("fs");
-const path = require("path");
 const getProducts = require("../utils/getDbFile");
-const fileToGet = "products.json"
-
-
+const fileToGet = "products.json";
 
 const cartController = {
     showCart: (req, res) => {
