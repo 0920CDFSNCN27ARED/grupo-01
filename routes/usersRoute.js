@@ -14,6 +14,9 @@ router.post(
     upload.single("image"),
     usersController.newUserWineCellar
 );
+
 router.get("/login", usersController.showLogin);
+router.post("/login",usersController.logIn)
 
 module.exports = router;
+

@@ -1,5 +1,5 @@
 const { Module } = require("module");
-const saveProducts = require("./saveDbChanges");
+const save = require("./saveDbChanges");
 
 function erase(getFileCb, fileToGet, req) {
     const dbFile = getFileCb(fileToGet);
@@ -7,7 +7,7 @@ function erase(getFileCb, fileToGet, req) {
         return fileItem.id == req.params.id;
     });
     dbFile.splice(itemToEraseIndex, 1);
-    saveProducts(fileToGet, dbFile);
+    save(fileToGet, dbFile);
     return dbFile[itemToEraseIndex];
 }
 

@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const saveProducts = require("./saveDbChanges");
+const save = require("./saveDbChanges");
 function createNew(getFileCb, fileToGet, req) {
     const dbFile = getFileCb(fileToGet);
 
@@ -26,7 +26,7 @@ function createNew(getFileCb, fileToGet, req) {
     }
 
     dbFile.push(newElement);
-    saveProducts(fileToGet, dbFile);
+    save(fileToGet, dbFile);
     return newElement;
 }
 

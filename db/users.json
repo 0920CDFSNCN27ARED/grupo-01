@@ -1,4 +1,5 @@
-[{
+[
+  {
     "id": 1,
     "name": "Shaun",
     "last_name": "Coaten",
@@ -12,7 +13,8 @@
     "province": "Huillapima",
     "image": "https://robohash.org/utdebitiset.png?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 2,
     "name": "Theo",
     "last_name": "Iliffe",
@@ -26,7 +28,8 @@
     "province": "El Paso",
     "image": "https://robohash.org/possimusidin.bmp?size=50x50&set=set1",
     "category": "usuario"
-  }, {
+  },
+  {
     "id": 3,
     "name": "Cesare",
     "last_name": "Sacher",
@@ -40,7 +43,8 @@
     "province": "Pamplona/Iruña",
     "image": "https://robohash.org/velnumquamtempora.png?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 4,
     "name": "Ulrica",
     "last_name": "Bau",
@@ -54,7 +58,8 @@
     "province": "Puerto Berrío",
     "image": "https://robohash.org/totameain.png?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 5,
     "name": "Inga",
     "last_name": "Meugens",
@@ -68,7 +73,8 @@
     "province": "Arlington",
     "image": "https://robohash.org/voluptatesutfuga.png?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 6,
     "name": "Rodrick",
     "last_name": "Senecaut",
@@ -82,7 +88,8 @@
     "province": "Juan de Acosta",
     "image": "https://robohash.org/remvelitet.bmp?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 7,
     "name": "Chrissie",
     "last_name": "MacSkeagan",
@@ -96,7 +103,8 @@
     "province": "Liborina",
     "image": "https://robohash.org/quiaetlaboriosam.png?size=50x50&set=set1",
     "category": "usuario"
-  }, {
+  },
+  {
     "id": 8,
     "name": "Saxon",
     "last_name": "Muat",
@@ -110,7 +118,8 @@
     "province": "Curpahuasi",
     "image": "https://robohash.org/sitquilibero.bmp?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 9,
     "name": "Felecia",
     "last_name": "Frayling",
@@ -124,7 +133,8 @@
     "province": "Sogamoso",
     "image": "https://robohash.org/minusmolestiaeut.jpg?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 10,
     "name": "Jacinda",
     "last_name": "Bradick",
@@ -138,7 +148,8 @@
     "province": "Tía Juana",
     "image": "https://robohash.org/dignissimosanimiconsequatur.png?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 11,
     "name": "Emyle",
     "last_name": "Gillions",
@@ -152,7 +163,8 @@
     "province": "San Felipe",
     "image": "https://robohash.org/aspernaturmolestiaedeserunt.jpg?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 12,
     "name": "Erin",
     "last_name": "Krebs",
@@ -166,7 +178,8 @@
     "province": "Ticaco",
     "image": "https://robohash.org/ullametveniam.png?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 13,
     "name": "Curtis",
     "last_name": "Kill",
@@ -180,7 +193,8 @@
     "province": "Huayacundo Arma",
     "image": "https://robohash.org/consequaturcumqueut.jpg?size=50x50&set=set1",
     "category": "usuario"
-  }, {
+  },
+  {
     "id": 14,
     "name": "Mignonne",
     "last_name": "Cunradi",
@@ -194,7 +208,8 @@
     "province": "Fargo",
     "image": "https://robohash.org/sapienteetaut.png?size=50x50&set=set1",
     "category": "usuario"
-  }, {
+  },
+  {
     "id": 15,
     "name": "Morse",
     "last_name": "Heinemann",
@@ -208,7 +223,8 @@
     "province": "San Fernando del Valle de Catamarca",
     "image": "https://robohash.org/maioresfugaplaceat.jpg?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 16,
     "name": "Beth",
     "last_name": "Dumbarton",
@@ -222,7 +238,8 @@
     "province": "Port Washington",
     "image": "https://robohash.org/veritatisvoluptasomnis.png?size=50x50&set=set1",
     "category": "usuario"
-  }, {
+  },
+  {
     "id": 17,
     "name": "Iris",
     "last_name": "Sandeford",
@@ -236,7 +253,8 @@
     "province": "Louisville",
     "image": "https://robohash.org/voluptatemiustoofficiis.jpg?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 18,
     "name": "Renelle",
     "last_name": "Duval",
@@ -250,7 +268,8 @@
     "province": "Villa Presidente Frei, Ñuñoa, Santiago, Chile",
     "image": "https://robohash.org/corporislaborumab.jpg?size=50x50&set=set1",
     "category": "usuario"
-  }, {
+  },
+  {
     "id": 19,
     "name": "Hyatt",
     "last_name": "Heamus",
@@ -264,7 +283,8 @@
     "province": "San Lorenzo de Esmeraldas",
     "image": "https://robohash.org/autvoluptatesqui.png?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 20,
     "name": "Morissa",
     "last_name": "Mion",
@@ -278,7 +298,8 @@
     "province": "Philadelphia",
     "image": "https://robohash.org/utconsequaturaut.bmp?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 21,
     "name": "Astrid",
     "last_name": "Burfitt",
@@ -292,7 +313,8 @@
     "province": "Quilino",
     "image": "https://robohash.org/utreiciendisipsam.bmp?size=50x50&set=set1",
     "category": "usuario"
-  }, {
+  },
+  {
     "id": 22,
     "name": "Marlena",
     "last_name": "Shoosmith",
@@ -306,7 +328,8 @@
     "province": "Ecilda Paullier",
     "image": "https://robohash.org/voluptatemmolestiaesunt.bmp?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 23,
     "name": "Gaylord",
     "last_name": "Ferenc",
@@ -320,7 +343,8 @@
     "province": "Arauca",
     "image": "https://robohash.org/inciduntadipiscisaepe.png?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 24,
     "name": "Tamarah",
     "last_name": "Founds",
@@ -334,7 +358,8 @@
     "province": "Jackson",
     "image": "https://robohash.org/estatsint.png?size=50x50&set=set1",
     "category": "usuario"
-  }, {
+  },
+  {
     "id": 25,
     "name": "Nevins",
     "last_name": "Duxbarry",
@@ -348,7 +373,8 @@
     "province": "Caseros",
     "image": "https://robohash.org/doloremducimuset.png?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 26,
     "name": "Abrahan",
     "last_name": "Waulker",
@@ -362,7 +388,8 @@
     "province": "Del Campillo",
     "image": "https://robohash.org/consecteturetreprehenderit.jpg?size=50x50&set=set1",
     "category": "usuario"
-  }, {
+  },
+  {
     "id": 27,
     "name": "Gwenette",
     "last_name": "Vine",
@@ -376,7 +403,8 @@
     "province": "Nueva Italia",
     "image": "https://robohash.org/laboreabquidem.bmp?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 28,
     "name": "Carmen",
     "last_name": "Dewdney",
@@ -390,7 +418,8 @@
     "province": "Tayabamba",
     "image": "https://robohash.org/suntipsumnon.bmp?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 29,
     "name": "Arline",
     "last_name": "Smallridge",
@@ -404,7 +433,8 @@
     "province": "Springfield",
     "image": "https://robohash.org/eiuscommodiillo.png?size=50x50&set=set1",
     "category": "empresa"
-  }, {
+  },
+  {
     "id": 30,
     "name": "Willette",
     "last_name": "Canham",
@@ -418,4 +448,15 @@
     "province": "Totoral",
     "image": "https://robohash.org/nequeundecommodi.jpg?size=50x50&set=set1",
     "category": "usuario"
-  }]
+  },
+  {
+    "id": 31,
+    "firstName": "Gabriel ",
+    "lastName": "Rubin",
+    "dni": "40731785",
+    "email": "gabirubin@hotmail.com",
+    "password": "$2b$10$bTr0ri6yprhysspyOA6Fouen9zkYPLo0CUGoKzzbOpdG5DPFs4svi",
+    "image": "",
+    "category": "usuario"
+  }
+]
