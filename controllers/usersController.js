@@ -1,6 +1,6 @@
 const getUsers = require("../utils/getDbFile");
 const fileToGet = "users.json";
-const saveUsers = require("../utils/saveDbChanges");
+const createUser = require("../utils/createNew");
 const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
 
@@ -12,10 +12,11 @@ const usersControllers = {
         res.render("users/signup");
     },
     newUser: (req, res) => {
-        const createUser = require("../utils/createNew");
-
         const errors = validationResult(req);
-
+        createUser(getUsers, fileToGet, req);
+        res.redirect("/productos");
+    },
+    newUserWineCellar: (req, res) => {
         createUser(getUsers, fileToGet, req);
         res.redirect("/productos");
     },
@@ -25,9 +26,24 @@ const usersControllers = {
     },
 
     newWineCellarUser: (req, res) => {
-        const createUser = require("../utils/createNew");
         createUser(getUsers, fileToGet, req);
         res.redirect("/productos");
+    },
+    logIn: (req, res) => {
+        const users = getUsers("users.json");
+        const loggedUser = users.find((user) => {
+            return (
+                user.email == req.body.email &&
+                bcrypt.compareSync(req.body.password, user.password)
+            );
+        });
+
+        if (loggedUser == undefined) {
+            res.redirect("/usuarios/login");
+        } else {
+            res.redirect("/productos");
+            req.session.loggedUserId = loggedUser.id;
+        }
     },
 };
 

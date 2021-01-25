@@ -3,6 +3,9 @@ const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
 const logsMiddleware = require("./middlewares/logsMiddleware");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+
 
 app.listen(3030, () => {
     console.log("Server running in port 3030");
@@ -11,8 +14,7 @@ app.listen(3030, () => {
 const staticFileRouter = express.static("public");
 app.use(staticFileRouter);
 
-app.locals.matchedProducts = null;
-
+app.use(cookieParser());
 app.use(methodOverride("_method"));
 
 //Logs
@@ -26,6 +28,7 @@ app.use(express.json());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+app.use(session({secret:"secretText"}))
 //--------------------------------//
 
 // RUTAS //

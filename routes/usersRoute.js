@@ -38,6 +38,14 @@ router.get("/registro", usersController.showRegister);
 router.post("/registro", upload.single("image"), usersController.newUser);
 
 router.get("/registroBodega", usersController.showRegisterWineCellar);
+router.post(
+    "/registroBodega",
+    upload.single("image"),
+    usersController.newUserWineCellar
+);
+
 router.get("/login", usersController.showLogin);
+router.post("/login",usersController.logIn)
 
 module.exports = router;
+

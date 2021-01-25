@@ -1,4 +1,4 @@
-const saveProducts = require("./saveDbChanges");
+const save = require("./saveDbChanges");
 
 function edit(getFileCb, fileToGet, req) {
     const dbFile = getFileCb(fileToGet);
@@ -19,7 +19,7 @@ function edit(getFileCb, fileToGet, req) {
             req.file.filename != "undefined" ? req.file.filename : actualImage,
     };
 
-    saveProducts(fileToGet, dbFile);
+    save(fileToGet, dbFile);
     return itemToEdit;
 }
 
