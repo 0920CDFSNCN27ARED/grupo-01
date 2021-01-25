@@ -2,6 +2,7 @@ const getUsers = require("../utils/getDbFile");
 const fileToGet = "users.json";
 const saveUsers = require("../utils/saveDbChanges");
 const bcrypt = require("bcrypt");
+const { check, validationResult, body } = require("express-validator");
 
 const usersControllers = {
     showLogin: (req, res) => {
@@ -12,6 +13,9 @@ const usersControllers = {
     },
     newUser: (req, res) => {
         const createUser = require("../utils/createNew");
+
+        const errors = validationResult(req);
+
         createUser(getUsers, fileToGet, req);
         res.redirect("/productos");
     },

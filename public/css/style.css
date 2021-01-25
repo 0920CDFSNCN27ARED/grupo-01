@@ -6,6 +6,14 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.error {
+    color: red;
+}
+
+p.error:last-of-type {
+    margin-bottom: 15px;
+}
 .sidebar,
 .side-bar,
 .cart {
@@ -371,11 +379,11 @@ form.form {
 }
 
 form.form label {
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    margin-top: 15px;
 }
 
 form.form input {
-    margin-bottom: 15px;
     font-size: 18px;
     padding: 5px;
     border: 1px solid black;

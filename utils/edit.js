@@ -15,7 +15,8 @@ function edit(getFileCb, fileToGet, req) {
     dbFile[requiredItemIndex] = {
         id: itemId,
         ...req.body,
-        image: req.file !== undefined ? req.file.filename : actualImage,
+        image:
+            req.file.filename != "undefined" ? req.file.filename : actualImage,
     };
 
     saveProducts(fileToGet, dbFile);
