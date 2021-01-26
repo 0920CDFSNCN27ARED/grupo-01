@@ -46,6 +46,7 @@ const usersControllers = {
             res.redirect("/usuarios/login");
         } else {
             req.session.loggedUser = loggedUser;
+     
             res.redirect("/");
         }
     },

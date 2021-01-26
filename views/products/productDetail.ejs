@@ -43,6 +43,7 @@
                             <i class="fas fa-shopping-cart cart-button"></i>
                         </button>
                     </form>
+          
                     <% if(locals.loggedUser !== null && locals.loggedUser.category == "empresa") { %>
                         <a href="/productos/<%= product.id%>/editar"><button class="button create"> Editar </button></a>
                         <% } %>
