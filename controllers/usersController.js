@@ -37,8 +37,8 @@ const usersControllers = {
         if (loggedUser == undefined) {
             res.redirect("/usuarios/login");
         } else {
-            res.redirect("/productos");
             req.session.loggedUserId = loggedUser.id;
+            res.redirect("/");
         }
     },
 };

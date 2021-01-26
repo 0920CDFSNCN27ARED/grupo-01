@@ -1,6 +1,7 @@
 const indexController = {
     showIndex: (req, res) => {
-        res.render("index");
+
+        res.render("index", {user: req.loggedUser});
     },
 };
 
