@@ -9,9 +9,14 @@
         <main class="login-main">
             <section class="form-register">
                 <h2 class="padding">Inicia sesión</h2>
-                <% if (typeof errors != 'undefined') { %> 
-                    <% for (let i = 0; i <errors.length; i++) { %>
-                        <p> <% errors[i].msg %> </p>
+                <% if (typeof errorMsg !== 'undefined') { %> 
+                
+                        <p> <%= errorMsg %> </p>
+                    <% } %> 
+               
+                <% if (typeof errors !== 'undefined') { %> 
+                    <% for (let i = 0; i < errors.length; i++) { %>
+                        <p> <%= errors[i].msg %> </p>
                     <% } %> 
                 <% } %> 
                 <form action="/usuarios/login" class="form" method="POST">
