@@ -451,12 +451,70 @@
   },
   {
     "id": 31,
-    "firstName": "Gabriel ",
-    "lastName": "Rubin",
-    "dni": "40731785",
-    "email": "gabirubin@hotmail.com",
-    "password": "$2b$10$bTr0ri6yprhysspyOA6Fouen9zkYPLo0CUGoKzzbOpdG5DPFs4svi",
-    "image": "",
+    "firstName": "Veronica",
+    "lastName": "Genoni",
+    "dni": "38886520",
+    "email": "verogenoni@hotmail.com",
+    "password": "12345678",
+    "terms": "on",
+    "image": "daedc4c82ab31a6345ae9f664fcf177f"
+  },
+  {
+    "id": 32,
+    "firstName": "Jose",
+    "lastName": "Perez",
+    "dni": "12345678",
+    "email": "joseperez@mail.com",
+    "password": "12345678",
+    "terms": "on",
+    "image": "09fd8954e62b3c7da596af3055a75df4"
+  },
+  {
+    "id": 33,
+    "cellarName": "VeroBodega",
+    "companyName": "Bodega SA",
+    "cuit": "27388865208",
+    "country": "Argentina",
+    "province": "San Juan",
+    "email": "verobodega@mail.com",
+    "password": "$2b$10$ONac1brgskelAhJu7a9Zve7UMHnDn21VAhUyO7AgFTRWGr2wy9lLi",
+    "terms": "on",
+    "image": "bf80b50fbec87f8d48c6e4b93d9bee0d",
+    "category": "empresa"
+  },
+  {
+    "id": 34,
+    "firstName": "Prueba",
+    "lastName": "Apellido",
+    "dni": "32457123",
+    "email": "prueba@mail.com",
+    "password": "$2b$10$mawj2yIk.6jZL3U5xAYE9OSBgmUcU5MjH0NVCL4YvWhLkhUn.lrzq",
+    "terms": "on",
+    "image": "fad0be4bc77bec6cf3453fbfc70e1d43",
     "category": "usuario"
+  },
+  {
+    "id": 35,
+    "firstName": "Veronica",
+    "lastName": "Genoni",
+    "dni": "38886520",
+    "email": "vero@mail.com",
+    "password": "$2b$10$6QYqYNbd2GDkkQdIfYjFDeH2Xu7/dF3ShiG7IblNkBLbCQ4dniHrm",
+    "terms": "on",
+    "image": "848a07eacdda0a36462708776a30788d",
+    "category": "usuario"
+  },
+  {
+    "id": 36,
+    "cellarName": "Prueba",
+    "companyName": "Prueba SA",
+    "cuit": "27388865208",
+    "country": "Estados Unidos",
+    "province": "Napa",
+    "email": "napa@prueba.com",
+    "password": "$2b$10$ytVKiG7JFgdy34A0qvTGK.osqOF53oxnkzqTikEuRCGQOmOv7mQ5C",
+    "terms": "on",
+    "image": "6b180009b4d7aa368579a6157124ce6d",
+    "category": "empresa"
   }
 ]
