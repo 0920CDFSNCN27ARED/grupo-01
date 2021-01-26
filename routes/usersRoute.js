@@ -47,7 +47,12 @@ router.post(
 router.get("/login", usersController.showLogin);
 router.post(
     "/login",
-    [check("email").isEmail().withMessage("Ingrese un mail valido.")],
+    [
+        check("password")
+            .notEmpty()
+            .withMessage("Debes colocar una contraseña."),
+        check("email").isEmail().withMessage("Ingrese un mail valido."),
+    ],
     usersController.logIn
 );
 

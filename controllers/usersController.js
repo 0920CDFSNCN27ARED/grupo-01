@@ -33,6 +33,7 @@ const usersControllers = {
         const errors = validationResult(req);
         if (errors.isEmpty()) {
             const users = getUsers("users.json");
+
             for (let i = 0; i < users.lenght; i++) {
                 if (
                     users[i].email == req.body.email &&
@@ -43,12 +44,13 @@ const usersControllers = {
                     break;
                 }
             }
-            if (req.session == undefined) {
+            if (req.session.loggedUser == undefined) {
                 res.render("users/login", {
                     errors: [{ msg: "Credenciales invalidas." }],
                 });
+            } else {
+                res.redirect("/productos");
             }
-            res.redirect("/productos");
         } else {
             res.render("users/login", { errors: errors.errors });
         }
