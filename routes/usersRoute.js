@@ -45,7 +45,10 @@ router.post(
 );
 
 router.get("/login", usersController.showLogin);
-router.post("/login",usersController.logIn)
+router.post(
+    "/login",
+    [check("email").isEmail().withMessage("Ingrese un mail valido.")],
+    usersController.logIn
+);
 
 module.exports = router;
-

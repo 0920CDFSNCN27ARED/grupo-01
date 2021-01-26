@@ -6,14 +6,13 @@ const logsMiddleware = require("./middlewares/logsMiddleware");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 
-
 app.listen(3030, () => {
     console.log("Server running in port 3030");
 });
 
 const staticFileRouter = express.static("public");
 app.use(staticFileRouter);
-
+app.use(session({ secret: "Secreto" }));
 app.use(cookieParser());
 app.use(methodOverride("_method"));
 
@@ -27,8 +26,6 @@ app.use(express.json());
 // Setting ejs
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-
-app.use(session({secret:"secretText"}))
 //--------------------------------//
 
 // RUTAS //

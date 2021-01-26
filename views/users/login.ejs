@@ -9,6 +9,11 @@
         <main class="login-main">
             <section class="form-register">
                 <h2 class="padding">Inicia sesión</h2>
+                <% if (typeof errors != 'undefined') { %> 
+                    <% for (let i = 0; i <errors.length; i++) { %>
+                        <p> <% errors[i].msg %> </p>
+                    <% } %> 
+                <% } %> 
                 <form action="/usuarios/login" class="form" method="POST">
                     <label for="email">E-mail</label>
                     <input
@@ -24,6 +29,9 @@
                         id="password"
                         placeholder="Contraseña"
                     />
+                    <label for="remember">
+                        <input type="checkbox" name="remember" id="remember">Recuerdame
+                    </label>
                     <a class="marginBottom" href="">Olvidé mi contraseña</a>
                     <button class="button create">Entrar</button>
                     <a class="marginTop" href="/usuarios/registro"

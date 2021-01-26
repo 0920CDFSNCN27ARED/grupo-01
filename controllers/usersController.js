@@ -5,9 +5,6 @@ const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
 
 const usersControllers = {
-    showLogin: (req, res) => {
-        res.render("users/login");
-    },
     showRegister: (req, res) => {
         res.render("users/signup");
     },
@@ -29,20 +26,31 @@ const usersControllers = {
         createUser(getUsers, fileToGet, req);
         res.redirect("/productos");
     },
+    showLogin: (req, res) => {
+        res.render("users/login");
+    },
     logIn: (req, res) => {
-        const users = getUsers("users.json");
-        const loggedUser = users.find((user) => {
-            return (
-                user.email == req.body.email &&
-                bcrypt.compareSync(req.body.password, user.password)
-            );
-        });
-
-        if (loggedUser == undefined) {
-            res.redirect("/usuarios/login");
-        } else {
+        const errors = validationResult(req);
+        if (errors.isEmpty()) {
+            const users = getUsers("users.json");
+            for (let i = 0; i < users.lenght; i++) {
+                if (
+                    users[i].email == req.body.email &&
+                    bcrypt.compareSync(req.body.password, users[i].password)
+                ) {
+                    const user = users[i];
+                    req.session.loggedUser = user;
+                    break;
+                }
+            }
+            if (req.session == undefined) {
+                res.render("users/login", {
+                    errors: [{ msg: "Credenciales invalidas." }],
+                });
+            }
             res.redirect("/productos");
-            req.session.loggedUserId = loggedUser.id;
+        } else {
+            res.render("users/login", { errors: errors.errors });
         }
     },
 };
