@@ -16,6 +16,8 @@ app.use(staticFileRouter);
 app.use(cookieParser());
 app.use(methodOverride("_method"));
 
+app.locals.loggedUser = null; 
+
 //POST PROCESSING
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

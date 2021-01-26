@@ -12,16 +12,15 @@ const usersControllers = {
         res.render("users/signup");
     },
     newUser: (req, res) => {
-        
         const createUser = require("../utils/createNew");
         const errors = validationResult(req);
-       
-        console.log(errors)
+
         if (errors.isEmpty()) {
             createUser(getUsers, fileToGet, req);
-            res.redirect("/");
-        }else {
-            res.redirect("back")
+
+            res.redirect("/usuarios/login");
+        } else {
+            res.redirect("back");
         }
     },
 
@@ -46,7 +45,7 @@ const usersControllers = {
         if (loggedUser == undefined) {
             res.redirect("/usuarios/login");
         } else {
-            req.session.loggedUserId = loggedUser.id;
+            req.session.loggedUser = loggedUser;
             res.redirect("/");
         }
     },

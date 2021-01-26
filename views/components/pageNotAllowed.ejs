@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head.ejs",{title:"LOGIN"}) %>
+    </head>
+
+    <body>
+        <%- include("../partials/header.ejs") %>
+        <main class="login-main">
+            <h1>Este contenido es exclusivo para una cuenta de empresa</h1>
+            <h2>Si deseas registrarte como empresa, sigue los siguientes pasos:</h2>
+            <ul>
+                <li>Anda a <a href="/usuarios/registroBodega">Registrarse</a> </li>
+                
+            </ul>
+        </main>
+        <%- include("../partials/footer.ejs") %>
+        <script>
+            function openNav() {
+                document.getElementById("mySidebar").style.marginLeft = "270px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidebar").style.marginLeft = "0";
+            }
+        </script>
+    </body>
+</html>

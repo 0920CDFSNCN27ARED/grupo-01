@@ -16,16 +16,16 @@ router.post(
         check("lastName").isLength({ min: 3 }),
         check("dni").isInt().isLength({ min: 6, max: 8 }),
         check("email").isEmail(),
-        check("password").isStrongPassword(
-            {
-                minLength: 5,
-                minLowercase: 1,
-                minUppercase: 1,
-                minNumbers: 1,
-            },
-            //SOLUCIONAR IS STRONG no valida. Terms idem
+        // check("password").isStrongPassword(
+        //     {
+        //         minLength: 5,
+        //         minLowercase: 1,
+        //         minUppercase: 1,
+        //         minNumbers: 1,
+        //     }
+        //     //SOLUCIONAR IS STRONG no valida. Terms idem
+        //     ),
             check("terms").equals("on")
-        ),
     ],
     usersController.newUser
 );
