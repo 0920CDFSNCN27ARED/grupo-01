@@ -8,7 +8,7 @@ const productsController = {
     showAll: (req, res) => {
         const products = getProducts(fileToGet);
         res.render("products/products", {
-            products,
+            products: products,
         });
     },
     showOne: (req, res) => {

@@ -463,6 +463,21 @@ section.form h2 {
     padding-left: 24px;
     font-size: 22px;
 }
+
+/* perfil */
+.profile-main {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+.profile-left {
+    display: grid;
+}
+.profile-image {
+    border-radius: 50%;
+    border: 0;
+    box-shadow: 2px 2px 10px grey;
+    width: 80%;
+}
 /*tablet*/
 
 @media (min-width: 500px) {

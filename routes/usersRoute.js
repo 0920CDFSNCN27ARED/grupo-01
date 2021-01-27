@@ -43,6 +43,7 @@ router.post(
     upload.single("image"),
     usersController.newUserWineCellar
 );
+router.get("/perfil", usersController.showProfile);
 
 router.get("/login", usersController.showLogin);
 router.post(

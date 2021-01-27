@@ -8,16 +8,16 @@
         <%- include("../partials/header.ejs")  %> 
     
     <main>
-      <div class="subtitle bestSeller">
-        <div class="background-text"></div>
-        <h2 class="wine">TODOS LOS VINOS</h2>
-        <img class="hand" src="/images/hand-01.png" alt="hand">
-      </div>
-      <section class="showAll">
-        <% products.forEach((product,i)=>{%>
-            <%- include("../partials/productItem", {product: product}) %>
+  <div class="subtitle bestSeller">
+    <div class="background-text"></div>
+    <h2 class="wine">TODOS LOS VINOS</h2>
+    <img class="hand" src="/images/hand-01.png" alt="hand">
+</div>
+<section class="showAll">
+    <% products.forEach((product,i)=>{%>
+        <%- include("../partials/productItem", {product: product}) %>
         <%}) %>
-      </section>    
+</section>    
       </main>
        <%- include("../partials/footer.ejs") %>   
          

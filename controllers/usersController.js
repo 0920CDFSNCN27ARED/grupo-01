@@ -31,7 +31,7 @@ const usersControllers = {
     },
     logIn: (req, res) => {
         const errors = validationResult(req);
-        
+
         if (errors.isEmpty()) {
             const users = getUsers("users.json");
 
@@ -47,17 +47,24 @@ const usersControllers = {
                     break;
                 }
             }
-let msg = "Credenciales invalidas."
+            let msg = "Credenciales invalidas.";
             if (req.session.loggedUser == undefined) {
                 res.render("users/login", {
                     errorMsg: msg,
                 });
             } else {
-                res.redirect("/productos");
+                res.locals = { user: req.session.loggedUser };
+                res.render("users/profile", { user: res.locals });
+                console.log(user);
             }
         } else {
             res.render("users/login", { errors: errors.errors });
         }
+    },
+    showProfile: (req, res) => {
+        res.render("users/profile", {
+            user: res.locals,
+        });
     },
 };
 

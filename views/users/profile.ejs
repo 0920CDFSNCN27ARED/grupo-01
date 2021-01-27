@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head.ejs",{title:"PERFIL"}) %>
+    </head>
+
+    <body>
+        <%- include("../partials/header.ejs") %>
+        <main class="profile-main">
+            <section class="profile-left">
+                <div class="profile-image">
+                    <img src="/images/<%= user.image %> " alt="" />
+                </div>
+                <div>
+                    <p>Name</p>
+                </div>
+                <div class="profile-nav">
+                    <ul>
+                        <li><button class="profile-button">Perfil</button></li>
+                        <li>
+                            <button class="profile-button">Mis compras</button>
+                        </li>
+                        <li>
+                            <button class="profile-button">
+                                Mis favoritos
+                            </button>
+                        </li>
+                        <li>
+                            <button class="profile-button">
+                                Mis direcciones
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="profile-right">
+                <div>
+                    <h2>Datos personales</h2>
+                </div>
+                <div class="profile-data">
+                    <div>
+                        <p>Nombre</p>
+                        <p></p>
+                    </div>
+                    <div>
+                        <p>E-mail</p>
+                        <p></p>
+                    </div>
+                    <div>
+                        <p>Contraseña</p>
+                        <p></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <%- include("../partials/footer.ejs") %>
+        <script>
+            function openNav() {
+                document.getElementById("mySidebar").style.marginLeft = "270px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidebar").style.marginLeft = "0";
+            }
+        </script>
+    </body>
+</html>
