@@ -53,18 +53,16 @@ const usersControllers = {
                     errorMsg: msg,
                 });
             } else {
-                res.locals = { user: req.session.loggedUser };
-                res.render("users/profile", { user: res.locals });
-                console.log(user);
+                res.locals.user = req.session.loggedUser;
+                res.render("users/profile", { user: res.locals.user });
+                console.log(res.locals.user);
             }
         } else {
             res.render("users/login", { errors: errors.errors });
         }
     },
     showProfile: (req, res) => {
-        res.render("users/profile", {
-            user: res.locals,
-        });
+        res.render("users/profile");
     },
 };
 

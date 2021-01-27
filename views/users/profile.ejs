@@ -12,7 +12,11 @@
                     <img src="/images/<%= user.image %> " alt="" />
                 </div>
                 <div>
-                    <p>Name</p>
+                    <% if(user.category == "empresa"){ %>
+                    <p><%= user.cellarName %></p>
+                    <%} else {%>
+                    <p><%= user.firstName %></p>
+                    <% } %>
                 </div>
                 <div class="profile-nav">
                     <ul>
@@ -39,16 +43,12 @@
                 </div>
                 <div class="profile-data">
                     <div>
-                        <p>Nombre</p>
-                        <p></p>
-                    </div>
-                    <div>
                         <p>E-mail</p>
-                        <p></p>
+                        <p><%= user.email %></p>
                     </div>
                     <div>
                         <p>Contraseña</p>
-                        <p></p>
+                        <a href="">Cambiar contraseña</a>
                     </div>
                 </div>
             </section>
