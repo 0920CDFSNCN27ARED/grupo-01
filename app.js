@@ -6,6 +6,10 @@ const logsMiddleware = require("./middlewares/logsMiddleware");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const authenticate = require("./middlewares/authenticate");
+const isAdmin = require("./middlewares/isAdmin");
+
+//views variables
+app.locals.user = null;
 
 app.listen(3030, () => {
     console.log("Server running in port 3030");

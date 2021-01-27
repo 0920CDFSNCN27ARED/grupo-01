@@ -54,25 +54,30 @@ const usersControllers = {
                     errorMsg: msg,
                 });
             } else {
-                res.locals.user = req.session.loggedUser;
                 if (req.body.remember != undefined) {
                     res.cookie("remember", req.session.loggedUser.id, {
                         maxAge: 60 * 1000 * 60 * 24,
                     });
                 }
-                res.render("users/profile", { user: res.locals.user });
+                res.locals.user = req.session.loggedUser;
+                res.render("users/profile");
             }
         } else {
             res.render("users/login", { errors: errors.errors });
         }
     },
     logOut: (req, res) => {
+        res.clearCookie("remember");
         req.session.destroy((err) => {
             res.redirect("/");
         });
     },
     showProfile: (req, res) => {
-        res.render("users/profile");
+        if (req.cookies.remember != undefined) {
+            res.render("users/profile");
+        } else {
+            res.redirect("/");
+        }
     },
 };
 

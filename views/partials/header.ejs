@@ -11,15 +11,15 @@
                 <a href="#"><i class="fas fa-search"></i> Buscar</a>
             
         </li>
-       
+       <% if(user == undefined){ %> 
         <li>
             <a href="/usuarios/login"><i class="fas fa-user"></i>Iniciar sesión</a>
         </li>
-        
-            <!-- <li>
+        <% }else{ %> 
+            <li>
                 <a href="/usuarios/perfil"><i class="fas fa-user"></i>Mi cuenta</a>
-            </li> -->
-       
+            </li>
+       <% } %> 
     </ul>
 </div>
 <header class="header-index">
