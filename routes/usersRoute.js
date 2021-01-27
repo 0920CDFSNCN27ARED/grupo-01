@@ -44,7 +44,7 @@ router.post(
     usersController.newUserWineCellar
 );
 router.get("/perfil", usersController.showProfile);
-
+router.post("/perfil", usersController.logOut);
 router.get("/login", usersController.showLogin);
 router.post(
     "/login",

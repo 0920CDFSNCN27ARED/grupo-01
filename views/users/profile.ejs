@@ -11,13 +11,6 @@
                 <div class="profile-image">
                     <img src="/images/<%= user.image %> " alt="" />
                 </div>
-                <div>
-                    <% if(user.category == "empresa"){ %>
-                    <p><%= user.cellarName %></p>
-                    <%} else {%>
-                    <p><%= user.firstName %></p>
-                    <% } %>
-                </div>
                 <div class="profile-nav">
                     <ul>
                         <li><button class="profile-button">Perfil</button></li>
@@ -34,6 +27,16 @@
                                 Mis direcciones
                             </button>
                         </li>
+                        <li>
+                            <form method="post" action="/usuarios/perfil">
+                                <button
+                                    class="profile-button red"
+                                    type="submit"
+                                >
+                                    Cerrar sesión
+                                </button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </section>
@@ -42,6 +45,15 @@
                     <h2>Datos personales</h2>
                 </div>
                 <div class="profile-data">
+                    <div class="profile-name">
+                        <% if(user.category == "empresa"){ %>
+                        <p>Nombre de la bodega</p>
+                        <p><%= user.cellarName %></p>
+                        <%} else {%>
+                        <p>Nombre</p>
+                        <p><%= user.firstName %> <%= user.lastName %></p>
+                        <% } %>
+                    </div>
                     <div>
                         <p>E-mail</p>
                         <p><%= user.email %></p>

@@ -3,6 +3,7 @@ const fileToGet = "users.json";
 const createUser = require("../utils/createNew");
 const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
+const { equal } = require("assert");
 
 const usersControllers = {
     showRegister: (req, res) => {
@@ -54,12 +55,21 @@ const usersControllers = {
                 });
             } else {
                 res.locals.user = req.session.loggedUser;
+                if (req.body.remember != undefined) {
+                    res.cookie("remember", req.session.loggedUser.id, {
+                        maxAge: 60 * 1000 * 60 * 24,
+                    });
+                }
                 res.render("users/profile", { user: res.locals.user });
-                console.log(res.locals.user);
             }
         } else {
             res.render("users/login", { errors: errors.errors });
         }
+    },
+    logOut: (req, res) => {
+        req.session.destroy((err) => {
+            res.redirect("/");
+        });
     },
     showProfile: (req, res) => {
         res.render("users/profile");
