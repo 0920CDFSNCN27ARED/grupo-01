@@ -4,12 +4,13 @@ const multer = require("multer");
 const upload = multer({ dest: "public/images" });
 
 const productsController = require("../controllers/productsController");
+const isAdmin = require("../middlewares/isAdmin");
 
 //listado
 router.get("/", productsController.showAll);
 
 //crear
-router.get("/crear", productsController.newProduct);
+router.get("/crear", isAdmin, productsController.newProduct);
 router.post("/crear", upload.single("image"), productsController.createProduct);
 
 //buscar
@@ -19,7 +20,7 @@ router.post("/crear", upload.single("image"), productsController.createProduct);
 router.get("/:id", productsController.showOne);
 
 //editar
-router.get("/:id/editar", productsController.editProduct);
+router.get("/:id/editar", isAdmin, productsController.editProduct);
 router.put("/:id/editar", upload.single("image"), productsController.edit);
 
 //eliminar
