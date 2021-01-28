@@ -59,8 +59,9 @@ const usersControllers = {
                         maxAge: 60 * 1000 * 60 * 24,
                     });
                 }
-                res.locals.user = req.session.loggedUser;
-                res.render("users/profile");
+                req.app.locals.user = req.session.loggedUser;
+           
+                res.redirect("/usuarios/perfil");
             }
         } else {
             res.render("users/login", { errors: errors.errors });
@@ -68,12 +69,14 @@ const usersControllers = {
     },
     logOut: (req, res) => {
         res.clearCookie("remember");
+       req.app.locals.user = null;
         req.session.destroy((err) => {
             res.redirect("/");
         });
     },
     showProfile: (req, res) => {
-        if (req.cookies.remember != undefined) {
+       
+        if (req.cookies.remember != undefined || req.session.loggedUser != undefined) {
             res.render("users/profile");
         } else {
             res.redirect("/");

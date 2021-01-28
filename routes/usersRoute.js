@@ -45,6 +45,7 @@ router.post(
 );
 router.get("/perfil", usersController.showProfile);
 router.post("/perfil", usersController.logOut);
+
 router.get("/login", usersController.showLogin);
 router.post(
     "/login",
@@ -56,5 +57,4 @@ router.post(
     ],
     usersController.logIn
 );
-
 module.exports = router;
