@@ -516,5 +516,18 @@
     "terms": "on",
     "image": "6b180009b4d7aa368579a6157124ce6d",
     "category": "empresa"
+  },
+  {
+    "id": 37,
+    "cellarName": "Bodega",
+    "companyName": "srl",
+    "cuit": "8",
+    "country": "Argenina",
+    "province": "Buenos Aires",
+    "email": "gabirubin@hotmail.com",
+    "password": "$2b$10$XeGfnUkXRKEEbtcVQU0k5.rXGBnyKeLIfzSjn0Jh/iRUULHyNoKqG",
+    "terms": "on",
+    "image": "",
+    "category": "empresa"
   }
 ]

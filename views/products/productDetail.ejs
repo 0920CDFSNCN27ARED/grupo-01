@@ -42,13 +42,15 @@
                                 value="1"
                             />
                         </div>
-                        <button class="button create">
-                            Agregar al carrito
-                            <i class="fas fa-shopping-cart cart-button"></i>
-                        </button>
+                        <a href="/carrito">
+                            <button type="button" class="button create">
+                                Agregar al carrito
+                                <i class="fas fa-shopping-cart cart-button"></i>
+                            </button>
+                        </a>
                         <% if (user !== null && user.category == "empresa") { %>
                             <a href="/productos/<%= product.id %>/editar">
-                                <button class="button create">
+                                <button type="button" class="button create">
                                    Editar
                                     <i class="fas fa-shopping-cart cart-button"></i>
                                 </button>
