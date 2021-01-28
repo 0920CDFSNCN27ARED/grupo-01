@@ -5,7 +5,8 @@ const methodOverride = require("method-override");
 const logsMiddleware = require("./middlewares/logsMiddleware");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
-const authenticate = require("./middlewares/authenticate");
+const authenticateSession = require("./middlewares/authenticateSession");
+const authenticateCookie = require("./middlewares/authenticateCookie");
 const isAdmin = require("./middlewares/isAdmin");
 
 //views variables
@@ -30,7 +31,8 @@ app.use(methodOverride("_method"));
 app.use(logsMiddleware);
 
 //auth
-app.use(authenticate);
+app.use(authenticateSession);
+app.use(authenticateCookie);
 
 //POST PROCESSING
 app.use(express.urlencoded({ extended: false }));
