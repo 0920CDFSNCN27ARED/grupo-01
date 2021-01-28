@@ -46,6 +46,14 @@
                             Agregar al carrito
                             <i class="fas fa-shopping-cart cart-button"></i>
                         </button>
+                        <% if (user !== null && user.category == "empresa") { %>
+                            <a href="/productos/<%= product.id %>/editar">
+                                <button class="button create">
+                                   Editar
+                                    <i class="fas fa-shopping-cart cart-button"></i>
+                                </button>
+                            </a>
+                            <% } %>
                     </form>
                     <p><%= product.description %></p>
                 </div>

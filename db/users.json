@@ -538,5 +538,18 @@
     "terms": "on",
     "image": "5eb483356024c92d4dce9fbf2ec02103",
     "category": "usuario"
+  },
+  {
+    "id": 39,
+    "cellarName": "Pepe",
+    "companyName": "srl",
+    "cuit": "4",
+    "country": "Argenina",
+    "province": "Buenos Aires",
+    "email": "gabirubin@hotmail.com",
+    "password": "$2b$10$zUXHtX24Dlt/2oYykiV0DeDLV9dDHYbsynM/vTnIOXznY6W6pnhUG",
+    "terms": "on",
+    "image": "d026683cda70358cf62b27ea0bd5baa8",
+    "category": "empresa"
   }
 ]
