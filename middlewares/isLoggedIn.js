@@ -1,8 +1,8 @@
 function isLoggedIn(req, res, next) {
-    if (!res.app.locals.user) {
-        next();
-    } else {
+    if (res.app.locals.user) {
         res.redirect("/");
+    } else {
+        next();
     }
 }
 
