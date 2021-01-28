@@ -32,6 +32,7 @@ const usersControllers = {
     },
     logIn: (req, res) => {
         const errors = validationResult(req);
+        
 
         if (errors.isEmpty()) {
             const users = getUsers("users.json");

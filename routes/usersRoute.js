@@ -5,6 +5,7 @@ const upload = multer({ dest: "public/images/users" });
 const { check, validationResult, body } = require("express-validator");
 const getDbFile = require("../utils/getDbFile");
 const isLoggedIn = require("../middlewares/isLoggedIn");
+const isGuest = require("../middlewares/isGuest");
 
 // const userValidations = [
 //     check("firstName").notEmpty().withMessage("Debes colocar tu nombre."),
@@ -35,12 +36,12 @@ const isLoggedIn = require("../middlewares/isLoggedIn");
 
 const usersController = require("../controllers/usersController");
 
-router.get("/registro", isLoggedIn, usersController.showRegister);
+router.get("/registro", isGuest, usersController.showRegister);
 router.post("/registro", upload.single("image"), usersController.newUser);
 
 router.get(
     "/registroBodega",
-    isLoggedIn,
+    isGuest,
     usersController.showRegisterWineCellar
 );
 router.post(
@@ -51,7 +52,7 @@ router.post(
 router.get("/perfil", usersController.showProfile);
 router.post("/perfil", usersController.logOut);
 
-router.get("/login", isLoggedIn, usersController.showLogin);
+router.get("/login", isGuest, usersController.showLogin);
 router.post(
     "/login",
     [
