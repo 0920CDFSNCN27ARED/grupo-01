@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head", {title: "Carrito | WINDERFUL"})%>
+        <link rel="stylesheet" href="/css/cart.css" />
+       
+    </head>
+
+    <body>
+        <%- include("../partials/header")%>
+
+        <main id="main" class="display-flex-column">
+            <div id="nav-container" class="display-flex">
+                <nav id="categories" class="width-100">
+                    <ul class="display-flex font-size-11 display-sm">
+                        <li>
+                            <a href="/carrito">
+                                <i class="fas fa-shopping-cart"></i> (2)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/carrito/guardados">
+                                <i class="fas fa-archive"></i> (2)
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="display-flex font-size-11 display-md">
+                        <li>
+                            <a class="bold" href="/carrito">
+                                Carrito <i class="fas fa-shopping-cart"></i> (2)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/carrito/guardados"
+                                >Guardados <i class="fas fa-archive"></i> (2)
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <section id="products-section" class="display-flex-column align-center">
+                
+                <% for(let i = 0; i < products.length; i++) {%>
+                <%- include("../partials/cart/article", {product: products[i]}) %>
+               <% } %>
+               
+
+            </section>
+
+            <section id="section-buy" class="display-flex-column bold">
+                <div class="display-flex">
+                    <p>Total</p>
+                    <p>$700</p>
+                </div>
+                <div id="button-container">
+                    <button
+                        class="submit-button-specs final-price"
+                        type="submit"
+                    >
+                        Comprar <i class="fas fa-wine-bottle"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section class="top-marg-5">
+                <div class="subtitle bestSeller">
+                    <img class="hand" src="/images/hand-01.png" alt="hand" />
+                    <div class="background-text"></div>
+                    <h2 class="wine">VINOS QUE PODRIAN GUSTARTE</h2>
+                </div>
+                <%- include("../partials/slideshowSection") %>
+            </section>
+            <section class="top-marg-5">
+                <div class="subtitle bestSeller">
+                    <img class="hand" src="/images/hand-01.png" alt="hand" />
+                    <div class="background-similar-wine"></div>
+                    <h2 class="wine">BODEGAS CERCA TUYO</h2>
+                </div>
+                <%- include("../partials/slideshowSection") %>
+            </section>
+        </main>
+
+        <%- include("../partials/footer") %>
+        <script>
+            function openNav() {
+                document.getElementById("mySidebar").style.marginLeft = "270px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidebar").style.marginLeft = "0";
+            }
+        </script>
+    </body>
+</html>

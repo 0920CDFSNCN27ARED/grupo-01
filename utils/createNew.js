@@ -9,10 +9,12 @@ function createNew(getFileCb, fileToGet, req) {
         id: itemId + 1,
         ...req.body,
     };
-    if (req.file.filename != "undefined") {
-        newElement.image = req.file.filename;
-    } else {
+
+    console.log(req.file)
+    if (req.file == undefined) {
         newElement.image = "";
+    } else {
+        newElement.image = req.file.filename;
     }
 
     if (req.body.password) {

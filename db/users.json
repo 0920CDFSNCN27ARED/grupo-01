@@ -516,40 +516,5 @@
     "terms": "on",
     "image": "6b180009b4d7aa368579a6157124ce6d",
     "category": "empresa"
-  },
-  {
-    "id": 37,
-    "firstName": "Gabriel ",
-    "lastName": "Rubin",
-    "dni": "40731785",
-    "email": "gabirubin@hotmail.com",
-    "password": "$2b$10$pwVtzCJ8hNUGpKc2wAKADeNxcfLQ4NdZaY8l0V8zYDNjovJN8TpeO",
-    "terms": "on",
-    "image": "1e200080302c6d0094966873bf1cf7a7",
-    "category": "usuario"
-  },
-  {
-    "id": 38,
-    "firstName": "Gabriel ",
-    "lastName": "Rubin",
-    "dni": "40731785",
-    "email": "gabirubin@hotmail.com",
-    "password": "$2b$10$lB2f8QOFYf.CqrZEJn6e5.IwsN3RJlCtOqhMqQWVgBy.hzJLafQvW",
-    "terms": "on",
-    "image": "5eb483356024c92d4dce9fbf2ec02103",
-    "category": "usuario"
-  },
-  {
-    "id": 39,
-    "cellarName": "Pepe",
-    "companyName": "srl",
-    "cuit": "4",
-    "country": "Argenina",
-    "province": "Buenos Aires",
-    "email": "gabirubin@hotmail.com",
-    "password": "$2b$10$zUXHtX24Dlt/2oYykiV0DeDLV9dDHYbsynM/vTnIOXznY6W6pnhUG",
-    "terms": "on",
-    "image": "d026683cda70358cf62b27ea0bd5baa8",
-    "category": "empresa"
   }
 ]
