@@ -24,6 +24,6 @@ router.get("/:id/editar", isAdmin, productsController.editProduct);
 router.put("/:id/editar", upload.single("image"), productsController.edit);
 
 //eliminar
-router.delete("/:id/edit", productsController.deleteProduct);
+router.delete("/:id/eliminar", isAdmin, productsController.deleteProduct);
 
 module.exports = router;
