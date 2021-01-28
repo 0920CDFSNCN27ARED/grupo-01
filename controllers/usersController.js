@@ -75,12 +75,10 @@ const usersControllers = {
         });
     },
     showProfile: (req, res) => {
-        if (
-            req.cookies.remember != undefined ||
-            req.session.loggedUser != undefined
-        ) {
-            res.render("users/profile");
+        if (res.app.locals.user ) {
+           return  res.render("users/profile");
         }
+        res.redirect("/usuarios/login")
     },
 };
 
