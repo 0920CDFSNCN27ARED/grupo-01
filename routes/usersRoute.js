@@ -4,6 +4,7 @@ const multer = require("multer");
 const upload = multer({ dest: "public/images/users" });
 const { check, validationResult, body } = require("express-validator");
 const getDbFile = require("../utils/getDbFile");
+const isLoggedIn = require("../middlewares/isLoggedIn");
 
 // const userValidations = [
 //     check("firstName").notEmpty().withMessage("Debes colocar tu nombre."),
@@ -46,7 +47,7 @@ router.post(
 router.get("/perfil", usersController.showProfile);
 router.post("/perfil", usersController.logOut);
 
-router.get("/login", usersController.showLogin);
+router.get("/login", isLoggedIn, usersController.showLogin);
 router.post(
     "/login",
     [

@@ -60,7 +60,7 @@ const usersControllers = {
                     });
                 }
                 req.app.locals.user = req.session.loggedUser;
-           
+
                 res.redirect("/usuarios/perfil");
             }
         } else {
@@ -69,17 +69,17 @@ const usersControllers = {
     },
     logOut: (req, res) => {
         res.clearCookie("remember");
-       req.app.locals.user = null;
+        res.app.locals.user = null;
         req.session.destroy((err) => {
             res.redirect("/");
         });
     },
     showProfile: (req, res) => {
-       
-        if (req.cookies.remember != undefined || req.session.loggedUser != undefined) {
+        if (
+            req.cookies.remember != undefined ||
+            req.session.loggedUser != undefined
+        ) {
             res.render("users/profile");
-        } else {
-            res.redirect("/");
         }
     },
 };

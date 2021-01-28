@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <%- include("../partials/head.ejs", {title:"Detalle del producto"}) %>
+        <%- include("../partials/head.ejs") %>
         <link rel="stylesheet" href="/css/product2.css" />
-        <title>PRODUCT | Winderful</title>
+        <title>PRODUCT | WINDERFUL</title>
     </head>
     <body class="body-index">
         <%- include("../partials/header.ejs") %>
@@ -46,14 +46,14 @@
                             Agregar al carrito
                             <i class="fas fa-shopping-cart cart-button"></i>
                         </button>
-                        <% if (user !== null && user.category == "empresa") { %>
-                            <a href="/productos/<%= product.id %>/editar">
-                                <button class="button create">
-                                   Editar
-                                    <i class="fas fa-shopping-cart cart-button"></i>
-                                </button>
-                            </a>
-                            <% } %>
+                        <% if (user != null && user.category == "empresa") { %>
+                        <form
+                            action="/productos/<%= product.id %>/editar"
+                            method="post"
+                        >
+                            <button class="button create">Editar</button>
+                        </form>
+                        <% } %>
                     </form>
                     <p><%= product.description %></p>
                 </div>
