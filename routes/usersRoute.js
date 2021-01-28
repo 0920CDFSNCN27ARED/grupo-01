@@ -35,10 +35,14 @@ const isLoggedIn = require("../middlewares/isLoggedIn");
 
 const usersController = require("../controllers/usersController");
 
-router.get("/registro", usersController.showRegister);
+router.get("/registro", isLoggedIn, usersController.showRegister);
 router.post("/registro", upload.single("image"), usersController.newUser);
 
-router.get("/registroBodega", usersController.showRegisterWineCellar);
+router.get(
+    "/registroBodega",
+    isLoggedIn,
+    usersController.showRegisterWineCellar
+);
 router.post(
     "/registroBodega",
     upload.single("image"),

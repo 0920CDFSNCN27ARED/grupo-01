@@ -2060,3 +2060,5 @@
 /usuarios/perfil
 /images/6b180009b4d7aa368579a6157124ce6d
 /usuarios/registro
+/usuarios/registro
+/usuarios/registro
