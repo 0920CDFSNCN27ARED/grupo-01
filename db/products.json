@@ -28,6 +28,7 @@
   {
     "id": 4,
     "product_name": "asdf",
+    "description": "                                                                                                                                                \r\n                    \r\n                    \r\n                    \r\n                    \r\n                    \r\n                    ",
     "grape": "Zamit",
     "year": "1995",
     "temperature": "15",
@@ -35,7 +36,7 @@
     "price": "1279",
     "stock": "5",
     "pairing": "Beer - Upper Canada Light",
-    "image": "4f6cc9fca3b16dbc74218a6d7b55e4be"
+    "image": "5f3595b5b6b6995a4e9107b60a6be6ca"
   },
   {
     "id": 5,

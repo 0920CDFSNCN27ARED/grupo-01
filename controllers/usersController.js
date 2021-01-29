@@ -32,7 +32,6 @@ const usersControllers = {
     },
     logIn: (req, res) => {
         const errors = validationResult(req);
-        
 
         if (errors.isEmpty()) {
             const users = getUsers("users.json");
@@ -60,7 +59,7 @@ const usersControllers = {
                         maxAge: 60 * 1000 * 60 * 24,
                     });
                 }
-                req.app.locals.user = req.session.loggedUser;
+                res.locals.user = req.session.loggedUser;
 
                 res.redirect("/usuarios/perfil");
             }
@@ -70,16 +69,13 @@ const usersControllers = {
     },
     logOut: (req, res) => {
         res.clearCookie("remember");
-        res.app.locals.user = null;
+        res.locals.user = null;
         req.session.destroy((err) => {
             res.redirect("/");
         });
     },
     showProfile: (req, res) => {
-        if (res.app.locals.user ) {
-           return  res.render("users/profile");
-        }
-        res.redirect("/usuarios/login")
+        res.render("users/profile");
     },
 };
 

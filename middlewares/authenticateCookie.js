@@ -18,7 +18,7 @@ function authenticateCookie(req, res, next) {
         return next();
     }
 
-    res.app.locals.user = loggedUser;
+    res.locals.user = loggedUser;
 
     next();
 }

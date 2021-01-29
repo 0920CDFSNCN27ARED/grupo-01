@@ -10,11 +10,12 @@
         <main class="profile-main">
             <section class="profile-left">
                 <div class="profile-image">
-                    <img src="/images/<%= user.image %>" alt="" />
+                    <img src="/images/<%= user.image %> " alt="" />
                 </div>
                 <div class="profile-nav">
                     <ul>
                         <li><button class="profile-button">Perfil</button></li>
+                        <% if(user.category !== "empresa") {%>
                         <li>
                             <button class="profile-button">Mis compras</button>
                         </li>
@@ -28,6 +29,19 @@
                                 Mis direcciones
                             </button>
                         </li>
+                        <% } else { %>
+                        <li>
+                            <button class="profile-button">
+                                Mis publicaciones
+                            </button>
+                        </li>
+                        <li>
+                            <button class="profile-button">
+                                Mis sucursales
+                            </button>
+                        </li>
+                        <% } %>
+
                         <li>
                             <form method="post" action="/usuarios/perfil">
                                 <button
@@ -42,7 +56,8 @@
                 </div>
             </section>
             <section class="profile-right">
-                <div>
+                <div class="personal-info">
+                    <div class="background-text"></div>
                     <h2>Datos personales</h2>
                 </div>
                 <div class="profile-data">
@@ -61,7 +76,7 @@
                     </div>
                     <div>
                         <p>Contraseña</p>
-                        <a href="">Cambiar contraseña</a>
+                        <a class="link" href="">Cambiar contraseña</a>
                     </div>
                 </div>
             </section>

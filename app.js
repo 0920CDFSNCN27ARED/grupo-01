@@ -10,7 +10,7 @@ const authenticateCookie = require("./middlewares/authenticateCookie");
 const isAdmin = require("./middlewares/isAdmin");
 
 //views variables
-app.locals.user = delete app.session;
+app.locals.user = null;
 
 app.listen(3030, () => {
     console.log("Server running in port 3030");

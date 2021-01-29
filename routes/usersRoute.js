@@ -39,17 +39,13 @@ const usersController = require("../controllers/usersController");
 router.get("/registro", isGuest, usersController.showRegister);
 router.post("/registro", upload.single("image"), usersController.newUser);
 
-router.get(
-    "/registroBodega",
-    isGuest,
-    usersController.showRegisterWineCellar
-);
+router.get("/registroBodega", isGuest, usersController.showRegisterWineCellar);
 router.post(
     "/registroBodega",
     upload.single("image"),
     usersController.newUserWineCellar
 );
-router.get("/perfil", usersController.showProfile);
+router.get("/perfil", isLoggedIn, usersController.showProfile);
 router.post("/perfil", usersController.logOut);
 
 router.get("/login", isGuest, usersController.showLogin);
@@ -59,7 +55,7 @@ router.post(
         check("password")
             .notEmpty()
             .withMessage("Debes colocar una contraseña."),
-        check("email").isEmail().withMessage("Ingrese un mail valido."),
+        check("email").notEmpty().withMessage("Ingrese un mail valido."),
     ],
     usersController.logIn
 );

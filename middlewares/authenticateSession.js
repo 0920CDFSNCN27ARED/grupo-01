@@ -1,8 +1,8 @@
 const getUsers = require("../utils/getDbFile");
+
 function authenticateSession(req, res, next) {
-    res.app.locals.user = req.session.loggedUser;
-    const savedUser = res.app.locals.user;
- 
+    const savedUser = req.session.loggedUser;
+
     if (!savedUser) {
         return next();
     }
@@ -18,7 +18,7 @@ function authenticateSession(req, res, next) {
         return next();
     }
 
-    res.app.locals.user = loggedUser;
+    res.locals.user = loggedUser;
 
     next();
 }

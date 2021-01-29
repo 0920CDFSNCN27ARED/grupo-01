@@ -9,11 +9,14 @@ body {
 
 .error {
     color: red;
+    text-align: center;
+    margin-top: 15px;
 }
 
-p.error:last-of-type {
+/* p.error:last-of-type {
     margin-bottom: 15px;
-}
+} */
+
 .sidebar,
 .side-bar,
 .cart {
@@ -237,7 +240,6 @@ p.error:last-of-type {
     background-color: #d4c0dc;
     z-index: -1;
     height: 25px;
-    width: 70%;
     position: relative;
     top: 30px;
 }
@@ -376,6 +378,7 @@ section.form-register {
 form.form {
     display: grid;
     padding: 5%;
+    padding-top: 0;
 }
 
 form.form label {
@@ -747,7 +750,7 @@ section.form h2 {
     }
     .profile-main {
         display: grid;
-        grid-template-columns: 1fr 4fr;
+        grid-template-columns: 1fr 3fr 1fr;
         margin: 20px 0;
     }
     .profile-left {
@@ -785,12 +788,16 @@ section.form h2 {
         margin: 5px auto;
         font-size: 18px;
         cursor: pointer;
+        padding: 10px;
+    }
+
+    .profile-button:hover {
+        background-color: rgba(128, 128, 128, 0.212);
     }
 
     .red {
         color: #d21f57;
         padding: 10px;
-        border-radius: 10px;
     }
     .red:hover {
         color: white;
@@ -798,6 +805,25 @@ section.form h2 {
     }
 
     .profile-right {
-        padding-left: 20px;
+        padding: 40px;
+        padding-top: 0;
+        box-shadow: 2px 2px 6px grey;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+
+    .personal-info {
+        margin-bottom: 20px;
+    }
+
+    .profile-data div {
+        margin-bottom: 15px;
+    }
+
+    .link {
+        color: #a97cb7;
+    }
+    .link:hover {
+        text-decoration: underline;
     }
 }

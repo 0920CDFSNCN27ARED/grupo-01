@@ -1,5 +1,5 @@
 function isGuest(req, res, next) {
-    if (res.app.locals.user) {
+    if (req.session.loggedUser) {
         res.redirect("/");
     } else {
         next();
