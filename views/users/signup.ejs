@@ -10,6 +10,12 @@
         <main class="signup-main">
             <section class="form-register">
                 <h2 class="padding">Crea una cuenta</h2>
+                <% if(typeof errors !== "undefined") { %>
+                <ul>
+                    <% for(let i = 0; i < errors.length; i++) { %>
+                </ul>
+                <li class="error"><%= errors[i].msg %></li>
+                <% } %> <% } %>
                 <form
                     action="/usuarios/registro"
                     class="form"

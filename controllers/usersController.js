@@ -11,12 +11,23 @@ const usersControllers = {
     },
     newUser: (req, res) => {
         const errors = validationResult(req);
-        createUser(getUsers, fileToGet, req);
-        res.redirect("/productos");
+
+        if (errors.isEmpty()) {
+            createUser(getUsers, fileToGet, req);
+            res.redirect("/productos");
+        } else {
+            res.render("users/signUp", { errors: errors.errors });
+        }
     },
     newUserWineCellar: (req, res) => {
+        const errors = validationResult(req);
         createUser(getUsers, fileToGet, req);
-        res.redirect("/productos");
+        if (errors.isEmpty()) {
+            createUser(getUsers, fileToGet, req);
+            res.redirect("/productos");
+        } else {
+            res.render("users/signUp", { errors: errors.errors });
+        }
     },
 
     showRegisterWineCellar: (req, res) => {
@@ -34,7 +45,7 @@ const usersControllers = {
         const errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            const users = getUsers("users.json");
+            const users = getUsers(fileToGet);
 
             for (let i = 0; i < users.length; i++) {
                 if (

@@ -7,42 +7,76 @@ const getDbFile = require("../utils/getDbFile");
 const isLoggedIn = require("../middlewares/isLoggedIn");
 const isGuest = require("../middlewares/isGuest");
 
-// const userValidations = [
-//     check("firstName").notEmpty().withMessage("Debes colocar tu nombre."),
-//     check("lastName").notEmpty().withMessage("Debes colocar tu apellido."),
-//     check("dni").isLength(8).withMessage("Debes colocar tu número de DNI."),
-//     check("email").notEmpty().withMessage("Debes ingresar un email."),
-//     check("email").isEmail().withMessage("Debes ingresar un mail valido."),
-//     body("email")
-//         .custom(function (value) {
-//             const users = getDbFile("users.json");
-//             for (i = 0; i < users.lenght; i++) {
-//                 if (users[i].email == value) {
-//                     return false;
-//                 } else {
-//                     return true;
-//                 }
-//             }
-//         })
-//         .withMessage("Email ya existente."),
-//     check("password")
-//         .isLength(8)
-//         .withMessage("Debes ingresar una contraseña de al menos 8 caracteres."),
-//     check("image").notEmpty().withMessage("Debes elegir una imagen de perfil."),
-//     check("terms")
-//         .notEmpty()
-//         .withMessage("Debes leer y aceptar los terminos y condiciones."),
-// ];
-
 const usersController = require("../controllers/usersController");
 
 router.get("/registro", isGuest, usersController.showRegister);
-router.post("/registro", upload.single("image"), usersController.newUser);
+router.post(
+    "/registro",upload.single("image"),
+    [
+        check("firstName").notEmpty().withMessage("Debes colocar tu nombre."),
+        check("lastName").notEmpty().withMessage("Debes colocar tu apellido."),
+        check("dni").isLength(8).withMessage("Debes colocar tu número de DNI."),
+        check("email").isEmail().withMessage("Debes ingresar un mail valido."),
+        body("email").custom((value) => {
+            const users = getDbFile("users.json");
+            const emailExtists =  users.find((user) => {
+                    return user.email == value;
+                })
+                if(emailExtists){
+                    return false
+                }
+                return true
+                
+        }).withMessage("Email ya exitente"),
+        check("password")
+            .isLength(8)
+            .withMessage(
+                "Debes ingresar una contraseña de al menos 8 caracteres."
+            ),
+        check("image")
+            .notEmpty()
+            .withMessage("Debes elegir una imagen de perfil."),
+        check("terms")
+            .notEmpty()
+            .withMessage("Debes leer y aceptar los terminos y condiciones."),
+    ],
+    
+    usersController.newUser
+);
 
 router.get("/registroBodega", isGuest, usersController.showRegisterWineCellar);
 router.post(
     "/registroBodega",
-    upload.single("image"),
+    upload.single("image"),[
+        check("cellarName").notEmpty().withMessage("Debes colocar el nombre de la bodega."),
+        check("companyName").notEmpty().withMessage("Debes colocar la razon social de tu empresa."),
+        check("cuit").isLength(11).withMessage("Debes colocar el número de CUIT de la empresa."),
+        check("country").notEmpty().withMessage("Debes colocar el pais en el que se establece tu empresa."),
+        check("province").notEmpty().withMessage("Debes colocar la provincia en la que se establece tu empresa."),
+        check("email").isEmail().withMessage("Debes ingresar un mail valido."),
+        body("email").custom((value) => {
+            const users = getDbFile("users.json");
+            const emailExtists =  users.find((user) => {
+                    return user.email == value;
+                })
+                if(emailExtists){
+                    return false
+                }
+                return true
+                
+        }).withMessage("Email ya exitente"),
+        check("password")
+            .isLength(8)
+            .withMessage(
+                "Debes ingresar una contraseña de al menos 8 caracteres."
+            ),
+        check("image")
+            .notEmpty()
+            .withMessage("Debes elegir una imagen de perfil."),
+        check("terms")
+            .notEmpty()
+            .withMessage("Debes leer y aceptar los terminos y condiciones."),
+    ],
     usersController.newUserWineCellar
 );
 router.get("/perfil", isLoggedIn, usersController.showProfile);

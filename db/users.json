@@ -529,5 +529,41 @@
     "terms": "on",
     "image": "",
     "category": "empresa"
+  },
+  {
+    "id": 38,
+    "cellarName": "",
+    "companyName": "",
+    "cuit": "",
+    "country": "",
+    "province": "",
+    "email": "",
+    "password": "",
+    "image": "",
+    "category": "empresa"
+  },
+  {
+    "id": 39,
+    "cellarName": "",
+    "companyName": "",
+    "cuit": "",
+    "country": "",
+    "province": "",
+    "email": "",
+    "password": "",
+    "image": "",
+    "category": "empresa"
+  },
+  {
+    "id": 40,
+    "cellarName": "",
+    "companyName": "",
+    "cuit": "",
+    "country": "",
+    "province": "",
+    "email": "",
+    "password": "",
+    "image": "",
+    "category": "empresa"
   }
 ]

@@ -9,8 +9,10 @@ body {
 
 .error {
     color: red;
-    text-align: center;
+    text-align: left;
+    padding-left: 2%;
     margin-top: 15px;
+    list-style-type: none;
 }
 
 /* p.error:last-of-type {

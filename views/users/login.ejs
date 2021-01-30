@@ -14,10 +14,14 @@
 
                 <p class="error"><%= errorMsg %></p>
 
-                <% } %> <% if (typeof errors !== 'undefined') { %> <% for (let i
-                = 0; i < errors.length; i++) { %>
-                <p class="error"><%= errors[i].msg %></p>
-                <% } %> <% } %>
+                <% } %> <% if (typeof errors !== 'undefined') { %>
+                <ul>
+                    <% for (let i = 0; i < errors.length; i++) { %>
+                    <li class="error"><%= errors[i].msg %></li>
+                    <% } %>
+                </ul>
+                <% } %>
+
                 <form action="/usuarios/login" class="form" method="POST">
                     <label for="email">E-mail</label>
                     <input
