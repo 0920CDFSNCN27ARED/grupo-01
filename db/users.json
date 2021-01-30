@@ -565,5 +565,29 @@
     "password": "",
     "image": "",
     "category": "empresa"
+  },
+  {
+    "id": 41,
+    "cellarName": "",
+    "companyName": "",
+    "cuit": "",
+    "country": "",
+    "province": "",
+    "email": "",
+    "password": "",
+    "image": "",
+    "category": "empresa"
+  },
+  {
+    "id": 42,
+    "cellarName": "",
+    "companyName": "",
+    "cuit": "",
+    "country": "",
+    "province": "",
+    "email": "",
+    "password": "",
+    "image": "",
+    "category": "empresa"
   }
 ]

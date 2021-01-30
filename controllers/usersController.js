@@ -26,7 +26,7 @@ const usersControllers = {
             createUser(getUsers, fileToGet, req);
             res.redirect("/productos");
         } else {
-            res.render("users/signUp", { errors: errors.errors });
+            res.render("users/signupWineCellar", { errors: errors.errors });
         }
     },
 

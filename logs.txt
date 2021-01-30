@@ -2279,3 +2279,7 @@
 /usuarios/registroBodega
 /usuarios/registroBodega
 /usuarios/registroBodega
+/usuarios/registroBodega
+/usuarios/registroBodega
+/usuarios/registroBodega
+/usuarios/registroBodega
