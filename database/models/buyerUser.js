@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
             password: DataTypes.STRING,
             image: DataTypes.STRING,
         },
-        {}
+        {
+            tableName: "buyer_users",
+            timestamps: false,
+        }
     );
     BuyerUser.associate = function (models) {
         BuyerUser.hasMany(models.Adress, {

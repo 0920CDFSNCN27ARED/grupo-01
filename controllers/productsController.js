@@ -9,12 +9,12 @@ const productsController = {
     showAll: async (req, res) => {
         try {
             const allProds = await Product.findAll();
-            console.log(allProds);
+            // console.log(allProds);
             res.render("products/products", {
                 products: allProds,
             });
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             res.send("Error");
         }
     },
@@ -26,35 +26,30 @@ const productsController = {
     //     });
     // },
     showOne: async (req, res) => {
-        const allProds = await Product.findByPk(req.params.id).then(
-            (result) => {
-                if (result == undefined) {
-                    return res
-                        .status(404)
-                        .send(
-                            "404 not found. <br> ¡Houston, poseemos problemas!"
-                        );
-                }
+        const oneProd = await Product.findByPk(req.params.id);
+        if (oneProd == undefined) {
+            return res
+                .status(404)
+                .send("404 not found. <br> ¡Houston, poseemos problemas!");
+        }
 
-                res.render("products/productDetail", {
-                    product: result,
-                });
-            }
-        );
-        // const products = getProducts(fileToGet);
-        // const requiredProduct = products.find((prod) => {
-        //     return prod.id == req.params.id;
-        // });
-        // if (requiredProduct == undefined) {
-        //     return res
-        //         .status(404)
-        //         .send("404 not found. <br> ¡Houston, poseemos problemas!");
-        // }
-
-        // res.render("products/productDetail", {
-        //     product: requiredProduct,
-        // });
+        res.render("products/productDetail", {
+            product: oneProd,
+        });
     },
+    // const products = getProducts(fileToGet);
+    // const requiredProduct = products.find((prod) => {
+    //     return prod.id == req.params.id;
+    // });
+    // if (requiredProduct == undefined) {
+    //     return res
+    //         .status(404)
+    //         .send("404 not found. <br> ¡Houston, poseemos problemas!");
+    // }
+
+    // res.render("products/productDetail", {
+    //     product: requiredProduct,
+    // });
     newProduct: (req, res) => {
         res.render("products/newProduct");
     },
@@ -77,15 +72,14 @@ const productsController = {
     },
 
     editProduct: async (req, res) => {
-        const product = await Product.findByPk(req.params.id).then((result) => {
-            if (result == null) {
-                return res
-                    .status(404)
-                    .send("404 not found. <br> ¡Houston, poseemos problemas!");
-            }
-            res.render("products/editProduct", {
-                product: product,
-            });
+        const product = await Product.findByPk(req.params.id);
+        if (product == null) {
+            return res
+                .status(404)
+                .send("404 not found. <br> ¡Houston, poseemos problemas!");
+        }
+        res.render("products/editProduct", {
+            product: product,
         });
     },
 

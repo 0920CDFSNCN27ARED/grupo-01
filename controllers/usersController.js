@@ -52,39 +52,42 @@ const usersControllers = {
     showLogin: (req, res) => {
         res.render("users/login");
     },
-    logIn: (req, res) => {
+    logIn: async (req, res) => {
         const errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            const users = await;
+            const buyerUser = await BuyerUser.findOne({
+                where: {
+                    email: req.body.email,
+                    password: bcrypt.compareSync(req.body.password),
+                },
+            });
+            if (buyerUser) {
+                req.session.loggedUser = buyerUser;
+            }
+            const cellarUser = CellarUser.findOne({
+                where: {
+                    email: req.body.email,
+                    password: bcrypt.compareSync(req.body.password),
+                },
+            });
 
-            for (let i = 0; i < users.length; i++) {
-                if (
-                    users[i].email == req.body.email &&
-                    bcrypt.compareSync(req.body.password, users[i].password)
-                ) {
-                    const user = users[i];
-
-                    req.session.loggedUser = user;
-
-                    break;
-                }
+            if (cellarUser) {
+                req.session.loggedUser = cellarUser;
             }
             let msg = "Credenciales invalidas.";
             if (req.session.loggedUser == undefined) {
                 res.render("users/login", {
                     errorMsg: msg,
                 });
-            } else {
-                if (req.body.remember != undefined) {
-                    res.cookie("remember", req.session.loggedUser.id, {
-                        maxAge: 60 * 1000 * 60 * 24,
-                    });
-                }
-                res.locals.user = req.session.loggedUser;
-
-                res.redirect("/usuarios/perfil");
+            } else if (req.body.remember != undefined) {
+                res.cookie("remember", req.session.loggedUser.id, {
+                    maxAge: 60 * 1000 * 60 * 24,
+                });
             }
+            res.locals.user = req.session.loggedUser;
+
+            res.redirect("/usuarios/perfil");
         } else {
             res.render("users/login", { errors: errors.errors });
         }
