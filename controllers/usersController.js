@@ -4,6 +4,7 @@ const createUser = require("../utils/createNew");
 const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
 const { equal } = require("assert");
+const { BuyerUser } = require("../database/models");
 
 const usersControllers = {
     showRegister: (req, res) => {
@@ -11,9 +12,15 @@ const usersControllers = {
     },
     newUser: (req, res) => {
         const errors = validationResult(req);
-
         if (errors.isEmpty()) {
-            createUser(getUsers, fileToGet, req);
+            BuyerUser.create({
+                firsName: req.body.firsName,
+                lasTName: req.body.lasTName,
+                dni: req.body.dni,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                image: req.file.filename,
+            });
             res.redirect("/productos");
         } else {
             res.render("users/signUp", { errors: errors.errors });
@@ -21,9 +28,18 @@ const usersControllers = {
     },
     newUserWineCellar: (req, res) => {
         const errors = validationResult(req);
-        createUser(getUsers, fileToGet, req);
+
         if (errors.isEmpty()) {
-            createUser(getUsers, fileToGet, req);
+            CellarUser.create({
+                cellarName: req.body.cellarName,
+                companyName: req.body.companyName,
+                cuit: req.body.cuit,
+                country: req.body.country,
+                province: req.body.province,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                image: req.file.filename,
+            });
             res.redirect("/productos");
         } else {
             res.render("users/signupWineCellar", { errors: errors.errors });
@@ -33,11 +49,6 @@ const usersControllers = {
     showRegisterWineCellar: (req, res) => {
         res.render("users/signupWineCellar");
     },
-
-    newWineCellarUser: (req, res) => {
-        createUser(getUsers, fileToGet, req);
-        res.redirect("/productos");
-    },
     showLogin: (req, res) => {
         res.render("users/login");
     },
@@ -45,7 +56,7 @@ const usersControllers = {
         const errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            const users = getUsers(fileToGet);
+            const users = await;
 
             for (let i = 0; i < users.length; i++) {
                 if (

@@ -3,51 +3,89 @@ const { get } = require("../routes/usersRoute");
 const getProducts = require("../utils/getDbFile");
 const saveProducts = require("../utils/saveDbChanges");
 const fileToGet = "products.json";
+const { Product } = require("../database/models");
 
 const productsController = {
-    showAll: (req, res) => {
-        const products = getProducts(fileToGet);
-        res.render("products/products", {
-            products: products,
-        });
-    },
-    showOne: (req, res) => {
-        const products = getProducts(fileToGet);
-        const requiredProduct = products.find((prod) => {
-            return prod.id == req.params.id;
-        });
-        if (requiredProduct == undefined) {
-            return res
-                .status(404)
-                .send("404 not found. <br> ¡Houston, poseemos problemas!");
+    showAll: async (req, res) => {
+        try {
+            const allProds = await Product.findAll();
+            console.log(allProds);
+            res.render("products/products", {
+                products: allProds,
+            });
+        } catch (err) {
+            console.log(err);
+            res.send("Error");
         }
+    },
+    // showAll: (req, res) => {
 
-        res.render("products/productDetail", {
-            product: requiredProduct,
-        });
+    //     const products = getProducts(fileToGet);
+    //     res.render("products/products", {
+    //         products: products,
+    //     });
+    // },
+    showOne: async (req, res) => {
+        const allProds = await Product.findByPk(req.params.id).then(
+            (result) => {
+                if (result == undefined) {
+                    return res
+                        .status(404)
+                        .send(
+                            "404 not found. <br> ¡Houston, poseemos problemas!"
+                        );
+                }
+
+                res.render("products/productDetail", {
+                    product: result,
+                });
+            }
+        );
+        // const products = getProducts(fileToGet);
+        // const requiredProduct = products.find((prod) => {
+        //     return prod.id == req.params.id;
+        // });
+        // if (requiredProduct == undefined) {
+        //     return res
+        //         .status(404)
+        //         .send("404 not found. <br> ¡Houston, poseemos problemas!");
+        // }
+
+        // res.render("products/productDetail", {
+        //     product: requiredProduct,
+        // });
     },
     newProduct: (req, res) => {
         res.render("products/newProduct");
     },
     createProduct: (req, res) => {
-        const createNew = require("../utils/createNew");
-        const newProduct = createNew(getProducts, "products.json", req);
+        Pelicula.create({
+            productName: req.body.productName,
+            grape: req.body.productGrape,
+            description: req.body.productDescription,
+            year: req.body.productYear,
+            aged: req.body.productAged,
+            temperature: req.body.productTemperature,
+            price: req.body.productPrice,
+            stock: req.body.productStock,
+            discount: req.body.productDiscount,
+        });
+        // const createNew = require("../utils/createNew");
+        // const newProduct = createNew(getProducts, "products.json", req);
 
         res.redirect(`/productos/${newProduct.id}`);
     },
 
-    editProduct: (req, res) => {
-        const products = getProducts(fileToGet);
-        const requiredProduct = products.find((prod) => {
-            return prod.id == req.params.id;
-        });
-        if (requiredProduct == null) {
-            return res
-                .status(404)
-                .send("404 not found. <br> ¡Houston, poseemos problemas!");
-        }
-        res.render("products/editProduct", {
-            product: requiredProduct,
+    editProduct: async (req, res) => {
+        const product = await Product.findByPk(req.params.id).then((result) => {
+            if (result == null) {
+                return res
+                    .status(404)
+                    .send("404 not found. <br> ¡Houston, poseemos problemas!");
+            }
+            res.render("products/editProduct", {
+                product: product,
+            });
         });
     },
 
