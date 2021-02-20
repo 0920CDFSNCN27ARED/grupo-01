@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
             cuit: DataTypes.INTEGER(11),
             country: DataTypes.STRING,
             province: DataTypes.STRING,
-            password: DataTypes.STRING(10),
+            password: DataTypes.STRING(200),
+            email: DataTypes.STRING
         },
         {
             tableName: "cellar_users",

@@ -1,26 +1,27 @@
-const getUsers = require("../utils/getDbFile");
+// const getUsers = require("../utils/getDbFile");
 
-function authenticateSession(req, res, next) {
+const { CellarUser, BuyerUser } = require("../database/models");
+
+async function authenticateSession(req, res, next) {
     const savedUser = req.session.loggedUser;
 
     if (!savedUser) {
         return next();
     }
 
-    const users = getUsers("users.json");
+    const loggedUser = await BuyerUser.findByPk(savedUser.id);
+    const loggedCellar = await CellarUser.findByPk(savedUser.id);
 
-    const loggedUser = users.find((user) => {
-        return user.id == savedUser.id;
-    });
+    if (loggedUser) {
+        res.locals.user = loggedUser;
+        return next();
+    } else if (loggedCellar) {
+        res.locals.user = loggedCellar;
 
-    if (!loggedUser) {
-        delete req.session.loggedUser;
         return next();
     }
-
-    res.locals.user = loggedUser;
-
-    next();
+    delete req.session.loggedUser;
+    return next();
 }
 
 module.exports = authenticateSession;

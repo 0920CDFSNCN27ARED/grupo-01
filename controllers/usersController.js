@@ -6,45 +6,62 @@ const { check, validationResult, body } = require("express-validator");
 const { equal } = require("assert");
 const { BuyerUser } = require("../database/models");
 const { CellarUser } = require("../database/models");
+const { Console } = require("console");
 
 const usersControllers = {
     showRegister: (req, res) => {
         res.render("users/signup");
     },
-    newUser: (req, res) => {
-        const errors = validationResult(req);
-        if (errors.isEmpty()) {
-            res.locals.user = BuyerUser.create({
-                firsName: req.body.firsName,
-                lasTName: req.body.lasTName,
-                dni: req.body.dni,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
-                image: req.file.filename,
-            });
-            res.redirect("/productos");
-        } else {
-            res.render("users/signUp", { errors: errors.errors });
+    newUser: async (req, res) => {
+        try {
+            const errors = validationResult(req);
+            if (errors.isEmpty()) {
+                const newBuyerUser = await BuyerUser.create({
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    dni: req.body.dni,
+                    email: req.body.email,
+                    password: bcrypt.hashSync(req.body.password, 10),
+                    image: req.file.filename,
+                });
+                console.log(
+                    newBuyerUser,
+                    "CONSOLE LOG ------------------------"
+                );
+                req.session.loggedUser = newBuyerUser;
+                res.locals.user = newBuyerUser;
+
+                res.redirect("/productos");
+            } else {
+                res.render("users/signUp", { errors: errors.errors });
+            }
+        } catch (err) {
+            res.send(err);
         }
     },
-    newUserWineCellar: (req, res) => {
-        const errors = validationResult(req);
+    newUserWineCellar: async (req, res) => {
+        try {
+            const errors = validationResult(req);
 
-        if (errors.isEmpty()) {
-            res.locals.user = CellarUser.create({
-                cellarName: req.body.cellarName,
-                companyName: req.body.companyName,
-                cuit: req.body.cuit,
-                country: req.body.country,
-                province: req.body.province,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
-                image: req.file.filename,
-            });
+            if (errors.isEmpty()) {
+                const newCellarUser = await CellarUser.create({
+                    cellarName: req.body.cellarName,
+                    companyName: req.body.companyName,
+                    cuit: req.body.cuit,
+                    country: req.body.country,
+                    province: req.body.province,
+                    email: req.body.email,
+                    password: bcrypt.hashSync(req.body.password, 10),
+                    image: req.file.filename,
+                });
+                req.session.loggedUser = newCellarUser;
 
-            res.redirect("/productos");
-        } else {
-            res.render("users/signupWineCellar", { errors: errors.errors });
+                res.redirect("/productos");
+            } else {
+                res.render("users/signupWineCellar", { errors: errors.errors });
+            }
+        } catch (err) {
+            res.send(err)
         }
     },
 
@@ -63,12 +80,12 @@ const usersControllers = {
                     email: req.body.email,
                 },
             });
-            console.log(buyerUser);
             const cellarUser = await CellarUser.findOne({
                 where: {
                     email: req.body.email,
                 },
             });
+
             if (
                 buyerUser &&
                 bcrypt.compareSync(req.body.password, buyerUser.password)
@@ -81,7 +98,7 @@ const usersControllers = {
             ) {
                 req.session.loggedUser = cellarUser;
             }
-            console.log(req.session.loggedUser);
+            ///////////////////////////////////////
             let msg = "Credenciales invalidas.";
             if (req.session.loggedUser == undefined) {
                 res.render("users/login", {

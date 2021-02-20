@@ -80,26 +80,26 @@ router.post(
                 "Debes colocar la provincia en la que se establece tu empresa."
             ),
         check("email").isEmail().withMessage("Debes ingresar un mail valido."),
-        body("email")
-            .custom((value) => {
-                const users = getDbFile("users.json");
-                const emailExtists = users.find((user) => {
-                    return user.email == value;
-                });
-                if (emailExtists) {
-                    return false;
-                }
-                return true;
-            })
-            .withMessage("Email ya exitente"),
+        // body("email")
+        //     .custom((value) => {
+        //         const users = getDbFile("users.json");
+        //         const emailExtists = users.find((user) => {
+        //             return user.email == value;
+        //         });
+        //         if (emailExtists) {
+        //             return false;
+        //         }
+        //         return true;
+        //     })
+        //     .withMessage("Email ya exitente"),
         check("password")
             .isLength(8)
             .withMessage(
                 "Debes ingresar una contraseña de al menos 8 caracteres."
             ),
-        check("image")
-            .notEmpty()
-            .withMessage("Debes elegir una imagen de perfil."),
+        // check("image")
+        //     .notEmpty()
+        //     .withMessage("Debes elegir una imagen de perfil."),
         check("terms")
             .notEmpty()
             .withMessage("Debes leer y aceptar los terminos y condiciones."),

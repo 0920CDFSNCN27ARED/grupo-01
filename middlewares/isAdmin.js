@@ -1,10 +1,10 @@
 function isAdmin(req, res, next) {
     if (
         !req.session.loggedUser ||
-        req.session.loggedUser.category != "empresa"
+        !req.session.loggedUser.cuit
     ) {
         res.redirect("/");
-    } else if (req.session.loggedUser.category == "empresa") {
+    } else if (req.session.loggedUser.cuit) {
         next();
     }
 }

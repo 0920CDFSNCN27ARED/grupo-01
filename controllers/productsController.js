@@ -9,12 +9,10 @@ const productsController = {
     showAll: async (req, res) => {
         try {
             const allProds = await Product.findAll();
-            // console.log(allProds);
             res.render("products/products", {
                 products: allProds,
             });
         } catch (err) {
-            // console.log(err);
             res.send("Error");
         }
     },

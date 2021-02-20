@@ -1,4 +1,5 @@
-const getUsers = require("../utils/getDbFile");
+// const getUsers = require("../utils/getDbFile");
+const { CellarUser, BuyerUser } = require("../database/models");
 
 function authenticateCookie(req, res, next) {
     const cookiedUser = req.cookies.remember;
@@ -7,20 +8,18 @@ function authenticateCookie(req, res, next) {
         return next();
     }
 
-    const users = getUsers("users.json");
+    const loggedUser = BuyerUser.findByPk(cookiedUser);
+    const loggedCellar = CellarUser.findByPk(cookiedUser);
 
-    const loggedUser = users.find((user) => {
-        return user.id == cookiedUser;
-    });
-
-    if (!loggedUser) {
-        delete req.session.loggedUser;
-        return next();
+    if (loggedUser) {
+        res.locals.user = loggedUser;
+        next();
+    } else if (loggedCellar) {
+        res.locals.user = loggedCellar;
+        next();
     }
-
-    res.locals.user = loggedUser;
-
-    next();
+    delete req.session.loggedUser;
+    return next();
 }
 
 module.exports = authenticateCookie;
