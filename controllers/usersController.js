@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
 const { equal } = require("assert");
 const { BuyerUser } = require("../database/models");
+const { CellarUser } = require("../database/models");
 
 const usersControllers = {
     showRegister: (req, res) => {
@@ -13,7 +14,7 @@ const usersControllers = {
     newUser: (req, res) => {
         const errors = validationResult(req);
         if (errors.isEmpty()) {
-            BuyerUser.create({
+            res.locals.user = BuyerUser.create({
                 firsName: req.body.firsName,
                 lasTName: req.body.lasTName,
                 dni: req.body.dni,
@@ -30,7 +31,7 @@ const usersControllers = {
         const errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            CellarUser.create({
+            res.locals.user = CellarUser.create({
                 cellarName: req.body.cellarName,
                 companyName: req.body.companyName,
                 cuit: req.body.cuit,
@@ -40,6 +41,7 @@ const usersControllers = {
                 password: bcrypt.hashSync(req.body.password, 10),
                 image: req.file.filename,
             });
+
             res.redirect("/productos");
         } else {
             res.render("users/signupWineCellar", { errors: errors.errors });
@@ -59,22 +61,27 @@ const usersControllers = {
             const buyerUser = await BuyerUser.findOne({
                 where: {
                     email: req.body.email,
-                    password: bcrypt.compareSync(req.body.password),
                 },
             });
-            if (buyerUser) {
-                req.session.loggedUser = buyerUser;
-            }
-            const cellarUser = CellarUser.findOne({
+            console.log(buyerUser);
+            const cellarUser = await CellarUser.findOne({
                 where: {
                     email: req.body.email,
-                    password: bcrypt.compareSync(req.body.password),
                 },
             });
-
-            if (cellarUser) {
+            if (
+                buyerUser &&
+                bcrypt.compareSync(req.body.password, buyerUser.password)
+            ) {
+                req.session.loggedUser = buyerUser;
+            } else if (
+                !buyerUser &&
+                cellarUser &&
+                bcrypt.compareSync(req.body.password, cellarUser.password)
+            ) {
                 req.session.loggedUser = cellarUser;
             }
+            console.log(req.session.loggedUser);
             let msg = "Credenciales invalidas.";
             if (req.session.loggedUser == undefined) {
                 res.render("users/login", {
@@ -86,8 +93,7 @@ const usersControllers = {
                 });
             }
             res.locals.user = req.session.loggedUser;
-
-            res.redirect("/usuarios/perfil");
+            res.render("users/profile");
         } else {
             res.render("users/login", { errors: errors.errors });
         }
