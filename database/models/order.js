@@ -1,21 +1,21 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-    const Cart = sequelize.define(
-        "Cart",
+    const Order = sequelize.define(
+        "Order",
         {
             total_price: DataTypes.INTEGER,
         },
         {}
     );
-    Cart.associate = function (models) {
-        Cart.hasOne(models.Adress, {
+    Order.associate = function (models) {
+        Order.hasOne(models.Adress, {
             as: "cartAdress",
             foreingKey: "idAdress",
         });
-        // Cart.hasOne(models.PaymentMethod, {
+        // Order.hasOne(models.PaymentMethod, {
         //     as: "paymentMethod",
         //     foreingKey: "idpaymentMethod",
         // });
     };
-    return Cart;
+    return Order;
 };
