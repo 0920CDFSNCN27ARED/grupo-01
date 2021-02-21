@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <%- include("../partials/head", {title: "Carrito | WINDERFUL"})%>
+        <%- include("../partials/head")%>
+        <title>CARRITO | WINEDERFUL</title>
         <link rel="stylesheet" href="/css/cart.css" />
-       
     </head>
 
     <body>
@@ -40,14 +40,13 @@
                 </nav>
             </div>
 
-
-            <section id="products-section" class="display-flex-column align-center">
-                
-                <% for(let i = 0; i < products.length; i++) {%>
-                <%- include("../partials/cart/article", {product: products[i]}) %>
-               <% } %>
-               
-
+            <section
+                id="products-section"
+                class="display-flex-column align-center"
+            >
+                <% for(let i = 0; i < products.length; i++) {%> <%-
+                include("../partials/cart/article", {product: products[i]}) %>
+                <% } %>
             </section>
 
             <section id="section-buy" class="display-flex-column bold">

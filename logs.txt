@@ -4938,3 +4938,9 @@
 /usuarios/perfil
 /productos
 /carrito
+/productos/crear
+/
+/usuarios/login
+/usuarios/registro
+/usuarios/registroBodega
+/usuarios/registroBodega
