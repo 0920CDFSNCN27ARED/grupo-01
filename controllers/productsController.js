@@ -1,6 +1,9 @@
 const { match } = require("assert");
 const { get } = require("../routes/usersRoute");
 const { Product } = require("../database/models");
+const erase = require("../utils/delete");
+const edited = require("../utils/edit");
+const { Console } = require("console");
 
 const productsController = {
     showAll: async (req, res) => {
@@ -75,21 +78,16 @@ const productsController = {
         });
     },
 
-    edit: async (req, res) => {
-        const editProduct = require("../utils/edit");
-        editProduct(getProducts, "products.json", req);
-        res.redirect(`/productos/${req.params.id}`);
+    edit: (req, res) => {
+        const id = req.params.id;
+        edited(Product, id, req, res);
+        res.redirect(`/productos/${id}`);
     },
 
-    deleteProduct: async (req, res) => {
-        try {
-            await Product.destroy({
-                where: { id: req.params.id },
-            });
-            res.redirect(`/productos`);
-        } catch (err) {
-            res.send(err);
-        }
+    deleteProduct: (req, res) => {
+        const id = req.params.id;
+        erase(Product, id, res);
+        res.redirect("/productos");
     },
 
     // search: (req, res) => {
