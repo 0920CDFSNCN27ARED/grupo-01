@@ -6,11 +6,11 @@ module.exports = (sequelize, DataTypes) => {
         {
             cellarName: DataTypes.STRING,
             companyName: DataTypes.STRING,
-            cuit: DataTypes.INTEGER(11),
+            cuit: DataTypes.INTEGER(45),
             country: DataTypes.STRING,
             province: DataTypes.STRING,
             password: DataTypes.STRING(200),
-            email: DataTypes.STRING
+            email: DataTypes.STRING,
         },
         {
             tableName: "cellar_users",

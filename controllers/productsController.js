@@ -1,8 +1,5 @@
 const { match } = require("assert");
 const { get } = require("../routes/usersRoute");
-const getProducts = require("../utils/getDbFile");
-const saveProducts = require("../utils/saveDbChanges");
-const fileToGet = "products.json";
 const { Product } = require("../database/models");
 
 const productsController = {
@@ -16,13 +13,6 @@ const productsController = {
             res.send("Error");
         }
     },
-    // showAll: (req, res) => {
-
-    //     const products = getProducts(fileToGet);
-    //     res.render("products/products", {
-    //         products: products,
-    //     });
-    // },
     showOne: async (req, res) => {
         const oneProd = await Product.findByPk(req.params.id);
         if (oneProd == undefined) {
@@ -52,7 +42,7 @@ const productsController = {
         res.render("products/newProduct");
     },
     createProduct: (req, res) => {
-        Pelicula.create({
+        const newProduct = Product.create({
             productName: req.body.productName,
             grape: req.body.productGrape,
             description: req.body.productDescription,
