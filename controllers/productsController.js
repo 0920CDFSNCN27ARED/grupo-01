@@ -41,18 +41,22 @@ const productsController = {
     newProduct: (req, res) => {
         res.render("products/newProduct");
     },
-    createProduct: (req, res) => {
-        const newProduct = Product.create({
-            productName: req.body.productName,
-            grape: req.body.productGrape,
-            description: req.body.productDescription,
-            year: req.body.productYear,
-            aged: req.body.productAged,
-            temperature: req.body.productTemperature,
-            price: req.body.productPrice,
-            stock: req.body.productStock,
-            discount: req.body.productDiscount,
-        });
+    createProduct: async (req, res) => {
+        try {
+            const newProduct = await Product.create({
+                productName: req.body.productName,
+                grape: req.body.productGrape,
+                description: req.body.productDescription,
+                year: req.body.productYear,
+                aged: req.body.productAged,
+                temperature: req.body.productTemperature,
+                price: req.body.productPrice,
+                stock: req.body.productStock,
+                discount: req.body.productDiscount,
+            });
+        } catch (err) {
+            res.send(err);
+        }
         // const createNew = require("../utils/createNew");
         // const newProduct = createNew(getProducts, "products.json", req);
 
@@ -71,16 +75,21 @@ const productsController = {
         });
     },
 
-    edit: (req, res) => {
+    edit: async (req, res) => {
         const editProduct = require("../utils/edit");
         editProduct(getProducts, "products.json", req);
         res.redirect(`/productos/${req.params.id}`);
     },
 
-    deleteProduct: (req, res) => {
-        const deleteProduct = require("../utils/delete");
-        deleteProduct(getProducts, fileToGet, req);
-        res.redirect("/productos");
+    deleteProduct: async (req, res) => {
+        try {
+            await Product.destroy({
+                where: { id: req.params.id },
+            });
+            res.redirect(`/productos`);
+        } catch (err) {
+            res.send(err);
+        }
     },
 
     // search: (req, res) => {
