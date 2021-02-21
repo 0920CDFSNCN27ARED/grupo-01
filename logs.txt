@@ -4928,3 +4928,13 @@
 /usuarios/registroBodega
 /usuarios/registroBodega
 /favicon.ico
+/usuarios/registro
+/usuarios/registroBodega
+/usuarios/registroBodega
+/usuarios/registroBodega
+/usuarios/registroBodega
+/usuarios/registroBodega
+/productos
+/usuarios/perfil
+/productos
+/carrito
