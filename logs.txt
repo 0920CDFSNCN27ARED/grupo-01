@@ -6874,3 +6874,13 @@
 /usuarios/registro
 /usuarios/registro
 /usuarios/registro
+/usuarios/registro
+/usuarios/registro
+/productos
+/productos
+/usuarios/registro
+/usuarios/registro
+/usuarios/login
+/usuarios/registro
+/usuarios/registro
+/productos

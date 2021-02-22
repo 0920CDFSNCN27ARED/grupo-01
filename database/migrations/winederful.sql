@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `winederful`.`buyer_users` (
   UNIQUE INDEX `dni_UNIQUE` (`dni` ASC),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 51
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = latin1;
 
 
