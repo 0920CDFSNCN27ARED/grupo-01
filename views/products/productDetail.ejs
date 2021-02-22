@@ -41,7 +41,11 @@
                                 value="1"
                             />
                         </div>
+<<<<<<< HEAD
                         <% if (!user) { %>
+=======
+                        <% if (user && user.dni) { %>
+>>>>>>> 47bb050d5dc7ed02e83c1769e7bee19567da03d1
                         <a class="button create" href="/carrito">
                             <!-- <button type="button" class="button create"> -->
                                 Agregar al carrito
@@ -58,7 +62,7 @@
                         </div>
                         
 
-                        <% } else if (user.cuit) { %>
+                        <% } else if (user && user.cuit) { %>
                         <a class="button create" href="/productos/<%= product.id %>/editar">
                             <!-- <button type="button" class="button create"> -->
                                 Editar
