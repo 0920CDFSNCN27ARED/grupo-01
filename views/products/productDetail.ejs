@@ -4,6 +4,7 @@
         <%- include("../partials/head.ejs") %>
         <link rel="stylesheet" href="/css/product2.css" />
         <title>PRODUCTO | WINEDERFUL</title>
+        <script src="/js/colapse.js"></script>
     </head>
     <body class="body-index">
         <%- include("../partials/header.ejs") %>
@@ -40,16 +41,22 @@
                                 value="1"
                             />
                         </div>
-                        <% if (user.dni) { %>
+                        <% if (!user) { %>
                         <a class="button create" href="/carrito">
                             <!-- <button type="button" class="button create"> -->
                                 Agregar al carrito
                                 <i class="fas fa-shopping-cart cart-button"></i>
                             <!-- </button> -->
                         </a>
-                        <a href="/favoritos">
-                            <i class="far fa-heart"></i>
-                        </a>
+                        <div class="fav-share">
+                            <a class="icon" href="/favoritos">
+                                <i class="far fa-heart"></i>
+                            </a>
+                            <a class="icon" href="">
+                                <i class="fas fa-share-alt"></i>
+                            </a>
+                        </div>
+                        
 
                         <% } else if (user.cuit) { %>
                         <a class="button create" href="/productos/<%= product.id %>/editar">
@@ -66,12 +73,12 @@
             </section>
             <div class="specific-suggest">
                 <section class="specific">
-                    <div id="colpase" class="colapse">
+                    <div id="colapse" class="colapse">
                         <p>ESPECIFICACIONES</p>
                         <i class="fas fa-chevron-down"></i>
                     </div>
 
-                    <div id="inside" class="font-description description">
+                    <div id="inside" class="description font-description">
                         <div>
                             <p>AÑADA:</p>
                             <p class="data"><%= product.year %></p>
@@ -93,16 +100,16 @@
                             <p class="data"></p>
                         </div> -->
                         <div>
-                            <p>TEMPERATURA:</p>
+                            <p>TEMPERATURA DE SERVICIO:</p>
                             <p class="data"><%= product.temperature %></p>
                         </div>
                         <div>
-                            <p>GUARDA:</p>
+                            <p>GUARDA (EN AÑOS):</p>
                             <p class="data"><%= product.aged %></p>
                         </div>
                     </div>
 
-                    <div class="colapse">
+                    <div id="colapse" class="colapse">
                         <p>RESEÑAS</p>
                         <i class="fas fa-chevron-down"></i>
                     </div>
