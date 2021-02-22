@@ -6868,3 +6868,9 @@
 /css/product2.css
 /images/20a0995b359d315da0df0733b1ec274f
 /css/product2.css
+/productos
+/images/20a0995b359d315da0df0733b1ec274f
+/usuarios/login
+/usuarios/registro
+/usuarios/registro
+/usuarios/registro

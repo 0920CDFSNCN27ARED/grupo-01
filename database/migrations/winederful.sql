@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `winederful`.`buyer_users` (
   `lastName` VARCHAR(45) NULL,
   `dni` INT(10) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NULL,
+  `password` VARCHAR(450) NULL,
   `image` VARCHAR(655) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `dni_UNIQUE` (`dni` ASC),
