@@ -1,6 +1,9 @@
 const { match } = require("assert");
 const { get } = require("../routes/usersRoute");
 const { Product } = require("../database/models");
+const erase = require("../utils/delete");
+const edited = require("../utils/edit");
+const { Console } = require("console");
 
 const productsController = {
     showAll: async (req, res) => {
@@ -41,18 +44,22 @@ const productsController = {
     newProduct: (req, res) => {
         res.render("products/newProduct");
     },
-    createProduct: (req, res) => {
-        const newProduct = Product.create({
-            productName: req.body.productName,
-            grape: req.body.productGrape,
-            description: req.body.productDescription,
-            year: req.body.productYear,
-            aged: req.body.productAged,
-            temperature: req.body.productTemperature,
-            price: req.body.productPrice,
-            stock: req.body.productStock,
-            discount: req.body.productDiscount,
-        });
+    createProduct: async (req, res) => {
+        try {
+            const newProduct = await Product.create({
+                productName: req.body.productName,
+                grape: req.body.productGrape,
+                description: req.body.productDescription,
+                year: req.body.productYear,
+                aged: req.body.productAged,
+                temperature: req.body.productTemperature,
+                price: req.body.productPrice,
+                stock: req.body.productStock,
+                discount: req.body.productDiscount,
+            });
+        } catch (err) {
+            res.send(err);
+        }
         // const createNew = require("../utils/createNew");
         // const newProduct = createNew(getProducts, "products.json", req);
 
@@ -72,14 +79,14 @@ const productsController = {
     },
 
     edit: (req, res) => {
-        const editProduct = require("../utils/edit");
-        editProduct(getProducts, "products.json", req);
-        res.redirect(`/productos/${req.params.id}`);
+        const id = req.params.id;
+        edited(Product, id, req, res);
+        res.redirect(`/productos/${id}`);
     },
 
     deleteProduct: (req, res) => {
-        const deleteProduct = require("../utils/delete");
-        deleteProduct(getProducts, fileToGet, req);
+        const id = req.params.id;
+        erase(Product, id, res);
         res.redirect("/productos");
     },
 
