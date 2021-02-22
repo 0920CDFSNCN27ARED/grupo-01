@@ -11,7 +11,7 @@
             <section class="display-box">
                 <div class="mobile">
                     <h2 class="subtitle-wine">
-                        <%= product.product_name %>
+                        <%= product.productName %>
                         <a href="/favoritos"
                             ><i class="fas fa-heart favourite-button"></i
                         ></a>
@@ -26,12 +26,10 @@
                 </div>
                 <div>
                     <h2 class="desktop subtitle-wine">
-                        <%= product.product_name %>
-                        <a href="/favoritos"
-                            ><i class="fas fa-heart favourite-button"></i
-                        ></a>
+                        <%= product.productName %>
                     </h2>
                     <h2 class="price">$<%= product.price %></h2>
+                    <p class="pDescription"><%= product.description %></p>
                     <form action="" class="buying">
                         <div class="quantity-box">
                             <label for="quantity">Cantidad</label>
@@ -42,25 +40,28 @@
                                 value="1"
                             />
                         </div>
-                        <% if (user == null ) { %>
-                        <a href="/carrito">
-                            <button type="button" class="button create">
+                        <% if (user.dni) { %>
+                        <a class="button create" href="/carrito">
+                            <!-- <button type="button" class="button create"> -->
                                 Agregar al carrito
                                 <i class="fas fa-shopping-cart cart-button"></i>
-                            </button>
+                            <!-- </button> -->
+                        </a>
+                        <a href="/favoritos">
+                            <i class="far fa-heart"></i>
                         </a>
 
                         <% } else if (user.cuit) { %>
-                        <a href="/productos/<%= product.id %>/editar">
-                            <button type="button" class="button create">
+                        <a class="button create" href="/productos/<%= product.id %>/editar">
+                            <!-- <button type="button" class="button create"> -->
                                 Editar
-                                <i class="fas fa-shopping-cart cart-button"></i>
-                            </button>
+                                <i class="fas fa-edit"></i></i>
+                            <!-- </button> -->
                         </a>
 
                         <% } %>
                     </form>
-                    <p><%= product.description %></p>
+                    
                 </div>
             </section>
             <div class="specific-suggest">
@@ -79,18 +80,18 @@
                             <p>UVA:</p>
                             <p class="data"><%= product.grape %></p>
                         </div>
-                        <div>
+                        <!-- <div>
                             <p>PAIS:</p>
-                            <p class="data"><%= product.country %></p>
+                            <p class="data"></p>
                         </div>
                         <div>
                             <p>ZONA:</p>
-                            <p class="data"><%= product.region %></p>
+                            <p class="data"></p>
                         </div>
                         <div>
                             <p>BODEGA:</p>
                             <p class="data"></p>
-                        </div>
+                        </div> -->
                         <div>
                             <p>TEMPERATURA:</p>
                             <p class="data"><%= product.temperature %></p>
@@ -98,10 +99,6 @@
                         <div>
                             <p>GUARDA:</p>
                             <p class="data"><%= product.aged %></p>
-                        </div>
-                        <div>
-                            <p>MARIDA BIEN CON:</p>
-                            <p class="data"><%= product.pairing %></p>
                         </div>
                     </div>
 

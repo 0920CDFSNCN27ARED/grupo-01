@@ -2,8 +2,9 @@ const { match } = require("assert");
 const { get } = require("../routes/usersRoute");
 const { Product } = require("../database/models");
 const erase = require("../utils/delete");
-const edited = require("../utils/edit");
+const edit = require("../utils/edit");
 const { Console } = require("console");
+const { CellarUser } = require("../database/models");
 
 const productsController = {
     showAll: async (req, res) => {
@@ -48,22 +49,21 @@ const productsController = {
         try {
             const newProduct = await Product.create({
                 productName: req.body.productName,
-                grape: req.body.productGrape,
-                description: req.body.productDescription,
-                year: req.body.productYear,
-                aged: req.body.productAged,
-                temperature: req.body.productTemperature,
-                price: req.body.productPrice,
-                stock: req.body.productStock,
-                discount: req.body.productDiscount,
+                grape: req.body.grape,
+                description: req.body.description,
+                year: req.body.year,
+                aged: req.body.aged,
+                temperature: req.body.temperature,
+                price: req.body.price,
+                stock: req.body.stock,
+                discount: req.body.discount,
+                image: req.file.filename,
+                cellarUserId: req.session.loggedUser.id,
             });
+            res.redirect(`/productos/${newProduct.id}`);
         } catch (err) {
             res.send(err);
         }
-        // const createNew = require("../utils/createNew");
-        // const newProduct = createNew(getProducts, "products.json", req);
-
-        res.redirect(`/productos/${newProduct.id}`);
     },
 
     editProduct: async (req, res) => {
@@ -80,7 +80,7 @@ const productsController = {
 
     edit: (req, res) => {
         const id = req.params.id;
-        edited(Product, id, req, res);
+        edit(Product, id, req, res);
         res.redirect(`/productos/${id}`);
     },
 

@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             stock: DataTypes.INTEGER,
             discount: DataTypes.INTEGER,
             image: DataTypes.STRING,
+            cellarUserId: DataTypes.INTEGER,
         },
         {
             timestamps: false,
@@ -21,7 +22,6 @@ module.exports = (sequelize, DataTypes) => {
     Product.associate = function (models) {
         Product.belongsTo(models.CellarUser, {
             as: "cellaruser",
-            foreignKey: "cellarUserId",
         });
     };
     return Product;

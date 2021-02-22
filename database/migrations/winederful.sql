@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `winederful`.`products` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `productName` VARCHAR(45) NULL DEFAULT NULL,
   `grape` VARCHAR(45) NULL DEFAULT NULL,
-  `description` VARCHAR(45) NULL DEFAULT NULL,
+  `description` VARCHAR(60000) NULL DEFAULT NULL,
   `year` VARCHAR(45) NULL DEFAULT NULL,
   `aged` VARCHAR(45) NULL DEFAULT NULL,
   `temperature` VARCHAR(45) NULL DEFAULT NULL,
@@ -133,8 +133,7 @@ CREATE TABLE IF NOT EXISTS `winederful`.`products` (
   CONSTRAINT `fk_products_cellar_users1`
     FOREIGN KEY (`cellarUserId`)
     REFERENCES `winederful`.`cellar_users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
