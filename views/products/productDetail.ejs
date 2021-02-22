@@ -40,7 +40,7 @@
                                 value="1"
                             />
                         </div>
-                        <% if (user.dni) { %>
+                        <% if (user && user.dni) { %>
                         <a class="button create" href="/carrito">
                             <!-- <button type="button" class="button create"> -->
                                 Agregar al carrito
@@ -51,7 +51,7 @@
                             <i class="far fa-heart"></i>
                         </a>
 
-                        <% } else if (user.cuit) { %>
+                        <% } else if (user && user.cuit) { %>
                         <a class="button create" href="/productos/<%= product.id %>/editar">
                             <!-- <button type="button" class="button create"> -->
                                 Editar
