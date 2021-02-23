@@ -6971,3 +6971,12 @@
 /usuarios/registro
 /usuarios/registro
 /productos
+/
+/usuarios/login
+/usuarios/registroBodega
+/usuarios/registroBodega
+/
+/usuarios/login
+/usuarios/registroBodega
+/usuarios/registroBodega
+/productos

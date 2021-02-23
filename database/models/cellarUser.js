@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
         {
             cellarName: DataTypes.STRING,
             companyName: DataTypes.STRING,
-            cuit: DataTypes.INTEGER(12),
+            cuit: DataTypes.BIGINT(12),
             country: DataTypes.STRING,
             province: DataTypes.STRING,
             password: DataTypes.STRING(200),

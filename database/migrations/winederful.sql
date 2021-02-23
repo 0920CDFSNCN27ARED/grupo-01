@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `winederful`.`cellar_users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `cellarName` VARCHAR(45) NULL,
   `companyName` VARCHAR(45) NULL,
-  `cuit` INT(12) NULL,
+  `cuit` BIGINT(12) NULL,
   `country` VARCHAR(45) NULL,
   `province` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
