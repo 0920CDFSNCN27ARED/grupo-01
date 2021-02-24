@@ -12,10 +12,11 @@ async function authenticateSession(req, res, next) {
     const loggedUser = await BuyerUser.findByPk(savedUser.id);
     const loggedCellar = await CellarUser.findByPk(savedUser.id);
 
-    if (loggedUser) {
+    if (loggedUser && savedUser.dni) {
         res.locals.user = loggedUser;
         return next();
-    } else if (loggedCellar) {
+    }
+    if (loggedCellar && savedUser.cuit) {
         res.locals.user = loggedCellar;
 
         return next();

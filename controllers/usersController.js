@@ -61,7 +61,7 @@ const usersControllers = {
                 res.render("users/signupWineCellar", { errors: errors.errors });
             }
         } catch (err) {
-            res.send(err)
+            res.send(err);
         }
     },
 
@@ -105,6 +105,16 @@ const usersControllers = {
                     errorMsg: msg,
                 });
             } else if (req.body.remember != undefined) {
+                if (req.session.loggedUser.dni) {
+                    res.cookie("remember", req.session.loggedUser.id, {
+                        maxAge: 60 * 1000 * 60 * 24,
+                    });
+                    res.cookie("isUser", true);
+                } else if (req.session.loggedUser.cuit) {
+                    res.cookie("remember", req.session.loggedUser.id, {
+                        maxAge: 60 * 1000 * 60 * 24,
+                    });
+                }
                 res.cookie("remember", req.session.loggedUser.id, {
                     maxAge: 60 * 1000 * 60 * 24,
                 });

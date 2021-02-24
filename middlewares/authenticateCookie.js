@@ -1,22 +1,24 @@
 // const getUsers = require("../utils/getDbFile");
 const { CellarUser, BuyerUser } = require("../database/models");
 
-function authenticateCookie(req, res, next) {
+async function authenticateCookie(req, res, next) {
     const cookiedUser = req.cookies.remember;
+    const isUser = req.cookies.isUser;
 
     if (!cookiedUser) {
         return next();
     }
 
-    const loggedUser = BuyerUser.findByPk(cookiedUser);
-    const loggedCellar = CellarUser.findByPk(cookiedUser);
+    const loggedUser = await BuyerUser.findByPk(cookiedUser);
+    const loggedCellar = await CellarUser.findByPk(cookiedUser);
 
-    if (loggedUser) {
+    if (loggedUser && isUser) {
         res.locals.user = loggedUser;
-        next();
-    } else if (loggedCellar) {
+        return next();
+    }
+    if (loggedCellar) {
         res.locals.user = loggedCellar;
-        next();
+        return next();
     }
     delete req.session.loggedUser;
     return next();

@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `winederful`.`buyer_users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `firstName` VARCHAR(45) NULL,
   `lastName` VARCHAR(45) NULL,
-  `dni` INT(10) NOT NULL,
+  `dni` BIGINT(10) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(450) NULL,
   `image` VARCHAR(655) NULL,
@@ -103,8 +103,7 @@ CREATE TABLE IF NOT EXISTS `winederful`.`orders` (
   CONSTRAINT `fk_orders_adresses1`
     FOREIGN KEY (`adressId`)
     REFERENCES `winederful`.`adresses` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
