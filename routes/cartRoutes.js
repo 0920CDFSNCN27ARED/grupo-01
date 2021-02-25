@@ -8,4 +8,6 @@ router.get("/", cartController.showCart);
 
 router.get("/guardados", cartController.showSaved);
 
+router.post("/agregar", isLoggedIn, cartController.addToCart);
+
 module.exports = router;

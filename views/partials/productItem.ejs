@@ -4,16 +4,18 @@
             <img src="/images/<%= product.image %>" alt="Vino tinto" />
         </div>
 
-        <div class="prod-name-box">
-            <p><%= product.productName %></p>
-            <i class="far fa-heart love"></i>
-        </div>
     </a>
+    <div class="prod-name-box">
+        <p><%= product.productName %></p>
+        <i class="far fa-heart love"></i>
+    </div>
     <div class="prod-price-cart-box">
         <p>$<%= product.price %></p>
-        <button class="button create">
-            Agregar al carrito
-            <i class="fas fa-shopping-cart"></i>
-        </button>
+        <form action="/carrito/agregar" method="POST">
+            <button type="submit" class="button create">
+                Agregar al carrito
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </form>
     </div>
 </article>

@@ -31,7 +31,7 @@
                     </h2>
                     <h2 class="price">$<%= product.price %></h2>
                     <p class="pDescription"><%= product.description %></p>
-                    <form action="" class="buying">
+                    <form action="/carrito/agregar" method="POST" class="buying">
                         <div class="quantity-box">
                             <label for="quantity">Cantidad</label>
                             <input
@@ -42,12 +42,13 @@
                             />
                         </div>
                         <% if (user && user.dni) { %>
-                        <a class="button create" href="/carrito">
-                            <!-- <button type="button" class="button create"> -->
-                                Agregar al carrito
-                                <i class="fas fa-shopping-cart cart-button"></i>
-                            <!-- </button> -->
-                        </a>
+                           
+                                <button type="submit" class="button create">
+                                    Agregar al carrito
+                                    <i class="fas fa-shopping-cart cart-button"></i>
+                                </button>
+                           
+                        
                         <div class="fav-share">
                             <a class="icon" href="/favoritos">
                                 <i class="far fa-heart"></i>

@@ -11,6 +11,10 @@ const cartController = {
     showSaved: (req, res) => {
         res.render("products/savedProducts");
     },
+    addToCart: (req, res) => {
+        console.log("HOLA");
+        res.end("hola");
+    },
 };
 
 module.exports = cartController;
