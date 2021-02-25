@@ -12,12 +12,13 @@ const cartController = {
         res.render("products/savedProducts");
     },
     addToCart: async (req, res) => {
+        console.log("ARRANCO")
         try {
             await Order.create({
                 totalPrice: 5,
                 buyerUserId: res.locals.user.id,
-                
             })
+            console.log("HECHO")
         } catch (err) {
             res.send(err);
         }

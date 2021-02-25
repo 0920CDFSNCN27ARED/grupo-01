@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         {
             tablename: "orders",
+            timestamps: false,
         }
     );
     Order.associate = function (models) {
