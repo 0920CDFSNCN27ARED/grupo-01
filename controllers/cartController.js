@@ -17,9 +17,9 @@ const cartController = {
                 where: { buyerUserId: res.locals.user.id },
             });
             if (existingOrder) {
-                await Order.update(
+                await existingOrder.update(
                     {
-                        totalPrice: 6,
+                        totalPrice: Number(existingOrder.totalPrice) + 1,
                     },
                     {
                         where: { buyerUserId: res.locals.user.id },
