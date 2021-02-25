@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `winederful`.`orders` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `totalPrice` DECIMAL NULL DEFAULT NULL,
   `buyerUserId` INT(11) NOT NULL,
-  `adressId` INT(11) NOT NULL,
+  `adressId` INT(11) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_orders_buyer_users1_idx` (`buyerUserId` ASC),
   INDEX `fk_orders_adresses1_idx` (`adressId` ASC),

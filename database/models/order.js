@@ -3,7 +3,9 @@ module.exports = (sequelize, DataTypes) => {
     const Order = sequelize.define(
         "Order",
         {
-            total_price: DataTypes.INTEGER,
+            totalPrice: DataTypes.INTEGER,
+            buyerUserId: DataTypes.INTEGER,
+            adressId: DataTypes.INTEGER,
         },
         {
             tablename: "orders",
@@ -16,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
             foreingKey: "adressId",
         });
         Order.belongsTo(models.BuyerUser, {
-            as: "cartUser",
+            as: "buyerUser",
             foreingKey: "buyerUserId",
         });
         Order.belongsToMany(models.Product, {
