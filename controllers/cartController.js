@@ -1,6 +1,6 @@
 const getProducts = require("../utils/getDbFile");
 const fileToGet = "products.json";
-const { Product } = require("../database/models");
+const { Order } = require("../database/models");
 
 const cartController = {
     showCart: (req, res) => {
@@ -11,9 +11,16 @@ const cartController = {
     showSaved: (req, res) => {
         res.render("products/savedProducts");
     },
-    addToCart: (req, res) => {
-        console.log("HOLA");
-        res.end("hola");
+    addToCart: async (req, res) => {
+        try {
+            await Order.create({
+                totalPrice: 5,
+                buyerUserId: res.locals.user.id,
+                
+            })
+        } catch (err) {
+            res.send(err);
+        }
     },
 };
 
