@@ -3,12 +3,11 @@
         <div class="prod-img-box">
             <img src="<%= product.image %>" alt="Vino tinto" />
         </div>
-
-        <div class="prod-name-box">
-            <p><%= product.productName %></p>
-            <i class="far fa-heart love"></i>
-        </div>
     </a>
+    <div class="prod-name-box">
+        <p><%= product.productName %></p>
+        <i class="far fa-heart love"></i>
+    </div>
     <div class="prod-price-cart-box">
         <p>$<%= product.price %></p>
         <a class="button create" href="/productos/<%= product.id %>">

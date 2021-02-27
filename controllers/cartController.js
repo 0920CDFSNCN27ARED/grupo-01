@@ -11,12 +11,20 @@ const cartController = {
     },
     addToOrder: async (req, res) => {
         const productAdded = await Product.findByPk(req.body.id);
-        const order = Order.create({
-            total: 0,
-            buyerUserId: req.session.loggedUser.id,
-            addressId: 1,
-            createdAt: Date.now(),
+        let order = await Order.findOne({
+            where: {
+                buyerUserId: req.session.loggedUser,
+            },
         });
+        if (!order) {
+            order = Order.create({
+                total: 0,
+                buyerUserId: req.session.loggedUser.id,
+                addressId: 1,
+                createdAt: Date.now(),
+            });
+        }
+
         const item = await OrderItem.create({
             productId: productAdded.id,
             quantity: req.body.quantity,
