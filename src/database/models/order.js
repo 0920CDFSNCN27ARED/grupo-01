@@ -22,15 +22,11 @@ module.exports = (sequelize, DataTypes) => {
             foreingKey: "buyerUserId",
         });
         Order.belongsToMany(models.Product, {
-            as: "cartProducts",
+            as: "orderCart",
             through: "orders_products",
             foreingKey: "orderId",
             otherKey: "productId",
         });
-        // Order.hasOne(models.PaymentMethod, {
-        //     as: "paymentMethod",
-        //     foreingKey: "idpaymentMethod",
-        // });
     };
     return Order;
 };

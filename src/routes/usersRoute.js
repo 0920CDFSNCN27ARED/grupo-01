@@ -3,7 +3,6 @@ const router = express.Router();
 const multer = require("multer");
 const upload = multer({ dest: "public/images/users" });
 const { check, validationResult, body } = require("express-validator");
-const getDbFile = require("../utils/getDbFile");
 const isLoggedIn = require("../middlewares/isLoggedIn");
 const isGuest = require("../middlewares/isGuest");
 

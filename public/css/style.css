@@ -25,6 +25,14 @@ body {
     display: none;
 }
 
+
+.is-valid{
+    background-color: lightgreen;
+}
+.is-not-valid{
+    background-color: lightsalmon;
+}
+
 .header-index {
     display: grid;
     grid-template-columns: 100%;
@@ -37,6 +45,11 @@ body {
 
 .logo-image img {
     width: 30%;
+}
+
+.error-msg {
+    margin: 2%;
+    font-size: 16px;
 }
 
 .under-nav {
@@ -393,6 +406,7 @@ form.form input {
     font-size: 16px;
     padding: 7px;
     border: 1px solid black;
+    transition: background 0.4s;
 }
 form.form select {
     margin-bottom: 15px;

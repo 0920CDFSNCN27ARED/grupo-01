@@ -3,7 +3,6 @@
         <div class="prod-img-box">
             <img src="/images/<%= product.image %>" alt="Vino tinto" />
         </div>
-
     </a>
     <div class="prod-name-box">
         <p><%= product.productName %></p>
@@ -11,7 +10,7 @@
     </div>
     <div class="prod-price-cart-box">
         <p>$<%= product.price %></p>
-        <form action="/carrito/agregar" method="POST">
+        <form action="/carrito/agregar/<%= product.id %>" method="POST">
             <button type="submit" class="button create">
                 Agregar al carrito
                 <i class="fas fa-shopping-cart"></i>

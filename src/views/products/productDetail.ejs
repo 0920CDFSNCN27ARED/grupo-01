@@ -31,7 +31,7 @@
                     </h2>
                     <h2 class="price">$<%= product.price %></h2>
                     <p class="pDescription"><%= product.description %></p>
-                    <form action="/carrito/agregar" method="POST" class="buying">
+                    <form action="/carrito/agregar/<%= product.id %>" method="POST" class="buying">
                         <div class="quantity-box">
                             <label for="quantity">Cantidad</label>
                             <input
