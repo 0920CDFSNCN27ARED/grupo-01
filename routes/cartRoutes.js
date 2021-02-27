@@ -4,8 +4,10 @@ const router = express.Router();
 const cartController = require("../controllers/cartController");
 const isLoggedIn = require("../middlewares/isLoggedIn");
 
-router.get("/", cartController.showCart);
+router.get("/", isLoggedIn, cartController.showCart);
 
-router.get("/guardados", cartController.showSaved);
+router.get("/guardados", isLoggedIn, cartController.showSaved);
+
+router.post("/", cartController.addToOrder);
 
 module.exports = router;

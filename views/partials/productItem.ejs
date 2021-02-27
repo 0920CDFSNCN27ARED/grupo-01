@@ -1,7 +1,7 @@
 <article class="prod">
     <a href="/productos/<%= product.id %> ">
         <div class="prod-img-box">
-            <img src="/images/<%= product.image %>" alt="Vino tinto" />
+            <img src="<%= product.image %>" alt="Vino tinto" />
         </div>
 
         <div class="prod-name-box">
@@ -11,9 +11,9 @@
     </a>
     <div class="prod-price-cart-box">
         <p>$<%= product.price %></p>
-        <button class="button create">
-            Agregar al carrito
+        <a class="button create" href="/productos/<%= product.id %>">
+            Ver producto
             <i class="fas fa-shopping-cart"></i>
-        </button>
+        </a>
     </div>
 </article>

@@ -13,11 +13,13 @@ async function authenticateCookie(req, res, next) {
     const loggedCellar = await CellarUser.findByPk(cookiedUser);
 
     if (loggedUser && isUser) {
-        res.locals.user = loggedUser;
+        req.session.loggedUser = loggedUser;
+        res.locals.user = req.session.loggedUser;
         return next();
     }
     if (loggedCellar) {
-        res.locals.user = loggedCellar;
+        req.session.loggedUser = loggedCellar;
+        res.locals.user = req.session.loggedUser;
         return next();
     }
     delete req.session.loggedUser;

@@ -16,12 +16,21 @@ module.exports = (sequelize, DataTypes) => {
             cellarUserId: DataTypes.INTEGER,
         },
         {
-            timestamps: false,
+            tablename: "products",
         }
     );
     Product.associate = function (models) {
         Product.belongsTo(models.CellarUser, {
             as: "cellaruser",
+        });
+        Product.hasMany(models.OrderItem, {
+            as: "orderitem",
+            foreignKey: "productId",
+        });
+        Product.belongsToMany(models.Order, {
+            as: "orders",
+            foreignKey: "productId",
+            through: "OrderItem",
         });
     };
     return Product;

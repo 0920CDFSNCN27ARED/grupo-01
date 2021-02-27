@@ -3,26 +3,31 @@ module.exports = (sequelize, DataTypes) => {
     const Order = sequelize.define(
         "Order",
         {
-            total_price: DataTypes.INTEGER,
+            total: DataTypes.FLOAT(10, 2),
+            buyerUserId: DataTypes.INTEGER,
+            addressId: DataTypes.INTEGER,
         },
         {
             tablename: "orders",
         }
     );
     Order.associate = function (models) {
-        Order.hasOne(models.Adress, {
-            as: "cartAdress",
+        Order.hasOne(models.Address, {
+            as: "orderAddress",
             foreingKey: "adressId",
         });
         Order.belongsTo(models.BuyerUser, {
-            as: "cartUser",
+            as: "buyerUser",
             foreingKey: "buyerUserId",
         });
-        Order.belongsToMany(models.Product, {
-            as: "cartProducts",
-            through: "orders_products",
+        Order.hasMany(models.OrderItem, {
+            as: "orderitems",
             foreingKey: "orderId",
-            otherKey: "productId",
+        });
+        Order.belongsToMany(models.Product, {
+            as: "products",
+            foreingKey: "orderId",
+            through: "OrderItem",
         });
         // Order.hasOne(models.PaymentMethod, {
         //     as: "paymentMethod",
