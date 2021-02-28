@@ -3,6 +3,12 @@
     <head>
         <%- include("../partials/head.ejs") %>
         <title>REGISTRO BODEGAS | WINEDERFUL</title>
+        <script
+            type="text/javascript"
+            src="/js/validations/validator.min.js"
+        ></script>
+        <script defer src="/js/validations/validationFunctions.js"></script>
+        <script defer src="/js/validations/validateSignupCellar.js"></script>
     </head>
 
     <body>
@@ -44,19 +50,19 @@
                         placeholder="CUIT"
                     />
                     <label for="country">País</label>
-                    <input
-                        type="text"
-                        name="country"
-                        id="country"
-                        placeholder="País"
-                    />
+                    <select name="countries" id="country">
+                        <option value="" selected>Selecciona un pais</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Argentina">Brasil</option>
+                    </select>
+
                     <label for="province">Provincia</label>
-                    <input
-                        type="text"
-                        name="province"
-                        id="province"
-                        placeholder="Provincia"
-                    />
+                    <select name="provinces" id="province">
+                        <option value="" selected>Selecciona una provincia</option>
+                        <option value="La pampa">La pampa</option>
+                        <option value="Cordoba">Cordoba</option>
+                    </select>
+
                     <label for="email">E-mail</label>
                     <input
                         type="email"
