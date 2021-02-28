@@ -1,7 +1,26 @@
-const form = document.querySelector("form")
+const form = document.querySelector("form");
+
+async function getCountries() {
+    const countries = await fetch(
+        "https://restcountries.eu/rest/v2/regionalbloc/usan"
+    );
+    const data = await countries.json();
+    return data;
+}
+
+async function insertCounries() {
+    const countrySelect = document.getElementById("country");
+    const countries = await getCountries();
+    countries.forEach((country) => {
+        const option = document.createElement("option");
+        option.innerText = country.name;
+        countrySelect.appendChild(option);
+    });
+}
+insertCounries();
 
 form.addEventListener("submit", (event) => {
-event.preventDefault()
+    event.preventDefault();
     const totalErrors = validateMultipleFields([
         ["cellarName", [isLength(2)]],
         ["companyName", [isLength(3)]],
