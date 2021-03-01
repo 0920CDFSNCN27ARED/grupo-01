@@ -1,5 +1,3 @@
-// const getUsers = require("../utils/getDbFile");
-
 const { CellarUser, BuyerUser } = require("../database/models");
 
 async function authenticateSession(req, res, next) {
@@ -18,7 +16,6 @@ async function authenticateSession(req, res, next) {
     }
     if (loggedCellar && savedUser.cuit) {
         res.locals.user = loggedCellar;
-
         return next();
     }
     delete req.session.loggedUser;

@@ -1,4 +1,3 @@
-// const getUsers = require("../utils/getDbFile");
 const { CellarUser, BuyerUser } = require("../database/models");
 
 async function authenticateCookie(req, res, next) {

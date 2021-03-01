@@ -4,6 +4,12 @@
         <%- include("../partials/head.ejs") %>
 
         <title>EDITAR PRODUCTO | WINEDERFUL</title>
+        <script
+            type="text/javascript"
+            src="/js/validations/validator.min.js"
+        ></script>
+        <script defer src="/js/validations/validationFunctions.js"></script>
+        <script defer src="/js/validations/newProduct.js"></script>
     </head>
     <body>
         <%- include("../partials/header.ejs") %>
@@ -28,7 +34,7 @@
                     <label for="productDescription">Descripción</label>
                     <textarea
                         name="description"
-                        id="description"
+                        id="productDescription"
                         cols="30"
                         rows="10"
                         placeholder="Agregue detalles que se aprecien a la vista, olores y sabores en boca."
@@ -43,12 +49,9 @@
                         value="<%= product.grape %>"
                     />
                     <label for="productYear">Añada</label>
-                    <input
-                        type="number"
-                        name="year"
-                        id="productYear"
-                        value="<%= product.year %>"
-                    />
+                    <select name="year" id="productYear">
+                        <option value="">Selecciona un año</option>
+                    </select>
                     <label for="productTemperature"
                         >Temperatura de servicio</label
                     >
@@ -61,6 +64,7 @@
                     <label for="productAged">Crianza</label>
                     <input
                         type="number"
+                        min="0"
                         name="aged"
                         id="productAged"
                         value="<%= product.aged %>"
@@ -74,11 +78,12 @@
                         value="<%= product.price %>"
                     />
 
-                    <label for="productQuantity">Stock</label>
+                    <label for="productStock">Stock</label>
                     <input
                         type="number"
+                        min="0"
                         name="stock"
-                        id="productQuantity"
+                        id="productStock"
                         value="<%= product.stock %>"
                     />
 
@@ -88,6 +93,13 @@
                         name="image"
                         id="productPicture"
                         filename="<%= product.image %>"
+                    />
+                    <label for="productDiscount">Descuento</label>
+                    <input
+                        type="number"
+                        min="0"
+                        name="discount"
+                        id="productDiscount"
                     />
 
                     <button type="submit" class="button create">

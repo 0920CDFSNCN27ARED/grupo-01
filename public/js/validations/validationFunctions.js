@@ -69,6 +69,25 @@ const emailValidation = [
     [null],
     "Debes ingresar un Email valido",
 ];
+
+function intValidation(min, max) {
+    let isInt;
+    if (max) {
+        isInt = [
+            validator.isInt,
+            { min: min, max: max },
+            `El campo debe ser un numero mayor a ${min} y menor a ${max}`,
+        ];
+    } else {
+        isInt = [
+            validator.isInt,
+            { min: min },
+            `El campo debe ser un numero mayor a ${min}`,
+        ];
+    }
+
+    return isInt;
+}
 ///////////////////////
 
 /////////  FUNCTIONS
@@ -99,7 +118,6 @@ function validateMultipleFields(fields) {
                 };
                 totalErrors.push(error);
                 foundErrors = true;
-                console.log(inputValue);
             }
         }
         if (!foundErrors) {

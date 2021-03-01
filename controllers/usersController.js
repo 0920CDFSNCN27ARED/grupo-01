@@ -1,12 +1,27 @@
-const getUsers = require("../utils/getDbFile");
-const fileToGet = "users.json";
-const createUser = require("../utils/createNew");
 const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
-const { equal } = require("assert");
+
 const { BuyerUser } = require("../database/models");
 const { CellarUser } = require("../database/models");
-const { Console } = require("console");
+
+////////FUNCTIONS
+async function findUser(model) {
+    return await model.findOne({
+        where: {
+            email: req.body.email,
+        },
+    });
+}
+
+function checkHash(user) {
+    if (bcrypt.compareSync(req.body.password, user.password)) return true;
+}
+function validateAndStoreInSession(user) {
+    if (user && checkHash(user)) {
+        req.session.loggedUser = user;
+    }
+}
+///////////////////////////
 
 const usersControllers = {
     showRegister: (req, res) => {
@@ -75,49 +90,27 @@ const usersControllers = {
         const errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            const buyerUser = await BuyerUser.findOne({
-                where: {
-                    email: req.body.email,
-                },
-            });
-            const cellarUser = await CellarUser.findOne({
-                where: {
-                    email: req.body.email,
-                },
-            });
-
-            if (
-                buyerUser &&
-                bcrypt.compareSync(req.body.password, buyerUser.password)
-            ) {
-                req.session.loggedUser = buyerUser;
-            } else if (
-                !buyerUser &&
-                cellarUser &&
-                bcrypt.compareSync(req.body.password, cellarUser.password)
-            ) {
-                req.session.loggedUser = cellarUser;
-            }
-            ///////////////////////////////////////
             let msg = "Credenciales invalidas.";
-            if (req.session.loggedUser == undefined) {
+            const buyerUser = findUser(BuyerUser);
+            const cellarUser = findUser(CellarUser);
+
+            validateAndStoreInSession(buyerUser); // req.session.loggedUser
+            if (!buyerUser) checkAndStoreInSession(cellarUser); // req.session.loggedUser
+
+            ///////////////////////////////////////
+            if (!req.session.loggedUser) {
                 res.render("users/login", {
                     errorMsg: msg,
                 });
-            } else if (req.body.remember != undefined) {
-                if (req.session.loggedUser.dni) {
-                    res.cookie("remember", req.session.loggedUser.id, {
-                        maxAge: 60 * 1000 * 60 * 24,
-                    });
-                    res.cookie("isUser", true);
-                } else if (req.session.loggedUser.cuit) {
-                    res.cookie("remember", req.session.loggedUser.id, {
-                        maxAge: 60 * 1000 * 60 * 24,
-                    });
-                }
+            } else if (req.body.remember) {
                 res.cookie("remember", req.session.loggedUser.id, {
                     maxAge: 60 * 1000 * 60 * 24,
                 });
+                if (req.session.loggedUser.dni) {
+                    res.cookie("isUser", true, {
+                        maxAge: 60 * 1000 * 60 * 24,
+                    });
+                }
             }
             res.locals.user = req.session.loggedUser;
             res.render("users/profile");
@@ -127,6 +120,7 @@ const usersControllers = {
     },
     logOut: (req, res) => {
         res.clearCookie("remember");
+        res.clearCookie("isUser");
         res.locals.user = null;
         req.session.destroy((err) => {
             res.redirect("/");

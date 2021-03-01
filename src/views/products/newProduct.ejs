@@ -4,6 +4,12 @@
         <%- include("../partials/head.ejs") %>
 
         <title>NUEVO PRODUCTO | WINEDERFUL</title>
+        <script
+            type="text/javascript"
+            src="/js/validations/validator.min.js"
+        ></script>
+        <script defer src="/js/validations/validationFunctions.js"></script>
+        <script defer src="/js/validations/newProduct.js"></script>
     </head>
     <body>
         <%- include("../partials/header.ejs") %>
@@ -31,7 +37,9 @@
                     <label for="productGrape">Varietal </label>
                     <input type="text" name="grape" id="productGrape" />
                     <label for="productYear">Añada</label>
-                    <input type="number" name="year" id="productYear" />
+                    <select name="year" id="productYear">
+                        <option value="">Selecciona un año</option>
+                    </select>
                     <label for="productTemperature"
                         >Temperatura de servicio</label
                     >
@@ -41,18 +49,18 @@
                         id="productTemperature"
                     />
                     <label for="productAged">Crianza</label>
-                    <input type="number" name="aged" id="productAged" />
+                    <input type="number" min="0" name="aged" id="productAged" />
 
                     <label for="productPicture">Foto del producto</label>
                     <input type="file" name="image" id="productPicture" />
                     <label for="productPrice">Precio</label>
-                    <input type="number" name="price" id="productPrice" />
+                    <input type="number" min="0" name="price" id="productPrice" />
 
                     <label for="productStock">Stock</label>
-                    <input type="number" name="stock" id="productStock" />
+                    <input type="number" min="0" name="stock" id="productStock" />
 
                     <label for="productDiscount">Descuento</label>
-                    <input type="number" name="discount" id="productDiscount" />
+                    <input type="number" min="0" name="discount" id="productDiscount" />
 
                     <button type="submit" class="button create margin">
                         Crear producto
