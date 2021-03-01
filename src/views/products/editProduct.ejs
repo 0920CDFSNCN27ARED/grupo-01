@@ -51,6 +51,7 @@
                     <label for="productYear">Añada</label>
                     <select name="year" id="productYear">
                         <option value="">Selecciona un año</option>
+                        <option value="" selected><%= product.year %></option>
                     </select>
                     <label for="productTemperature"
                         >Temperatura de servicio</label
@@ -81,7 +82,6 @@
                     <label for="productStock">Stock</label>
                     <input
                         type="number"
-                        min="0"
                         name="stock"
                         id="productStock"
                         value="<%= product.stock %>"

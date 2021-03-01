@@ -14,7 +14,6 @@ function getYears(minYear) {
 getYears(1850);
 
 form.addEventListener("submit", (event) => {
-    event.preventDefault()
     const totalErrors = validateMultipleFields([
         ["productName", [isLength(5)]],
         ["productDescription", [isLength(20)]],
