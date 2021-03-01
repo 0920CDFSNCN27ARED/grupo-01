@@ -1,10 +1,10 @@
 function isAdmin(req, res, next) {
     if (
-        !req.session.loggedUser ||
-        !req.session.loggedUser.cuit
+        !res.locals.user ||
+        !res.locals.user.cuit
     ) {
         res.redirect("/");
-    } else if (req.session.loggedUser.cuit) {
+    } else if (res.locals.user.cuit) {
         next();
     }
 }
