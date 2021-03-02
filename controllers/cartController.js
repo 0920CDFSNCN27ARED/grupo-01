@@ -14,27 +14,31 @@ const cartController = {
     showSaved: (req, res) => {
         res.render("products/savedProducts");
     },
-    addToCart: async (req, res) => {
-        try {
-            const product = await Product.findByPk(req.params.id);
-            const existingOrder = await Order.findOne({
-                where: { buyerUserId: res.locals.user.id },
+    addToOrder: async (req, res) => {
+        const productAdded = await Product.findByPk(req.body.id);
+        let order = await Order.findOne({
+            where: {
+                buyerUserId: req.session.loggedUser,
+            },
+        });
+        if (!order) {
+            order = Order.create({
+                total: 0,
+                buyerUserId: req.session.loggedUser.id,
+                addressId: 1,
+                createdAt: Date.now(),
             });
-        
-            await OrderProduct.create({
-                quantity: 2,
-                productId: product.id,
-                orderId: existingOrder.id,
-                partialPrice: 100,
-            })
-            Product.findall({
-                include: ["cartProducts"],
-            });
-         
-            res.redirect("/carrito");
-        } catch (err) {
-            res.send(err);
         }
+
+        const item = await OrderItem.create({
+            productId: productAdded.id,
+            quantity: req.body.quantity,
+            price: productAdded.price,
+            subtotal: productAdded.price * req.body.quantity * 0.9,
+            discount: productAdded.discount,
+            orderId: order.id,
+        });
+        console.log(item);
     },
 };
 

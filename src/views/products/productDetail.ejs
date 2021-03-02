@@ -21,7 +21,7 @@
                 <div class="product">
                     <img
                         class="resize"
-                        src="/images/<%= product.image %>"
+                        src="<%= product.image %>"
                         alt="botella de vino"
                     />
                 </div>
@@ -31,8 +31,14 @@
                     </h2>
                     <h2 class="price">$<%= product.price %></h2>
                     <p class="pDescription"><%= product.description %></p>
+<<<<<<< HEAD:src/views/products/productDetail.ejs
                     <form action="/carrito/agregar/<%= product.id %>" method="POST" class="buying">
+=======
+                    <% if (user && user.dni) { %>
+                    <form action="/carrito" class="buying" method="POST">
+>>>>>>> 73959fddc14df1602e2eb9c1ce4674ea6de470db:views/products/productDetail.ejs
                         <div class="quantity-box">
+                            <input type="hidden" name="id" value="<%= product.id %> ">
                             <label for="quantity">Cantidad</label>
                             <input
                                 type="number"
@@ -41,14 +47,13 @@
                                 value="1"
                             />
                         </div>
-                        <% if (user && user.dni) { %>
-                           
-                                <button type="submit" class="button create">
-                                    Agregar al carrito
-                                    <i class="fas fa-shopping-cart cart-button"></i>
-                                </button>
-                           
                         
+                        
+                            <button type="subit" class="button create">
+                                Agregar al carrito
+                                <i class="fas fa-shopping-cart cart-button"></i>
+                            </button>
+                        </form>
                         <div class="fav-share">
                             <a class="icon" href="/favoritos">
                                 <i class="far fa-heart"></i>
@@ -61,14 +66,14 @@
 
                         <% } else if (user && user.cuit) { %>
                         <a class="button create" href="/productos/<%= product.id %>/editar">
-                            <!-- <button type="button" class="button create"> -->
+                            
                                 Editar
                                 <i class="fas fa-edit"></i></i>
-                            <!-- </button> -->
+                            
                         </a>
 
                         <% } %>
-                    </form>
+                
                     
                 </div>
             </section>

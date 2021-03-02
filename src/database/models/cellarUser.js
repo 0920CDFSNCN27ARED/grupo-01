@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         {
             tableName: "cellar_users",
-            timestamps: false,
         }
     );
     CellarUser.associate = function (models) {
