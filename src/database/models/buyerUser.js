@@ -12,12 +12,14 @@ module.exports = (sequelize, DataTypes) => {
         },
         {
             tableName: "buyer_users",
-            timestamps: false,
         }
     );
     BuyerUser.associate = function (models) {
-        BuyerUser.hasMany(models.Adress, {
-            as: "adresses",
+        BuyerUser.hasMany(models.Address, {
+            as: "addresses",
+        });
+        BuyerUser.hasMany(models.Order, {
+            as: "orders",
         });
     };
     return BuyerUser;
