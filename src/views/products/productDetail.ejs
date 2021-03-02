@@ -31,7 +31,7 @@
                     </h2>
                     <h2 class="price">$<%= product.price %></h2>
                     <p class="pDescription"><%= product.description %></p>
-                    <% if (user && user.dni) { %>
+<% if (user && user.dni) { %>
                     <form action="/carrito" class="buying" method="POST">
                         <div class="quantity-box">
                             <input type="hidden" name="id" value="<%= product.id %> ">

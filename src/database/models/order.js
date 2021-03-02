@@ -30,6 +30,10 @@ module.exports = (sequelize, DataTypes) => {
             foreingKey: "orderId",
             through: "OrderItem",
         });
+        // Order.hasOne(models.PaymentMethod, {
+        //     as: "paymentMethod",
+        //     foreingKey: "idpaymentMethod",
+        // });
     };
     return Order;
 };

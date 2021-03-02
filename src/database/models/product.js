@@ -17,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         {
             tablename: "products",
-            timestamps: false
         }
     );
     Product.associate = function (models) {
