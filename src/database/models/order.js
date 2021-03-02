@@ -26,12 +26,7 @@ module.exports = (sequelize, DataTypes) => {
             foreingKey: "orderId",
         });
         Order.belongsToMany(models.Product, {
-<<<<<<< HEAD:src/database/models/order.js
-            as: "orderCart",
-            through: "orders_products",
-=======
             as: "products",
->>>>>>> 73959fddc14df1602e2eb9c1ce4674ea6de470db:database/models/order.js
             foreingKey: "orderId",
             through: "OrderItem",
         });

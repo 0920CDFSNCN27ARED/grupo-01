@@ -31,12 +31,8 @@
                     </h2>
                     <h2 class="price">$<%= product.price %></h2>
                     <p class="pDescription"><%= product.description %></p>
-<<<<<<< HEAD:src/views/products/productDetail.ejs
-                    <form action="/carrito/agregar/<%= product.id %>" method="POST" class="buying">
-=======
                     <% if (user && user.dni) { %>
                     <form action="/carrito" class="buying" method="POST">
->>>>>>> 73959fddc14df1602e2eb9c1ce4674ea6de470db:views/products/productDetail.ejs
                         <div class="quantity-box">
                             <input type="hidden" name="id" value="<%= product.id %> ">
                             <label for="quantity">Cantidad</label>
