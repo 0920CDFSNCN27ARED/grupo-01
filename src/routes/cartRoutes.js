@@ -8,7 +8,7 @@ router.get("/", isLoggedIn, cartController.showCart);
 
 router.get("/guardados", isLoggedIn, cartController.showSaved);
 
-router.post("/", cartController.addToOrder);
+router.post("/agregar/:id", cartController.addToOrder);
 
 // router.post("/agregar", isLoggedIn, cartController.addToCart);
 

@@ -32,7 +32,7 @@
                     <h2 class="price">$<%= product.price %></h2>
                     <p class="pDescription"><%= product.description %></p>
 <% if (user && user.dni) { %>
-                    <form action="/carrito" class="buying" method="POST">
+                    <form action="/carrito/agregar/<%=product.id%>" class="buying" method="POST">
                         <div class="quantity-box">
                             <input type="hidden" name="id" value="<%= product.id %> ">
                             <label for="quantity">Cantidad</label>
@@ -40,7 +40,7 @@
                                 type="number"
                                 name="quantity"
                                 id="quantity"
-                                value="1"
+                                min="1"
                             />
                         </div>
                         

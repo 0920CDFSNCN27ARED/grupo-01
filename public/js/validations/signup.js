@@ -1,6 +1,7 @@
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (event) => {
+    event.preventDefault()
     const totalErrors = validateMultipleFields([
         ["firstName", [isLength(2), noNumberValidation]],
         ["lastName", [isLength(2), noNumberValidation]],

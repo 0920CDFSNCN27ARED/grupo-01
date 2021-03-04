@@ -157,7 +157,7 @@ DEFAULT CHARACTER SET = latin1;
 DROP TABLE IF EXISTS `winederful`.`order_items` ;
 
 CREATE TABLE IF NOT EXISTS `winederful`.`order_items` (
-  `id` INT NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `subtotal` FLOAT(10,2) NULL,
   `quantity` INT NULL,
   `price` FLOAT(10,2) NULL,

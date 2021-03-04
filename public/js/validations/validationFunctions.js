@@ -126,6 +126,7 @@ function validateMultipleFields(fields) {
             return;
         }
 
+        
         input.classList.remove("is-valid");
         input.classList.add("is-not-valid");
     });

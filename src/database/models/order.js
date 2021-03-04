@@ -28,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         Order.belongsToMany(models.Product, {
             as: "products",
             foreingKey: "orderId",
+            otherKey: "productId",
             through: "OrderItem",
         });
         // Order.hasOne(models.PaymentMethod, {

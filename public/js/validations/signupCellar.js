@@ -1,8 +1,10 @@
 const form = document.querySelector("form");
+////////////////////////
+
 
 async function getCountries() {
     const countries = await fetch(
-        "https://restcountries.eu/rest/v2/regionalbloc/usan"
+        "https://restcountries.eu/rest/v2/all"
     );
     const data = await countries.json();
     return data;
@@ -18,10 +20,11 @@ async function insertCountries() {
     });
 }
 insertCountries();
-
+//////////////////////
 
 
 form.addEventListener("submit", (event) => {
+   
     const totalErrors = validateMultipleFields([
         ["cellarName", [isLength(2)]],
         ["companyName", [isLength(3)]],
@@ -33,6 +36,7 @@ form.addEventListener("submit", (event) => {
         ["avatar", [isValidFormat]],
         ["terms", [isTrue("Debes aceptar los terminos y condiciones")]],
     ]);
-    console.log(totalErrors);
     if (totalErrors.length > 0) event.preventDefault();
 });
+
+

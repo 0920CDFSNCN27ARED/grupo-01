@@ -1,13 +1,13 @@
 const { Console } = require("console");
-const { Order, Product, OrderProduct } = require("../database/models");
+const { Order, Product, OrderItem } = require("../database/models");
 
 const cartController = {
     showCart: async (req, res) => {
         try {
             const products = await Product.findAll();
-            res.render("products/productCart", {products: products});
+            res.render("products/productCart", { products: products });
         } catch (err) {
-            res.send(err)
+            res.send(err);
         }
     },
 
@@ -18,9 +18,10 @@ const cartController = {
         const productAdded = await Product.findByPk(req.body.id);
         let order = await Order.findOne({
             where: {
-                buyerUserId: req.session.loggedUser,
+                buyerUserId: req.session.loggedUser.id,
             },
         });
+
         if (!order) {
             order = Order.create({
                 total: 0,
@@ -31,12 +32,12 @@ const cartController = {
         }
 
         const item = await OrderItem.create({
-            productId: productAdded.id,
+            orderId: order.dataValues.buyerUserId,
+            productId: productAdded.dataValues.id,
             quantity: req.body.quantity,
-            price: productAdded.price,
-            subtotal: productAdded.price * req.body.quantity * 0.9,
-            discount: productAdded.discount,
-            orderId: order.id,
+            price: productAdded.dataValues.price,
+            subtotal: productAdded.dataValues.price * req.body.quantity * 0.9,
+            discount: productAdded.dataValues.discount,
         });
         console.log(item);
     },
