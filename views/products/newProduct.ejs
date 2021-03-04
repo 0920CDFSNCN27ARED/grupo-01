@@ -2,14 +2,24 @@
 <html lang="en">
     <head>
         <%- include("../partials/head.ejs") %>
-
+        <script src="/js/productsim.js"></script>
         <title>NUEVO PRODUCTO | WINEDERFUL</title>
     </head>
     <body>
         <%- include("../partials/header.ejs") %>
         <main class="main-newProduct">
             <section class="reveal">
-                <p>aca se va cargando lo que pone la persona</p>
+                <div>
+                    <h2 id="title" class="desktop subtitle-wine"></h2>
+                    <img
+                        id="image"
+                        class="resize"
+                        src=""
+                        alt="productPicture"
+                    />
+                    <h2 id="price" class="price"></h2>
+                    <p id="description" class="pDescription"></p>
+                </div>
             </section>
             <section class="form form-newProduct">
                 <form
@@ -20,6 +30,10 @@
                 >
                     <label for="productName">Nombre del vino</label>
                     <input type="text" name="productName" id="productName" />
+                    <label for="productPicture">Foto del producto</label>
+                    <input type="file" name="image" id="productPicture" />
+                    <label for="productPrice">Precio</label>
+                    <input type="number" name="price" id="productPrice" />
                     <label for="productDescription">Descripción</label>
                     <textarea
                         name="description"
@@ -42,12 +56,6 @@
                     />
                     <label for="productAged">Crianza</label>
                     <input type="number" name="aged" id="productAged" />
-
-                    <label for="productPicture">Foto del producto</label>
-                    <input type="file" name="image" id="productPicture" />
-                    <label for="productPrice">Precio</label>
-                    <input type="number" name="price" id="productPrice" />
-
                     <label for="productStock">Stock</label>
                     <input type="number" name="stock" id="productStock" />
 

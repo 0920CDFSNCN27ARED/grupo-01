@@ -127,6 +127,7 @@ const usersControllers = {
     },
     logOut: (req, res) => {
         res.clearCookie("remember");
+        res.clearCookie("isUser");
         res.locals.user = null;
         req.session.destroy((err) => {
             res.redirect("/");

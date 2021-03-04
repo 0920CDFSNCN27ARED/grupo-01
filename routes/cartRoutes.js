@@ -10,6 +10,6 @@ router.get("/guardados", isLoggedIn, cartController.showSaved);
 
 router.post("/", cartController.addToOrder);
 
-router.post("/agregar", isLoggedIn, cartController.addToCart);
+router.post("/agregar", isLoggedIn, cartController.addToOrder);
 
 module.exports = router;
