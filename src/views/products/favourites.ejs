@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head")%>
+        <title>FAVORITOS | WINEDERFUL</title>
+        <link rel="stylesheet" href="/css/favoritos.css" />
+    </head>
+    <body>
+        <%- include("../partials/header") %>
+
+        <section>
+            <article class="box">
+                <div class="flex">
+                    <h3>Luigi Bosca Malbec</h3>
+                    <p>$500</p>
+                </div>
+
+                <div class="vertical">
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="meat"
+                            value="Ideal para carnes"
+                            name="meat"
+                            checked
+                        />
+                        <label for="meat">Ideal para carnes</label>
+                    </div>
+
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="sweet"
+                            value="dulce"
+                            name="dulce"
+                        />
+                        <label for="meat">Dulce</label>
+                    </div>
+
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="sweet"
+                            value="dulce"
+                            name="dulce"
+                            checked
+                        />
+                        <label for="meat">Graduacion alcoholica</label>
+                    </div>
+
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="sweet"
+                            value="dulce"
+                            name="dulce"
+                        />
+                        <label for="meat">Dulce</label>
+                    </div>
+                </div>
+            </article>
+            <div class="flex" id="favourite-5">
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
+            </div>
+        </section>
+
+        <%- include("../partials/footer") %>
+    </body>
+</html>

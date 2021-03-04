@@ -25,6 +25,9 @@ body {
     display: none;
 }
 
+
+
+
 .header-index {
     display: grid;
     grid-template-columns: 100%;
@@ -37,6 +40,11 @@ body {
 
 .logo-image img {
     width: 30%;
+}
+
+.error-msg {
+    margin: 2%;
+    font-size: 16px;
 }
 
 .under-nav {
@@ -124,6 +132,9 @@ body {
     animation: slider 30s infinite;
     position: relative;
 }
+
+
+
 
 @keyframes slider {
     10% {
@@ -400,6 +411,7 @@ form.form select {
     font-size: 18px;
     padding: 5px;
     border: 1px solid black;
+    width: 100%;
 }
 
 form.form a {
@@ -830,4 +842,11 @@ section.form h2 {
     .link:hover {
         text-decoration: underline;
     }
+}
+.is-valid{
+    background-color: lightgreen;
+    
+}
+.is-not-valid{
+    background-color: lightsalmon;
 }
