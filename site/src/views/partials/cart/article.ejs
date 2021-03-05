@@ -1,4 +1,4 @@
-<article class="display-flex-column article align-center beige">
+<article class="display-flex-column article align-center beige product-card ">
     <div class="display-flex"></div>
     <div class="display-flex space-between align-end width-90">
         <img
@@ -17,8 +17,9 @@
                 type="number"
                 placeholder="1"
                 min="1"
+                id="quantity"
             />
-            <p class="self-end bold partial-price">$<%= product.price %></p>
+            <p id="partial-price" class="self-end bold partial-price">$<%= product.price %></p>
         </div>
     </div>
 
