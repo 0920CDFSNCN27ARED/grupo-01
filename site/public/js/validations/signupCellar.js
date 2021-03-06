@@ -35,7 +35,7 @@ form.addEventListener("submit", (event) => {
         ["password", [isLength(8)]],
         ["avatar", [isValidFormat]],
         ["terms", [isTrue("Debes aceptar los terminos y condiciones")]],
-    ]);
+    ],validateInput);
     if (totalErrors.length > 0) event.preventDefault();
 });
 

@@ -91,14 +91,15 @@ function intValidation(min, max) {
 ///////////////////////
 
 /////////  FUNCTIONS
-function validateMultipleFields(fields) {
-    let totalErrors = [];
-    fields.forEach((field) => {
-        const inputId = field[0];
-        const validations = field[1];
 
-        let foundErrors = false;
-        let input = document.getElementById(inputId);
+function validateInput(inputId, validationFunctions) {
+    const input = document.getElementById(inputId);
+    let foundErrors;
+
+    for (const validation of validationFunctions) {
+        const validate = validation[0];
+        const errMsg = validation[validation.length - 1];
+        const options = validation.length > 2 ? validation[1] : null;
         switch (input.type) {
             case "checkbox":
                 inputValue = input.checked;
@@ -106,37 +107,64 @@ function validateMultipleFields(fields) {
             default:
                 inputValue = input.value;
         }
-        for (const validation of validations) {
-            let validationFunction = validation[0];
-            let errorMsg = validation[validation.length - 1];
-            let options = validation.length > 2 ? validation[1] : null;
-
-            if (!validationFunction(inputValue, options)) {
-                const error = {
-                    input,
-                    errorMsg,
-                };
-                totalErrors.push(error);
-                foundErrors = true;
-            }
+        if (!validate(inputValue, options)) {
+            const error = {
+                input: input,
+                errMsg: errMsg,
+            };
+            foundErrors = true;
+            input.classList.remove("is-valid");
+            input.classList.add("is-not-valid");
+            errors.push(error);
         }
-        if (!foundErrors) {
-            input.classList.remove("is-not-valid");
-            input.classList.add("is-valid");
-            return;
-        }
+    }
 
-        
-        input.classList.remove("is-valid");
-        input.classList.add("is-not-valid");
-    });
-
-    return totalErrors;
+    input.classList.remove("is-not-valid");
+    input.classList.add("is-valid");
 }
 
-// function clearValidations() {
-//     const inputs = form.getElementsByTagName("input")
-//     for (const field of inputs) {
-//         field.classList.remove("is-valid", "is-not-valid");
-//     }
-// }
+function validateMultipleFields(validations, validateInput) {
+    for (const fieldValidation of validations) {
+        const inputId = fieldValidation[0];
+        const validationFunctions = fieldValidation[1];
+        validateInput(inputId, validationFunctions);
+    }
+}
+
+//////////////////////
+
+function checkErrors() {
+    if (errors.length > 0) {
+        const inputs = document.getElementsByTagName("input");
+        for (const input of inputs) {
+            input.classList.remove("is-not-valid");
+            input.classList.add("is-valid");
+        }
+
+        for (const error of errors) {
+            const input = error.input;
+            const errMsg = error.errMsg;
+
+            input.classList.remove("is-valid");
+            input.classList.add("is-not-valid");
+
+            const errorCont = document.createElement("div");
+            errorCont.innerText = errMsg;
+            errorCont.classList.add("err-cont");
+            input.insertAdjacentElement("afterend", errorCont);
+        }
+        return true;
+    }
+    return false;
+}
+
+//////////////////////
+function clearErrors() {
+    const err = document.querySelectorAll(".err-cont");
+    console.log(err);
+    if (err) {
+        for (const errs of err) {
+            errs.remove();
+        }
+    }
+}

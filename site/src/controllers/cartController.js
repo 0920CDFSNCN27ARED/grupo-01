@@ -15,7 +15,8 @@ const cartController = {
         res.render("products/savedProducts");
     },
     addToOrder: async (req, res) => {
-        const productAdded = await Product.findByPk(req.body.id);
+        const productAdded = await Product.findByPk(req.params.id);
+        console.log(productAdded);
         let order = await Order.findOne({
             where: {
                 buyerUserId: req.session.loggedUser.id,
@@ -32,11 +33,11 @@ const cartController = {
         }
 
         const item = await OrderItem.create({
-            orderId: order.dataValues.buyerUserId,
-            productId: productAdded.dataValues.id,
-            quantity: req.body.quantity,
+            // orderId: order.dataValues.buyerUserId,
+            productId: productAdded.id,
+            quantity: (req.body.quantity) ? req.body.quantity : 1,
             price: productAdded.dataValues.price,
-            subtotal: productAdded.dataValues.price * req.body.quantity * 0.9,
+            subtotal: (productAdded.dataValues.price),
             discount: productAdded.dataValues.discount,
         });
         console.log(item);

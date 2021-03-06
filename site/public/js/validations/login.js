@@ -5,7 +5,7 @@ form.addEventListener("submit", (event) => {
         ["email", [emailValidation]],
         ["password", [isLength(2)]],
        
-    ]);
+    ],validateInput);
 
     if (totalErrors.length > 0) event.preventDefault();
 });
