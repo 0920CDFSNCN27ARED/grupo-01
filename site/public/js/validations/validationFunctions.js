@@ -95,7 +95,6 @@ function intValidation(min, max) {
 function validateInput(inputId, validationFunctions) {
     const input = document.getElementById(inputId);
     let foundErrors;
-
     for (const validation of validationFunctions) {
         const validate = validation[0];
         const errMsg = validation[validation.length - 1];
@@ -111,12 +110,14 @@ function validateInput(inputId, validationFunctions) {
             const error = {
                 input: input,
                 errMsg: errMsg,
+                feedbackClass: `${inputId}-errMsg`,
             };
             foundErrors = true;
             input.classList.remove("is-valid");
             input.classList.add("is-not-valid");
             errors.push(error);
         }
+        
     }
 
     input.classList.remove("is-not-valid");
@@ -135,23 +136,14 @@ function validateMultipleFields(validations, validateInput) {
 
 function checkErrors() {
     if (errors.length > 0) {
-        const inputs = document.getElementsByTagName("input");
-        for (const input of inputs) {
-            input.classList.remove("is-not-valid");
-            input.classList.add("is-valid");
-        }
-
         for (const error of errors) {
-            const input = error.input;
-            const errMsg = error.errMsg;
-
-            input.classList.remove("is-valid");
-            input.classList.add("is-not-valid");
+            error.input.classList.remove("is-valid");
+            error.input.classList.add("is-not-valid");
 
             const errorCont = document.createElement("div");
-            errorCont.innerText = errMsg;
-            errorCont.classList.add("err-cont");
-            input.insertAdjacentElement("afterend", errorCont);
+            errorCont.innerText = error.errMsg;
+            errorCont.classList.add("err-cont", "err-msg", error.feedbackClass);
+            error.input.insertAdjacentElement("afterend", errorCont);
         }
         return true;
     }
@@ -159,12 +151,22 @@ function checkErrors() {
 }
 
 //////////////////////
-function clearErrors() {
-    const err = document.querySelectorAll(".err-cont");
-    console.log(err);
-    if (err) {
-        for (const errs of err) {
-            errs.remove();
+function clearErrors(inputId) {
+    // To clear only one field
+    if (inputId) {
+        const errs = document.querySelectorAll(`.${inputId}-errMsg`);
+        if (errs) {
+            for (const err of errs) {
+                err.remove();
+            }
+        }
+        return;
+    }
+    // To clear all fields
+    const errs = document.querySelectorAll(".err-cont");
+    if (errs) {
+        for (const err of errs) {
+            err.remove();
         }
     }
 }

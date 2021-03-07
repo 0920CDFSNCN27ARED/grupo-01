@@ -33,7 +33,7 @@ const cartController = {
         }
 
         const item = await OrderItem.create({
-            // orderId: order.dataValues.buyerUserId,
+            orderId: order.dataValues.buyerUserId,
             productId: productAdded.id,
             quantity: (req.body.quantity) ? req.body.quantity : 1,
             price: productAdded.dataValues.price,
