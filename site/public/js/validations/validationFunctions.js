@@ -88,6 +88,18 @@ function intValidation(min, max) {
 
     return isInt;
 }
+const passMatches = [
+    function passwordMatch(confirmNewPassword) {
+        console.log(confirmNewPassword, newPassword.value)
+        if (confirmNewPassword !== newPassword.value) {
+            return false;
+        }
+        return true;
+    },
+    newPassword,
+    "Las contraseñas no coinciden",
+];
+
 ///////////////////////
 
 /////////  FUNCTIONS
@@ -117,7 +129,6 @@ function validateInput(inputId, validationFunctions) {
             input.classList.add("is-not-valid");
             errors.push(error);
         }
-        
     }
 
     input.classList.remove("is-not-valid");
@@ -168,5 +179,28 @@ function clearErrors(inputId) {
         for (const err of errs) {
             err.remove();
         }
+    }
+}
+
+//////////
+function inputEvent(inputs) {
+    for (const input of inputs) {
+        switch (input.type) {
+            case "checkbox":
+            case "select":
+            case "file":
+                eventType = "change";
+                break;
+            default:
+                eventType = "keyup";
+        }
+        input.addEventListener(eventType, (event) => {
+            errors = [];
+
+            clearErrors(input.id);
+            validateInput(input.id, [isLength(2), noNumberValidation]);
+
+            checkErrors();
+        });
     }
 }

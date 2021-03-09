@@ -5,6 +5,16 @@ const { BuyerUser } = require("../database/models");
 const { CellarUser } = require("../database/models");
 
 ////////FUNCTIONS
+
+function logOut(req, res, redirectPath) {
+    res.clearCookie("remember");
+    res.clearCookie("isUser");
+    res.locals.user = null;
+    req.session.destroy((err) => {
+        res.redirect(redirectPath);
+    });
+}
+
 async function findUser(model, req) {
     return await model.findOne({
         where: {
@@ -14,15 +24,33 @@ async function findUser(model, req) {
 }
 
 function checkHash(user, req) {
-    console.log(user.password, req.body.password);
     if (bcrypt.compareSync(req.body.password, user.password)) return true;
 }
 function validateAndStoreInSession(user, req) {
     if (user && checkHash(user, req)) {
         req.session.loggedUser = user;
     }
-    return
+    return;
 }
+
+async function updatePassword(user, req, checkHash) {
+    if (checkHash(user, req)) {
+        console.log("ENTRE AL UPDATE");
+        await user.update(
+            {
+                password: bcrypt.hashSync(req.body.newPassword, 10),
+            },
+            {
+                where: {
+                    id: req.params.id,
+                },
+            }
+        );
+    } else {
+        console.log("NO ENTRE AL UPDATE");
+    }
+}
+
 ///////////////////////////
 
 const usersControllers = {
@@ -95,9 +123,9 @@ const usersControllers = {
             let msg = "Credenciales invalidas.";
             const buyerUser = await findUser(BuyerUser, req);
             const cellarUser = await findUser(CellarUser, req);
-         
+
             validateAndStoreInSession(buyerUser || cellarUser, req); // req.session.loggedUser
-            
+
             ///////////////////////////////////////
             if (!req.session.loggedUser) {
                 res.render("users/login", {
@@ -120,15 +148,23 @@ const usersControllers = {
         }
     },
     logOut: (req, res) => {
-        res.clearCookie("remember");
-        res.clearCookie("isUser");
-        res.locals.user = null;
-        req.session.destroy((err) => {
-            res.redirect("/");
-        });
+        logOut(req, res, "/");
     },
     showProfile: (req, res) => {
         res.render("users/profile");
+    },
+
+    changePassword: async (req, res) => {
+        if (res.locals.user.cuit) {
+            const cellarUser = await CellarUser.findByPk(req.params.id);
+            await updatePassword(cellarUser, req, checkHash);
+            logOut(req, res, "/usuarios/login");
+            
+        }
+        const buyerUser = await BuyerUser.findByPk(req.params.id);
+
+        await updatePassword(buyerUser, req, checkHash);
+        logOut(req, res, "/usuarios/login");
     },
 };
 

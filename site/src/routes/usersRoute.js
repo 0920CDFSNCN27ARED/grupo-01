@@ -11,6 +11,9 @@ const usersController = require("../controllers/usersController");
 const { BuyerUser } = require("../database/models");
 const { CellarUser } = require("../database/models");
 
+
+router.post("/cambioContra/:id", isLoggedIn, usersController.changePassword);
+
 router.get("/registro", isGuest, usersController.showRegister);
 router.post(
     "/registro",
@@ -119,4 +122,5 @@ router.post(
     ],
     usersController.logIn
 );
+
 module.exports = router;

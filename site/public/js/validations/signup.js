@@ -1,6 +1,5 @@
 const form = document.querySelector("form");
 let errors;
-
 // const validations = {
 //     firstName: ["firstName", [isLength(2), noNumberValidation]],
 //     lastName: ["lastName", [isLength(2), noNumberValidation]],
@@ -35,22 +34,6 @@ form.addEventListener("submit", (event) => {
 
 const inputs = document.querySelectorAll("input");
 let eventType = "keyup";
-for (const input of inputs) {
-    switch (input.type) {
-        case "checkbox":
-        case "select":
-        case "file":
-            eventType = "change";
-            break;
-        default:
-            eventType = "keyup";
-    }
-    input.addEventListener(eventType, (event) => {
-        errors = [];
 
-        clearErrors(input.id);
-        validateInput(input.id, [isLength(2), noNumberValidation]);
 
-        checkErrors();
-    });
-}
+inputEvent(inputs);

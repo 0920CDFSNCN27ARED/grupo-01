@@ -2,9 +2,10 @@
 <html lang="en">
     <head>
         <%- include("../partials/head.ejs") %>
-        <link rel="stylesheet" href="/css/product2.css" />
+        <!-- <link rel="stylesheet" href="/css/product2.css" /> -->
         <title>PRODUCTO | WINEDERFUL</title>
         <script src="/js/colapse.js"></script>
+        <script defer src="/js/prodDetail.js"></script>
     </head>
     <body class="body-index">
         <%- include("../partials/header.ejs") %>
@@ -29,23 +30,24 @@
                     <h2 class="desktop subtitle-wine">
                         <%= product.productName %>
                     </h2>
-                    <h2 class="price">$<%= product.price %></h2>
+                    <h2 id="price" class="price">$<%= product.price %></h2>
                     <p class="pDescription"><%= product.description %></p>
 <% if (user && user.dni) { %>
-                    <form action="/carrito/agregar/<%=product.id%>" class="buying" method="POST">
+                    <form action="/carrito" class="buying" method="GET">
                         <div class="quantity-box">
-                            <input type="hidden" name="id" value="<%= product.id %> ">
+                           
                             <label for="quantity">Cantidad</label>
                             <input
                                 type="number"
                                 name="quantity"
                                 id="quantity"
                                 min="1"
+                                placeholder="1"
                             />
                         </div>
                         
                         
-                            <button type="subit" class="button create">
+                            <button type="submit" class="button create">
                                 Agregar al carrito
                                 <i class="fas fa-shopping-cart cart-button"></i>
                             </button>

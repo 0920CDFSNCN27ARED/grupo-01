@@ -66,7 +66,7 @@ const cartRoute = require("./src/routes/cartRoutes");
 app.use("/carrito", cartRoute);
 
 const favouritesRoute = require("./src/routes/favouritesRoute");
-const { Agent } = require("http");
+
 app.use("/favoritos", favouritesRoute);
 
 // Default route

@@ -1,6 +1,5 @@
 const productCards = document.getElementsByClassName("product-card");
 const totalPrice = document.getElementById("total-price");
-console.log(totalPrice);
 
 Array.from(productCards).forEach((productCard) => {
     const quantity = productCard.querySelector("#quantity");
@@ -14,3 +13,5 @@ Array.from(productCards).forEach((productCard) => {
         }`;
     });
 });
+
+

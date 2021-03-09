@@ -7,6 +7,10 @@ body {
     padding: 0;
 }
 
+.hide{
+    display: none;
+}
+
 .error {
     color: red;
     text-align: left;
@@ -37,6 +41,19 @@ body {
     box-shadow: 0px 0px 5px 5px lightgrey;
 }
 
+#change-pass-btn {
+    background-color: white;
+    border: none;
+    font-size: inherit;
+    color: blue;
+}
+#change-pass-btn:hover {
+    cursor: pointer;
+}
+#change-pass-btn:active {
+    color: purple;
+}
+
 .logo-image {
     text-align: center;
 }
@@ -44,8 +61,6 @@ body {
 .logo-image img {
     width: 30%;
 }
-
-
 
 .under-nav {
     z-index: 1;
@@ -488,8 +503,8 @@ section.form h2 {
 @media (min-width: 450px) {
     .profile-main {
         display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-        margin: 20px 0;
+        grid-template-columns: 1fr 4fr;
+        margin: 2%;
     }
     .profile-left {
         display: grid;
@@ -540,6 +555,32 @@ section.form h2 {
     .profile-button:hover {
         background-color: rgba(128, 128, 128, 0.212);
     }
+    .red {
+        color: #d21f57;
+        padding: 10px;
+    }
+    .red:hover {
+        color: white;
+        background-color: #d21f57;
+    }
+    .submit-btn-cont {
+        grid-template-rows: 1fr 1fr;
+        display: grid;
+    }
+    button:disabled {
+        background-color: lightgrey;
+        cursor: not-allowed;
+    }
+    button:disabled:hover + .disable-msg {
+        display: inline;
+    }
+    .disable-msg {
+        display: none;
+        font-size: 14px;
+        color: red;
+        text-align: center;
+    }
+
     .wine {
         padding-left: 50px;
     }
@@ -601,6 +642,21 @@ section.form h2 {
 
     .footer-index .logo-image img {
         width: 40%;
+    }
+    #right-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        padding: 40px;
+        padding-top: 0;
+        box-shadow: 2px 2px 6px grey;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+    #change-pass-form {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 10%;
     }
 }
 
@@ -813,23 +869,6 @@ section.form h2 {
 
     .form-newProduct {
         width: 85%;
-    }
-
-    .red {
-        color: #d21f57;
-        padding: 10px;
-    }
-    .red:hover {
-        color: white;
-        background-color: #d21f57;
-    }
-
-    .profile-right {
-        padding: 40px;
-        padding-top: 0;
-        box-shadow: 2px 2px 6px grey;
-        border-radius: 10px;
-        margin-right: 10px;
     }
 
     .personal-info {
