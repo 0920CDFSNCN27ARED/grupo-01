@@ -88,18 +88,7 @@ function intValidation(min, max) {
 
     return isInt;
 }
-function passMatches(newPassword) {
-    return (passMatches = [
-        function passwordMatch(confirmNewPassword) {
-            if (confirmNewPassword !== newPassword.value) {
-                return false;
-            }
-            return true;
-        },
-        newPassword,
-        "Las contraseñas no coinciden",
-    ]);
-}
+
 
 ///////////////////////
 

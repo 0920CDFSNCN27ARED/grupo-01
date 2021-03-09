@@ -14,6 +14,19 @@ const actualPassInput = document.getElementById("actualPassword");
 const newPassword = document.getElementById("newPassword");
 const confirmNewPassword = document.getElementById("confirmNewPassword");
 
+
+///////
+const passMatches = [
+    function passwordMatch(confirmNewPassword) {
+        if (confirmNewPassword !== newPassword.value) {
+            return false;
+        }
+        return true;
+    },
+    newPassword,
+    "Las contraseñas no coinciden",
+];
+
 //////CHANGE PASSWORD
 showChangeMenu.addEventListener("click", () => {
     for (const actionScreen of allActions) {
@@ -46,11 +59,12 @@ form.addEventListener("submit", (event) => {
     validateMultipleFields(
         [
             ["newPassword", [isLength(8)]],
-            ["confirmNewPassword", [passMatches(newPassword)]],
+            ["confirmNewPassword", [passMatches]],
         ],
         validateInput
     );
-    if (checkErrors()) {
+    console.log(errors)
+    if (checkErrors(errors)) {
         event.preventDefault();
     }
 });
@@ -65,3 +79,9 @@ myAddresses.addEventListener("click", () => {
     }
     addressScreen.classList.remove("hide");
 });
+
+
+
+//////
+
+    
