@@ -2,6 +2,8 @@ import React from "react";
 import SideMenuLink from "./side-menu-links/Side-Menu-Links";
 import SideMenuHeader from "./Side-Menu-Header";
 
+
+
 function SideMenu() {
   return (
     <div id="wrapper">
@@ -9,7 +11,7 @@ function SideMenu() {
         className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
         id="accordionSidebar"
       >
-        <SideMenuHeader/>
+        <SideMenuHeader />
         <hr className="sidebar-divider my-0" />
         <li className="nav-item active">
           <a className="nav-link" href="/">
@@ -19,13 +21,14 @@ function SideMenu() {
         </li>
         <hr className="sidebar-divider" />
         <div className="sidebar-heading">Actions</div>
-        <SideMenuLink />
-        <SideMenuLink />
-        <SideMenuLink />
+        <SideMenuLink action="Charts" />
+        <SideMenuLink action="Charts" />
+        <SideMenuLink action="Tables" />
         <hr className="sidebar-divider d-none d-md-block" />
       </ul>
     </div>
   );
 }
+
 
 export default SideMenu;

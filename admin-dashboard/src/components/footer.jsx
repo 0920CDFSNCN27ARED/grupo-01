@@ -1,6 +1,6 @@
 import React from "react";
 
-function Footer() {
+function Footer(props) {
   return (
     <footer className="sticky-footer bg-white">
       <div className="container my-auto">

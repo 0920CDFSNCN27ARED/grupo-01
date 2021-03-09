@@ -1,11 +1,15 @@
 import React from "react";
 
-function CategoryItem() {
+function CategoryItem(props) {
   return (
     <div className="row">
-      <div claclassNames="col-lg-6 mb-4">
+      <div className="col-lg-6 mb-4">
         <div className="card bg-info text-white shadow">
-          <div className="card-body">Category 01</div>
+          {props.categoryNmbr.map((nmbr, i) => (
+            <div key={nmbr + i} className="card-body">
+              {nmbr}
+            </div>
+          ))}
         </div>
       </div>
     </div>
