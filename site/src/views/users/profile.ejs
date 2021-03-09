@@ -6,7 +6,7 @@
         <script defer src="/js/validations/validator.min.js"></script>
         <script defer src="/js/validations/validationFunctions.js"></script>
         <script defer src="/js/validations/validator.min.js"></script>
-        <script defer src="/js/validations/changePass.js"></script>
+        <script defer src="/js/validations/profile.js"></script>
     </head>
 
     <body>
@@ -29,7 +29,7 @@
                             </button>
                         </li>
                         <li>
-                            <button class="profile-button">
+                            <button class="profile-button" id="address-btn">
                                 Mis direcciones
                             </button>
                         </li>
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="hide" id="action-screen">
+                <section class="action hide" id="pass-screen">
                     <form
                         action="/usuarios/cambioContra/<%=user.id%>"
                         method="POST"
@@ -133,6 +133,10 @@
                             </p>
                         </div>
                     </form>
+                </section>
+                <section class="action hide" id="address-screen">
+                    <h3><%= user.addresses%></h3>
+                    <form action=""></form>
                 </section>
             </div>
         </main>

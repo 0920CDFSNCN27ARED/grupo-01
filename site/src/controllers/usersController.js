@@ -35,7 +35,6 @@ function validateAndStoreInSession(user, req) {
 
 async function updatePassword(user, req, checkHash) {
     if (checkHash(user, req)) {
-        console.log("ENTRE AL UPDATE");
         await user.update(
             {
                 password: bcrypt.hashSync(req.body.newPassword, 10),
@@ -46,9 +45,7 @@ async function updatePassword(user, req, checkHash) {
                 },
             }
         );
-    } else {
-        console.log("NO ENTRE AL UPDATE");
-    }
+    } 
 }
 
 ///////////////////////////
@@ -69,10 +66,6 @@ const usersControllers = {
                     password: bcrypt.hashSync(req.body.password, 10),
                     image: req.file.filename,
                 });
-                console.log(
-                    newBuyerUser,
-                    "CONSOLE LOG ------------------------"
-                );
                 req.session.loggedUser = newBuyerUser;
                 res.locals.user = newBuyerUser;
 

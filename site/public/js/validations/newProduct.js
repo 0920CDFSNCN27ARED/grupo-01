@@ -26,6 +26,5 @@ form.addEventListener("submit", (event) => {
         ["productStock", [intValidation(0)]],
         ["productDiscount", [intValidation(0,100)]],
     ]);
-
     if (totalErrors.length > 0) event.preventDefault();
 });

@@ -1,13 +1,12 @@
-const form = document.querySelector("form");
+// const form = document.querySelector("form");
 
-form.addEventListener("submit", (event) => {
-    const totalErrors = validateMultipleFields([
-        ["email", [emailValidation]],
-        ["password", [isLength(2)]],
-       
-    ],validateInput);
+// const validationStructure = [
+//     ["email", [emailValidation]],
+//     ["password", [isLength(2)]],
+// ];
 
-    if (totalErrors.length > 0) event.preventDefault();
-});
+// form.addEventListener("submit", (event) => {
+//     clearValidateAndCheck(event);
+// });
 
-
+// validateAllIndividually(validationStructure); // On keyup, change, etc...

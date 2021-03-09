@@ -88,17 +88,18 @@ function intValidation(min, max) {
 
     return isInt;
 }
-const passMatches = [
-    function passwordMatch(confirmNewPassword) {
-        console.log(confirmNewPassword, newPassword.value)
-        if (confirmNewPassword !== newPassword.value) {
-            return false;
-        }
-        return true;
-    },
-    newPassword,
-    "Las contraseñas no coinciden",
-];
+function passMatches(newPassword) {
+    return (passMatches = [
+        function passwordMatch(confirmNewPassword) {
+            if (confirmNewPassword !== newPassword.value) {
+                return false;
+            }
+            return true;
+        },
+        newPassword,
+        "Las contraseñas no coinciden",
+    ]);
+}
 
 ///////////////////////
 
@@ -121,6 +122,7 @@ function validateInput(inputId, validationFunctions) {
         if (!validate(inputValue, options)) {
             const error = {
                 input: input,
+                inputId: inputId,
                 errMsg: errMsg,
                 feedbackClass: `${inputId}-errMsg`,
             };
@@ -143,6 +145,29 @@ function validateMultipleFields(validations, validateInput) {
     }
 }
 
+function getEventType(input) {
+    switch (input.type) {
+        case "checkbox":
+        case "select":
+        case "file":
+            eventType = "change";
+            break;
+        default:
+            eventType = "keyup";
+    }
+    return eventType;
+}
+// function getEventAndValidate(validations, validateInput) {
+//     for (const fieldValidation of validations) {
+//         const inputId = fieldValidation[0];
+//         const validationFunctions = fieldValidation[1];
+//         const input = document.getElementById(inputId);
+
+//         input.addEventListener(getEventType(input), () => {
+//             validateInput(inputId, validationFunctions);
+//         });
+//     }
+// }
 //////////////////////
 
 function checkErrors() {
@@ -171,6 +196,7 @@ function clearErrors(inputId) {
                 err.remove();
             }
         }
+
         return;
     }
     // To clear all fields
@@ -183,24 +209,26 @@ function clearErrors(inputId) {
 }
 
 //////////
-function inputEvent(inputs) {
-    for (const input of inputs) {
-        switch (input.type) {
-            case "checkbox":
-            case "select":
-            case "file":
-                eventType = "change";
-                break;
-            default:
-                eventType = "keyup";
-        }
-        input.addEventListener(eventType, (event) => {
+function clearValidateAndCheck(event) {
+    errors = [];
+    clearErrors();
+    validateMultipleFields(validationStructure, validateInput);
+
+    if (checkErrors()) {
+        event.preventDefault();
+    }
+}
+function validateAllIndividually(validationStructure) {
+    for (const fieldValidation of validationStructure) {
+        const inputId = fieldValidation[0];
+        const input = document.getElementById(inputId);
+        const validationFunctions = fieldValidation[1];
+
+        input.addEventListener(getEventType(input), () => {
             errors = [];
-
-            clearErrors(input.id);
-            validateInput(input.id, [isLength(2), noNumberValidation]);
-
-            checkErrors();
+            clearErrors(inputId);
+            validateInput(inputId, validationFunctions);
+            checkErrors(input);
         });
     }
 }
