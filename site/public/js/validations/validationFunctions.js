@@ -117,14 +117,14 @@ function validateInput(inputId, validationFunctions) {
                 feedbackClass: `${inputId}-errMsg`,
             };
             foundErrors = true;
-            input.classList.remove("is-valid");
-            input.classList.add("is-not-valid");
+            // input.classList.remove("is-valid");
+            // input.classList.add("is-not-valid");
             errors.push(error);
         }
     }
 
-    input.classList.remove("is-not-valid");
-    input.classList.add("is-valid");
+    // input.classList.remove("is-not-valid");
+    // input.classList.add("is-valid");
 }
 
 function validateMultipleFields(validations, validateInput) {
@@ -148,24 +148,14 @@ function getEventType(input) {
     }
     return eventType;
 }
-// function getEventAndValidate(validations, validateInput) {
-//     for (const fieldValidation of validations) {
-//         const inputId = fieldValidation[0];
-//         const validationFunctions = fieldValidation[1];
-//         const input = document.getElementById(inputId);
 
-//         input.addEventListener(getEventType(input), () => {
-//             validateInput(inputId, validationFunctions);
-//         });
-//     }
-// }
 //////////////////////
 
 function checkErrors() {
     if (errors.length > 0) {
         for (const error of errors) {
-            error.input.classList.remove("is-valid");
-            error.input.classList.add("is-not-valid");
+            // error.input.classList.remove("is-valid");
+            // error.input.classList.add("is-not-valid");
 
             const errorCont = document.createElement("div");
             errorCont.innerText = error.errMsg;

@@ -25,6 +25,19 @@
                     <h2 id="price" class="price"></h2>
                     <p id="description" class="pDescription"></p>
                 </div>
+                <div id="preview-container">
+
+            
+                    <img
+                        id="image-preview"
+                        
+                        src=""
+                        alt="Image preview"
+                    />
+                    <span id="default-text" 
+                        >Image Preview</span
+                    >
+                </div>
             </section>
             <section class="form form-newProduct">
                 <form
@@ -38,7 +51,12 @@
                     <label for="productPicture">Foto del producto</label>
                     <input type="file" name="image" id="productPicture" />
                     <label for="productPrice">Precio</label>
-                    <input min="0" type="number" name="price" id="productPrice" />
+                    <input
+                        min="0"
+                        type="number"
+                        name="price"
+                        id="productPrice"
+                    />
                     <label for="productDescription">Descripción</label>
                     <textarea
                         name="description"
