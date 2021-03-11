@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <%- include("../partials/head.ejs") %>
-        <script src="/js/productsim.js"></script>
         <title>NUEVO PRODUCTO | WINEDERFUL</title>
         <script
             type="text/javascript"
@@ -39,7 +38,7 @@
                     <label for="productPicture">Foto del producto</label>
                     <input type="file" name="image" id="productPicture" />
                     <label for="productPrice">Precio</label>
-                    <input type="number" name="price" id="productPrice" />
+                    <input min="0" type="number" name="price" id="productPrice" />
                     <label for="productDescription">Descripción</label>
                     <textarea
                         name="description"

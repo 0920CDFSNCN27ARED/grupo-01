@@ -76,19 +76,20 @@ function intValidation(min, max) {
         isInt = [
             validator.isInt,
             { min: min, max: max },
-            `El campo debe ser un numero mayor a ${min} y menor a ${max}`,
+            `El campo debe ser un numero mayor a ${min - 1} y menor a ${
+                max - 1
+            }`,
         ];
     } else {
         isInt = [
             validator.isInt,
             { min: min },
-            `El campo debe ser un numero mayor a ${min}`,
+            `El campo debe ser un numero mayor a ${min - 1}`,
         ];
     }
 
     return isInt;
 }
-
 
 ///////////////////////
 
@@ -136,8 +137,9 @@ function validateMultipleFields(validations, validateInput) {
 
 function getEventType(input) {
     switch (input.type) {
+        case "select-one":
+        case "option":
         case "checkbox":
-        case "select":
         case "file":
             eventType = "change";
             break;
@@ -213,6 +215,7 @@ function validateAllIndividually(validationStructure) {
         const input = document.getElementById(inputId);
         const validationFunctions = fieldValidation[1];
 
+        console.log(getEventType(input));
         input.addEventListener(getEventType(input), () => {
             errors = [];
             clearErrors(inputId);
