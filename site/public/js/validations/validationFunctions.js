@@ -12,13 +12,13 @@ const isLength = (minNmbr, maxNmbr) => {
 
     if (minNmbr && maxNmbr) {
         options = { min: minNmbr, max: maxNmbr };
-        errorMsg = `El campo debe tener minimo ${options.min} caracter/es y maximo ${options.max} `;
+        errorMsg = `El campo debe tener minimo ${options.min} caracteres y maximo ${options.max} `;
     } else if (minNmbr) {
         options = { min: minNmbr };
-        errorMsg = `El campo debe tener minimo ${options.min} caracter/es `;
+        errorMsg = `El campo debe tener minimo ${options.min} caracteres `;
     } else if (maxNmbr) {
         options = { min: minNmbr };
-        errorMsg = `El campo debe tener maximo ${options.max} caracter/es`;
+        errorMsg = `El campo debe tener maximo ${options.max} caracteres`;
     }
     validationArray = [validator.isLength, options, errorMsg];
     return validationArray;

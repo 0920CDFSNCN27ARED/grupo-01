@@ -55,8 +55,9 @@ const usersControllers = {
         res.render("users/signup");
     },
     newUser: async (req, res) => {
+        const errors = validationResult(req);
         try {
-            const errors = validationResult(req);
+            
             if (errors.isEmpty()) {
                 const newBuyerUser = await BuyerUser.create({
                     firstName: req.body.firstName,
@@ -71,16 +72,16 @@ const usersControllers = {
 
                 res.redirect("/productos");
             } else {
-                res.render("users/signUp", { errors: errors.errors });
+                console.log(errors);
+                res.render("users/signUp");
             }
         } catch (err) {
             res.send(err);
         }
     },
     newUserWineCellar: async (req, res) => {
+        const errors = validationResult(req);
         try {
-            const errors = validationResult(req);
-
             if (errors.isEmpty()) {
                 const newCellarUser = await CellarUser.create({
                     cellarName: req.body.cellarName,
@@ -96,7 +97,7 @@ const usersControllers = {
 
                 res.redirect("/productos");
             } else {
-                res.render("users/signupWineCellar", { errors: errors.errors });
+                res.render("users/signupWineCellar");
             }
         } catch (err) {
             res.send(err);
