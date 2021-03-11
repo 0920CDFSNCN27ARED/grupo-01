@@ -29,12 +29,7 @@ const passMatches = [
 
 //////CHANGE PASSWORD
 showChangeMenu.addEventListener("click", () => {
-    for (const actionScreen of allActions) {
-        if (!actionScreen.classList.contains("hide")) {
-            actionScreen.classList.add("hide");
-        }
-    }
-    changePassMenu.classList.remove("hide");
+    changePassMenu.classList.toggle("hide");
 });
 
 for (const input of inputs) {

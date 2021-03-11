@@ -7,9 +7,6 @@ body {
     padding: 0;
 }
 
-.hide{
-    display: none;
-}
 
 .error {
     color: red;
@@ -495,7 +492,14 @@ section.form h2 {
     padding-left: 24px;
     font-size: 22px;
 }
+#personal-data {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+}
 
+.hide {
+    display: none;
+}
 /* perfil */
 
 /*tablet*/
@@ -644,8 +648,6 @@ section.form h2 {
         width: 40%;
     }
     #right-container {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
         padding: 40px;
         padding-top: 0;
         box-shadow: 2px 2px 6px grey;

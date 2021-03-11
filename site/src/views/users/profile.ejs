@@ -60,79 +60,83 @@
                 </div>
             </section>
             <div id="right-container">
-                <section class="profile-right">
-                    <div class="personal-info">
-                        <div class="background-text"></div>
-                        <h2>Datos personales</h2>
+                <section  id="personal-data" class="action">
+                    <div class="profile-right">
+                        <div class="personal-info">
+                            <div class="background-text"></div>
+                            <h2>Datos personales</h2>
+                        </div>
+                        <div class="profile-data">
+                            <div class="profile-name">
+                                <% if(user.cuit){ %>
+                                <p>Nombre de la bodega</p>
+                                <p><%= user.cellarName %></p>
+                                <%} else {%>
+                                <p>Nombre</p>
+                                <p>
+                                    <%= user.firstName %> <%= user.lastName %>
+                                </p>
+                                <% } %>
+                            </div>
+                            <div>
+                                <p>E-mail</p>
+                                <p><%= user.email %></p>
+                            </div>
+                            <div>
+                                <p>Contraseña</p>
+                                <button type="button" id="change-pass-btn">
+                                    Cambiar contraseña
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="profile-data">
-                        <div class="profile-name">
-                            <% if(user.cuit){ %>
-                            <p>Nombre de la bodega</p>
-                            <p><%= user.cellarName %></p>
-                            <%} else {%>
-                            <p>Nombre</p>
-                            <p><%= user.firstName %> <%= user.lastName %></p>
-                            <% } %>
-                        </div>
-                        <div>
-                            <p>E-mail</p>
-                            <p><%= user.email %></p>
-                        </div>
-                        <div>
-                            <p>Contraseña</p>
-                            <button type="button" id="change-pass-btn">
-                                Cambiar contraseña
-                            </button>
-                        </div>
-                    </div>
-                </section>
-                <section class="action hide" id="pass-screen">
-                    <form
-                        action="/usuarios/cambioContra/<%=user.id%>"
-                        method="POST"
-                        id="change-pass-form"
-                        class="form"
-                    >
-                        <h3>Cambio de contraseña</h3>
-                        <label for="actualPassword"
-                            >Ingrese su contraseña actual</label
+                    <div class=" hide" id="pass-screen">
+                        <form
+                            action="/usuarios/cambioContra/<%=user.id%>"
+                            method="POST"
+                            id="change-pass-form"
+                            class="form"
                         >
-                        <input
-                            type="password"
-                            id="actualPassword"
-                            name="password"
-                        />
-                        <label for="newPassword"
-                            >Ingresé su nueva contraseña</label
-                        >
-                        <input
-                            type="password"
-                            name="newPassword"
-                            id="newPassword"
-                        />
-                        <label for="confirmNewPassword"
-                            >Confirme su nueva contraseña</label
-                        >
-                        <input
-                            type="password"
-                            name="confirmNewPassword"
-                            id="confirmNewPassword"
-                        />
-                        <div class="submit-btn-cont">
-                            <button
-                                disabled
-                                type="submit"
-                                class="button create"
+                            <h3>Cambio de contraseña</h3>
+                            <label for="actualPassword"
+                                >Ingrese su contraseña actual</label
                             >
-                                Cambiar contraseña
-                            </button>
-                            <p class="disable-msg">
-                                Complete todos los campos para habilitar el
-                                envío
-                            </p>
-                        </div>
-                    </form>
+                            <input
+                                type="password"
+                                id="actualPassword"
+                                name="password"
+                            />
+                            <label for="newPassword"
+                                >Ingresé su nueva contraseña</label
+                            >
+                            <input
+                                type="password"
+                                name="newPassword"
+                                id="newPassword"
+                            />
+                            <label for="confirmNewPassword"
+                                >Confirme su nueva contraseña</label
+                            >
+                            <input
+                                type="password"
+                                name="confirmNewPassword"
+                                id="confirmNewPassword"
+                            />
+                            <div class="submit-btn-cont">
+                                <button
+                                    disabled
+                                    type="submit"
+                                    class="button create"
+                                >
+                                    Cambiar contraseña
+                                </button>
+                                <p class="disable-msg">
+                                    Complete todos los campos para habilitar el
+                                    envío
+                                </p>
+                            </div>
+                        </form>
+                    </div>
                 </section>
                 <section class="action hide" id="address-screen">
                     <h3><%= user.addresses%></h3>
