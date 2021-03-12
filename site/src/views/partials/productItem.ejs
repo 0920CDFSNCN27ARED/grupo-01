@@ -10,15 +10,18 @@
     </div>
     <div class="prod-price-cart-box">
         <p>$<%= product.price %></p>
+        <% if(user && user.dni){ %> 
         <form action="/carrito/agregar/<%= product.id %>" method="POST">
             <button type="submit" class="button create">
                 Agregar al carrito
                 <i class="fas fa-shopping-cart"></i>
             </button>
         </form>
+        <% }else{ %> 
         <a class="button create" href="/productos/<%= product.id %>">
             Ver producto
             <i class="fas fa-shopping-cart"></i>
         </a>
+        <% } %> 
     </div>
 </article>

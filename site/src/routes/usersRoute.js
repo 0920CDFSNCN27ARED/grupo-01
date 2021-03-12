@@ -56,9 +56,12 @@ router.post(
             .withMessage(
                 "Debes ingresar una contraseña de al menos 8 caracteres."
             ),
-        // check("image")
-        //     .notEmpty()
-        //     .withMessage("Debes elegir una imagen de perfil."),
+            check("image").custom(value => {
+                if(!value) {
+                    return false;
+                }
+                return true;
+            }).withMessage("Debes elegir una imagen de perfil."),
         check("terms")
             .notEmpty()
             .withMessage("Debes leer y aceptar los terminos y condiciones."),
@@ -125,9 +128,12 @@ router.post(
             .withMessage(
                 "Debes ingresar una contraseña de al menos 8 caracteres."
             ),
-        // check("image")
-        //     .notEmpty()
-        //     .withMessage("Debes elegir una imagen de perfil."),
+        check("image").custom(value => {
+            if(!value) {
+                return false;
+            }
+            return true;
+        }).withMessage("Debes elegir una imagen de perfil."),
         check("terms")
             .notEmpty()
             .withMessage("Debes leer y aceptar los terminos y condiciones."),

@@ -45,7 +45,7 @@
 
 .price {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 25px;
     font-size: 30px;
     font-weight: normal;
 }
@@ -53,7 +53,13 @@
 .pDescription {
     margin-top: 30px;
     font-size: 20px;
+    text-align: justify;
 }
+
+.descPreview{
+    padding: 0px 20px 20px 20px;
+}
+
 
 .buying {
     display: grid;
@@ -151,6 +157,21 @@ section.specific {
 } */
 
 @media (min-width: 750px) {
+    .previewContainer{
+        border-radius: 8px;
+        border: 2px solid rgba(128, 128, 128, 0.452);
+        width: 200px;
+        height: 300px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imagePreview{
+        display: none;
+    }
+
     .fav-share {
         display: grid;
         grid-template-columns: 1fr 1fr;
