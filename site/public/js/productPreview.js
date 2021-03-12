@@ -1,14 +1,18 @@
+const year = new Date().getFullYear() + 1;
+
 window.onload = () => {
     const inputName = document.getElementById("productName");
     inputName.addEventListener("keyup", () => {
         document.getElementById("title").innerHTML = inputName.value;
     });
+
+    //image
     const inputImage = document.getElementById("productPicture");
     const previewContainer = document.getElementById("previewContainer");
     const previewImage = document.querySelector(".imagePreview");
     const defaultText = previewContainer.querySelector("span");
     inputImage.addEventListener("change", () => {
-        const file = files[0];
+        const file = this.files[0];
         console.log(file);
         // if (file) {
         //     const reader = new FileReader();
@@ -38,7 +42,7 @@ window.onload = () => {
     });
     const inputYear = document.getElementById("productYear");
     inputYear.addEventListener("change", () => {
-        document.getElementById("year").innerHTML = 2022 -inputYear.selectedIndex;
+        document.getElementById("year").innerHTML = year -inputYear.selectedIndex;
     });
     const inputTemp = document.getElementById("productTemperature");
     inputTemp.addEventListener("keyup", () => {
