@@ -19,4 +19,9 @@ module.exports = {
     offers: (req, res) => {
         res.send("Offers");
     },
+    count : async (req, res) => {
+        const count = await Product.count();
+        console.log(count)
+    res.send({count});
+}
 };

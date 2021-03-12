@@ -5,5 +5,5 @@ const controller = require("../../controllers/api/productsController");
 
 router.get("/latest", controller.latest);
 router.get("/offers", controller.offers);
-
+router.get("/count",controller.count)
 module.exports = router;
