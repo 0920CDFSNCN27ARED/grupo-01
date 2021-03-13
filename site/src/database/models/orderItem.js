@@ -17,11 +17,11 @@ module.exports = (sequelize, DataTypes) => {
     OrderItem.associate = function (models) {
         OrderItem.belongsTo(models.Product, {
             as: "products",
-            foreingKey: "productId",
+            foreignKey: "productId",
         });
         OrderItem.belongsTo(models.Order, {
             as: "orders",
-            foreingKey: "orderId",
+            foreignKey: "orderId",
         });
     };
     return OrderItem;

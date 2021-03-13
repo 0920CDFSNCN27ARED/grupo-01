@@ -10,8 +10,9 @@ async function edit(File, id, req, res) {
                 where: { id: id },
             }
         );
+        return "Updated"
     } catch (err) {
-        res.send(err);
+       return err;
     }
 }
 

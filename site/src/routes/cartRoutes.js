@@ -6,7 +6,7 @@ const isLoggedIn = require("../middlewares/isLoggedIn");
 
 router.get("/", isLoggedIn, cartController.showCart);
 
-router.get("/guardados", isLoggedIn, cartController.showSaved);
+router.get("/crearOrden", isLoggedIn, cartController.createOrder);
 
 // router.post("/agregar/:id", cartController.addToOrder);
 

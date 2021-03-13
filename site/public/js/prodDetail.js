@@ -6,6 +6,7 @@ const id = splitUrl[splitUrl.length - 1];
 
 form.addEventListener("submit", (event) => {
     const quantity = Number(document.getElementById("quantity").value);
+    const name = document.getElementById("prod-name").innerText.trim()
 
     const jsonProds = localStorage.getItem("cart");
     const cartProds = JSON.parse(jsonProds);
@@ -14,7 +15,7 @@ form.addEventListener("submit", (event) => {
     if (!cartProds) {
         localStorage.setItem(
             "cart",
-            JSON.stringify(newProd(id, price, quantity, "true"))
+            JSON.stringify(newProd(id, price, quantity, name, "true"))
         );
         return;
     }
@@ -31,15 +32,16 @@ form.addEventListener("submit", (event) => {
     }
 
     // Adding new product
-    cartProds.push(newProd(id, price, quantity));
+    cartProds.push(newProd(id, price, quantity, name));
     localStorage.setItem("cart", JSON.stringify(cartProds));
 });
 
-function newProd(id, price, quantity, isFirstProd) {
+function newProd(id, price, quantity, name, isFirstProd) {
     const product = {
         id: id,
         price: price,
         quantity: quantity === 0 ? 1 : quantity,
+        name: name,
     };
 
     if (isFirstProd) return [product];
