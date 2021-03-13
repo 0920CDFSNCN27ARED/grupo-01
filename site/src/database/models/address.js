@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     Address.associate = function (models) {
         Address.belongsTo(models.BuyerUser, {
             as: "addressUser",
-            foreingKey: "buyerUserId",
+            foreignKey: "buyerUserId",
         });
     };
     return Address;

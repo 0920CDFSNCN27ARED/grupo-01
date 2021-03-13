@@ -16,19 +16,19 @@ class App extends Component {
       smallCardValues: [
         {
           title: "Products in Data Base",
-          value: "135",
+          value: "n/a",
           icon: "fa-clipboard-list",
           color: "primary",
         },
         {
           title: "Amount in products",
-          value: "$546.456",
+          value: "n/a",
           icon: "fa-dollar-sign",
           color: "success",
         },
         {
           title: "Users quantity",
-          value: "38",
+          value: "n/a",
           icon: "fa-user-check",
           color: "warning",
         },
@@ -36,31 +36,63 @@ class App extends Component {
     };
   }
 
-  async componentDidMount() {
-    const response = await fetch("http://localhost:3030/api/products/count");
-    const countResponse = await response.json()
+  async queryProductsAPI(endpoint) {
+    const response = await fetch(
+      `http://localhost:3030/api/products/${endpoint}`
+    );
+    return await response.json();
+  }
+  async queryUsersAPI(endpoint) {
+    const response = await fetch(`http://localhost:3030/api/users/${endpoint}`);
+    return await response.json();
+  }
+
+  async getProductsCount() {
+    const countResponse = await this.queryProductsAPI("count");
+  
+    return countResponse.count;
+  }
+  async getProductsTotalPrice() {
+    const countResponse = await this.queryProductsAPI("totalPrice");
+    return countResponse.totalPrice;
+  }
+
+  async getUsersCount() {
+    const countResponse = await this.queryUsersAPI("count");
+    return countResponse.finalCount;
+  }
+
+  ////////////////
+  async updateData() {
     const smallCardValues = [
-        {
-          title: "Products in Data Base",
-          value: countResponse.count,
-          icon: "fa-clipboard-list",
-          color: "primary",
-        },
-        {
-          title: "Amount in products",
-          value: countResponse.count,
-          icon: "fa-dollar-sign",
-          color: "success",
-        },
-        {
-          title: "Users quantity",
-          value: countResponse.count,
-          icon: "fa-user-check",
-          color: "warning",
-        },
-    ]
-    console.log(countResponse)
-    this.setState({ smallCardValues,})
+      {
+        title: "Products in Data Base",
+        value: (await this.getProductsCount()).toString(),
+        icon: "fa-clipboard-list",
+        color: "primary",
+      },
+      {
+        title: "Amount in products",
+        value: "$"+ (await this.getProductsTotalPrice()).toString(),
+        icon: "fa-dollar-sign",
+        color: "success",
+      },
+      {
+        title: "Users quantity",
+        value: (await this.getUsersCount()).toString(),
+        icon: "fa-user-check",
+        color: "warning",
+      },
+    ];
+    
+    this.setState({ smallCardValues });
+  }
+  componentDidMount() {
+    setInterval(() => {
+      
+      this.updateData()
+     console.log("updated")
+    },3000)
   }
   render() {
     return (
@@ -71,8 +103,8 @@ class App extends Component {
             <div id="content">
               <Header />
               <div className="container-fluid">
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                  <h1 class="h3 mb-0 text-gray-800">App Dashboard</h1>
+                <div className="d-sm-flex align-items-center justify-content-between mb-4">
+                  <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
                 </div>
 
                 <div className="row">
@@ -92,7 +124,7 @@ class App extends Component {
                   <ProductDetailCard />
                   <CategoryCards />
                 </div>
-                <h1 class="h3 mb-2 text-gray-800">
+                <h1 className="h3 mb-2 text-gray-800">
                   All the products in the Database
                 </h1>
                 <AllProdsInDb />

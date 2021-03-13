@@ -19,9 +19,16 @@ module.exports = {
     offers: (req, res) => {
         res.send("Offers");
     },
-    count : async (req, res) => {
+    count: async (req, res) => {
         const count = await Product.count();
-        console.log(count)
-    res.send({count});
-}
+        res.send({ count });
+    },
+    totalPrice: async (req, res) => {
+        const products = await Product.findAll();
+        const stringTotalPrice = products.reduce((acc, product) => {
+            return acc + Number(product.price);
+        }, 0);
+        const totalPrice = (stringTotalPrice);
+        res.send({ totalPrice });
+    },
 };

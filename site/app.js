@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors")
 const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
@@ -11,7 +12,7 @@ const isAdmin = require("./src/middlewares/isAdmin");
 
 //views variables
 app.locals.user = null;
-
+app.use(cors())
 app.listen(3030, () => {
     console.log("Server running in port 3030");
 });
@@ -45,8 +46,10 @@ app.set("views", path.join(__dirname, "src", "views"));
 
 // API
 
-const apiRouter = require("./src/routes/api/productRouter");
-app.use("/api/products", apiRouter);
+const apiProdsRouter = require("./src/routes/api/productRouter");
+app.use("/api/products", apiProdsRouter);
+const apiUsersRouter = require("./src/routes/api/usersRouter");
+app.use("/api/users", apiUsersRouter);
 
 // RUTAS //
 //home

@@ -76,9 +76,9 @@ const productsController = {
         });
     },
 
-    edit: (req, res) => {
+    edit: async (req, res) => {
         const id = req.params.id;
-        edit(Product, id, req, res);
+        const stat = await edit(Product, id, req, res);
         res.redirect(`/productos/${id}`);
     },
 
@@ -86,7 +86,7 @@ const productsController = {
         const id = req.params.id;
         erase(Product, id, res);
         res.redirect("/productos");
-    }
+    },
 
     // search: (req, res) => {
     //     const products = getProducts(fileToGet);

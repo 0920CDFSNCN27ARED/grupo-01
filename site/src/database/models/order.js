@@ -15,19 +15,19 @@ module.exports = (sequelize, DataTypes) => {
     Order.associate = function (models) {
         Order.hasOne(models.Address, {
             as: "orderAddress",
-            foreingKey: "adressId",
+            foreignKey: "addressId",
         });
         Order.belongsTo(models.BuyerUser, {
             as: "buyerUser",
-            foreingKey: "buyerUserId",
+            foreignKey: "buyerUserId",
         });
         Order.hasMany(models.OrderItem, {
             as: "orderitems",
-            foreingKey: "orderId",
+            foreignKey: "orderId",
         });
         Order.belongsToMany(models.Product, {
             as: "products",
-            foreingKey: "orderId",
+            foreignKey: "orderId",
             otherKey: "productId",
             through: "OrderItem",
         });

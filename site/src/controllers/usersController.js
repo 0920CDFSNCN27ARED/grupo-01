@@ -1,8 +1,7 @@
 const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
 
-const { BuyerUser } = require("../database/models");
-const { CellarUser } = require("../database/models");
+const { BuyerUser, CellarUser } = require("../database/models");
 
 ////////FUNCTIONS
 
@@ -45,7 +44,7 @@ async function updatePassword(user, req, checkHash) {
                 },
             }
         );
-    } 
+    }
 }
 
 ///////////////////////////
@@ -57,7 +56,6 @@ const usersControllers = {
     newUser: async (req, res) => {
         const errors = validationResult(req);
         try {
-            
             if (errors.isEmpty()) {
                 const newBuyerUser = await BuyerUser.create({
                     firstName: req.body.firstName,
@@ -115,7 +113,14 @@ const usersControllers = {
 
         if (errors.isEmpty()) {
             let msg = "Credenciales invalidas.";
-            const buyerUser = await findUser(BuyerUser, req);
+            const buyerUser = await BuyerUser.findOne(
+                {
+                    where: {
+                        email: req.body.email,
+                    }
+                }
+            );
+            console.log(buyerUser)
             const cellarUser = await findUser(CellarUser, req);
 
             validateAndStoreInSession(buyerUser || cellarUser, req); // req.session.loggedUser
@@ -153,7 +158,6 @@ const usersControllers = {
             const cellarUser = await CellarUser.findByPk(req.params.id);
             await updatePassword(cellarUser, req, checkHash);
             logOut(req, res, "/usuarios/login");
-            
         }
         const buyerUser = await BuyerUser.findByPk(req.params.id);
 
