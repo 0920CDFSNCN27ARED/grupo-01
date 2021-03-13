@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         OrderItem.belongsTo(models.Product, {
             as: "products",
             foreignKey: "productId",
+            onDelete: "cascade",
         });
         OrderItem.belongsTo(models.Order, {
             as: "orders",

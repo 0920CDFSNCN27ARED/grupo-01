@@ -78,16 +78,21 @@ const productsController = {
 
     edit: async (req, res) => {
         const id = req.params.id;
-        const stat = await edit(Product, id, req, res);
-        res.redirect(`/productos/${id}`);
+        const stat = await edit(Product, id, req);
+        if (stat === "Updated") {
+            res.redirect(`/productos/${id}`);
+        }
     },
 
-    deleteProduct: (req, res) => {
+    deleteProduct: async (req, res) => {
         const id = req.params.id;
-        erase(Product, id, res);
-        res.redirect("/productos");
-    },
-
+        const stat = await erase(Product, id);
+        if (stat === "Deleted") {
+           return res.redirect(`/productos`);
+        }
+        console.log(stat);
+        res.redirect(`/productos/${id}`);
+    }
     // search: (req, res) => {
     //     const products = getProducts(fileToGet);
     //     const searched = req.query.search;
