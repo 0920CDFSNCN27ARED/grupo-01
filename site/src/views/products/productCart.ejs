@@ -45,15 +45,14 @@
                 id="products-section"
                 class="display-flex-column align-center"
             >
-                <% for(let i = 0; i < products.length; i++) {%> <%-
-                include("../partials/cart/article", {product: products[i]}) %>
-                <% } %>
+                <%- include("../partials/cart/article") %>
+                
             </section>
 
             <section id="section-buy" class="display-flex-column bold">
                 <div class="display-flex">
                     <p>Total</p>
-                    <p id="total-price" >$700</p>
+                    <p id="total-price">$700</p>
                 </div>
                 <div id="button-container">
                     <button

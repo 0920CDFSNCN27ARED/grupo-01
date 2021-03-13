@@ -14,8 +14,8 @@ const cartController = {
     //     }
     // },
     showCart: async (req, res) => {
-        const products = await Product.findAll();
-        res.render("products/productCart", { products });
+       
+        res.render("products/productCart");
     },
 
     showSaved: (req, res) => {

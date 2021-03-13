@@ -117,7 +117,7 @@ const usersControllers = {
                 {
                     where: {
                         email: req.body.email,
-                    }
+                    },
                 }
             );
             console.log(buyerUser)
