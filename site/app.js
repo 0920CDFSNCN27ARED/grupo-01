@@ -12,7 +12,7 @@ const isAdmin = require("./src/middlewares/isAdmin");
 //views variables
 app.locals.user = null;
 
-app.listen(3030, () => {
+app.listen(3000, () => {
     console.log("Server running in port 3030");
 });
 
@@ -45,8 +45,8 @@ app.set("views", path.join(__dirname, "src", "views"));
 
 // API
 
-// const apiRouter = require("./routes/api/productRouter");
-// app.use("/api/products", apiRouter);
+const apiRouter = require("./src/routes/api/productRouter");
+app.use("/api/products", apiRouter);
 
 // RUTAS //
 //home
@@ -54,7 +54,7 @@ const indexRoute = require("./src/routes/indexRoutes");
 app.use("/", indexRoute);
 
 //prods
-const productsRoute = require("./src/routes/productsRoutes");
+const productsRoute = require("./src/routes/productsRouter");
 app.use("/productos", productsRoute);
 
 //users

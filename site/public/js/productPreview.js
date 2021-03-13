@@ -12,20 +12,20 @@ window.onload = () => {
     const previewImage = document.querySelector(".imagePreview");
     const defaultText = previewContainer.querySelector("span");
     inputImage.addEventListener("change", () => {
-        const file = this.files[0];
+        const file = inputImage.files[0];
         console.log(file);
-        // if (file) {
-        //     const reader = new FileReader();
-        //     defaultText.style.display = "none";
-        //     previewImage.style.display = "block";
-        //     reader.addEventListener("load", () => {
-        //         previewImage.setAttribute("src", this.result)
-        //     });
-        //     reader.readAsDataURL(file)
-        // } else {
-        //     defaultText.style.display = "block";
-        //     previewImage.style.display = "none";
-        // }
+        if (file) {
+            const reader = new FileReader();
+            defaultText.style.display = "none";
+            previewImage.style.display = "block";
+            reader.addEventListener("load", () => {
+                previewImage.src = reader.result;
+            });
+            reader.readAsDataURL(file)
+        } else {
+            defaultText.style.display = "block";
+            previewImage.style.display = "none";
+        }
 
     });
     const inputPrice = document.getElementById("productPrice");

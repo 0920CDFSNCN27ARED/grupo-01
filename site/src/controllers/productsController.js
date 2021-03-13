@@ -86,7 +86,7 @@ const productsController = {
         const id = req.params.id;
         erase(Product, id, res);
         res.redirect("/productos");
-    },
+    }
 
     // search: (req, res) => {
     //     const products = getProducts(fileToGet);
