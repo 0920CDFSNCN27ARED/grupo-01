@@ -113,13 +113,12 @@ const usersControllers = {
 
         if (errors.isEmpty()) {
             let msg = "Credenciales invalidas.";
-            const buyerUser = await BuyerUser.findOne(
-                {
-                    where: {
-                        email: req.body.email,
-                    },
-                }
-            );
+            const buyerUser = await BuyerUser.findOne({
+                where: {
+                    email: req.body.email,
+                },
+                include: ["addresses"],
+            });
             console.log(buyerUser)
             const cellarUser = await findUser(CellarUser, req);
 

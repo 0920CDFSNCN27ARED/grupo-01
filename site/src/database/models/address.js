@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
             as: "addressUser",
             foreignKey: "buyerUserId",
         });
+        Address.hasOne(models.Order, {
+            as: "orderAddress",
+        });
     };
     return Address;
 };

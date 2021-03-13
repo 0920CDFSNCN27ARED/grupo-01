@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
     Order.associate = function (models) {
-        Order.hasOne(models.Address, {
-            as: "orderAddress",
+        Order.belongsTo(models.Address, {
+            as: "address",
             foreignKey: "addressId",
         });
         Order.belongsTo(models.BuyerUser, {

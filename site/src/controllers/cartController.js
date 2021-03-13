@@ -21,37 +21,37 @@ const cartController = {
     showSaved: (req, res) => {
         res.render("products/savedProducts");
     },
-    // addToOrder: async (req, res) => {
-    //     const productAdded = await Product.findByPk(req.params.id);
-    //     let order = await Order.findOne({
-    //         where: {
-    //             buyerUserId: req.session.loggedUser.id,
-    //         },
-    //     });
+    addToOrder: async (req, res) => {
+        // const productAdded = await Product.findByPk(req.params.id);
+        let order = await Order.findOne({
+            where: {
+                buyerUserId: req.session.loggedUser.id,
+            },
+        });
 
-    //     if (!order) {
-    //         order = Order.create({
-    //             total: 0,
-    //             buyerUserId: req.session.loggedUser.id,
-    //             addressId: 1,
-    //             createdAt: Date.now(),
-    //         });
-    //     }
+        if (!order) {
+            order = Order.create({
+                total: 0,
+                buyerUserId: req.session.loggedUser.id,
+                addressId: 1,
+                createdAt: Date.now(),
+            });
+        }
 
-    //     const subtotal = productAdded.dataValues.price * req.body.quantity;
+        const subtotal = productAdded.dataValues.price * req.body.quantity;
 
-    //     const item = await OrderItem.create({
-    //         productId: req.params.id,
-    //         quantity: req.body.quantity,
-    //         price: productAdded.dataValues.price,
-    //         subtotal: subtotal,
-    //         discount: productAdded.dataValues.discount,
-    //         OrderId: order.id,
-    //     });
-    //     res.redirect("/carrito");
-    // },
+        const item = await OrderItem.create({
+            productId: req.params.id,
+            quantity: req.body.quantity,
+            price: productAdded.dataValues.price,
+            subtotal: subtotal,
+            discount: productAdded.dataValues.discount,
+            OrderId: order.id,
+        });
+        res.redirect("/carrito");
+    },
 
-    addToOrder: (req, res) => {
+    createOrder: (req, res) => {
         res.redirect("/carrito");
     },
 };
