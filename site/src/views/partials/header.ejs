@@ -2,25 +2,26 @@
     <a class="closebtn" onclick="closeNav()">×</a>
     <ul>
         <li>
+            <a href="/">
+                <i class="fas fa-home"></i>Inicio
+            </a>
+        </li>
+        <% if(user != undefined){ %> 
+            <li>
+                <a href="/usuarios/perfil"><i class="fas fa-user"></i>Mi cuenta</a>
+            </li>
+            <% }else{ %> 
+                
+                <li>
+                    <a href="/usuarios/login"><i class="fas fa-user"></i>Iniciar sesión</a>
+                </li>
+           <% } %> 
+        <li>
             <a href="/productos"
-                ><i class="fas fa-wine-bottle"></i> Productos</a
+                ><i class="fas fa-wine-bottle"></i>Productos</a
             >
         </li>
-        <li>
-            
-                <a href="#"><i class="fas fa-search"></i> Buscar</a>
-            
-        </li>
-       <% if(user != undefined){ %> 
-        <li>
-            <a href="/usuarios/perfil"><i class="fas fa-user"></i>Mi cuenta</a>
-        </li>
-        <% }else{ %> 
-            
-            <li>
-                <a href="/usuarios/login"><i class="fas fa-user"></i>Iniciar sesión</a>
-            </li>
-       <% } %> 
+       
     </ul>
 </div>
 <header class="header-index">
@@ -41,17 +42,27 @@
     <nav class="under-nav">
         <ul>
             <li class="user-box">
-                <a href="/usuarios/registro"><i class="fas fa-user"></i></a>
+                <a href="/usuarios/login"><i class="fas fa-user"></i></a>
             </li>
-            <li class="search-box">
-                <a href=""></a><i class="fas fa-search"></i></a>
+            <li id="search" class="search-box">
+                <i class="fas fa-search"></i>
             </li>
             <li class="cart-box">
                 <a href="/carrito"><i class="fas fa-shopping-cart"></i></a>
             </li>
-            <li class="ticket-box">
-                <a href=""><i class="fas fa-ticket-alt rotate"></i></a>
+            <li class="wine-box">
+                <a href="/productos">
+                <i class="fas fa-wine-bottle"></i></a>
             </li>
         </ul>
     </nav>
+    <form action="" class="search-form">
+        <label class="search-label" for="">
+            <input type="text">
+            <i class="fas fa-times"></i>
+        </label>
+    </form>
+    
 </header>
+
+
