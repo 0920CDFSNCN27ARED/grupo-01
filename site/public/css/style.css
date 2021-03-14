@@ -77,42 +77,63 @@ body {
     box-shadow: 0px 3px 10px 2px grey;
 }
 
-#search {
-    display: none;
-}
 
 .user-box {
     background-color: tomato;
 }
 
-.user-box:hover {
-    background-color: rgb(180, 69, 50);
-    transition: 0.5s;
+.searchDesk{
+    display: none;
 }
 
 .search-box {
     background-color: #d4c0dc;
 }
-
-.search-box:hover {
-    background-color: #af9eb6;
-    transition: 0.5s;
+.search-form{
+    margin-left: 100%;
+    height: 45px;
+    transition: 1s;
+    z-index: 1;
+    position: fixed;
+    width: 100%; 
+    bottom: 0;
+    left: 0;
+    background-color: #d4c0dc;
 }
+
+.search-label{
+    display: grid;
+    grid-template-columns:90% auto;
+    background-color: #d4c0dc;
+    align-items: center;
+    
+}
+
+.search-label i{
+    color: white;
+    
+}
+
+.search-form input{
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    font-size: 20px;
+    background-color: #d4c0dc;
+}
+
+.search-form input:focus{
+    outline: none;
+}
+
 
 .cart-box {
     background-color: teal;
 }
 
-.cart-box:hover {
-    background-color: rgb(2, 97, 97);
-    transition: 0.5s;
-}
-.ticket-box {
+
+.wine-box {
     background-color: #a97cb7;
-}
-.ticket-box:hover {
-    background-color: #7e5c88;
-    transition: 0.5s;
 }
 
 .under-nav ul li {
@@ -122,9 +143,10 @@ body {
     padding: 10px;
 }
 
-.under-nav ul li a {
+.under-nav ul li i{
     color: white;
-    font-size: 20px;
+    width: 20px;
+    height: 20px;
 }
 
 .rotate {
@@ -669,10 +691,10 @@ section.form h2 {
         padding-left: 60px;
     }
     .hand {
-        width: 15%;
+        width: 12%;
         position: absolute;
         left: -10px;
-        top: 160px;
+        top: 263px;
     }
 
     .showAll {
@@ -690,6 +712,7 @@ section.form h2 {
     .header-index {
         display: grid;
         grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: auto auto;
     }
 
     .side-bar,
@@ -739,13 +762,18 @@ section.form h2 {
         color: black;
         font-size: 20px;
         padding: 20px;
+        cursor: pointer;
     }
 
-    .round-button:hover {
+
+    .round-button:hover i {
         color: #f1f1f1;
     }
 
-    .sidebar a:hover {
+    .sidebar a:hover i{
+        color: #f1f1f1;
+    }
+    .sidebar a:hover{
         color: #f1f1f1;
     }
 
@@ -816,6 +844,38 @@ section.form h2 {
     .reveal {
         display: block;
     }
+
+    .searchDesk{
+        display: block;
+        margin-top: 20px;   
+    }
+
+    .searchDesk form{
+       display: grid;
+       grid-template-columns: 95% auto;
+       align-items: center;
+       background-color: #d4c0dc;
+    }
+
+    .searchDesk form input{
+        border: 0;
+        outline: none;
+        padding: 15px;
+        font-size: 20px;
+        background-color: #d4c0dc;
+    }
+    .searchDesk form i{
+        font-size: 20px;
+    }
+
+    .searchDesk form i{
+        color: #f1f1f1;
+    }
+    .searchDesk form label input:focus{
+        border-bottom: 1px solid;
+    }
+
+
 }
 
 @media (min-width: 1000px) {
@@ -823,10 +883,10 @@ section.form h2 {
         padding-left: 75px;
     }
     .hand {
-        width: 10%;
+        width: 9%;
         position: absolute;
-        left: -10px;
-        top: 230px;
+        left: 0px;
+        top: 320px;
     }
 
     .showAll {
