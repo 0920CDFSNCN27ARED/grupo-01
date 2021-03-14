@@ -150,8 +150,9 @@
                     <div class="background-text"></div>
                     <h2>Mis direcciones</h2>
                     <ul class="marginY">
-                        <form action="">
-                            <% for(let i = 0; i < user.addresses.length; i++) {
+                        <form action="/usuarios/editarDireccion">
+                            <% if(user.dni) { 
+                            for(let i = 0; i < user.addresses.length; i++) {
                             %>
                             <div id="addresses-actions">
                                 <h4 class="marginY">Dirección <%= i+1%></h4>
@@ -243,12 +244,20 @@
                                 </div>
                             </fieldset>
                             <% } %>
+                            <% } %>
                             <button
                                 class="button create"
                                 id="save-changes-btn"
                                 type="submit"
                             >
                                 Guardar cambios
+                            </button>
+                            <button
+                                class="button erase"
+                                id="save-changes-btn"
+                                type="reset"
+                            >
+                                Descartar cambios
                             </button>
                         </form>
                     </ul>

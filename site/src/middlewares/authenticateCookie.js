@@ -8,7 +8,9 @@ async function authenticateCookie(req, res, next) {
         return next();
     }
 
-    const loggedUser = await BuyerUser.findByPk(cookiedUser);
+    const loggedUser = await BuyerUser.findByPk(cookiedUser, {
+        include: ["addresses"],
+    });
     const loggedCellar = await CellarUser.findByPk(cookiedUser);
 
     if (loggedUser && isUser) {
