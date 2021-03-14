@@ -172,9 +172,9 @@ CREATE TABLE IF NOT EXISTS `winederful`.`order_items` (
     REFERENCES `winederful`.`orders` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_order_items_products1`
+  CONSTRAINT `fk_order_items_products1 `
     FOREIGN KEY (`productId`)
-    REFERENCES `winederful`.`products` (`id`)
+    REFERENCES `winederful`.`products` (`id`)ON DELETE CASCADE
 )
 ENGINE = InnoDB;
 

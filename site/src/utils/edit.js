@@ -1,4 +1,4 @@
-async function edit(File, id, req, res) {
+async function edit(File, id, req) {
     try {
         const element = await File.findByPk(id);
         await File.update(

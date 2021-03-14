@@ -1,10 +1,11 @@
-async function erase(File, id,res) {
+async function erase(File, id) {
     try {
         await File.destroy({
             where: { id: id },
         });
+        return "Deleted"
     } catch (err) {
-        res.send(err);
+      return err;
     }
 }
 
