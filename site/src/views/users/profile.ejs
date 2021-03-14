@@ -156,42 +156,100 @@
                             <div id="addresses-actions">
                                 <h4 class="marginY">Dirección <%= i+1%></h4>
                                 <div>
-                                    <i class="far fa-edit"></i>
-                                    <i class="fas fa-trash-alt"></i>
+                                    <button
+                                        type="button"
+                                        class="edit-btn no-border back-white"
+                                    >
+                                        <i
+                                            class="fas fa-pencil-alt edit-icon"
+                                        ></i>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="delete-btn no-border back-white"
+                                    >
+                                        <i
+                                            class="fas fa-trash-alt delete-icon"
+                                        ></i>
+                                    </button>
                                 </div>
                             </div>
-
-                            <fieldset>
-
-                                <div>
-                                    <label for="street">Calle</label>
-                                    <input name="streetName<%=i+1%>" type="text"
-                                    id="streetName<%=i%>" placeholder= "<%=
-                                    user.addresses[i].streetName %>"">
-                                    <label for="streetNumber">Número</label>
-                                    <input name="streetNumber<%=i+1%>"type="text"
-                                    id="streetNumber<%=i+1%>" placeholder= "<%=
-                                    user.addresses[i].streetNumber %>"">
-                                </div>
-
-                                <div>
-                                    <label for="apartment">Departamento</label>
-                                    <input name="apartment<%=i+1%>" type="text"
-                                    id="apartment<%=i+1%>" placeholder= "<%=
-                                    user.addresses[i].apartment %>"">
-                                    <label for="city">Ciudad</label>
-                                    <input name="city<%=i+1%>" type="text" id="city"
-                                    placeholder= "<%= user.addresses[i].city %>"">
-                                </div>
-
-                                <div>
-                                    <label for="zipCode">Código Postal:</label>
-                                    <input name="zipCode<%=i+1%>" type="text"
-                                    id="zipCode<%=i+1%>" placeholder= "<%=
-                                    user.addresses[i].zipCode %>"">
+                            <% let streetName = user.addresses[i].streetName 
+                            let streetNumber = user.addresses[i].streetNumber 
+                            let apartment = user.addresses[i].apartment 
+                            let city = user.addresses[i].city 
+                            let zipCode = user.addresses[i].zipCode %>
+                            <fieldset id="fieldset-<%=i%>">
+                                <p id="deleted-msg-<%=i%>" class="hide">
+                                    La dirección: <strong> <%=streetName %>, <%=
+                                    streetNumber %>, Departamento <%=
+                                    apartment%></strong> ha sido
+                                    eliminada, para recuperarla haz click 
+                                    <button class="undo-delete" type="button">aquí</button>
+                                   
+                                </p>
+                                <div id="fieldset-content-<%=i%>">
+                                    <div>
+                                        <label for="street">Calle </label>
+                                        <input
+                                            disabled
+                                            name="streetName<%=i+1%>"
+                                            type="text"
+                                            id="streetName<%=i%>"
+                                            placeholder="<%=streetName %>"
+                                        />
+                                        <label for="streetNumber">Número</label>
+                                        <input
+                                            disabled
+                                            name="streetNumber<%=i+1%>"
+                                            type="text"
+                                            id="streetNumber<%=i+1%>"
+                                            placeholder="<%=streetNumber
+                                        %>"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label for="apartment"
+                                            >Departamento</label
+                                        >
+                                        <input
+                                            disabled
+                                            name="apartment<%=i+1%>"
+                                            type="text"
+                                            id="apartment<%=i+1%>"
+                                            placeholder="<%=apartment %>"
+                                        />
+                                        <label for="city">Ciudad</label>
+                                        <input
+                                            disabled
+                                            name="city<%=i+1%>"
+                                            type="text"
+                                            id="city"
+                                            placeholder="<%=city %>"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label for="zipCode">
+                                            Código Postal:</label
+                                        >
+                                        <input
+                                            disabled
+                                            name="zipCode<%=i+1%>"
+                                            type="text"
+                                            id="zipCode<%=i+1%>"
+                                            placeholder="<%=zipCode %>"
+                                        />
+                                    </div>
                                 </div>
                             </fieldset>
                             <% } %>
+                            <button
+                                class="button create"
+                                id="save-changes-btn"
+                                type="submit"
+                            >
+                                Guardar cambios
+                            </button>
                         </form>
                     </ul>
                 </section>

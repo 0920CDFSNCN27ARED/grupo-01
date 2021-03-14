@@ -14,6 +14,24 @@ body {
     margin-top: 15px;
 }
 
+.delete-btn,
+.edit-btn {
+    background-color: white;
+    border: none;
+}
+
+.edit-icon {
+    color: blue;
+}
+.delete-icon {
+    color: red;
+}
+.undo-delete {
+    background-color: white;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+}
 /* p.error:last-of-type {
     margin-bottom: 15px;
 } */
@@ -78,44 +96,41 @@ li {
     box-shadow: 0px 3px 10px 2px grey;
 }
 
-
 .user-box {
     background-color: tomato;
 }
 
-.searchDesk{
+.searchDesk {
     display: none;
 }
 
 .search-box {
     background-color: #d4c0dc;
 }
-.search-form{
+.search-form {
     margin-left: 100%;
     height: 45px;
     transition: 1s;
     z-index: 1;
     position: fixed;
-    width: 100%; 
+    width: 100%;
     bottom: 0;
     left: 0;
     background-color: #d4c0dc;
 }
 
-.search-label{
+.search-label {
     display: grid;
-    grid-template-columns:90% auto;
+    grid-template-columns: 90% auto;
     background-color: #d4c0dc;
     align-items: center;
-    
 }
 
-.search-label i{
+.search-label i {
     color: white;
-    
 }
 
-.search-form input{
+.search-form input {
     width: 100%;
     padding: 10px;
     border: 0;
@@ -123,15 +138,13 @@ li {
     background-color: #d4c0dc;
 }
 
-.search-form input:focus{
+.search-form input:focus {
     outline: none;
 }
-
 
 .cart-box {
     background-color: teal;
 }
-
 
 .wine-box {
     background-color: #a97cb7;
@@ -144,7 +157,7 @@ li {
     padding: 10px;
 }
 
-.under-nav ul li i{
+.under-nav ul li i {
     color: white;
     width: 20px;
     height: 20px;
@@ -345,7 +358,6 @@ fieldset {
 
 fieldset > div > label {
     font-size: 14px;
-
 }
 fieldset > input {
     font-weight: bold;
@@ -790,15 +802,14 @@ section.form h2 {
         cursor: pointer;
     }
 
-
     .round-button:hover i {
         color: #f1f1f1;
     }
 
-    .sidebar a:hover i{
+    .sidebar a:hover i {
         color: #f1f1f1;
     }
-    .sidebar a:hover{
+    .sidebar a:hover {
         color: #f1f1f1;
     }
 
@@ -870,37 +881,35 @@ section.form h2 {
         display: block;
     }
 
-    .searchDesk{
+    .searchDesk {
         display: block;
-        margin-top: 20px;   
+        margin-top: 20px;
     }
 
-    .searchDesk form{
-       display: grid;
-       grid-template-columns: 95% auto;
-       align-items: center;
-       background-color: #d4c0dc;
+    .searchDesk form {
+        display: grid;
+        grid-template-columns: 95% auto;
+        align-items: center;
+        background-color: #d4c0dc;
     }
 
-    .searchDesk form input{
+    .searchDesk form input {
         border: 0;
         outline: none;
         padding: 15px;
         font-size: 20px;
         background-color: #d4c0dc;
     }
-    .searchDesk form i{
+    .searchDesk form i {
         font-size: 20px;
     }
 
-    .searchDesk form i{
+    .searchDesk form i {
         color: #f1f1f1;
     }
-    .searchDesk form label input:focus{
+    .searchDesk form label input:focus {
         border-bottom: 1px solid;
     }
-
-
 }
 
 @media (min-width: 1000px) {

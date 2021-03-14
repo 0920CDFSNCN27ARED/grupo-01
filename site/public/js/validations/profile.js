@@ -54,7 +54,7 @@ form.addEventListener("submit", (event) => {
         ],
         validateInput
     );
-    console.log(errors);
+
     if (checkErrors(errors)) {
         event.preventDefault();
     }
@@ -69,6 +69,36 @@ showOneSection("profile-btn", "personal-data", allActions);
 ////Addreses
 
 showOneSection("address-btn", "address-screen", allActions);
+const editBtns = document.getElementsByClassName("edit-btn");
+const deleteBtn = document.getElementsByClassName("delete-btn");
+const undoDeleteBtn = document.getElementsByClassName(`undo-delete`);
+
+for (let i = 0; i < editBtns.length; i++) {
+    const contentDiv = document.getElementById(`fieldset-content-${i}`);
+    const fieldset = document.getElementById(`fieldset-${i}`);
+    const inputs = fieldset.querySelectorAll("input");
+    editBtns[i].addEventListener("click", (event) => {
+        for (const input of inputs) {
+            if (contentDiv.classList.contains("hide")) return;
+            if (input.disabled === true) {
+                input.disabled = false;
+            } else {
+                input.disabled = true;
+            }
+        }
+    });
+    deleteBtn[i].addEventListener("click", () => {
+        const deletedMsg = document.getElementById(`deleted-msg-${i}`);
+        contentDiv.classList.add("hide");
+        deletedMsg.classList.remove("hide");
+
+        undoDeleteBtn[i].addEventListener("click", (event) => {
+            contentDiv.classList.remove("hide");
+            deletedMsg.classList.add("hide");
+        });
+    });
+}
+
 //////
 
 function hideAllActions(allActions) {
