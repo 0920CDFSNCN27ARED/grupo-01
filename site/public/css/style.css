@@ -7,19 +7,20 @@ body {
     padding: 0;
 }
 
-
 .error {
     color: red;
     text-align: left;
     padding-left: 2%;
     margin-top: 15px;
-    list-style-type: none;
 }
 
 /* p.error:last-of-type {
     margin-bottom: 15px;
 } */
 
+li {
+    list-style-type: none;
+}
 .sidebar,
 .side-bar,
 .cart {
@@ -315,7 +316,29 @@ section.values {
     bottom: 40px;
     background-color: white;
 }
+fieldset {
+    padding: 2%;
+    border: 1px solid lightgrey;
+}
 
+fieldset > div > label {
+    font-size: 14px;
+
+}
+fieldset > input {
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+}
+fieldset > div {
+    margin: 2% 0;
+}
+
+#addresses-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
 /* fin valores */
 /*footer index*/
 .footer-index {
@@ -405,7 +428,8 @@ form.form {
     padding-top: 0;
 }
 
-form.form label {
+form.form label,
+.marginY {
     margin-bottom: 3px;
     margin-top: 15px;
 }
@@ -492,15 +516,14 @@ section.form h2 {
     padding-left: 24px;
     font-size: 22px;
 }
-#personal-data {
+/* perfil */
+.personal-data {
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 1fr 1fr;
 }
-
 .hide {
     display: none;
 }
-/* perfil */
 
 /*tablet*/
 
@@ -538,7 +561,6 @@ section.form h2 {
         border-bottom: 1px solid rgba(133, 133, 133, 0.541);
         width: 90%;
         margin: 0 auto;
-        list-style-type: none;
         padding: 5px 0;
     }
 
@@ -576,6 +598,9 @@ section.form h2 {
         cursor: not-allowed;
     }
     button:disabled:hover + .disable-msg {
+        display: inline;
+    }
+    .inline {
         display: inline;
     }
     .disable-msg {

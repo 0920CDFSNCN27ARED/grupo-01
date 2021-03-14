@@ -119,7 +119,7 @@ const usersControllers = {
                 },
                 include: ["addresses"],
             });
-            console.log(buyerUser)
+           
             const cellarUser = await findUser(CellarUser, req);
 
             validateAndStoreInSession(buyerUser || cellarUser, req); // req.session.loggedUser

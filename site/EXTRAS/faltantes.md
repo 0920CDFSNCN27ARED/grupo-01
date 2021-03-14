@@ -8,3 +8,4 @@
 - Slider pag principal, agregar productos de DB 
 - Vistas de profile (addreses, etc...)
 - Reseñas de productos + recomendados, blablabla
+- Profile foto de perfil arreglar

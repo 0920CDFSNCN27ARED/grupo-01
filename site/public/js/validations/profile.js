@@ -6,14 +6,10 @@ const inputs = document.querySelectorAll("input");
 
 const allActions = document.getElementsByClassName("action");
 
-const myAddresses = document.getElementById("address-btn");
-const addressScreen = document.getElementById("address-screen");
-
 const actualPassInput = document.getElementById("actualPassword");
 
 const newPassword = document.getElementById("newPassword");
 const confirmNewPassword = document.getElementById("confirmNewPassword");
-
 
 ///////
 const passMatches = [
@@ -58,25 +54,40 @@ form.addEventListener("submit", (event) => {
         ],
         validateInput
     );
-    console.log(errors)
+    console.log(errors);
     if (checkErrors(errors)) {
         event.preventDefault();
     }
 });
 
 ////////////////////////////
+
+/////// Profile
+showOneSection("profile-btn", "personal-data", allActions);
+/////// My items
+////// Favourites
 ////Addreses
-myAddresses.addEventListener("click", () => {
-    for (const actionScreen of allActions) {
-         if (!actionScreen.classList.contains("hide")) {
-             actionScreen.classList.add("hide");
-         }
-    }
-    addressScreen.classList.remove("hide");
-});
 
-
-
+showOneSection("address-btn", "address-screen", allActions);
 //////
 
-    
+function hideAllActions(allActions) {
+    for (const action of allActions) {
+        if (!action.classList.contains("hide")) {
+            action.classList.add("hide");
+        }
+    }
+}
+function showAction(action) {
+    action.classList.remove("hide");
+}
+
+function showOneSection(btnId, sectionId, allActions) {
+    const button = document.getElementById(btnId);
+    const section = document.getElementById(sectionId);
+
+    button.addEventListener("click", () => {
+        hideAllActions(allActions);
+        showAction(section);
+    });
+}

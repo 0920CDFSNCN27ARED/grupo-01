@@ -18,7 +18,11 @@
                 </div>
                 <div class="profile-nav">
                     <ul>
-                        <li><button class="profile-button">Perfil</button></li>
+                        <li>
+                            <button id="profile-btn" class="profile-button">
+                                Perfil
+                            </button>
+                        </li>
                         <% if(!user.cuit) {%>
                         <li>
                             <button class="profile-button">Mis compras</button>
@@ -60,7 +64,7 @@
                 </div>
             </section>
             <div id="right-container">
-                <section  id="personal-data" class="action">
+                <section id="personal-data" class="action personal-data">
                     <div class="profile-right">
                         <div class="personal-info">
                             <div class="background-text"></div>
@@ -84,13 +88,17 @@
                             </div>
                             <div>
                                 <p>Contraseña</p>
-                                <button type="button" id="change-pass-btn">
+                                <button
+                                    type="button"
+                                    class=""
+                                    id="change-pass-btn"
+                                >
                                     Cambiar contraseña
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div class=" hide" id="pass-screen">
+                    <div class="hide" id="pass-screen">
                         <form
                             action="/usuarios/cambioContra/<%=user.id%>"
                             method="POST"
@@ -139,8 +147,53 @@
                     </div>
                 </section>
                 <section class="action hide" id="address-screen">
-                    <h3><%= user.addresses%></h3>
-                    <form action=""></form>
+                    <div class="background-text"></div>
+                    <h2>Mis direcciones</h2>
+                    <ul class="marginY">
+                        <form action="">
+                            <% for(let i = 0; i < user.addresses.length; i++) {
+                            %>
+                            <div id="addresses-actions">
+                                <h4 class="marginY">Dirección <%= i+1%></h4>
+                                <div>
+                                    <i class="far fa-edit"></i>
+                                    <i class="fas fa-trash-alt"></i>
+                                </div>
+                            </div>
+
+                            <fieldset>
+
+                                <div>
+                                    <label for="street">Calle</label>
+                                    <input name="streetName<%=i+1%>" type="text"
+                                    id="streetName<%=i%>" placeholder= "<%=
+                                    user.addresses[i].streetName %>"">
+                                    <label for="streetNumber">Número</label>
+                                    <input name="streetNumber<%=i+1%>"type="text"
+                                    id="streetNumber<%=i+1%>" placeholder= "<%=
+                                    user.addresses[i].streetNumber %>"">
+                                </div>
+
+                                <div>
+                                    <label for="apartment">Departamento</label>
+                                    <input name="apartment<%=i+1%>" type="text"
+                                    id="apartment<%=i+1%>" placeholder= "<%=
+                                    user.addresses[i].apartment %>"">
+                                    <label for="city">Ciudad</label>
+                                    <input name="city<%=i+1%>" type="text" id="city"
+                                    placeholder= "<%= user.addresses[i].city %>"">
+                                </div>
+
+                                <div>
+                                    <label for="zipCode">Código Postal:</label>
+                                    <input name="zipCode<%=i+1%>" type="text"
+                                    id="zipCode<%=i+1%>" placeholder= "<%=
+                                    user.addresses[i].zipCode %>"">
+                                </div>
+                            </fieldset>
+                            <% } %>
+                        </form>
+                    </ul>
                 </section>
             </div>
         </main>
