@@ -157,7 +157,7 @@ router.post(
     ],
     usersController.newUserWineCellar
 );
-router.get("/perfil/:id", isLoggedIn, usersController.showProfile);
+router.get("/perfil", isLoggedIn, usersController.showProfile);
 router.post("/perfil", usersController.logOut);
 
 router.get("/login", isGuest, usersController.showLogin);

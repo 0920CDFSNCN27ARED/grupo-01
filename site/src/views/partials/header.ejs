@@ -2,26 +2,25 @@
     <a class="closebtn" onclick="closeNav()">×</a>
     <ul>
         <li>
-            <a href="/">
-                <i class="fas fa-home"></i>Inicio
-            </a>
+            <a href="/"> <i class="fas fa-home"></i>Inicio </a>
         </li>
-        <% if(user != undefined){ %> 
-            <li>
-                <a href="/usuarios/perfil/<%=user.id%>"><i class="fas fa-user"></i>Mi cuenta</a>
-            </li>
-            <% }else{ %> 
-                
-                <li>
-                    <a href="/usuarios/login"><i class="fas fa-user"></i>Iniciar sesión</a>
-                </li>
-           <% } %> 
+        <% if(user != undefined){ %>
         <li>
-            <a href="/productos"
-                ><i class="fas fa-wine-bottle"></i>Productos</a
+            <a href="/usuarios/perfil"
+                ><i class="fas fa-user"></i>Mi cuenta</a
             >
         </li>
-       
+        <% }else{ %>
+
+        <li>
+            <a href="/usuarios/login"
+                ><i class="fas fa-user"></i>Iniciar sesión</a
+            >
+        </li>
+        <% } %>
+        <li>
+            <a href="/productos"><i class="fas fa-wine-bottle"></i>Productos</a>
+        </li>
     </ul>
 </div>
 <header class="header-index">
@@ -38,7 +37,7 @@
             ><i class="fas fa-shopping-cart"></i
         ></a>
     </div>
-    
+
     <nav class="under-nav">
         <ul>
             <li class="user-box">
@@ -51,18 +50,14 @@
                 <a href="/carrito"><i class="fas fa-shopping-cart"></i></a>
             </li>
             <li class="wine-box">
-                <a href="/productos">
-                <i class="fas fa-wine-bottle"></i></a>
+                <a href="/productos"> <i class="fas fa-wine-bottle"></i></a>
             </li>
         </ul>
     </nav>
-    <form action="" class="search-form">
+    <form action="/productos/buscar" method="GET" class="search-form">
         <label class="search-label" for="">
-            <input type="text">
+            <input name="search" type="text" />
             <i class="fas fa-times"></i>
         </label>
     </form>
-    
 </header>
-
-

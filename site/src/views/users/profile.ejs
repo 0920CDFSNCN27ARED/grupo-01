@@ -174,12 +174,12 @@
                                     </button>
                                 </div>
                             </div>
-                            <% let streetName = (user.addresses[i].streetName )
-                            let streetNumber = (user.addresses[i].streetNumber )
-                            let apartment = (user.addresses[i].apartment ) 
-                            let city = (user.addresses[i].city ) 
-                            let zipCode = (user.addresses[i].zipCode) 
-                            %>
+                            <% let streetName = (user.addresses[i].streetName
+                            )%> <%let streetNumber =
+                            (user.addresses[i].streetNumber )%> <%let apartment
+                            = (user.addresses[i].apartment ) %> <%let city =
+                            (user.addresses[i].city )%> <%let zipCode
+                            =(user.addresses[i].zipCode) %>
                             <fieldset id="fieldset-<%=i%>">
                                 <p id="deleted-msg-<%=i%>" class="hide">
                                     La dirección:
@@ -245,7 +245,13 @@
                                             placeholder="<%=zipCode %>"
                                         />
                                     </div>
-                                    <input id="isDeleted-<%=i%>" checked type="checkbox" name="isDeleted<%=i%>">
+                                    <input
+                                        class="hide"
+                                        id="isDeleted-<%=i%>"
+                                        checked
+                                        type="checkbox"
+                                        name="isDeleted<%=i%>"
+                                    />
                                 </div>
                             </fieldset>
                             <% } %> <% } %>

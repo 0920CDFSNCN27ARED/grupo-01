@@ -92,32 +92,32 @@ const productsController = {
         }
         console.log(stat);
         res.redirect(`/productos/${id}`);
-    }
-    // search: (req, res) => {
-    //     const products = getProducts(fileToGet);
-    //     const searched = req.query.search;
-    //     const searchedWords = searched.split(" ");
+    },
+    search: async (req, res) => {
+        const products = await Product.findAll();
+        const searched = req.query.search;
+        const searchedWords = searched.split(" ");
 
-    //     let wordMatch;
+        let wordMatch;
 
-    //     matchedProducts = products.filter((product) => {
-    //         wordMatch = searchedWords.find((word) => {
-    //             return product.product_name
-    //                 .toLowerCase()
-    //                 .includes(word.toLowerCase());
-    //         });
-    //         return wordMatch;
-    //     });
+        matchedProducts = products.filter((product) => {
+            wordMatch = searchedWords.find((word) => {
+                return product.productName
+                    .toLowerCase()
+                    .includes(word.toLowerCase());
+            });
+            return wordMatch;
+        });
 
-    //     if (matchedProducts.length == 0) {
-    //         res.render("products/products", {
-    //             products: products,
-    //             matchedProducts: matchedProducts,
-    //         });
-    //     } else {
-    //         res.render("products/products", { products: matchedProducts });
-    //     }
-    // },
+        if (matchedProducts.length == 0) {
+            res.render("products/products", {
+                products: products,
+                matchedProducts: matchedProducts,
+            });
+        } else {
+            res.render("products/products", { products: matchedProducts });
+        }
+    },
 };
 
 module.exports = productsController;

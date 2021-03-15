@@ -144,7 +144,7 @@ const usersControllers = {
                 }
             }
             res.locals.user = req.session.loggedUser;
-            res.redirect(`/usuarios/perfil/${user.id}`);
+            res.redirect(`/usuarios/perfil`);
         } else {
             res.render("users/login", { errors: errors.errors });
         }
