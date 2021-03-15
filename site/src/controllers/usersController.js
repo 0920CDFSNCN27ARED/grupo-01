@@ -153,7 +153,7 @@ const usersControllers = {
         logOut(req, res, "/");
     },
     showProfile: (req, res) => {
-        res.render("users/profile");
+        res.render(`users/profile`);
     },
 
     changePassword: async (req, res) => {

@@ -1,4 +1,3 @@
-
 const localStorageKey = "cart";
 const localStorageValue = localStorage.getItem(localStorageKey);
 const cart = localStorageValue ? JSON.parse(localStorageValue) : [];
@@ -125,10 +124,10 @@ buy.addEventListener("submit", async (event) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(cart),
+            body:  JSON.stringify(cart),
         });
         const init_url = await response.json();
-        console.log(init_url)
+        console.log(init_url);
     } catch (err) {
         console.log(err);
     }

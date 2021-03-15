@@ -1,3 +1,5 @@
+
+
 const submitButton = document.querySelector(".button[type=submit]");
 const showChangeMenu = document.getElementById("change-pass-btn");
 const changePassMenu = document.getElementById("pass-screen");

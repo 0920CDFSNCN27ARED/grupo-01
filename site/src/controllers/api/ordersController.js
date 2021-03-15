@@ -9,9 +9,8 @@ module.exports = {
             cart.fullProd = fullProd;
             totalPrice += Number(fullProd.price * cartProd.quantity);
         }
-        console.log(req.body.userId);
         Order.create({
-            buyerUserId: req.body.userId,
+            buyerUserId: res.locals.user.id,
             addressId: 1,
             total: totalPrice,
         });

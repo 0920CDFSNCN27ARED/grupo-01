@@ -1,8 +1,10 @@
 const form = document.getElementById("cart-form");
-
-const splitUrl = window.location.href.split("/");
-const id = splitUrl[splitUrl.length - 1];
-
+function getIdFromUrl() {
+    const splitUrl = window.location.href.split("/");
+    const id = splitUrl[splitUrl.length - 1];
+    return id;
+}
+const id = getIdFromUrl();
 form.addEventListener("submit", (event) => {
     const quantity = Number(document.getElementById("quantity").value);
 
