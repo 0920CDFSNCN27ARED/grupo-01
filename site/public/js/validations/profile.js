@@ -88,13 +88,16 @@ for (let i = 0; i < editBtns.length; i++) {
         }
     });
     deleteBtn[i].addEventListener("click", () => {
+        const deleted = document.getElementById(`isDeleted-${i}`);
         const deletedMsg = document.getElementById(`deleted-msg-${i}`);
         contentDiv.classList.add("hide");
         deletedMsg.classList.remove("hide");
+        deleted.checked = true;
 
         undoDeleteBtn[i].addEventListener("click", (event) => {
             contentDiv.classList.remove("hide");
             deletedMsg.classList.add("hide");
+            deleted.checked = false;
         });
     });
 }

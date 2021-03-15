@@ -50,6 +50,8 @@ const apiProdsRouter = require("./src/routes/api/productRouter");
 app.use("/api/products", apiProdsRouter);
 const apiUsersRouter = require("./src/routes/api/usersRouter");
 app.use("/api/users", apiUsersRouter);
+const apiOrdersRouter = require("./src/routes/api/ordersRouter");
+app.use("/api/orders", apiOrdersRouter);
 
 // RUTAS //
 //home

@@ -1,49 +1,26 @@
-const form = document.querySelector("form");
-const price = document.getElementById("price").innerText;
+const form = document.getElementById("cart-form");
 
 const splitUrl = window.location.href.split("/");
 const id = splitUrl[splitUrl.length - 1];
 
 form.addEventListener("submit", (event) => {
     const quantity = Number(document.getElementById("quantity").value);
-    const name = document.getElementById("prod-name").innerText.trim()
 
-    const jsonProds = localStorage.getItem("cart");
-    const cartProds = JSON.parse(jsonProds);
+    const localStorageKey = "cart";
+    const localStorageValue = localStorage.getItem(localStorageKey);
+    const cart = localStorageValue ? JSON.parse(localStorageValue) : [];
 
-    // Create a new cart
-    if (!cartProds) {
-        localStorage.setItem(
-            "cart",
-            JSON.stringify(newProd(id, price, quantity, name, "true"))
-        );
-        return;
-    }
-
-    //// Cart already exists
-    const matchIndex = cartProds.findIndex((product) => {
-        return product.id === id;
+    const prod = cart.find((prod) => {
+        return prod.id == id;
     });
-    // Editing existing product
-    if (matchIndex !== -1) {
-        cartProds[matchIndex].quantity += quantity === 0 ? 1 : quantity;
-        localStorage.setItem("cart", JSON.stringify(cartProds));
-        return;
+
+    if (prod) {
+        prod.quantity += quantity;
+    } else {
+        cart.push({
+            id: id,
+            quantity: quantity === 0 ? 1 : quantity,
+        });
     }
-
-    // Adding new product
-    cartProds.push(newProd(id, price, quantity, name));
-    localStorage.setItem("cart", JSON.stringify(cartProds));
+    localStorage.setItem(localStorageKey, JSON.stringify(cart));
 });
-
-function newProd(id, price, quantity, name, isFirstProd) {
-    const product = {
-        id: id,
-        price: price,
-        quantity: quantity === 0 ? 1 : quantity,
-        name: name,
-    };
-
-    if (isFirstProd) return [product];
-    return product;
-}

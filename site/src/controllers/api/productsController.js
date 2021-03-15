@@ -28,7 +28,11 @@ module.exports = {
         const stringTotalPrice = products.reduce((acc, product) => {
             return acc + Number(product.price);
         }, 0);
-        const totalPrice = (stringTotalPrice);
+        const totalPrice = stringTotalPrice;
         res.send({ totalPrice });
+    },
+    getOne: async (req, res) => {
+        const product = await Product.findByPk(req.params.id);
+        res.send(product);
     },
 };

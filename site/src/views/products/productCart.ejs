@@ -40,30 +40,35 @@
                     </ul>
                 </nav>
             </div>
-
-            <section
-                id="products-section"
-                class="display-flex-column align-center"
-            >
-                
-                    <%- include("../partials/cart/article") %>
-                
-            </section>
-
-            <section id="section-buy" class="display-flex-column bold">
-                <div class="display-flex">
-                    <p>Total</p>
-                    <p id="total-price">$700</p>
-                </div>
-                <div id="button-container">
-                    <button
-                        class="submit-button-specs final-price"
-                        type="submit"
-                    >
-                        Comprar <i class="fas fa-wine-bottle"></i>
-                    </button>
-                </div>
-            </section>
+            <h4 id="empty-cart-msg">
+                Todavía no has agregado productos a tu carrito
+            </h4>
+            <div id="complete-cart">
+                <section
+                    id="products-section"
+                    class="display-flex-column align-center"
+                ></section>
+                <section id="section-buy" class="display-flex-column bold">
+                    <div class="display-flex">
+                        <p>Total</p>
+                        <p id="total-price">$700</p>
+                    </div>
+                    <form id="buy-form" method="POST">
+                        <input
+                            type="hidden"
+                            name="userId"
+                            value="<%=user.id%>"
+                        />
+                        <button
+                            id="buy-btn"
+                            class="button create final-price"
+                            type="submit"
+                        >
+                            COMPRAR <i class="fas fa-wine-bottle"></i>
+                        </button>
+                    </form>
+                </section>
+            </div>
 
             <section class="top-marg-5">
                 <div class="subtitle bestSeller">

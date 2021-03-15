@@ -286,6 +286,10 @@ li {
     margin: 2% 0;
     text-align: center;
 }
+#buy-form {
+    width: 90%;
+    margin: auto;
+}
 
 .button i {
     color: white;
