@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             as: "addressUser",
             foreignKey: "buyerUserId",
         });
-        Address.hasOne(models.Order, {
+        Address.hasMany(models.Order, {
             as: "orderAddress",
         });
     };

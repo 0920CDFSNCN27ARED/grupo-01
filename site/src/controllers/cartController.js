@@ -1,20 +1,7 @@
-const { Console } = require("console");
 const { Order, Product, OrderItem } = require("../database/models");
 
 const cartController = {
-    // showCart: async (req, res) => {
-    //     try {
-    //         const cartProdutcts = await OrderItem.findAll({
-    //             where: { "$orders.buyerUserId$": req.session.loggedUser.id },
-    //             include: ["orders"],
-    //         });
-    //         res.render("products/productCart", { products: cartProdutcts });
-    //     } catch (err) {
-    //         res.send(err);
-    //     }
-    // },
     showCart: async (req, res) => {
-       
         res.render("products/productCart");
     },
 
@@ -22,7 +9,7 @@ const cartController = {
         res.render("products/savedProducts");
     },
     addToOrder: async (req, res) => {
-        // const productAdded = await Product.findByPk(req.params.id);
+        const orderItems = [];
         let order = await Order.findOne({
             where: {
                 buyerUserId: req.session.loggedUser.id,
