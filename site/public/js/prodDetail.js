@@ -6,6 +6,7 @@ function getIdFromUrl() {
 }
 const id = getIdFromUrl();
 form.addEventListener("submit", (event) => {
+    event.preventDefault();
     const quantity = Number(document.getElementById("quantity").value);
 
     const localStorageKey = "cart";

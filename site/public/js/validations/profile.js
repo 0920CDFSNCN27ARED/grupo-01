@@ -68,8 +68,9 @@ form.addEventListener("submit", (event) => {
 showOneSection("profile-btn", "personal-data", allActions);
 /////// My items
 ////// Favourites
-////Addreses
 
+
+////Addreses
 showOneSection("address-btn", "address-screen", allActions);
 const editBtns = document.getElementsByClassName("edit-btn");
 const deleteBtn = document.getElementsByClassName("delete-btn");
@@ -104,8 +105,10 @@ for (let i = 0; i < editBtns.length; i++) {
     });
 }
 
-//////
 
+
+
+////// Functions  
 function hideAllActions(allActions) {
     for (const action of allActions) {
         if (!action.classList.contains("hide")) {

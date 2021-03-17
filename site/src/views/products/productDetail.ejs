@@ -33,16 +33,16 @@
                     <h2 id="price" class="price">$<%= product.price %></h2>
                     <p class="pDescription"><%= product.description %></p>
 <% if (user && user.dni) { %>
-                    <form action="/carrito" id="cart-form" class="buying" method="GET">
+                    <form id="cart-form" class="buying" method="GET">
                         <div class="quantity-box">
                            
                             <label for="quantity">Cantidad</label>
                             <input
                                 type="number"
-                                name="quantity"
                                 id="quantity"
                                 min="1"
                                 placeholder="1"
+                                value="1"
                             />
                         </div>
                         

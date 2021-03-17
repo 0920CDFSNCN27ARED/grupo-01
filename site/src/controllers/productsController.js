@@ -27,19 +27,7 @@ const productsController = {
             product: oneProd,
         });
     },
-    // const products = getProducts(fileToGet);
-    // const requiredProduct = products.find((prod) => {
-    //     return prod.id == req.params.id;
-    // });
-    // if (requiredProduct == undefined) {
-    //     return res
-    //         .status(404)
-    //         .send("404 not found. <br> ¡Houston, poseemos problemas!");
-    // }
-
-    // res.render("products/productDetail", {
-    //     product: requiredProduct,
-    // });
+   
     newProduct: (req, res) => {
         res.render("products/newProduct");
     },

@@ -4,10 +4,9 @@ const cart = localStorageValue ? JSON.parse(localStorageValue) : [];
 
 const totalPrice = document.getElementById("total-price");
 const prodsSection = document.getElementById("products-section");
-const article = document.querySelector(".product-card");
 const emptyCartMsg = document.getElementById("empty-cart-msg");
 const completeCartSection = document.getElementById("complete-cart");
-
+let lastPromise;
 ////// Render products in cart
 if (cart.length == 0) {
     completeCartSection.classList.add("hide");
@@ -24,6 +23,7 @@ if (cart.length == 0) {
             
         </fieldset>
         <div class="display-flex space-between align-end width-90">
+            <div class="hide prodId">${prod.id}</div>
             <img
                 class="wine-logo"
                 src=${product.image}
@@ -42,6 +42,7 @@ if (cart.length == 0) {
                     placeholder=${prod.quantity}
                     min="1"
                     id="quantity"
+                    value=${prod.quantity}
                 />
                 <p id="partial-price" class="self-end bold partial-price">$${
                     product.price * prod.quantity
@@ -53,9 +54,12 @@ if (cart.length == 0) {
             <ul class="display-flex article-options justify-evenly">
                 <div class="display-flex width-50">
                     <li>
-                        <button id="erase" class="article-options" type="button">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
+                         <button
+                     type="button"
+                    class="delete-btn no-border back-white">
+                 <i
+                class="fas fa-trash-alt delete-icon"></i>
+                    </button>
                     </li>
                     <li>
                         <button id="save" class="article-options" type="button">
@@ -107,7 +111,7 @@ if (cart.length == 0) {
         promises.push(renderProduct(prod, prodsSection));
     }
 
-    Promise.all(promises).then((prices) => {
+    lastPromise = Promise.all(promises).then((prices) => {
         const totalPriceValue = prices.reduce((acc, price) => {
             return acc + price;
         }, 0);
@@ -115,6 +119,46 @@ if (cart.length == 0) {
     });
 }
 
+//Once all promises executed, launch quantity events
+lastPromise.then((something) => {
+    const productArticles = document.querySelectorAll(".article");
+    const articles = Array.from(productArticles);
+
+    articles.forEach((article, index) => {
+        const quantity = article.querySelector(".quantity-box");
+        const subtotal = article.querySelector(".partial-price");
+        const unityPrice = subtotal.innerText.split("$")[1];
+
+        subtotal.innerText = `$${quantity.value * unityPrice}`;
+        totalPrice.innerText = `$${
+            Number(totalPrice.innerText.split("$")[1]) + Number(unityPrice)
+        }`;
+
+        quantity.addEventListener("change", (event) => {
+            subtotal.innerText = `$${event.target.value * unityPrice}`;
+            totalPrice.innerText = `$${
+                Number(totalPrice.innerText.split("$")[1]) + Number(unityPrice)
+            }`;
+        });
+        ////Delete item from cart
+        const deleteBtn = article.querySelector(".delete-btn");
+        deleteBtn.addEventListener("click", () => {
+            const productToRemoveId = article.querySelector(".prodId")
+                .innerText;
+            const productIndexToRemove = cart.findIndex((element) => {
+                return element.id == productToRemoveId;
+            });
+            article.remove();
+            cart.splice(productIndexToRemove, 1);
+            localStorage.setItem(localStorageKey, JSON.stringify(cart));
+            if (cart.length == 0) {
+                emptyCartMsg.classList.remove("hide");
+            }
+        });
+    });
+});
+
+//// FETCH/CHECKOUT
 const buy = document.getElementById("buy-form");
 buy.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -124,36 +168,11 @@ buy.addEventListener("submit", async (event) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body:  JSON.stringify(cart),
+            body: JSON.stringify(cart),
         });
         const init_url = await response.json();
     } catch (err) {
         console.log(err);
     }
 });
-
-///////// Quantities updates
-
-const productArticles = document.getElementsByClassName("product-card");
-
-for (const article of productArticles) {
-    console.log(article);
-    const quantity = article.querySelector(".quantity-box");
-    console.log(quantity);
-    const partialPrice = article.querySelector(".partial-price");
-    const unityPrice = partialPrice.innerText.split("$")[1];
-
-    partialPrice.innerText = `$${quantity.value * unityPrice}`;
-    totalPrice.innerText = `$${
-        Number(totalPrice.innerText.split("$")[1]) + Number(unityPrice)
-    }`;
-
-    quantity.addEventListener("change", (event) => {
-        partialPrice.innerText = `$${event.target.value * unityPrice}`;
-        totalPrice.innerText = `$${
-            Number(totalPrice.innerText.split("$")[1]) + Number(unityPrice)
-        }`;
-    });
-}
-
-//////////////
+////////////////
