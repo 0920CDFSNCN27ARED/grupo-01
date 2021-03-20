@@ -1,27 +1,22 @@
-<article class="prod">
-    <a href="/productos/<%= product.id %> ">
+<article class="prodArticle">
+    <a class="prod" href="/productos/<%= product.id %> ">
         <div class="prod-img-box">
             <img src="<%= product.image %>" alt="Vino tinto" />
         </div>
-    </a>
     <div class="prod-name-box">
         <p><%= product.productName %></p>
         <i class="far fa-heart love"></i>
     </div>
     <div class="prod-price-cart-box">
         <p>$<%= product.price %></p>
-        <% if(user && user.dni){ %> 
+        <!-- <% if(user && user.dni){ %> 
         <form action="/carrito/agregar/<%= product.id %>" method="POST">
             <button type="submit" class="button create">
                 Agregar al carrito
                 <i class="fas fa-shopping-cart"></i>
             </button>
         </form>
-        <% }else{ %> 
-        <a class="button create" href="/productos/<%= product.id %>">
-            Ver producto
-            <i class="fas fa-shopping-cart"></i>
-        </a>
-        <% } %> 
+        <% } %>  -->
     </div>
+    </a>    
 </article>

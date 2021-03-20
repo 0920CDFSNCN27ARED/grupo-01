@@ -31,12 +31,13 @@ CREATE TABLE IF NOT EXISTS `winederful`.`buyer_users` (
   `createdAt` TIMESTAMP NULL DEFAULT NULL,
   `updatedAt` TIMESTAMP NULL DEFAULT NULL,
   `deletedAt` TIMESTAMP NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `dni_UNIQUE` (`dni` ASC),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
-
 DEFAULT CHARACTER SET = latin1;
+
+CREATE UNIQUE INDEX `dni_UNIQUE` ON `winederful`.`buyer_users` (`dni` ASC);
+
+CREATE UNIQUE INDEX `email_UNIQUE` ON `winederful`.`buyer_users` (`email` ASC);
 
 
 -- -----------------------------------------------------
@@ -56,13 +57,13 @@ CREATE TABLE IF NOT EXISTS `winederful`.`addresses` (
   `updatedAt` TIMESTAMP NULL DEFAULT NULL,
   `deletedAt` TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_addresses_buyer_users_idx` (`buyerUserId` ASC),
   CONSTRAINT `fk_addresses_buyer_users`
     FOREIGN KEY (`buyerUserId`)
     REFERENCES `winederful`.`buyer_users` (`id`))
 ENGINE = InnoDB
-
 DEFAULT CHARACTER SET = latin1;
+
+CREATE INDEX `fk_addresses_buyer_users_idx` ON `winederful`.`addresses` (`buyerUserId` ASC);
 
 
 -- -----------------------------------------------------
@@ -83,12 +84,13 @@ CREATE TABLE IF NOT EXISTS `winederful`.`cellar_users` (
   `createdAt` TIMESTAMP NULL DEFAULT NULL,
   `updatedAt` TIMESTAMP NULL DEFAULT NULL,
   `deletedAt` TIMESTAMP NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `cuit_UNIQUE` (`cuit` ASC),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
-
 DEFAULT CHARACTER SET = latin1;
+
+CREATE UNIQUE INDEX `cuit_UNIQUE` ON `winederful`.`cellar_users` (`cuit` ASC);
+
+CREATE UNIQUE INDEX `email_UNIQUE` ON `winederful`.`cellar_users` (`email` ASC);
 
 
 -- -----------------------------------------------------
@@ -103,10 +105,8 @@ CREATE TABLE IF NOT EXISTS `winederful`.`orders` (
   `updatedAt` TIMESTAMP NULL DEFAULT NULL,
   `deletedAt` TIMESTAMP NULL DEFAULT NULL,
   `addressId` INT(11) NOT NULL,
-  `total` FLOAT(10,2) NULL,
+  `total` FLOAT(10,2) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_orders_buyer_users1_idx` (`buyerUserId` ASC),
-  INDEX `fk_orders_addresses1_idx` (`addressId` ASC),
   CONSTRAINT `fk_orders_addresses1`
     FOREIGN KEY (`addressId`)
     REFERENCES `winederful`.`addresses` (`id`)
@@ -118,6 +118,22 @@ CREATE TABLE IF NOT EXISTS `winederful`.`orders` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
+CREATE INDEX `fk_orders_buyer_users1_idx` ON `winederful`.`orders` (`buyerUserId` ASC);
+
+CREATE INDEX `fk_orders_addresses1_idx` ON `winederful`.`orders` (`addressId` ASC);
+
+
+-- -----------------------------------------------------
+-- Table `winederful`.`grapes`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `winederful`.`grapes` ;
+
+CREATE TABLE IF NOT EXISTS `winederful`.`grapes` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `winederful`.`products`
@@ -127,7 +143,6 @@ DROP TABLE IF EXISTS `winederful`.`products` ;
 CREATE TABLE IF NOT EXISTS `winederful`.`products` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `productName` VARCHAR(45) NULL DEFAULT NULL,
-  `grape` VARCHAR(45) NULL DEFAULT NULL,
   `description` VARCHAR(60000) NULL DEFAULT NULL,
   `year` VARCHAR(45) NULL DEFAULT NULL,
   `aged` VARCHAR(45) NULL DEFAULT NULL,
@@ -140,15 +155,24 @@ CREATE TABLE IF NOT EXISTS `winederful`.`products` (
   `createdAt` TIMESTAMP NULL DEFAULT NULL,
   `updatedAt` TIMESTAMP NULL DEFAULT NULL,
   `deletedAt` TIMESTAMP NULL DEFAULT NULL,
+  `grapeId` INT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `productName_UNIQUE` (`productName` ASC),
-  INDEX `fk_products_cellar_users1_idx` (`cellarUserId` ASC),
   CONSTRAINT `fk_products_cellar_users1`
     FOREIGN KEY (`cellarUserId`)
-    REFERENCES `winederful`.`cellar_users` (`id`))
+    REFERENCES `winederful`.`cellar_users` (`id`),
+  CONSTRAINT `fk_products_grapes1`
+    FOREIGN KEY (`grapeId`)
+    REFERENCES `winederful`.`grapes` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
-
 DEFAULT CHARACTER SET = latin1;
+
+CREATE UNIQUE INDEX `productName_UNIQUE` ON `winederful`.`products` (`productName` ASC);
+
+CREATE INDEX `fk_products_cellar_users1_idx` ON `winederful`.`products` (`cellarUserId` ASC);
+
+CREATE INDEX `fk_products_grapes1_idx` ON `winederful`.`products` (`grapeId` ASC);
 
 
 -- -----------------------------------------------------
@@ -158,25 +182,27 @@ DROP TABLE IF EXISTS `winederful`.`order_items` ;
 
 CREATE TABLE IF NOT EXISTS `winederful`.`order_items` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `subtotal` FLOAT(10,2) NULL,
-  `quantity` INT NULL,
-  `price` FLOAT(10,2) NULL,
-  `discount` FLOAT(10,2) NULL,
+  `subtotal` FLOAT(10,2) NULL DEFAULT NULL,
+  `quantity` INT(11) NULL DEFAULT NULL,
+  `price` FLOAT(10,2) NULL DEFAULT NULL,
+  `discount` FLOAT(10,2) NULL DEFAULT NULL,
   `orderId` INT(11) NOT NULL,
   `productId` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_order_items_orders1_idx` (`orderId` ASC),
-  INDEX `fk_order_items_products1_idx` (`productId` ASC),
   CONSTRAINT `fk_order_items_orders1`
     FOREIGN KEY (`orderId`)
     REFERENCES `winederful`.`orders` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_order_items_products1 `
+  CONSTRAINT `fk_order_items_products1`
     FOREIGN KEY (`productId`)
-    REFERENCES `winederful`.`products` (`id`)ON DELETE CASCADE
-)
-ENGINE = InnoDB;
+    REFERENCES `winederful`.`products` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+CREATE INDEX `fk_order_items_orders1_idx` ON `winederful`.`order_items` (`orderId` ASC);
+
+CREATE INDEX `fk_order_items_products1_idx` ON `winederful`.`order_items` (`productId` ASC);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

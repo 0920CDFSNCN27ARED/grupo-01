@@ -56,7 +56,7 @@ body {
 }
 
 .logo-image img {
-    width: 30%;
+    width: 20%;
 }
 
 .under-nav {
@@ -208,10 +208,9 @@ body {
 
 .prod {
     display: grid;
-    grid-template-rows: 300px auto auto;
+    grid-template-rows: 300px auto 30px;
     scroll-snap-align: start;
-    padding: 15px;
-    margin-top: 20px;
+    padding: 15px;    
 }
 
 .previous,
@@ -280,6 +279,7 @@ body {
 .subtitle {
     padding-left: 15px;
     display: grid;
+    margin-bottom: 15px;
 }
 
 .background-text {
@@ -369,6 +369,11 @@ section.values {
     text-decoration: none;
     color: black;
     padding-left: 20px;
+}
+
+.social{
+    display: grid;
+    align-items: center;
 }
 
 .social-list {
@@ -507,7 +512,7 @@ section.form h2 {
     text-align: left;
     position: absolute;
     left: -5px;
-    top: 130px;
+    top: 100px;
 }
 
 .wine {
@@ -611,10 +616,10 @@ section.form h2 {
         padding-left: 50px;
     }
     .hand {
-        width: 20%;
+        width: 15%;
         position: absolute;
         left: -10px;
-        top: 180px;
+        top: 160px;
     }
     .prod-name-box {
         margin-top: 15px;
@@ -694,7 +699,7 @@ section.form h2 {
         width: 12%;
         position: absolute;
         left: -10px;
-        top: 263px;
+        top: 203px;
     }
 
     .showAll {
@@ -799,7 +804,7 @@ section.form h2 {
 
     .prod {
         display: grid;
-        grid-template-rows: auto auto auto auto;
+        grid-template-rows: auto auto 30px;
     }
 
     section.values {
@@ -886,7 +891,7 @@ section.form h2 {
         width: 9%;
         position: absolute;
         left: 0px;
-        top: 320px;
+        top: 245px;
     }
 
     .showAll {
@@ -916,7 +921,7 @@ section.form h2 {
     }
 
     .logo-links {
-        grid-template-rows: 250px;
+        grid-template-rows: 200px;
     }
 
     .footer-index {
