@@ -1,7 +1,3 @@
-const localStorageKey = "cart";
-const localStorageValue = localStorage.getItem(localStorageKey);
-const cart = localStorageValue ? JSON.parse(localStorageValue) : [];
-
 const totalPrice = document.getElementById("total-price");
 const prodsSection = document.getElementById("products-section");
 const emptyCartMsg = document.getElementById("empty-cart-msg");
@@ -23,7 +19,7 @@ if (cart.length == 0) {
             
         </fieldset>
         <div class="display-flex space-between align-end width-90">
-            <div class="hide prodId">${prod.id}</div>
+            <div class="hide prod-id">${prod.id}</div>
             <img
                 class="wine-logo"
                 src=${product.data.image}
@@ -129,13 +125,19 @@ lastPromise.then((something) => {
 
         //Update quantity
         quantity.addEventListener("change", (event) => {
+            const id = article.querySelector(".prod-id").innerText;
             const newQuantity = event.target.value;
+
+            // Change quantity in cart
+            const prod = getCartProduct(cart, id);
+            updateProdQuantity(prod, newQuantity);
+            localStorage.setItem(localStorageKey, JSON.stringify(cart));
+
+            /////Change view quantity values
             const actualSubTotal = article
                 .querySelector(".partial-price")
                 .innerText.split("$")[1];
-
             subtotal.innerText = `$${newQuantity * unityPrice}`;
-
             totalPrice.innerText = `$${
                 totalPrice.innerText.split("$")[1] -
                 actualSubTotal +
@@ -145,7 +147,7 @@ lastPromise.then((something) => {
         ////Delete item from cart
         const deleteBtn = article.querySelector(".delete-btn");
         deleteBtn.addEventListener("click", () => {
-            const productToRemoveId = article.querySelector(".prodId")
+            const productToRemoveId = article.querySelector(".prod-id")
                 .innerText;
             const productIndexToRemove = cart.findIndex((element) => {
                 return element.id == productToRemoveId;
