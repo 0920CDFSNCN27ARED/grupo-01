@@ -8,8 +8,8 @@
         <%- include("../partials/header.ejs")  %> 
         <main>
             <div class="searchDesk">
-                <form action="">
-                    <input type="text">
+                <form action="/productos/buscar" method="GET">
+                    <input name="search" type="text">
                     <i class="fas fa-search"></i>
                 </form>
                 

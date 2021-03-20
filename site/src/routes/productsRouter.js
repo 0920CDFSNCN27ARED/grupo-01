@@ -14,7 +14,7 @@ router.get("/crear", isAdmin, productsController.newProduct);
 router.post("/crear", upload.single("image"), productsController.createProduct);
 
 //buscar
-// router.get("/buscar", productsController.search);
+router.get("/buscar", productsController.search);
 
 //detalle
 router.get("/:id", productsController.showOne);

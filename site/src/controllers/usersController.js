@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
 
-const { BuyerUser, CellarUser } = require("../database/models");
+const { BuyerUser, CellarUser, Address } = require("../database/models");
 
 ////////FUNCTIONS
 
@@ -29,7 +29,7 @@ function validateAndStoreInSession(user, req) {
     if (user && checkHash(user, req)) {
         req.session.loggedUser = user;
     }
-    return;
+    return user;
 }
 
 async function updatePassword(user, req, checkHash) {
@@ -119,12 +119,16 @@ const usersControllers = {
                 },
                 include: ["addresses"],
             });
-            console.log(buyerUser)
+
             const cellarUser = await findUser(CellarUser, req);
 
-            validateAndStoreInSession(buyerUser || cellarUser, req); // req.session.loggedUser
+            const user = validateAndStoreInSession(
+                buyerUser || cellarUser,
+                req
+            ); // req.session.loggedUser
 
             ///////////////////////////////////////
+            
             if (!req.session.loggedUser) {
                 res.render("users/login", {
                     errorMsg: msg,
@@ -140,7 +144,7 @@ const usersControllers = {
                 }
             }
             res.locals.user = req.session.loggedUser;
-            res.render("users/profile");
+            res.redirect(`/usuarios/perfil`);
         } else {
             res.render("users/login", { errors: errors.errors });
         }
@@ -149,7 +153,7 @@ const usersControllers = {
         logOut(req, res, "/");
     },
     showProfile: (req, res) => {
-        res.render("users/profile");
+        res.render(`users/profile`);
     },
 
     changePassword: async (req, res) => {
@@ -162,6 +166,30 @@ const usersControllers = {
 
         await updatePassword(buyerUser, req, checkHash);
         logOut(req, res, "/usuarios/login");
+    },
+    editAddress: (req, res) => {
+        const addresses = res.locals.user.addresses;
+        addresses.forEach((address, index) => {
+            if (req.body["isDeleted" + index].checked) {
+                Address.destroy({ where: { id: address.id } });
+            } else {
+                Address.update(
+                    {
+                        streetName: req.body["streetName" + index],
+                        streetNumber: Number(req.body["streetNumber" + index]),
+                        apartment: Number(req.body["apartment" + index]),
+                        city: req.body["city" + index],
+                        zipCode: Number(req.body["zipCode" + index]),
+                    },
+                    {
+                        where: {
+                            id: address.id,
+                        },
+                    }
+                );
+            }
+        });
+        res.redirect("/usuarios/perfil");
     },
 };
 

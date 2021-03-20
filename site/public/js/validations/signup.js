@@ -1,14 +1,5 @@
 const form = document.querySelector("form");
 let errors;
-// const validations = {
-//     firstName: ["firstName", [isLength(2), noNumberValidation]],
-//     lastName: ["lastName", [isLength(2), noNumberValidation]],
-//     dni: ["dni", isLength(2),[ noNumberValidation]],
-//     email: ["email", [emailValidation]],
-//     password: ["password", [isLength(8)]],
-//     avatar: ["avatar",[isValidFormat]],
-//     terms: ["terms",[isTrue("Debes aceptar los terminos y condiciones")]],
-// };
 
 const validationStructure = [
     ["firstName", [isLength(2), noNumberValidation]],

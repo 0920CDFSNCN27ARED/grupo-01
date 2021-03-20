@@ -1,3 +1,5 @@
+
+
 const submitButton = document.querySelector(".button[type=submit]");
 const showChangeMenu = document.getElementById("change-pass-btn");
 const changePassMenu = document.getElementById("pass-screen");
@@ -6,14 +8,10 @@ const inputs = document.querySelectorAll("input");
 
 const allActions = document.getElementsByClassName("action");
 
-const myAddresses = document.getElementById("address-btn");
-const addressScreen = document.getElementById("address-screen");
-
 const actualPassInput = document.getElementById("actualPassword");
 
 const newPassword = document.getElementById("newPassword");
 const confirmNewPassword = document.getElementById("confirmNewPassword");
-
 
 ///////
 const passMatches = [
@@ -58,25 +56,73 @@ form.addEventListener("submit", (event) => {
         ],
         validateInput
     );
-    console.log(errors)
+
     if (checkErrors(errors)) {
         event.preventDefault();
     }
 });
 
 ////////////////////////////
+
+/////// Profile
+showOneSection("profile-btn", "personal-data", allActions);
+/////// My items
+////// Favourites
 ////Addreses
-myAddresses.addEventListener("click", () => {
-    for (const actionScreen of allActions) {
-         if (!actionScreen.classList.contains("hide")) {
-             actionScreen.classList.add("hide");
-         }
-    }
-    addressScreen.classList.remove("hide");
-});
 
+showOneSection("address-btn", "address-screen", allActions);
+const editBtns = document.getElementsByClassName("edit-btn");
+const deleteBtn = document.getElementsByClassName("delete-btn");
+const undoDeleteBtn = document.getElementsByClassName(`undo-delete`);
 
+for (let i = 0; i < editBtns.length; i++) {
+    const contentDiv = document.getElementById(`fieldset-content-${i}`);
+    const fieldset = document.getElementById(`fieldset-${i}`);
+    const inputs = fieldset.querySelectorAll("input");
+    editBtns[i].addEventListener("click", (event) => {
+        for (const input of inputs) {
+            if (contentDiv.classList.contains("hide")) return;
+            if (input.disabled === true) {
+                input.disabled = false;
+            } else {
+                input.disabled = true;
+            }
+        }
+    });
+    deleteBtn[i].addEventListener("click", () => {
+        const deleted = document.getElementById(`isDeleted-${i}`);
+        const deletedMsg = document.getElementById(`deleted-msg-${i}`);
+        contentDiv.classList.add("hide");
+        deletedMsg.classList.remove("hide");
+        deleted.checked = true;
+
+        undoDeleteBtn[i].addEventListener("click", (event) => {
+            contentDiv.classList.remove("hide");
+            deletedMsg.classList.add("hide");
+            deleted.checked = false;
+        });
+    });
+}
 
 //////
 
-    
+function hideAllActions(allActions) {
+    for (const action of allActions) {
+        if (!action.classList.contains("hide")) {
+            action.classList.add("hide");
+        }
+    }
+}
+function showAction(action) {
+    action.classList.remove("hide");
+}
+
+function showOneSection(btnId, sectionId, allActions) {
+    const button = document.getElementById(btnId);
+    const section = document.getElementById(sectionId);
+
+    button.addEventListener("click", () => {
+        hideAllActions(allActions);
+        showAction(section);
+    });
+}

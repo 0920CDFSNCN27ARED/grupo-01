@@ -205,7 +205,6 @@ function validateAllIndividually(validationStructure) {
         const input = document.getElementById(inputId);
         const validationFunctions = fieldValidation[1];
 
-        console.log(getEventType(input));
         input.addEventListener(getEventType(input), () => {
             errors = [];
             clearErrors(inputId);
