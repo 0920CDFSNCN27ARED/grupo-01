@@ -46,7 +46,7 @@ app.set("views", path.join(__dirname, "src", "views"));
 
 // API
 
-const apiProdsRouter = require("./src/routes/api/productRouter");
+const apiProdsRouter = require("./src/routes/api/productsRouter");
 app.use("/api/products", apiProdsRouter);
 const apiUsersRouter = require("./src/routes/api/usersRouter");
 app.use("/api/users", apiUsersRouter);

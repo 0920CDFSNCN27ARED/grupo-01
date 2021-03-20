@@ -3,6 +3,6 @@ const router = express.Router();
 
 const controller = require("../../controllers/api/usersController");
 
-router.get("/count", controller.count);
-
+router.get("/", controller.showAll);
+router.get("/:id", controller.getById);
 module.exports = router;

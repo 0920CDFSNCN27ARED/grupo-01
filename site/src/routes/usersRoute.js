@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const upload = multer({ dest: "public/images/users" });
+
 const { check, validationResult, body } = require("express-validator");
 const isLoggedIn = require("../middlewares/isLoggedIn");
 const isGuest = require("../middlewares/isGuest");
@@ -14,6 +15,7 @@ const { CellarUser } = require("../database/models");
 router.post("/cambioContra/:id", isLoggedIn, usersController.changePassword);
 
 router.get("/registro", isGuest, usersController.showRegister);
+
 router.post(
     "/registro",
     upload.single("image"),
@@ -63,14 +65,14 @@ router.post(
             .withMessage(
                 "Debes ingresar una contraseña de al menos 8 caracteres."
             ),
-        check("image")
-            .custom((value) => {
-                if (!value) {
-                    return false;
-                }
-                return true;
-            })
-            .withMessage("Debes elegir una imagen de perfil."),
+        // check("image")
+        //     .custom((value) => {
+        //         if (!value) {
+        //             return false;
+        //         }
+        //         return true;
+        //     })
+        //     .withMessage("Debes elegir una imagen de perfil."),
         check("terms")
             .notEmpty()
             .withMessage("Debes leer y aceptar los terminos y condiciones."),
@@ -80,6 +82,16 @@ router.post(
 );
 
 router.get("/registroBodega", isGuest, usersController.showRegisterWineCellar);
+
+///////////////////// NO FUNCIONA
+async function userExists(cuit, modelUser) {
+    const user = await modelUser.findOne({ where: { cuit: cuit } });
+    if (user) {
+        throw new Error("Ingresaste un CUIT ya registrado");
+    }
+}
+////////////////////////////////////////////
+
 router.post(
     "/registroBodega",
     upload.single("image"),
@@ -91,18 +103,10 @@ router.post(
             .notEmpty()
             .withMessage("Debes colocar la razon social de tu empresa."),
         check("cuit")
-            .isLength(11)
-            .withMessage("Debes colocar el número de CUIT de la empresa.")
-            .custom(async (value) => {
-                const cuit = await CellarUser.findOne({
-                    where: {
-                        cuit: value,
-                    },
-                });
-                if (cuit) {
-                    return false;
-                }
-                return true;
+            // .isLength(10)
+            // .withMessage("Debes colocar el número de CUIT de la empresa.")
+            .custom(async (value, CellarUser) => {
+                await userExists(value, CellarUser);
             })
             .withMessage("El CUIT ingresado ya está registrado."),
         check("country")
@@ -110,6 +114,7 @@ router.post(
             .withMessage(
                 "Debes colocar el pais en el que se establece tu empresa."
             ),
+
         check("province")
             .notEmpty()
             .withMessage(
@@ -143,14 +148,14 @@ router.post(
             .withMessage(
                 "Debes ingresar una contraseña de al menos 8 caracteres."
             ),
-        check("image")
-            .custom((value) => {
-                if (!value) {
-                    return false;
-                }
-                return true;
-            })
-            .withMessage("Debes elegir una imagen de perfil."),
+        // check("image")
+        //     .custom((value) => {
+        //         if (!value) {
+        //             return false;
+        //         }
+        //         return true;
+        //     })
+        //     .withMessage("Debes elegir una imagen de perfil."),
         check("terms")
             .notEmpty()
             .withMessage("Debes leer y aceptar los terminos y condiciones."),

@@ -54,6 +54,7 @@ const usersControllers = {
         res.render("users/signup");
     },
     newUser: async (req, res) => {
+        console.log(req.file.filename, "IMAGE---------");
         const errors = validationResult(req);
         try {
             if (errors.isEmpty()) {
@@ -67,7 +68,6 @@ const usersControllers = {
                 });
                 req.session.loggedUser = newBuyerUser;
                 res.locals.user = newBuyerUser;
-
                 res.redirect("/productos");
             } else {
                 console.log(errors);
@@ -79,6 +79,7 @@ const usersControllers = {
     },
     newUserWineCellar: async (req, res) => {
         const errors = validationResult(req);
+        console.log(errors);
         try {
             if (errors.isEmpty()) {
                 const newCellarUser = await CellarUser.create({
@@ -128,7 +129,7 @@ const usersControllers = {
             ); // req.session.loggedUser
 
             ///////////////////////////////////////
-            
+
             if (!req.session.loggedUser) {
                 res.render("users/login", {
                     errorMsg: msg,
@@ -170,7 +171,7 @@ const usersControllers = {
     editAddress: (req, res) => {
         const addresses = res.locals.user.addresses;
         addresses.forEach((address, index) => {
-            if (req.body["isDeleted" + index].checked) {
+            if (req.body["isDeleted" + index]) {
                 Address.destroy({ where: { id: address.id } });
             } else {
                 Address.update(

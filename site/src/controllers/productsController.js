@@ -1,8 +1,7 @@
-const { Product } = require("../database/models");
+
+const { Product, CellarUser } = require("../database/models");
 const erase = require("../utils/delete");
 const edit = require("../utils/edit");
-
-const { CellarUser } = require("../database/models");
 
 const productsController = {
     showAll: async (req, res) => {
@@ -27,11 +26,12 @@ const productsController = {
             product: oneProd,
         });
     },
-   
+
     newProduct: (req, res) => {
         res.render("products/newProduct");
     },
     createProduct: async (req, res) => {
+        console.log(req.file.filename, "imagen  -----------");
         try {
             const newProduct = await Product.create({
                 productName: req.body.productName,
@@ -76,7 +76,7 @@ const productsController = {
         const id = req.params.id;
         const stat = await erase(Product, id);
         if (stat === "Deleted") {
-           return res.redirect(`/productos`);
+            return res.redirect(`/productos`);
         }
         console.log(stat);
         res.redirect(`/productos/${id}`);

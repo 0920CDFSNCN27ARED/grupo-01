@@ -1,9 +1,7 @@
-
-
+const form = document.getElementById("change-pass-form");
 const submitButton = document.querySelector(".button[type=submit]");
 const showChangeMenu = document.getElementById("change-pass-btn");
 const changePassMenu = document.getElementById("pass-screen");
-const form = document.getElementById("change-pass-form");
 const inputs = document.querySelectorAll("input");
 
 const allActions = document.getElementsByClassName("action");
@@ -69,13 +67,23 @@ showOneSection("profile-btn", "personal-data", allActions);
 /////// My items
 ////// Favourites
 
-
 ////Addreses
 showOneSection("address-btn", "address-screen", allActions);
 const editBtns = document.getElementsByClassName("edit-btn");
 const deleteBtn = document.getElementsByClassName("delete-btn");
 const undoDeleteBtn = document.getElementsByClassName(`undo-delete`);
+const resetBtn = document.getElementById("reset-btn");
 
+//////// Add new address
+const newAddress = document.getElementById("new-address");
+const fieldsetTemplate = document.getElementById("fieldset");
+newAddress.addEventListener("click", () => {
+    const newAddress = fieldsetTemplate.cloneNode(true);
+    fieldsetTemplate.classList.remove("hide");
+    console.log(newAddress);
+});
+
+////// Edit an address
 for (let i = 0; i < editBtns.length; i++) {
     const contentDiv = document.getElementById(`fieldset-content-${i}`);
     const fieldset = document.getElementById(`fieldset-${i}`);
@@ -90,25 +98,41 @@ for (let i = 0; i < editBtns.length; i++) {
             }
         }
     });
+
+    ///// Delete one address
     deleteBtn[i].addEventListener("click", () => {
-        const deleted = document.getElementById(`isDeleted-${i}`);
+        const isDeleted = document.getElementById(`isDeleted-${i}`);
         const deletedMsg = document.getElementById(`deleted-msg-${i}`);
         contentDiv.classList.add("hide");
         deletedMsg.classList.remove("hide");
-        deleted.checked = true;
+        isDeleted.checked = true;
 
+        //////Undo delete from one address
         undoDeleteBtn[i].addEventListener("click", (event) => {
             contentDiv.classList.remove("hide");
             deletedMsg.classList.add("hide");
-            deleted.checked = false;
+            isDeleted.checked = false;
         });
     });
 }
+const contentDivs = document.querySelectorAll("[id|=fieldset-content]");
 
+////// Reset all values
+resetBtn.addEventListener("click", () => {
+    for (const contentDiv of contentDivs) {
+        const deletedMsg = contentDiv.querySelector("[id*=deleted-msg]"); //Tira null a menos que haga document.queryselector
+        console.log(deletedMsg);
+        const isDeleted = contentDiv.querySelector("[id*=isDeleted]");
+        undoDelete(contentDiv, deletedMsg, isDeleted);
+    }
+});
 
-
-
-////// Functions  
+////// Functions
+function undoDelete(contentDiv, deletedMsg, isDeleted) {
+    contentDiv.classList.remove("hide");
+    deletedMsg.classList.add("hide");
+    isDeleted.checked = false;
+}
 function hideAllActions(allActions) {
     for (const action of allActions) {
         if (!action.classList.contains("hide")) {

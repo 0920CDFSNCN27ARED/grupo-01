@@ -1,0 +1,34 @@
+<fieldset id="fieldset" class="hide">
+    <p id="deleted-msg" class="hide">
+        <strong></strong>
+        ha sido eliminada, para recuperarla haz click
+        <button class="undo-delete" type="button">aquí</button>
+    </p>
+    <%- include("./fieldsetActions.ejs")%>
+    
+    <div id="fieldset-content">
+        <div>
+            <label for="street">Calle </label>
+            <input disabled name="streetName" type="text" id="streetName" />
+            <label for="streetNumber">Número</label>
+            <input disabled name="streetNumber" type="text" id="streetNumber" />
+        </div>
+        <div>
+            <label for="apartment">Departamento</label>
+            <input disabled name="apartment" type="text" id="apartment" />
+            <label for="city">Ciudad</label>
+            <input disabled name="city" type="text" id="city" />
+        </div>
+        <div>
+            <label for="zipCode"> Código Postal: </label>
+            <input disabled name="zipCode" type="text" id="zipCode" />
+        </div>
+        <input
+            class="hide"
+            id="isDeleted"
+            value="true"
+            type="checkbox"
+            name="isDeleted"
+        />
+    </div>
+</fieldset>

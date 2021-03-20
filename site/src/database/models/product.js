@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
         "Product",
         {
             productName: DataTypes.STRING,
-            grape: DataTypes.STRING,
             description: DataTypes.STRING,
             year: DataTypes.INTEGER,
             aged: DataTypes.INTEGER,
@@ -14,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
             discount: DataTypes.INTEGER,
             image: DataTypes.STRING,
             cellarUserId: DataTypes.INTEGER,
+            // grapeId: DataTypes.STRING,
+            grape: DataTypes.STRING
         },
         {
             tablename: "products",
@@ -23,6 +24,10 @@ module.exports = (sequelize, DataTypes) => {
         Product.belongsTo(models.CellarUser, {
             as: "cellaruser",
         });
+        //  Product.belongsTo(models.Grape, {
+        //      as: "grape",
+        //      foreignKey: "grapeId"
+        //  });
         Product.hasMany(models.OrderItem, {
             as: "orderitem",
             foreignKey: "productId",

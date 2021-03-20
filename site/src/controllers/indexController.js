@@ -1,5 +1,7 @@
+const gifResource = require("../requests/gifResource");
+
 const indexController = {
-    showIndex: (req, res) => {
+    showIndex: async (req, res) => {
         res.render("index");
     },
 };
