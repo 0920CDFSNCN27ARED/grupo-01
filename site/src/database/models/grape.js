@@ -9,12 +9,11 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
 
-    // Grape.associate = function (models) {
-    //     Grape.hasMany(models.Product, {
-    //         as: "products",
-    //         foreignKey: "grapeId",
-    //     });
-    // };
+    Grape.associate = function (models) {
+        Grape.hasMany(models.Product, {
+            as: "products",
+        });
+    };
 
     return Grape;
 };

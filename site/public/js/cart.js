@@ -26,15 +26,13 @@ if (cart.length == 0) {
             <div class="hide prodId">${prod.id}</div>
             <img
                 class="wine-logo"
-                src=${product.image}
+                src=${product.data.image}
                 alt="wineProduct"
             />
-            <p class="width-100 font-size-075 align-center product-name">${
-                product.productName
-            }</p>
+            <p class="width-100 font-size-075 align-center product-name">${product.data.productName}</p>
             
             <div id="price-section" class="display-flex justify-end">
-            <p>Precio x/u:$${product.price}</p>    
+            <p class="unity-price" >Precio x/u:$${product.data.price}</p>    
             <input
                 
                     class="quantity-box"
@@ -44,9 +42,7 @@ if (cart.length == 0) {
                     id="quantity"
                     value=${prod.quantity}
                 />
-                <p id="partial-price" class="self-end bold partial-price">$${
-                    product.price * prod.quantity
-                }</p>
+                <p id="partial-price" class="self-end bold partial-price">$</p>
             </div>
         </div>
 
@@ -104,7 +100,7 @@ if (cart.length == 0) {
     `;
 
         prodsSection.innerHTML += productElement;
-        return product.price * prod.quantity;
+        return product.data.price * prod.quantity;
     }
     const promises = [];
     for (const prod of cart) {
@@ -118,7 +114,6 @@ if (cart.length == 0) {
         totalPrice.innerText = "$" + totalPriceValue;
     });
 }
-
 //Once all promises executed, launch quantity events
 lastPromise.then((something) => {
     const productArticles = document.querySelectorAll(".article");
@@ -127,17 +122,24 @@ lastPromise.then((something) => {
     articles.forEach((article, index) => {
         const quantity = article.querySelector(".quantity-box");
         const subtotal = article.querySelector(".partial-price");
-        const unityPrice = subtotal.innerText.split("$")[1];
+        const unityPriceContainer = article.querySelector(".unity-price");
+        const unityPrice = unityPriceContainer.innerText.split("$")[1];
 
         subtotal.innerText = `$${quantity.value * unityPrice}`;
-        totalPrice.innerText = `$${
-            Number(totalPrice.innerText.split("$")[1]) + Number(unityPrice)
-        }`;
 
+        //Update quantity
         quantity.addEventListener("change", (event) => {
-            subtotal.innerText = `$${event.target.value * unityPrice}`;
+            const newQuantity = event.target.value;
+            const actualSubTotal = article
+                .querySelector(".partial-price")
+                .innerText.split("$")[1];
+
+            subtotal.innerText = `$${newQuantity * unityPrice}`;
+
             totalPrice.innerText = `$${
-                Number(totalPrice.innerText.split("$")[1]) + Number(unityPrice)
+                totalPrice.innerText.split("$")[1] -
+                actualSubTotal +
+                newQuantity * unityPrice
             }`;
         });
         ////Delete item from cart

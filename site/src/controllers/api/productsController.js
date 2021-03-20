@@ -33,8 +33,6 @@ module.exports = {
         const product = await Product.findByPk(req.params.id, {
             include: { all: true },
         });
-        const data = 
-
         res.send({
             meta: {
                 url: req.originalUrl,

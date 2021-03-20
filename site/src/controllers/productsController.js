@@ -1,4 +1,3 @@
-
 const { Product, CellarUser } = require("../database/models");
 const erase = require("../utils/delete");
 const edit = require("../utils/edit");
@@ -15,7 +14,9 @@ const productsController = {
         }
     },
     showOne: async (req, res) => {
-        const oneProd = await Product.findByPk(req.params.id);
+        const oneProd = await Product.findByPk(req.params.id, {
+            include: ["grape"],
+        });
         if (oneProd == undefined) {
             return res
                 .status(404)
