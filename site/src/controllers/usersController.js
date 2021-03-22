@@ -54,7 +54,6 @@ const usersControllers = {
         res.render("users/signup");
     },
     newUser: async (req, res) => {
-        console.log(req.file.filename, "IMAGE---------");
         const errors = validationResult(req);
         try {
             if (errors.isEmpty()) {
@@ -79,7 +78,6 @@ const usersControllers = {
     },
     newUserWineCellar: async (req, res) => {
         const errors = validationResult(req);
-        console.log(errors);
         try {
             if (errors.isEmpty()) {
                 const newCellarUser = await CellarUser.create({

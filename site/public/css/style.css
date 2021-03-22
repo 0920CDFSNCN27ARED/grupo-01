@@ -372,7 +372,7 @@ fieldset > div {
     margin: 2% 0;
 }
 
-#addresses-actions {
+.address-title {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;

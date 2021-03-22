@@ -16,6 +16,20 @@ router.post("/cambioContra/:id", isLoggedIn, usersController.changePassword);
 
 router.get("/registro", isGuest, usersController.showRegister);
 
+/////////////////////
+async function paramExists(searchParam, paramName, modelUser) {
+    const whereObject = {};
+    whereObject[paramName] = searchParam;
+    const user = await modelUser.findOne({
+        where: whereObject,
+    });
+    if (user) {
+        throw new Error(`Ingresaste un ${paramName} ya registrado`);
+    }
+}
+////////////////////////////////////////////
+
+
 router.post(
     "/registro",
     upload.single("image"),
@@ -26,53 +40,28 @@ router.post(
             .isLength(8)
             .withMessage("Debes colocar tu número de DNI.")
             .custom(async (value) => {
-                const dni = await BuyerUser.findOne({
-                    where: {
-                        dni: value,
-                    },
-                });
-                if (dni) {
-                    return false;
-                }
-                return true;
-            })
-            .withMessage("El DNI ya está registrado."),
-        check("email")
+                await paramExists(value, "dni", BuyerUser);
+            }),
+         check("email")
             .isEmail()
             .withMessage("Debes ingresar un mail valido.")
             .custom(async (value) => {
-                const buyerUser = await BuyerUser.findOne({
-                    where: {
-                        email: value,
-                    },
-                });
-                if (buyerUser) {
-                    return false;
-                }
-                const cellarUser = await CellarUser.findOne({
-                    where: {
-                        email: value,
-                    },
-                });
-                if (cellarUser) {
-                    return false;
-                }
-                return true;
-            })
-            .withMessage("El email ingresado ya fue registrado."),
+                await paramExists(value, "email", CellarUser);
+                await paramExists(value, "email", BuyerUser);
+            }),
         check("password")
             .isLength(8)
             .withMessage(
                 "Debes ingresar una contraseña de al menos 8 caracteres."
             ),
-        // check("image")
-        //     .custom((value) => {
-        //         if (!value) {
-        //             return false;
-        //         }
-        //         return true;
-        //     })
-        //     .withMessage("Debes elegir una imagen de perfil."),
+        check("image")
+            .custom((value, { req }) => {
+                if (!req.file) {
+                    return false
+                }
+                return true;
+            })
+            .withMessage("Debes elegir una imagen de perfil."),
         check("terms")
             .notEmpty()
             .withMessage("Debes leer y aceptar los terminos y condiciones."),
@@ -83,14 +72,7 @@ router.post(
 
 router.get("/registroBodega", isGuest, usersController.showRegisterWineCellar);
 
-///////////////////// NO FUNCIONA
-async function userExists(cuit, modelUser) {
-    const user = await modelUser.findOne({ where: { cuit: cuit } });
-    if (user) {
-        throw new Error("Ingresaste un CUIT ya registrado");
-    }
-}
-////////////////////////////////////////////
+
 
 router.post(
     "/registroBodega",
@@ -103,12 +85,11 @@ router.post(
             .notEmpty()
             .withMessage("Debes colocar la razon social de tu empresa."),
         check("cuit")
-            // .isLength(10)
-            // .withMessage("Debes colocar el número de CUIT de la empresa.")
-            .custom(async (value, CellarUser) => {
-                await userExists(value, CellarUser);
-            })
-            .withMessage("El CUIT ingresado ya está registrado."),
+            .isLength(10)
+            .withMessage("Debes colocar el número de CUIT de la empresa.")
+            .custom(async (value) => {
+                await paramExists(value, "cuit", CellarUser);
+            }),
         check("country")
             .notEmpty()
             .withMessage(
@@ -124,38 +105,22 @@ router.post(
             .isEmail()
             .withMessage("Debes ingresar un mail valido.")
             .custom(async (value) => {
-                const buyerUser = await BuyerUser.findOne({
-                    where: {
-                        email: value,
-                    },
-                });
-                if (buyerUser) {
-                    return false;
-                }
-                const cellarUser = await CellarUser.findOne({
-                    where: {
-                        email: value,
-                    },
-                });
-                if (cellarUser) {
-                    return false;
-                }
-                return true;
-            })
-            .withMessage("El email ingresado ya fue registrado."),
+                await paramExists(value, "email", CellarUser);
+                await paramExists(value, "email", BuyerUser);
+            }),
         check("password")
             .isLength(8)
             .withMessage(
                 "Debes ingresar una contraseña de al menos 8 caracteres."
             ),
-        // check("image")
-        //     .custom((value) => {
-        //         if (!value) {
-        //             return false;
-        //         }
-        //         return true;
-        //     })
-        //     .withMessage("Debes elegir una imagen de perfil."),
+        check("image")
+            .custom((value, { req }) => {
+                if (!req.file) {
+                   return false
+                }
+                return true;
+            })
+            .withMessage("Debes elegir una imagen de perfil."),
         check("terms")
             .notEmpty()
             .withMessage("Debes leer y aceptar los terminos y condiciones."),
