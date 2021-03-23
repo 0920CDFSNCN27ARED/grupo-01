@@ -4,65 +4,42 @@
         <%- include("../partials/head.ejs") %>
         <!-- <link rel="stylesheet" href="/css/product2.css" /> -->
         <title>PRODUCTO | WINEDERFUL</title>
-        <script src="/js/colapse.js"></script>
+        <!-- <script src="/js/colapse.js"></script> -->
          <script defer src="/js/cartFunctions.js"></script>
         <script defer src="/js/prodDetail.js"></script>
+        <link rel="stylesheet" href="/css/productDetail.css">
+        <link rel="stylesheet" href="/css/collapseDetails.css">
     </head>
     <body class="body-index">
         <%- include("../partials/header.ejs") %>
         <main>
-            <section class="display-box">
-                <div class="mobile">
-                    <h2 id="prod-name" class="subtitle-wine">
-                        <%= product.productName %>
-                        <a href="/favoritos"
-                            ><i class="fas fa-heart favourite-button"></i
-                        ></a>
-                    </h2>
-                </div>
-                <div class="product">
-                    <img
-                        class="resize"
-                        src="<%= product.image %>"
-                        alt="botella de vino"
-                    />
-                </div>
-                <div>
-                    <h2 class="desktop subtitle-wine">
-                        <%= product.productName %>
-                    </h2>
-                    <h2 id="price" class="price">$<%= product.price %></h2>
+            <section class="productCard">
+                <div class="container">
+                  <div class="info">
+                    <h3 class="name">Cellar Name</h3>
+                    <h1 class="slogan"><%= product.productName %></h1>
+                    <p class="price">$<%= product.price %></p>
                     <p class="pDescription"><%= product.description %></p>
-<% if (user && user.dni) { %>
-                    <form action="/carrito" id="cart-form" class="buying" method="GET">
-                        <div class="quantity-box">
-                           
-                            <label for="quantity">Cantidad</label>
-                            <input
-                                type="number"
-                                id="quantity"
-                                min="1"
-                                placeholder="1"
-                                value="1"
-                            />
-                        </div>
-                        
-                        
-                            <button type="submit" class="button create">
-                                Agregar al carrito
-                                <i class="fas fa-shopping-cart cart-button"></i>
-                            </button>
+                    <% if (user && user.dni) { %>
+                        <form action="/carrito" id="cart-form" class="buying" method="GET">
+                            <div class="quantity-box">
+                               
+                                <label for="quantity">Cantidad</label>
+                                <input
+                                    type="number"
+                                    id="quantity"
+                                    min="1"
+                                    placeholder="1"
+                                    value="1"
+                                />
+                            </div>
+                            <div class="buttons">
+                                <button type="submit" class="button create">
+                                    Agregar al carrito
+                                    <i class="fas fa-shopping-cart cart-button"></i>
+                                </button>
+                            </div>
                         </form>
-                        <div class="fav-share">
-                            <a class="icon" href="/favoritos">
-                                <i class="far fa-heart"></i>
-                            </a>
-                            <a class="icon" href="">
-                                <i class="fas fa-share-alt"></i>
-                            </a>
-                        </div>
-                        
-
                         <% } else if (user && user.cuit) { %>   
                             <a class="button create" href="/productos/<%= product.id %>/editar">
 
@@ -72,17 +49,30 @@
                             </a>
 
                         <% } %>
-                
-                    
-                </div>
-            </section>
-            <div class="specific-suggest">
-                <section class="specific">
-                    <div id="colapse" class="colapse">
-                        <p>ESPECIFICACIONES</p>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
+                 
 
+                  </div>
+                  <div class="colorLayer"></div>
+                  <div class="preview">
+                    <h1 class="brand"><%= product.productName %></h1>
+                    <div class="imgs">
+                      <img class="activ" src="<%= product.image %>" alt="img 1">
+                      <img src="<%= product.image %>" alt="img 2">
+                      <img src="<%= product.image %>" alt="img 3">
+                    </div>
+                    <div class="zoomControl"></div>
+                    <div class="closePreview"></div>
+                    <div class="movControls">
+                      <div class="movControl left"></div>
+                      <div class="movControl right"></div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <details open>
+                <summary>ESPECIFICACIONES</summary>
+                <div class="faq__content">
                     <div id="inside" class="description font-description">
                         <div>
                             <p>AÑADA:</p>
@@ -113,14 +103,11 @@
                             <p class="data"><%= product.aged %></p>
                         </div>
                     </div>
-                </section>
-                <div id="colapse" class="colapse">
-                    <p>RESEÑAS</p>
-                    <i class="fas fa-chevron-down"></i>
                 </div>
-                
-                <section class="suggest"></section>
-            </div>
+                </details>           
+                <details open>
+                    <summary>RESEÑAS</summary>
+                </details>
         </main>
         <%- include("../partials/footer.ejs") %>
     </body>

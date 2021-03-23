@@ -1,0 +1,67 @@
+
+  summary {
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-color: thistle;
+    color: #333;
+    padding: 1rem;
+    outline: none;
+    border: 2px solid black;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+  }
+  details[open] summary ~ * {
+    animation: sweep .5s ease-in-out;
+  }
+  @keyframes sweep {
+    0%    {opacity: 0; margin-top: -10px}
+    100%  {opacity: 1; margin-top: 0px}
+  }
+  details > summary::after {
+    position: absolute;
+    
+    right: 20px;
+  }
+  details[open] > summary::after {
+    position: absolute;
+    right: 20px;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .colapse {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.colapse i {
+    display: none;
+}
+
+.colapse p,
+i {
+    text-align: center;
+    font-weight: bold;
+}
+
+.description {
+    display: grid;
+    grid-gap: 10px;
+    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: thistle;
+}
+
+.description div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    background-color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 8px;
+    border-radius: 10px;
+}

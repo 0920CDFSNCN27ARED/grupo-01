@@ -1,29 +1,26 @@
 <article class="display-flex-column article align-center product-card ">
     <div class="display-flex"></div>
-    <fieldset>
-
-        
-    </fieldset>
     <div class="display-flex space-between align-end width-90">
+        <div class="hide prod-id">${prod.id}</div>
         <img
             class="wine-logo"
-            src="/images/Vino-x-prueba.png"
+            src=${product.data.image}
             alt="wineProduct"
         />
-        <p class="width-100 font-size-075 align-center product-name"></p>
-        <div id="display-table">
-            <i class="fas fa-clipboard"></i>
-        </div>
+        <p class="width-100 font-size-075 align-center product-name">${product.data.productName}</p>
+        
         <div id="price-section" class="display-flex justify-end">
-            <input
+        <p class="unity-price" >Precio x/u:$${product.data.price}</p>    
+        <input
             
                 class="quantity-box"
                 type="number"
-                placeholder="1"
+                placeholder=${prod.quantity}
                 min="1"
                 id="quantity"
+                value=${prod.quantity}
             />
-            <p id="partial-price" class="self-end bold partial-price">$800</p>
+            <p id="partial-price" class="self-end bold partial-price">$</p>
         </div>
     </div>
 
@@ -31,9 +28,12 @@
         <ul class="display-flex article-options justify-evenly">
             <div class="display-flex width-50">
                 <li>
-                    <button id="erase" class="article-options" type="button">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
+                     <button
+                 type="button"
+                class="delete-btn no-border back-white">
+             <i
+            class="fas fa-trash-alt delete-icon"></i>
+                </button>
                 </li>
                 <li>
                     <button id="save" class="article-options" type="button">

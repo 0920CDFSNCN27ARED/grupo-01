@@ -13,11 +13,7 @@ if (cart.length == 0) {
         const product = await response.json();
 
         const productElement = `<article class="display-flex-column article align-center product-card ">
-        <div class="display-flex"></div>
-        <fieldset>
-
-            
-        </fieldset>
+        
         <div class="display-flex space-between align-end width-90">
             <div class="hide prod-id">${prod.id}</div>
             <img
@@ -41,7 +37,7 @@ if (cart.length == 0) {
                 <p id="partial-price" class="self-end bold partial-price">$</p>
             </div>
         </div>
-
+    
         <div id="product-options" class="display-flex">
             <ul class="display-flex article-options justify-evenly">
                 <div class="display-flex width-50">
@@ -58,7 +54,7 @@ if (cart.length == 0) {
                             <i class="fas fa-archive"></i>
                         </button>
                     </li>
-
+    
                     <li>
                         <button
                             id="favourites"
@@ -74,7 +70,7 @@ if (cart.length == 0) {
                         </button>
                     </li>
                 </div>
-
+    
                 <div id="option-display" class="margin-r-1">
                     <li id="more-opt-align">
                         <button
@@ -83,7 +79,7 @@ if (cart.length == 0) {
                         >
                             <i class="fas fa-ellipsis-v gray"></i>
                         </button>
-
+    
                         <select size="2" name="more-options" id="more-options">
                             <option value="buy-now">Comprar ahora</option>
                             <option value="same-seller">Ver vendedor</option>
@@ -92,8 +88,7 @@ if (cart.length == 0) {
                 </div>
             </ul>
         </div>
-    </article>
-    `;
+    </article>`;
 
         prodsSection.innerHTML += productElement;
         return product.data.price * prod.quantity;
