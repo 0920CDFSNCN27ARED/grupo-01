@@ -1,18 +1,18 @@
 <section class="action hide" id="address-screen">
     <div class="background-text"></div>
     <h2>Mis direcciones</h2>
-    <% if(user.addresses.length == 0) {%>
+    <% if(user.dni && user.addresses.length == 0) {%>
     <h4 id="noAddressesYet-msg" class="marginY">
         No tienes direcciones cargadas aun
     </h4>
     <% } %>
     <ul class="marginY">
         <form action="/usuarios/editarDireccion" method="POST">
-            <% let quantity = (user.addresses.length > 0) ?
+            <% let quantity = (user.dni && user.addresses.length > 0) ?
             (user.addresses.length) : 1 %> <% if(user.dni) { for(let i = 0; i <
             quantity; i++) { %>
 
-             <% if(user.addresses.length == 0) {%>
+             <% if(user.dni && user.addresses.length == 0) {%>
             <article class="address-article hide">
                 <%} else { %>
             <article  class="address-article">

@@ -14,7 +14,12 @@
         <main class="profile-main">
             <section class="profile-left">
                 <div class="profile-image">
-                    <!-- <img src="/images/ " alt="" /> -->
+                    <img src="/images/<%= user.image %>" alt="" />
+                    <!-- <form class="newImage" action="/usuarios/perfil" method="post">
+                        <label for="newImage">
+                            <input type="file" name="newImage" id="newImage">
+                        </label>
+                    </form>  -->
                 </div>
                 <div class="profile-nav">
                     <ul>
@@ -63,10 +68,10 @@
                     </ul>
                 </div>
             </section>
-            <div id="right-container">
+            
                 <%-include("../partials/profile/personalData.ejs")%>
                 <%-include("../partials/profile/addresses.ejs")%>
-            </div>
+           
         </main>
         <%- include("../partials/footer.ejs") %>
     </body>

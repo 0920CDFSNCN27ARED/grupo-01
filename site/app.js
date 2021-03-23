@@ -13,7 +13,7 @@ const isAdmin = require("./src/middlewares/isAdmin");
 //views variables
 app.locals.user = null;
 app.use(cors())
-app.listen(3030, () => {
+app.listen(3000, () => {
     console.log("Server running in port 3030");
 });
 
