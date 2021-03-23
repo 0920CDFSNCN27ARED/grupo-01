@@ -620,7 +620,7 @@ button:disabled:hover + .disable-msg {
     font-size: 14px;
     color: red;
     text-align: center;
-} */
+} 
 
 .profile-main {
     display: grid;
@@ -649,7 +649,7 @@ button:disabled:hover + .disable-msg {
     padding: 3% 0;
 }
 
-#right-container {
+#personal-data {
     padding: 40px;
     padding-top: 0;
     border-radius: 10px;

@@ -1,4 +1,5 @@
 <section class="action hide" id="address-screen">
+    <div class="profile-right">
     <div class="background-text"></div>
     <h2>Mis direcciones</h2>
     <% if(user.dni && user.addresses.length == 0) {%>
@@ -6,16 +7,16 @@
         No tienes direcciones cargadas aun
     </h4>
     <% } %>
-    <ul class="marginY">
         <form action="/usuarios/editarDireccion" method="POST">
             <% let quantity = (user.dni && user.addresses.length > 0) ?
-            (user.addresses.length) : 1 %> <% if(user.dni) { for(let i = 0; i <
-            quantity; i++) { %>
+            (user.addresses.length) : 1 %> 
+            <% if(user.dni) { for(let i = 0; i < quantity; i++) { %>
 
-             <% if(user.dni && user.addresses.length == 0) {%>
+            <% if(user.dni && user.addresses.length == 0) {%>
             <article class="address-article hide">
                 <%} else { %>
             <article  class="address-article">
+                
                     <%}%>
                 <div class="address-title">
                     <h4 class="marginY">Dirección <%= i+1%></h4>
@@ -31,21 +32,18 @@
                         </button>
                     </div>
                 </div>
-                <%let streetName = (user.addresses.length > 0) ?
-                user.addresses[i].streetName: "" %> <%let streetNumber =
-                (user.addresses.length > 0) ? user.addresses[i].streetNumber: "" %>
-                <%let apartment = (user.addresses.length > 0) ?
-                user.addresses[i].apartment : "" %> <%let city =
-                (user.addresses.length > 0) ? user.addresses[i].city : "" %> <%let
-                zipCode = (user.addresses.length > 0) ? user.addresses[i].zipCode :
+                <%let streetName = (user.addresses.length > 0) ? user.addresses[i].streetName: "" %> 
+                <%let streetNumber = (user.addresses.length > 0) ? user.addresses[i].streetNumber: "" %>
+                <%let apartment = (user.addresses.length > 0) ? user.addresses[i].apartment : "" %> 
+                <%let city = (user.addresses.length > 0) ? user.addresses[i].city : "" %> 
+                <%let zipCode = (user.addresses.length > 0) ? user.addresses[i].zipCode :
                 "" %>
                 <fieldset id="fieldset-<%=i%>">
                     <p id="deleted-msg-<%=i%>" class="hide">
                         La dirección:
                         <strong>
                             <%=streetName %>, <%= streetNumber %>, Departamento <%=
-                            apartment%></strong
-                        >
+                            apartment%></strong>
                         ha sido eliminada, para recuperarla haz click
                         <button class="undo-delete" type="button">aquí</button>
                     </p>
@@ -106,6 +104,7 @@
                         />
                     </div>
                 </fieldset>
+            
             </article>
 
             <% } %>
@@ -122,5 +121,5 @@
             </button>
             <% } %>
         </form>
-    </ul>
+    </div>
 </section>
