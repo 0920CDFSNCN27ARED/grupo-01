@@ -104,13 +104,13 @@ CREATE TABLE IF NOT EXISTS `winederful`.`orders` (
   `createdAt` TIMESTAMP NULL DEFAULT NULL,
   `updatedAt` TIMESTAMP NULL DEFAULT NULL,
   `deletedAt` TIMESTAMP NULL DEFAULT NULL,
-  `addressId` INT(11) NOT NULL,
+  `addressId` INT(11),
   `total` FLOAT(10,2) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_orders_addresses1`
     FOREIGN KEY (`addressId`)
     REFERENCES `winederful`.`addresses` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE SET NULL
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_orders_buyer_users1`
     FOREIGN KEY (`buyerUserId`)

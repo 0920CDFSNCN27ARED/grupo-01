@@ -140,6 +140,6 @@ router.post(
 );
 
 router.post("/crearDireccion", isLoggedIn, usersController.newAddress);
-router.post("/editarDireccion/:id", isLoggedIn, usersController.editAddress);
+router.put("/editarDireccion/:id", isLoggedIn, usersController.editAddress);
 router.delete("/eliminarDireccion/:id", isLoggedIn, usersController.deleteAddress);
 module.exports = router;

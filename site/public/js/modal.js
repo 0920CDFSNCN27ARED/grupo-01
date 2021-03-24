@@ -16,30 +16,60 @@ modaleNewAddress = Array.from(modaleNewAddress);
 let modalDeleteAddress = document.querySelectorAll("[id*=delete-modal]");
 modalDeleteAddress = Array.from(modalDeleteAddress);
 
+let errors;
+let validationStructure;
 // new
 open.addEventListener("click", () => {
     modalForm.action = "/usuarios/crearDireccion";
     showOneHeader(headerNew);
     const inputs = modaleNewAddress[0].querySelectorAll("input");
+
     for (const input of inputs) {
         input.placeholder = "";
+        input.value = "";
+        validationStructure = [
+            [`streetName-0`, [isLength(3), noNumberValidation]],
+            [`streetNumber-0`, [isLength(2), onlyNumbers]],
+            [`apartment-0`, [isLength(2), onlyNumbers]],
+            [`city-0`, [isLength(3), noNumberValidation]],
+            [`zipCode-0`, [isLength(2, 8), onlyNumbers]],
+        ];
     }
     modaleNewAddress[0].classList.add("show-modal");
+    modalForm.addEventListener("submit", (event) => {
+        clearValidateAndCheck(event);
+    });
+
+    validateAllIndividually(validationStructure); // On keyup, change, etc...
+    closeModal(modaleNewAddress[0], close);
 });
 //edit
 for (const btn of editBtns) {
     btn.addEventListener("click", () => {
         const index = getIdIndex(btn);
+        validationStructure = [
+            [`streetName-${index}`, [isLength(3), noNumberValidation]],
+            [`streetNumber-${index}`, [isLength(2), onlyNumbers]],
+            [`apartment-${index}`, [isLength(2), onlyNumbers]],
+            [`city-${index}`, [isLength(3), noNumberValidation]],
+            [`zipCode-${index}`, [isLength(2, 8), onlyNumbers]],
+        ];
+
         const selectedModal = modaleNewAddress.find((modal) => {
             return modal.id.includes(index);
         });
-        modalForm.action = `/usuarios/editarDireccion/${selectedModal.dataset.id}`;
+        modalForm.action = `/usuarios/editarDireccion/${selectedModal.dataset.id}?_method=PUT`;
         showOneHeader(headerEdit);
         selectedModal.classList.add("show-modal");
+console.log(modalForm)
+        modalForm.addEventListener("submit", (event) => {
+            clearValidateAndCheck(event);
+        });
+        validateAllIndividually(validationStructure); // On keyup, change, etc...
         closeModal(selectedModal, close);
+
     });
 }
-
 
 //delete
 for (const btn of deleteBtns) {
@@ -54,6 +84,7 @@ for (const btn of deleteBtns) {
         closeModal(deletedAddress);
     });
 }
+
 ///////
 function closeModal(modal) {
     const close = modal.querySelector(".close-btn");

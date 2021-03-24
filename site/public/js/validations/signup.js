@@ -1,5 +1,5 @@
 const form = document.getElementById("signup-form");
-console.log(form)
+
 let errors;
 
 const validationStructure = [

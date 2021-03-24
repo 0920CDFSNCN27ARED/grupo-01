@@ -17,8 +17,26 @@ module.exports = {
         const newOrderId = lastOrderId[0] ? lastOrderId[0] : 1;
         const orderId = existingOrder ? existingOrder.id : newOrderId;
 
-        // Create/Update order 
+        ///// Get totalPrice
+        let totalPrice = 0;
+        for (const cartProd of cart) {
+            const fullProd = await Product.findByPk(cartProd.id);
+            totalPrice += Number(fullProd.price * cartProd.quantity);
+console.log(totalPrice, fullProd, "----------------")
+            //Create orderItems
+            await OrderItem.create({
+                subtotal: fullProd.price * cartProd.quantity,
+                quantity: cartProd.quantity,
+                price: fullProd.price,
+                orderId: orderId,
+                productId: cartProd.id,
+                discount: fullProd.discount,
+            });
+        }
+
+        // Create/Update order
         if (existingOrder) {
+            totalPrice += existingOrder.total
             await Order.update(
                 {
                     addressId: 1,
@@ -30,32 +48,14 @@ module.exports = {
                     },
                 }
             );
-        }
-
-        await Order.create({
-            buyerUserId: userId,
-            addressId: 1,
-            total: totalPrice,
-        });
-        ///// Get totalPrice
-        
-        let totalPrice = 0;
-        for (const cartProd of cart) {
-            const fullProd = await Product.findByPk(cartProd.id);
-            totalPrice += Number(fullProd.price * cartProd.quantity);
-
-            //Create orderItems
-            await OrderItem.create({
-                subtotal: fullProd.price * cartProd.quantity,
-                quantity: cartProd.quantity,
-                price: fullProd.price,
-                orderId: orderId,
-                productId: cartProd.id,
-                discount: fullProd.discount,
+        } else {
+            await Order.create({
+                buyerUserId: userId,
+                addressId: 1,
+                total: totalPrice,
             });
-            return res.send(existingOrder);
         }
 
-        res.send({ msg: "Orden creada" });
+        res.redirect("/productos")
     },
 };

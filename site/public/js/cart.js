@@ -174,7 +174,7 @@ buy.addEventListener("submit", async (event) => {
             },
             body: JSON.stringify(cart),
         });
-        const init_url = await response.json();
+        //const init_url = await response.json();
     } catch (err) {
         console.log(err);
     }

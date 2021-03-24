@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         Order.belongsTo(models.Address, {
             as: "address",
             foreignKey: "addressId",
+            onDelete: "cascade"
         });
         Order.belongsTo(models.BuyerUser, {
             as: "buyerUser",

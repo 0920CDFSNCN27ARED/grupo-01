@@ -168,6 +168,7 @@ const usersControllers = {
         logOut(req, res, "/usuarios/login");
     },
     editAddress: async (req, res) => {
+        console.log("aqui-----------------------------------");
         try {
             await Address.update(
                 {
@@ -197,8 +198,13 @@ const usersControllers = {
             console.log(err);
         }
     },
-    deleteAddress: (req, res) => {
-        res.send();
+    deleteAddress: async (req, res) => {
+        await Address.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+        res.redirect("/usuarios/perfil");
     },
 };
 
