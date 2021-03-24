@@ -119,7 +119,7 @@ lastPromise.then((something) => {
         const quantity = article.querySelector(".quantity-box");
         const subtotal = article.querySelector(".partial-price");
         const unityPriceContainer = article.querySelector(".unity-price");
-        const unityPrice = unityPriceContainer.innerText.split("$")[1];
+        const unityPrice = splitPrice(unityPriceContainer);
 
         subtotal.innerText = `$${quantity.value * unityPrice}`;
 
@@ -134,12 +134,12 @@ lastPromise.then((something) => {
             localStorage.setItem(localStorageKey, JSON.stringify(cart));
 
             /////Change view quantity values
-            const actualSubTotal = article
-                .querySelector(".partial-price")
-                .innerText.split("$")[1];
+            const subtotalPrice = article.querySelector(".partial-price");
+            const actualSubTotal = splitPrice(subtotalPrice);
+
             subtotal.innerText = `$${newQuantity * unityPrice}`;
             totalPrice.innerText = `$${
-                totalPrice.innerText.split("$")[1] -
+                splitPrice(totalPrice) -
                 actualSubTotal +
                 newQuantity * unityPrice
             }`;
@@ -152,6 +152,8 @@ lastPromise.then((something) => {
             const productIndexToRemove = cart.findIndex((element) => {
                 return element.id == productToRemoveId;
             });
+            totalPrice.innerText = `$${splitPrice(totalPrice)
+            - splitPrice(subtotal)}`
             article.remove();
             cart.splice(productIndexToRemove, 1);
             localStorage.setItem(localStorageKey, JSON.stringify(cart));

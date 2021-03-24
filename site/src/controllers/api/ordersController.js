@@ -24,8 +24,9 @@ module.exports = {
             totalPrice += Number(fullProd.price * cartProd.quantity);
 console.log(totalPrice, fullProd, "----------------")
             //Create orderItems
+            
             await OrderItem.create({
-                subtotal: fullProd.price * cartProd.quantity,
+                subtotal: fullProd.dataValues.price * cartProd.quantity,
                 quantity: cartProd.quantity,
                 price: fullProd.price,
                 orderId: orderId,

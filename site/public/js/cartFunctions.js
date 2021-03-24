@@ -16,3 +16,6 @@ function getIdFromUrl() {
     const id = splitUrl[splitUrl.length - 1];
     return id;
 }
+function splitPrice(price) {
+    return price.innerText.split("$")[1];
+}
