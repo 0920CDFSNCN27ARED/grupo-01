@@ -16,6 +16,16 @@ modaleNewAddress = Array.from(modaleNewAddress);
 let modalDeleteAddress = document.querySelectorAll("[id*=delete-modal]");
 modalDeleteAddress = Array.from(modalDeleteAddress);
 
+// new
+open.addEventListener("click", () => {
+    modalForm.action = "/usuarios/crearDireccion";
+    showOneHeader(headerNew);
+    const inputs = modaleNewAddress[0].querySelectorAll("input");
+    for (const input of inputs) {
+        input.placeholder = "";
+    }
+    modaleNewAddress[0].classList.add("show-modal");
+});
 //edit
 for (const btn of editBtns) {
     btn.addEventListener("click", () => {
@@ -31,16 +41,6 @@ for (const btn of editBtns) {
     });
 }
 
-// new≤
-open.addEventListener("click", () => {
-    modalForm.action = "/usuarios/crearDireccion";
-    showOneHeader(headerNew);
-    const inputs = modaleNewAddress[0].querySelectorAll("input");
-    for (const input of inputs) {
-        input.placeholder = "";
-    }
-    modaleNewAddress[0].classList.add("show-modal");
-});
 
 //delete
 for (const btn of deleteBtns) {

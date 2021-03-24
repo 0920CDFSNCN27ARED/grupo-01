@@ -191,8 +191,12 @@ const usersControllers = {
         });
         res.redirect("/usuarios/perfil");
     },
-    newAddress: (req, res) => {
-        res.send();
+    newAddress: async (req, res) => {
+        await Address.create({
+            ...req.body,
+            buyerUserId: res.locals.user.id,
+        });
+        res.redirect("/usuarios/perfil");
     },
     deleteAddress: (req, res) => {
         res.send();
