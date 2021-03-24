@@ -23,6 +23,7 @@
                 <li class="error"><%= errors[i].msg %></li>
                 <% } %> <% } %>
                 <form
+                    id="signupCellar-form"
                     action="/usuarios/registroBodega"
                     class="form"
                     enctype="multipart/form-data"
@@ -58,7 +59,9 @@
 
                     <label for="province">Provincia</label>
                     <select name="provinces" id="province">
-                        <option value="" selected>Selecciona una provincia</option>
+                        <option value="" selected>
+                            Selecciona una provincia
+                        </option>
                         <option value="La pampa">La pampa</option>
                         <option value="Cordoba">Cordoba</option>
                     </select>

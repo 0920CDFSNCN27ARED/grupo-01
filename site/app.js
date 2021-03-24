@@ -14,7 +14,7 @@ const isAdmin = require("./src/middlewares/isAdmin");
 app.locals.user = null;
 app.use(cors())
 app.listen(3000, () => {
-    console.log("Server running in port 3030");
+    console.log("Server running in port 3000");
 });
 
 const staticFileRouter = express.static("public");

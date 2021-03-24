@@ -91,9 +91,10 @@ const usersControllers = {
                     image: req.file.filename,
                 });
                 req.session.loggedUser = newCellarUser;
-
+                console.log("aqui");
                 res.redirect("/productos");
             } else {
+                console.log(errors);
                 res.render("users/signupWineCellar");
             }
         } catch (err) {
@@ -189,6 +190,12 @@ const usersControllers = {
             }
         });
         res.redirect("/usuarios/perfil");
+    },
+    newAddress: (req, res) => {
+        res.send();
+    },
+    deleteAddress: (req, res) => {
+        res.send();
     },
 };
 

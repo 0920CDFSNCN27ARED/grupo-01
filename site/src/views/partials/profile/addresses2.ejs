@@ -1,0 +1,55 @@
+<section class="action hide" id="address-screen">
+    <div class="profile-right">
+        <div class="background-text"></div>
+        <h2>Mis direcciones</h2>
+        <% if(user.dni && user.addresses.length == 0) {%>
+        <h4 id="noAddressesYet-msg" class="marginY">
+            No tienes direcciones cargadas aún...
+        </h4>
+        <% } %> <% if(user.dni) { for(let i = 0; i < user.addresses.length; i++)
+        { %>
+
+        <article id="article-<%=i%>" class="address-article">
+            <div class="address-title">
+                <h4 class="marginY">Dirección <%= i+1%></h4>
+                <div>
+                    <button
+                        id="edit-btn-<%=i%>"
+                        type="button"
+                        class="edit-btn no-border back-white"
+                    >
+                        <i class="fas fa-pencil-alt edit-icon"></i>
+                    </button>
+                    <button
+                        id="delete-btn-<%=i%>"
+                        type="button"
+                        class="delete-btn no-border back-white"
+                    >
+                        <i class="fas fa-trash-alt delete-icon"></i>
+                    </button>
+                </div>
+            </div>
+            <%let streetName = user.addresses[i].streetName %> <%let
+            streetNumber = user.addresses[i].streetNumber %> <%let apartment =
+            user.addresses[i].apartment %> <%let city = user.addresses[i].city
+            %> <%let zipCode = user.addresses[i].zipCode %>
+            <fieldset id="fieldset-<%=i%>">
+                <p>
+                    <%=streetName%> <%=streetNumber%>, Depto <%=apartment%>
+                    <br />Ciudad de <%=city%>, Código postal <%= zipCode%>
+                </p>
+            </fieldset>
+        </article>
+
+        <%-include("./newAddress.ejs",{streetName,streetNumber, apartment, city,
+        zipCode,i})%> 
+        <%-include("./confirmDelete.ejs",{streetName,streetNumber, apartment, city,
+        zipCode,i})%>
+        <% } %> 
+        <%}%> 
+        
+        <button type="button" class="create" id="new-address">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+</section>

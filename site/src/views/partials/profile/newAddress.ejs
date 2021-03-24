@@ -1,0 +1,64 @@
+<div class="modal-container "data-id=<%=user.addresses[i].id%> id="newAddress-modal-<%=i%>">
+    <div class="modal">
+        <button class="close-btn">
+            <i class="fa fa-times"></i>
+        </button>
+        <div  class="modal-header hide edit-hder"><h3>Editar Dirección</h3></div>
+        <div  class="modal-header hide new-hder"><h3>Nueva Dirección</h3></div>
+         
+        <div class="modal-content">
+            <form
+                action="/usuarios/crearDireccion"
+                method="POST"
+                class="modal-form"
+                
+            >
+            <input type="hidden" name="id" value="">
+                <div>
+                    <label for="street">Calle </label>
+                    <input
+                        name="streetName"
+                        type="text"
+                        id="streetName-<%=i%>"
+                        placeholder=<%=streetName%>
+                    />
+                </div>
+                <div>
+                    <label for="streetNumber">Número</label>
+                    <input
+                        name="streetNumber"
+                        type="text"
+                        id="streetNumber-<%=i%>"
+                        placeholder=<%=streetNumber%>
+                    />
+                </div>
+                <div>
+                    <label for="apartment">Departamento</label>
+                    <input
+                        name="apartment"
+                        type="text"
+                        id="apartment-<%=i%>"
+                        placeholder=<%=apartment%>
+                    />
+                </div>
+                <div>
+                    <label for="city">Ciudad</label>
+                    <input name="city" type="text" id="city-<%=i%>" placeholder=<%=city%> />
+                </div>
+                <div>
+                    <label for="zipCode"> Código Postal: </label>
+                    <input
+                        name="zipCode"
+                        type="text"
+                        id="zipCode-<%=i%>"
+                        placeholder=<%=zipCode%>
+                    />
+                </div>
+                <button type="submit" class="submit-btn">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

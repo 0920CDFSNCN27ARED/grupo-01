@@ -4,7 +4,7 @@
     <h2>Mis direcciones</h2>
     <% if(user.dni && user.addresses.length == 0) {%>
     <h4 id="noAddressesYet-msg" class="marginY">
-        No tienes direcciones cargadas aun
+        No tienes direcciones cargadas aún...
     </h4>
     <% } %>
         <form action="/usuarios/editarDireccion" method="POST">
@@ -112,6 +112,60 @@
             <button type="button" id="new-address">
                 <i class="fas fa-plus"></i>
             </button>
+             <!-- Modal -->
+    <div class="modal-container" id="modal">
+      <div class="modal">
+        <button class="close-btn" id="close">
+          <i class="fa fa-times"></i>
+        </button>
+        <div class="modal-header"><h3>Sign Up</h3></div>
+        <div class="modal-content">
+          <p>Nueva dirección:</p>
+          <form class="modal-form">
+            <div>
+              <label for="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Enter Name"
+                class="form-input"
+              />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter Email"
+                class="form-input"
+              />
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter Password"
+                class="form-input"
+              />
+            </div>
+            <div>
+              <label for="password2">Confirm Password</label>
+              <input
+                type="password"
+                id="password2"
+                placeholder="Confirm Password"
+                class="form-input"
+              />
+            </div>
+            <input type="submit" value="Submit" class="submit-btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+    
 
             <button class="button create" id="save-changes-btn" type="submit">
                 Guardar cambios

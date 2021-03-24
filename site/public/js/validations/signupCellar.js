@@ -1,4 +1,4 @@
- const form = document.querySelector("form");
+const form = document.getElementById("signupCellar-form");
 ////////////////////////
 
 async function getCountries() {
