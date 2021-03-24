@@ -12,82 +12,37 @@ if (cart.length == 0) {
         const response = await fetch(`/api/products/${prod.id}`);
         const product = await response.json();
 
-        const productElement = `<article class="display-flex-column article align-center product-card ">
-        
-        <div class="display-flex space-between align-end width-90">
-            <div class="hide prod-id">${prod.id}</div>
+        const productElement = `
+        <article class="article">
+        <div id="hide" class="prod-id">${prod.id}</div>
+        <div id="trash-box">
+            <button class="delete delete-btn">
+                <i class="far fa-trash-alt"></i>
+            </button>
+        </div>
+        <div id="wine-logo-box">
             <img
                 class="wine-logo"
                 src=${product.data.image}
                 alt="wineProduct"
             />
-            <p class="width-100 font-size-075 align-center product-name">${product.data.productName}</p>
-            
-            <div id="price-section" class="display-flex justify-end">
-            <p class="unity-price" >Precio x/u:$${product.data.price}</p>    
-            <input
-                
-                    class="quantity-box"
-                    type="number"
-                    placeholder=${prod.quantity}
-                    min="1"
-                    id="quantity"
-                    value=${prod.quantity}
-                />
-                <p id="partial-price" class="self-end bold partial-price">$</p>
-            </div>
+        </div>
+        <div>    
+            <p class="product-name">${product.data.productName}</p>
+        </div>    
+        <div id="price-section" class="">
+            <p class="unity-price" >$${product.data.price}</p>
+        </div>
+        <div class="quantity">
+            <input type="button" value="-" class="minus">    
+            <input class="quantity-box" type="number" placeholder=${prod.quantity} min="1" id="quantity" value=${prod.quantity}>
+            <input type="button" value="+" class="plus">
+        </div>
+        <div>        
+            <p id="partial-price" class="bold partial-price"></p>
         </div>
     
-        <div id="product-options" class="display-flex">
-            <ul class="display-flex article-options justify-evenly">
-                <div class="display-flex width-50">
-                    <li>
-                         <button
-                     type="button"
-                    class="delete-btn no-border back-white">
-                 <i
-                class="fas fa-trash-alt delete-icon"></i>
-                    </button>
-                    </li>
-                    <li>
-                        <button id="save" class="article-options" type="button">
-                            <i class="fas fa-archive"></i>
-                        </button>
-                    </li>
-    
-                    <li>
-                        <button
-                            id="favourites"
-                            class="article-options"
-                            type="button"
-                        >
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button id="recipies" class="article-options" type="button">
-                            <i class="fas fa-utensils"></i>
-                        </button>
-                    </li>
-                </div>
-    
-                <div id="option-display" class="margin-r-1">
-                    <li id="more-opt-align">
-                        <button
-                            class="article-options width-10 background-color-main"
-                            type="button"
-                        >
-                            <i class="fas fa-ellipsis-v gray"></i>
-                        </button>
-    
-                        <select size="2" name="more-options" id="more-options">
-                            <option value="buy-now">Comprar ahora</option>
-                            <option value="same-seller">Ver vendedor</option>
-                        </select>
-                    </li>
-                </div>
-            </ul>
-        </div>
+        
     </article>`;
 
         prodsSection.innerHTML += productElement;

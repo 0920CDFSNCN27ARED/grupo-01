@@ -6,37 +6,73 @@
         <title>CARRITO | WINEDERFUL</title>
         <script defer src="/js/cartFunctions.js"></script>
         <script defer src="/js/cart.js"></script>
+        <script src="/js/plusMinusQty.js"></script>
     </head>
 
     <body>
         <%- include("../partials/header")%>
 
-        <main id="main" class="display-flex-column">
-            <div id="nav-container" class="categories display-flex">
+        <main id="main">
+            <div id="nav-container" class="categories">
                 <a href="/carrito/guardados">
                     Guardados
                     <i class="fas fa-archive"></i>
                 </a>
                 
             </div>
-            <h4 id="empty-cart-msg">
-                Todavía no has agregado productos a tu carrito. <a class="start-now" href="/productos">Comienza ahora</a> 
-            </h4>
-            <div class="sad-glass">
-                <img src="/images/glass-cart.png" alt="Sad Glass">
-            </div>
+            <section id="empty-cart-msg">
+                <div>
+                    <h4>
+                        Todavía no has agregado productos a tu carrito. <a class="start-now" href="/productos">Comienza ahora</a> 
+                    </h4>
+                </div>
+                
+                <div class="sad-glass">
+                    <img src="/images/glass-cart.png" alt="Sad Glass">
+                </div>
+            </section>
+            <section id="hide" class="section border-bottom">
+                <div></div>
+                <div></div>
+                <div id="align-left">
+                    <p>Producto</p>
+                </div>
+                <div>
+                    <p>$ unitario</p>
+                </div>
+                <div>
+                    <p>Cant.</p>
+                </div>
+                <div>
+                    <p>Total</p>
+                </div>
+            </section>
             <div id="complete-cart">
                 <section
                     id="products-section"
-                    class="display-flex-column align-center"
+                    class=""
                 >
-            
-            
-            </section>
-                <section id="section-buy" class="display-flex-column bold">
-                    <div class="display-flex">
-                        <p>Total</p>
-                        <p id="total-price"></p>
+                </section>
+                <section id="section-buy" class="bold">
+                    <div class="cupon-box">
+                        <input type="text" name="cupon" id="cupon" placeholder="Código de descuento">
+                        <button class="button cupon-button">
+                            Aplicar código
+                        </button>
+                    </div>
+                    <div class="total-price">
+                        <div>
+                            <p>Subtotal</p>
+                            <p id="subtotal-price"></p>
+                        </div>
+                        <div>
+                            <p>Costo de envío</p>
+                            <p>SIN CARGO</p>
+                        </div>
+                        <div id="total">
+                            <p>Total</p>
+                            <p id="total-price"></p>
+                        </div>
                     </div>
                     <form id="buy-form" method="POST">
                         <input
@@ -49,7 +85,7 @@
                             class="button create final-price"
                             type="submit"
                         >
-                            COMPRAR <i class="fas fa-wine-bottle"></i>
+                            CONTINUAR COMPRA
                         </button>
                     </form>
                 </section>
