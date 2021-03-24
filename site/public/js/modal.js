@@ -34,7 +34,6 @@ for (const btn of editBtns) {
             return modal.id.includes(index);
         });
         modalForm.action = `/usuarios/editarDireccion/${selectedModal.dataset.id}`;
-        console.log(modalForm.action);
         showOneHeader(headerEdit);
         selectedModal.classList.add("show-modal");
         closeModal(selectedModal, close);

@@ -167,36 +167,35 @@ const usersControllers = {
         await updatePassword(buyerUser, req, checkHash);
         logOut(req, res, "/usuarios/login");
     },
-    editAddress: (req, res) => {
-        const addresses = res.locals.user.addresses;
-        addresses.forEach((address, index) => {
-            if (req.body["isDeleted" + index]) {
-                Address.destroy({ where: { id: address.id } });
-            } else {
-                Address.update(
-                    {
-                        streetName: req.body["streetName" + index],
-                        streetNumber: Number(req.body["streetNumber" + index]),
-                        apartment: Number(req.body["apartment" + index]),
-                        city: req.body["city" + index],
-                        zipCode: Number(req.body["zipCode" + index]),
+    editAddress: async (req, res) => {
+        try {
+            await Address.update(
+                {
+                    ...req.body,
+                    buyerUserId: res.locals.user.id,
+                },
+                {
+                    where: {
+                        id: req.params.id,
                     },
-                    {
-                        where: {
-                            id: address.id,
-                        },
-                    }
-                );
-            }
-        });
+                }
+            );
+        } catch (err) {
+            console.log(err);
+        }
+
         res.redirect("/usuarios/perfil");
     },
     newAddress: async (req, res) => {
-        await Address.create({
-            ...req.body,
-            buyerUserId: res.locals.user.id,
-        });
-        res.redirect("/usuarios/perfil");
+        try {
+            await Address.create({
+                ...req.body,
+                buyerUserId: res.locals.user.id,
+            });
+            res.redirect("/usuarios/perfil");
+        } catch (err) {
+            console.log(err);
+        }
     },
     deleteAddress: (req, res) => {
         res.send();
