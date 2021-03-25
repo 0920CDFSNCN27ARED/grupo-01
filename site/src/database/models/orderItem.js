@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         OrderItem.belongsTo(models.Order, {
             as: "orders",
             foreignKey: "orderId",
+            onUpdate: "cascade"
         });
     };
     return OrderItem;

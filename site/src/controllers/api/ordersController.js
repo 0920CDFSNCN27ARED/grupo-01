@@ -14,7 +14,7 @@ module.exports = {
             },
         });
         // Get new orderId
-        const newOrderId = lastOrderId[0] ? lastOrderId[0] : 1;
+        const newOrderId = lastOrderId[0] ? lastOrderId[0].id + 1 : 1;
         const orderId = existingOrder ? existingOrder.id : newOrderId;
 
         ///// Get totalPrice
@@ -22,22 +22,11 @@ module.exports = {
         for (const cartProd of cart) {
             const fullProd = await Product.findByPk(cartProd.id);
             totalPrice += Number(fullProd.price * cartProd.quantity);
-console.log(totalPrice, fullProd, "----------------")
-            //Create orderItems
-            
-            await OrderItem.create({
-                subtotal: fullProd.dataValues.price * cartProd.quantity,
-                quantity: cartProd.quantity,
-                price: fullProd.price,
-                orderId: orderId,
-                productId: cartProd.id,
-                discount: fullProd.discount,
-            });
         }
 
         // Create/Update order
         if (existingOrder) {
-            totalPrice += existingOrder.total
+            totalPrice += existingOrder.total;
             await Order.update(
                 {
                     addressId: 1,
@@ -56,7 +45,45 @@ console.log(totalPrice, fullProd, "----------------")
                 total: totalPrice,
             });
         }
+        //Create orderItems
+        for (const cartProd of cart) {
+            const fullProd = await Product.findByPk(cartProd.id);
+            const orderItemExists = await OrderItem.findOne({
+                where: {
+                    productId: cartProd.id,
+                    orderId: orderId,
+                },
+            });
+            if (orderItemExists) {
+                const newSubTotal =
+                    orderItemExists.subtotal +
+                    fullProd.price * cartProd.quantity;
+                await OrderItem.update(
+                    {
+                        subtotal: newSubTotal,
+                        quantity:
+                            orderItemExists.quantity +
+                            Number(cartProd.quantity),
+                    },
+                    {
+                        where: {
+                            productId: cartProd.id,
+                            orderId: orderId,
+                        },
+                    }
+                );
+            } else {
+                await OrderItem.create({
+                    subtotal: fullProd.price * cartProd.quantity,
+                    quantity: cartProd.quantity,
+                    price: fullProd.price,
+                    orderId: orderId,
+                    productId: cartProd.id,
+                    discount: fullProd.discount,
+                });
+            }
+        }
 
-        res.redirect("/productos")
+        res.send(cart);
     },
 };

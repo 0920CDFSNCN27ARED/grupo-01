@@ -168,7 +168,6 @@ const usersControllers = {
         logOut(req, res, "/usuarios/login");
     },
     editAddress: async (req, res) => {
-        console.log("aqui-----------------------------------");
         try {
             await Address.update(
                 {
