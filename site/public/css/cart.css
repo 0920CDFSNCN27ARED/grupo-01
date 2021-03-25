@@ -5,8 +5,8 @@
 }
 
 
-.font-size-075{
-    font-size: 0.75em;
+ul, p{
+    font-size: 14px;
 }
 
 .width-100 {
@@ -15,35 +15,49 @@
 
 /* POSITIONS AND DISPLAY*/
 
-.display-flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-}
 
-
-
-
-.display-flex-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: initial;
-
-}
-
-
-.justify-evenly {
-    justify-content: space-evenly;
-}
 
 .final-price:hover .fa-wine-bottle {
     transform: rotate(60deg);
     transition: transform 2s;
 }
 
+.section{
+    display: grid;
+    grid-template-columns: 5% 20% 42% auto 15% auto;
+    padding: 15px 10px;
+}
+
+.article{
+    display: grid;
+    border: 0.5px solid rgb(212, 212, 212);
+    margin: 10px;
+    padding: 10px;
+    grid-gap: 15px;
+    border-radius: 2px;
+}
+
+
+.article div{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+#wine-logo-box img{
+    width: 50%;
+    margin: 0 auto;
+ }
+
+
+ #trash-box{
+     position: absolute;
+     right: 5%;
+ }
+
+ #trash-box button{
+     font-size: 15px;
+ }
 
 /**/
 
@@ -53,6 +67,24 @@
 
 
 /* SEPECIFIC TAGS */
+#align-left{
+    text-align: left;
+}
+
+
+.border-bottom{
+    border-bottom: 1px solid grey;
+    padding: 0 10px;
+}
+.delete{
+    background-color: white;
+    border: 0;
+}
+
+.delete i{
+    color: red;
+}
+
 .submit-button-specs {
     background-color: #289af7;
     width: 85%;
@@ -67,39 +99,12 @@
     text-align: center;
     height: 100%;
 }
-.article-options {
-    text-decoration: none;
-    border: none;
-    box-shadow: none;
-    font-size: 12px;
-    width: 100%;
-    padding: 2% 0;
-    justify-content: space-between;
-
-}
-
-.space-between {
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.justify-end {
-    justify-content: flex-end;
-}
 
 
 .width-10{
     width: 10%;
 }
 
-
-.article {
-    width: 90%;
-    background-color:thistle;
-    margin-bottom: 10%;
-    border-radius: 3%;
-    padding-top: 5%;
-}
 
 li {
     display: inline;
@@ -114,8 +119,7 @@ a {
 }
 
 .wine-logo {
-
-    width: 17%
+    width: 80%
 }
 
 
@@ -126,13 +130,6 @@ a {
     background-color: white;
     
 }
-#products-section{
-    overflow: scroll;
-    justify-content: flex-start;
-    height: 60vh;
-    margin-bottom: 30%;
-    width: 100%;
-}
 
 /* TYPO */
 
@@ -141,21 +138,49 @@ a {
 }
 
 
-.align-center {
-    align-self: center;
-}
-
 /*MOVEMENT*/
 
 /*-------*/
 
-#categories {
-    padding-top: 5%;
-    margin-bottom: 5%;
+.sad-glass{
+    text-align: center;
+    padding: 10px 0;
 }
 
-#categories>ul>li {
-    font-size: 0.80em;
+.sad-glass img{
+    width: 25%;
+}
+
+.start-now{
+    color: #9a345c;
+    text-decoration: underline;
+}
+
+.categories {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+
+#empty-cart-msg{
+    text-align: center;
+    padding: 20px 0;
+}
+.hand-cart {
+    width: 20%;
+    text-align: left;
+    position: relative;
+    left: -20px;
+    top: 60px;
+}
+
+.hand-cart-near {
+    width: 20%;
+    text-align: left;
+    position: relative;
+    left: -20px;
+    top: 60px;
 }
 
 ul {
@@ -190,8 +215,6 @@ ul {
     background-color: white;
     width: 98%;
     padding-bottom: 5%;
-    position: absolute;
-    top:82%;
     align-self: center;
 }
 
@@ -204,19 +227,26 @@ ul li button {
     font-size: 1.1em;
 }
 
+.quantity{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 25%;
+    margin: 0 auto;
+}
 
-.quantity-box {
-    font-size: 16px;
+.quantity-box, .minus, .plus{
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    border: 0.5px solid rgb(207, 206, 206);
+    font-size: 12px;
     font-weight: bold;
-    font-family: "Spartan", sans-serif;
-    padding: 2px 2px;
-    min-width: 25%;
-    max-width: 100%;
-    border: 1px solid #949494;
-    line-height: 0.5;
-    border-radius: 2px;
-    touch-action: manipulation;
-    margin-right: 5%;
+}
+
+.partial-price{
+    font-size: 20px;
+    padding: 10px 0;
+    color: #8DC19D;
 }
 
 
@@ -236,9 +266,6 @@ ul li button {
     margin-top: 5%
 }
 
-#nav-container{
-    height: 7vh;
-}
 
 .display-md{
     display: none;
@@ -249,35 +276,44 @@ ul li button {
     background-color: floralwhite;
 }
 
-#option-display{
-    margin-right: 1%;
-    width: 4%;
-    text-align: center;
-    width: 50%;
+.cupon-box{
+    display: grid;
+    width: 60%;
+    margin: 0 auto;
+    grid-gap: 10px;
 }
 
-#more-options{
-    display: none;
-    text-align: center;
-    padding: 5px;
-    box-shadow: 0px 1px grey;
-}
-option{
-    padding:5px;
-    background-color: white;
-    color: gray;
-    font-weight:500 ;
+.cupon-box input{
+    padding: 10px;
+    font-size: 14px;
 }
 
-#more-opt-align{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+.total-price{
+    display: grid;
+    padding: 15px;
 }
 
-div[id= "option-display"]:active #more-options{
-    display: block;
+.total-price div{
+    display: grid;
+    grid-template-columns: 70% auto;
+    border-bottom: 0.5px solid rgb(207, 206, 206);
+    padding: 10px 0;
 }
+
+#total{
+    border-bottom: 0;
+}
+
+#total-price{
+    color: #8DC19D;
+}
+
+
+.cupon-button{
+    background-color: black;
+}
+
+
 
 @media(min-width:500px){
     .display-sm{
@@ -295,33 +331,26 @@ div[id= "option-display"]:active #more-options{
         position: initial;
 
     }
-
-#nav-container{
-    height: 12vh;
-}
-#products-section{
+    #products-section{
  
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 5%;
-}
-.article{
-    
-}
+    }
+    .categories {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
 
+    .sad-glass img{
+        width: 15%;
+    }
 
 
 }
 
 @media (min-width: 1100px) {
-    .article {
-        width: 85%;
-        margin-bottom: 10%;
-        border-radius: 3%;
-        padding-top: 5%;
-        height: 28vh;
-    }
 
     .wine-logo{
         width: 7%;
@@ -337,5 +366,12 @@ div[id= "option-display"]:active #more-options{
         height: fit-content;
     }
 
+    .categories {
+        margin-top: 2%;
+        margin-bottom: 0;
+    }
     
+    .sad-glass img{
+        width: 10%;
+    }
 }

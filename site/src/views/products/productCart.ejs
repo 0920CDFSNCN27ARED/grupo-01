@@ -6,53 +6,73 @@
         <title>CARRITO | WINEDERFUL</title>
         <script defer src="/js/cartFunctions.js"></script>
         <script defer src="/js/cart.js"></script>
+        <script src="/js/plusMinusQty.js"></script>
     </head>
 
     <body>
         <%- include("../partials/header")%>
 
-        <main id="main" class="display-flex-column">
-            <div id="nav-container" class="display-flex">
-                <nav id="categories" class="width-100">
-                    <ul class="display-flex font-size-11 display-sm">
-                        <li>
-                            <a href="/carrito">
-                                <i class="fas fa-shopping-cart"></i> ()
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/carrito/guardados">
-                                <i class="fas fa-archive"></i> ()
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul class="display-flex font-size-11 display-md">
-                        <li>
-                            <a class="bold" href="/carrito">
-                                Carrito <i class="fas fa-shopping-cart"></i> (2)
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/carrito/guardados"
-                                >Guardados <i class="fas fa-archive"></i> (2)
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+        <main id="main">
+            <div id="nav-container" class="categories">
+                <a href="/carrito/guardados">
+                    Guardados
+                    <i class="fas fa-archive"></i>
+                </a>
+                
             </div>
-            <h4 id="empty-cart-msg">
-                Todavía no has agregado productos a tu carrito
-            </h4>
+            <section id="empty-cart-msg">
+                <div>
+                    <h4>
+                        Todavía no has agregado productos a tu carrito. <a class="start-now" href="/productos">Comienza ahora</a> 
+                    </h4>
+                </div>
+                
+                <div class="sad-glass">
+                    <img src="/images/glass-cart.png" alt="Sad Glass">
+                </div>
+            </section>
+            <section id="hide" class="section border-bottom">
+                <div></div>
+                <div></div>
+                <div id="align-left">
+                    <p>Producto</p>
+                </div>
+                <div>
+                    <p>$ unitario</p>
+                </div>
+                <div>
+                    <p>Cant.</p>
+                </div>
+                <div>
+                    <p>Total</p>
+                </div>
+            </section>
             <div id="complete-cart">
                 <section
                     id="products-section"
-                    class="display-flex-column align-center"
-                ></section>
-                <section id="section-buy" class="display-flex-column bold">
-                    <div class="display-flex">
-                        <p>Total</p>
-                        <p id="total-price">$700</p>
+                    class=""
+                >
+                </section>
+                <section id="section-buy" class="bold">
+                    <div class="cupon-box">
+                        <input type="text" name="cupon" id="cupon" placeholder="Código de descuento">
+                        <button class="button cupon-button">
+                            Aplicar código
+                        </button>
+                    </div>
+                    <div class="total-price">
+                        <div>
+                            <p>Subtotal</p>
+                            <p id="subtotal-price"></p>
+                        </div>
+                        <div>
+                            <p>Costo de envío</p>
+                            <p>SIN CARGO</p>
+                        </div>
+                        <div id="total">
+                            <p>Total</p>
+                            <p id="total-price"></p>
+                        </div>
                     </div>
                     <form id="buy-form" method="POST">
                         <input
@@ -65,29 +85,29 @@
                             class="button create final-price"
 
                         >
-                            COMPRAR <i class="fas fa-wine-bottle"></i>
+                            CONTINUAR COMPRA
                         </button>
                     </form>
                 </section>
             </div>
-
-            <section class="top-marg-5">
-                <div class="subtitle bestSeller">
-                    <img class="hand" src="/images/hand-01.png" alt="hand" />
-                    <div class="background-text"></div>
-                    <h2 class="wine">VINOS QUE PODRIAN GUSTARTE</h2>
-                </div>
-                <%- include("../partials/slideshowSection") %>
-            </section>
-            <section class="top-marg-5">
-                <div class="subtitle bestSeller">
-                    <img class="hand" src="/images/hand-01.png" alt="hand" />
-                    <div class="background-similar-wine"></div>
-                    <h2 class="wine">BODEGAS CERCA TUYO</h2>
-                </div>
-                <%- include("../partials/slideshowSection") %>
-            </section>
-        </main>
+<!-- 
+                <section class="top-marg-5">
+                    <div class="subtitle bestSeller">
+                        <img class="hand-cart" src="/images/hand-01.png" alt="hand" />
+                        <div class="background-text"></div>
+                        <h2 class="wine">VINOS QUE PODRIAN GUSTARTE</h2>
+                    </div>
+                    <%- include("../partials/slideshowSection") %>
+                </section>
+                <section class="top-marg-5">
+                    <div class="subtitle bestSeller">
+                        <img class="hand-cart-near" src="/images/hand-01.png" alt="hand" />
+                        <div class="background-text"></div>
+                        <h2 class="wine">BODEGAS CERCA TUYO</h2>
+                    </div>
+                    <%- include("../partials/slideshowSection") %>
+                </section> -->
+            </main>
 
         <%- include("../partials/footer") %>
     </body>

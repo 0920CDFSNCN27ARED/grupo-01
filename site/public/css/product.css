@@ -108,49 +108,8 @@
     font-size: 20px;
 }
 
-.colapse {
-    width: 90%;
-    margin: 10px auto;
-}
 
-.colapse i {
-    display: none;
-}
 
-.colapse p,
-i {
-    text-align: center;
-    font-weight: bold;
-}
-
-.description {
-    display: grid;
-    grid-gap: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: thistle;
-}
-
-.description div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    text-align: center;
-    background-color: white;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding: 8px;
-    border-radius: 10px;
-}
-section.specific {
-    display: grid;
-    grid-template-rows: auto auto;
-}
-
-.suggest {
-    display: none;
-}
 
 /* .prod > a{
     height: 37vh;

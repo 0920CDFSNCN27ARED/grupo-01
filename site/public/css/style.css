@@ -6,7 +6,9 @@ body {
     margin: 0;
     padding: 0;
 }
-
+input{
+    outline: none;
+}
 .error {
     color: red;
     text-align: left;
@@ -228,7 +230,7 @@ li {
 
 .prod {
     display: grid;
-    grid-template-rows: 300px auto 30px;
+    grid-template-rows: auto auto 30px;
     scroll-snap-align: start;
     padding: 15px;    
 }
@@ -304,15 +306,9 @@ li {
 .subtitle {
     padding-left: 15px;
     display: grid;
-    margin-bottom: 15px;
-}
-
-.background-text {
-    background-color: #d4c0dc;
-    z-index: -1;
-    height: 25px;
-    position: relative;
-    top: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    grid-template-rows: 0 auto 0;
 }
 
 /*fin de slider de productos*/
@@ -335,9 +331,9 @@ section.values {
     background-color: #d4c0dc;
     z-index: -1;
     height: 25px;
-    width: 70%;
+    width: 60%;
     position: relative;
-    top: 35px;
+    top: 8px;
 }
 
 .value-img-box {
@@ -557,9 +553,9 @@ section.form h2 {
 .hand {
     width: 20%;
     text-align: left;
-    position: absolute;
-    left: -5px;
-    top: 100px;
+    position: relative;
+    left: -24px;
+    top: -16px;
 }
 
 .wine {
@@ -567,7 +563,7 @@ section.form h2 {
     font-size: 22px;
 }
 /* perfil */
-.hide {
+.hide, #hide {
     display: none;
 }
 .profile-image {
@@ -691,13 +687,12 @@ button:disabled:hover + .disable-msg {
     
 
     .wine {
-        padding-left: 50px;
+        padding-left: 25px;
     }
     .hand {
         width: 15%;
-        position: absolute;
-        left: -10px;
-        top: 160px;
+        left: -22px;
+        top: -16px;
     }
     .prod-name-box {
         margin-top: 15px;
@@ -732,6 +727,8 @@ button:disabled:hover + .disable-msg {
 
     .background-text {
         width: 50%;
+        top: 10px;
+
     }
 
     .footer-index {
@@ -764,9 +761,8 @@ button:disabled:hover + .disable-msg {
     }
     .hand {
         width: 12%;
-        position: absolute;
-        left: -10px;
-        top: 203px;
+        left: -13px;
+        top: -23px;
     }
 
     .showAll {
@@ -885,7 +881,8 @@ button:disabled:hover + .disable-msg {
         left: 0;
     }
     .background-text {
-        width: 35%;
+        width: 30%;
+        margin-left: 20px;
     }
     .footer-index {
         display: grid;
@@ -987,10 +984,9 @@ button:disabled:hover + .disable-msg {
         padding-left: 75px;
     }
     .hand {
-        width: 9%;
-        position: absolute;
-        left: 0px;
-        top: 245px;
+        width: 7%;
+        left: 10px;
+        top: -19px;
     }
 
     .showAll {
@@ -1009,15 +1005,13 @@ button:disabled:hover + .disable-msg {
 
     .background-text {
         width: 20%;
+        margin-left: 30px;
     }
 
     .round-button {
         font-size: 25px;
     }
 
-    .background-text {
-        width: 25%;
-    }
 
     .logo-links {
         grid-template-rows: 200px;
