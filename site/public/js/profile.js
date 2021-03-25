@@ -1,66 +1,8 @@
-const form = document.getElementById("change-pass-form");
-const submitButton = document.querySelector(".button[type=submit]");
-const showChangeMenu = document.getElementById("change-pass-btn");
-const changePassMenu = document.getElementById("pass-screen");
-const inputs = document.querySelectorAll("input");
 
 const allActions = document.getElementsByClassName("action");
 
-const actualPassInput = document.getElementById("actualPassword");
+//const actualPassInput = document.getElementById("actualPassword");
 
-const newPassword = document.getElementById("newPassword");
-const confirmNewPassword = document.getElementById("confirmNewPassword");
-
-///////
-const passMatches = [
-    function passwordMatch(confirmNewPassword) {
-        if (confirmNewPassword !== newPassword.value) {
-            return false;
-        }
-        return true;
-    },
-    newPassword,
-    "Las contraseñas no coinciden",
-];
-
-//////CHANGE PASSWORD
-showChangeMenu.addEventListener("click", () => {
-    changePassMenu.classList.toggle("hide");
-});
-
-for (const input of inputs) {
-    input.addEventListener("keyup", (event) => {
-        let allInputsFilled = [];
-        for (const input of inputs) {
-            if (input.value.trim() === "") {
-                allInputsFilled.push(false);
-            }
-        }
-        if (allInputsFilled.length > 0) {
-            submitButton.disabled = true;
-            return;
-        }
-        submitButton.disabled = false;
-    });
-}
-
-form.addEventListener("submit", (event) => {
-    errors = [];
-    clearErrors();
-    validateMultipleFields(
-        [
-            ["newPassword", [isLength(8)]],
-            ["confirmNewPassword", [passMatches]],
-        ],
-        validateInput
-    );
-
-    if (checkErrors(errors)) {
-        event.preventDefault();
-    }
-});
-
-////////////////////////////
 
 /////// Profile
 showOneSection("profile-btn", "personal-data", allActions);
@@ -72,13 +14,7 @@ showOneSection("address-btn", "address-screen", allActions);
 let editBtns = document.getElementsByClassName("edit-btn");
 
 
-
 ////// Functions
-function undoDelete(contentDiv, deletedMsg, isDeleted) {
-    contentDiv.classList.remove("hide");
-    deletedMsg.classList.add("hide");
-    isDeleted.checked = false;
-}
 function hideAllActions(allActions) {
     for (const action of allActions) {
         if (!action.classList.contains("hide")) {

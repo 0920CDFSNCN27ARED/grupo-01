@@ -6,7 +6,11 @@
         <h4 id="noAddressesYet-msg" class="marginY">
             No tienes direcciones cargadas aún...
         </h4>
-        <% } %> <% if(user.dni) { for(let i = 0; i < user.addresses.length; i++)
+        <%-include("./newAddress.ejs",{i:0,streetName:"",streetNumber:"",apartment:"",city:"",zipCode:""})%> 
+        <%-include("./confirmDelete.ejs",{i:0,streetName:"",streetNumber:"",apartment:"",city:"",zipCode:""})%>
+        <% } %>
+         <% if(user.dni) { 
+             for(let i = 0; i < user.addresses.length; i++)
         { %>
 
         <article id="article-<%=i%>" class="address-article">
@@ -47,6 +51,9 @@
         zipCode,i})%>
         <% } %> 
         <%}%> 
+        
+
+
         
         <button type="button" class="create" id="new-address">
             <i class="fas fa-plus"></i>

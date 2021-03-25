@@ -7,22 +7,27 @@ const deleteBtns = document.getElementsByClassName("delete-btn");
 const headerNew = document.querySelector(".new-hder");
 const headerEdit = document.querySelector(".edit-hder");
 
-let articles = document.querySelectorAll("article");
-articles = Array.from(articles);
+const passModal = document.getElementById("pass-screen");
+
 const modalForm = document.querySelector(".modal-form");
 
-let modaleNewAddress = document.querySelectorAll("[id*=newAddress-modal]");
-modaleNewAddress = Array.from(modaleNewAddress);
+let articles = document.querySelectorAll("article");
+articles = Array.from(articles);
+
+let modalNewAddress = document.querySelectorAll("[id*=newAddress-modal]");
+console.log(modalNewAddress)
+modalNewAddress = Array.from(modalNewAddress);
 let modalDeleteAddress = document.querySelectorAll("[id*=delete-modal]");
 modalDeleteAddress = Array.from(modalDeleteAddress);
 
 let errors;
 let validationStructure;
+
 // new
 open.addEventListener("click", () => {
     modalForm.action = "/usuarios/crearDireccion";
     showOneHeader(headerNew);
-    const inputs = modaleNewAddress[0].querySelectorAll("input");
+    const inputs = modalNewAddress[0].querySelectorAll("input");
 
     for (const input of inputs) {
         input.placeholder = "";
@@ -35,13 +40,13 @@ open.addEventListener("click", () => {
             [`zipCode-0`, [isLength(2, 8), onlyNumbers]],
         ];
     }
-    modaleNewAddress[0].classList.add("show-modal");
+    modalNewAddress[0].classList.add("show-modal");
     modalForm.addEventListener("submit", (event) => {
         clearValidateAndCheck(event);
     });
 
     validateAllIndividually(validationStructure); // On keyup, change, etc...
-    closeModal(modaleNewAddress[0], close);
+    closeModal(modalNewAddress[0], close);
 });
 //edit
 for (const btn of editBtns) {
@@ -55,19 +60,18 @@ for (const btn of editBtns) {
             [`zipCode-${index}`, [isLength(2, 8), onlyNumbers]],
         ];
 
-        const selectedModal = modaleNewAddress.find((modal) => {
+        const selectedModal = modalNewAddress.find((modal) => {
             return modal.id.includes(index);
         });
+        console.log(modalForm)
         modalForm.action = `/usuarios/editarDireccion/${selectedModal.dataset.id}?_method=PUT`;
         showOneHeader(headerEdit);
         selectedModal.classList.add("show-modal");
-console.log(modalForm)
         modalForm.addEventListener("submit", (event) => {
             clearValidateAndCheck(event);
         });
         validateAllIndividually(validationStructure); // On keyup, change, etc...
         closeModal(selectedModal, close);
-
     });
 }
 
@@ -84,6 +88,63 @@ for (const btn of deleteBtns) {
         closeModal(deletedAddress);
     });
 }
+
+//////CHANGE PASSWORD
+const inputs = document.querySelectorAll("[id*=Password]");
+const submitButton = document.querySelector(".button[type=submit]");
+const changePassForm = document.getElementById("change-pass-form");
+const changePassBtn = document.getElementById("change-pass-btn");
+
+const newPassword = document.getElementById("newPassword");
+const confirmNewPassword = document.getElementById("confirmNewPassword");
+
+///////
+const passMatches = [
+    function passwordMatch(confirmNewPassword) {
+        if (confirmNewPassword !== newPassword.value) {
+            return false;
+        }
+        return true;
+    },
+    newPassword,
+    "Las contraseñas no coinciden",
+];
+
+changePassBtn.addEventListener("click", () => {
+    passModal.classList.add("show-modal");
+    closeModal(passModal, close);
+});
+for (const input of inputs) {
+    input.addEventListener("keyup", (event) => {
+        let allInputsFilled = [];
+        for (const input of inputs) {
+            if (input.value.trim() === "") {
+                allInputsFilled.push(false);
+            }
+        }
+        if (allInputsFilled.length > 0) {
+            submitButton.disabled = true;
+            return;
+        }
+        submitButton.disabled = false;
+    });
+}
+
+changePassForm.addEventListener("submit", (event) => {
+    errors = [];
+    clearErrors();
+    validateMultipleFields(
+        [
+            ["newPassword", [isLength(8)]],
+            ["confirmNewPassword", [passMatches]],
+        ],
+        validateInput
+    );
+
+    if (checkErrors(errors)) {
+        event.preventDefault();
+    }
+});
 
 ///////
 function closeModal(modal) {

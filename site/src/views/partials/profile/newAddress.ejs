@@ -1,4 +1,6 @@
-<div class="modal-container "data-id=<%=user.addresses[i].id%> id="newAddress-modal-<%=i%>">
+<%let id = (user.addresses.length > 0) ? user.addresses[i].id : "" %>
+
+<div class="modal-container" data-id="<%=id%>" id="newAddress-modal-<%=i%>">
     <div class="modal">
         <button class="close-btn">
             <i class="fa fa-times"></i>
@@ -11,7 +13,6 @@
                 action=""
                 method="POST"
                 class="modal-form"
-                
             >
                 <div>
                     <label for="street">Calle </label>
