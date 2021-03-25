@@ -58,7 +58,7 @@ module.exports = {
                 const newSubTotal =
                     orderItemExists.subtotal +
                     fullProd.price * cartProd.quantity;
-                await OrderItem.update(
+                await OrderItem.uCDpdate(
                     {
                         subtotal: newSubTotal,
                         quantity:
