@@ -9,6 +9,9 @@ body {
 input{
     outline: none;
 }
+main{
+    min-height: 50vh;
+}
 .error {
     color: red;
     text-align: left;
