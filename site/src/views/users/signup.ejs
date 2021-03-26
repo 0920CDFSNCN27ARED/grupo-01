@@ -3,8 +3,11 @@
     <head>
         <%- include("../partials/head.ejs") %>
         <title>REGISTRO | WINEDERFUL</title>
-        <script type="text/javascript" src="/js/validations/validator.min.js"></script>
-         <script defer src="/js/validations/validationFunctions.js"></script>
+        <script
+            type="text/javascript"
+            src="/js/validations/validator.min.js"
+        ></script>
+        <script defer src="/js/validations/validationFunctions.js"></script>
         <script defer src="/js/validations/signup.js"></script>
     </head>
 
@@ -20,53 +23,31 @@
                 <li class="error"><%= errors[i].msg %></li>
                 <% } %> <% } %>
                 <form
+                    id="signup-form"
                     action="/usuarios/registro"
                     class="form"
                     method="POST"
                     enctype="multipart/form-data"
                 >
                     <label for="firstName">Nombre</label>
-                    <input
-                        type="text"
-                        name="firstName"
-                        id="firstName"
-                        
-                    />
+                    <input type="text" name="firstName" id="firstName" />
                     <label for="lastName">Apellido</label>
-                    <input
-                        type="text"
-                        name="lastName"
-                        id="lastName"
-                        
-                    />
+                    <input type="text" name="lastName" id="lastName" />
                     <label for="dni">DNI</label>
-                    <input
-                        type="number"
-                        name="dni"
-                        id="dni"
-                        
-                    />
+                    <input type="number" name="dni" id="dni" />
                     <label for="email">E-mail</label>
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        
-                    />
+                    <input type="email" name="email" id="email" />
                     <label for="password">Contraseña</label>
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        
-                    />
+                    <input type="password" name="password" id="password" />
                     <label for="avatar">Foto de perfil</label>
                     <input type="file" name="image" id="avatar" />
                     <label for="terms" id="terms-feedback">
                         <input type="checkbox" name="terms" id="terms" />Acepto
                         los Terminos y Condiciones</label
                     >
-                    <button type="submit" class="button create">Crear cuenta</button>
+                    <button type="submit" class="button create">
+                        Crear cuenta
+                    </button>
 
                     <a class="marginTop" href="/usuarios/login"
                         >Ya tengo una cuenta</a

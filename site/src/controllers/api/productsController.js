@@ -1,19 +1,23 @@
-const { Product } = require("../../database/models");
+const { Product, Grape } = require("../../database/models");
 
 module.exports = {
     // falta el countByCategory
     showAll: async (req, res) => {
+        const grapes = await Grape.findAll();
+        const productGrapes = await Product.count({ attributes: ["grapeId"] },{group:"grapeId"})
+        console.log(productGrapes)
         const productsCount = await Product.count();
         const products = await Product.findAll({
             attributes: ["id", "productName", "description"],
         });
-        console.log(products[0]);
+      
+
         const productsForApi = [];
 
         products.forEach((product) => {
             productsForApi.push({
                 ...product.dataValues,
-                detail: `http://localhost:3030/api/products/${product.id}`,
+                detail: `http://localhost:3000/api/products/${product.id}`,
             });
         });
 

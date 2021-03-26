@@ -14,11 +14,19 @@ module.exports = {
             },
         });
         // Get new orderId
-        const newOrderId = lastOrderId[0] ? lastOrderId[0] : 1;
+        const newOrderId = lastOrderId[0] ? lastOrderId[0].id + 1 : 1;
         const orderId = existingOrder ? existingOrder.id : newOrderId;
 
-        // Create/Update order 
+        ///// Get totalPrice
+        let totalPrice = 0;
+        for (const cartProd of cart) {
+            const fullProd = await Product.findByPk(cartProd.id);
+            totalPrice += Number(fullProd.price * cartProd.quantity);
+        }
+
+        // Create/Update order
         if (existingOrder) {
+            totalPrice += existingOrder.total;
             await Order.update(
                 {
                     addressId: 1,
@@ -30,32 +38,52 @@ module.exports = {
                     },
                 }
             );
+        } else {
+            await Order.create({
+                buyerUserId: userId,
+                addressId: 1,
+                total: totalPrice,
+            });
         }
-
-        await Order.create({
-            buyerUserId: userId,
-            addressId: 1,
-            total: totalPrice,
-        });
-        ///// Get totalPrice
-        
-        let totalPrice = 0;
+        //Create orderItems
         for (const cartProd of cart) {
             const fullProd = await Product.findByPk(cartProd.id);
-            totalPrice += Number(fullProd.price * cartProd.quantity);
-
-            //Create orderItems
-            await OrderItem.create({
-                subtotal: fullProd.price * cartProd.quantity,
-                quantity: cartProd.quantity,
-                price: fullProd.price,
-                orderId: orderId,
-                productId: cartProd.id,
-                discount: fullProd.discount,
+            const orderItemExists = await OrderItem.findOne({
+                where: {
+                    productId: cartProd.id,
+                    orderId: orderId,
+                },
             });
-            return res.send(existingOrder);
+            if (orderItemExists) {
+                const newSubTotal =
+                    orderItemExists.subtotal +
+                    fullProd.price * cartProd.quantity;
+                await OrderItem.uCDpdate(
+                    {
+                        subtotal: newSubTotal,
+                        quantity:
+                            orderItemExists.quantity +
+                            Number(cartProd.quantity),
+                    },
+                    {
+                        where: {
+                            productId: cartProd.id,
+                            orderId: orderId,
+                        },
+                    }
+                );
+            } else {
+                await OrderItem.create({
+                    subtotal: fullProd.price * cartProd.quantity,
+                    quantity: cartProd.quantity,
+                    price: fullProd.price,
+                    orderId: orderId,
+                    productId: cartProd.id,
+                    discount: fullProd.discount,
+                });
+            }
         }
 
-        res.send({ msg: "Orden creada" });
+        res.send(cart);
     },
 };

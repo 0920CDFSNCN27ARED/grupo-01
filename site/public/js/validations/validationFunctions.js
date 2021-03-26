@@ -90,11 +90,9 @@ function intValidation(min, max) {
 
     return isInt;
 }
-
 ///////////////////////
 
 /////////  FUNCTIONS
-
 function validateInput(inputId, validationFunctions) {
     const input = document.getElementById(inputId);
     let foundErrors;

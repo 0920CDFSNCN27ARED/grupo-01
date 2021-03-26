@@ -1,3 +1,4 @@
+
 <section id="personal-data" class="action">
     <div class="profile-right personal-data">
         <div>
@@ -27,7 +28,13 @@
                 </div>
             </div>
         </div>
-        <div class="hide" id="pass-screen">
+        
+        <div class="modal-container" id="pass-screen">
+            <div class="modal" >
+                <button class="close-btn">
+            <i class="fa fa-times"></i>
+        </button>
+        <div  class="modal-header "><h3>Cambiar contraseña</h3></div>
             <form
                 action="/usuarios/cambioContra/<%=user.id%>"
                 method="POST"

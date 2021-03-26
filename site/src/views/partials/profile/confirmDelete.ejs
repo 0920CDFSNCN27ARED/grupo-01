@@ -1,0 +1,25 @@
+<%let id = (user.addresses.length > 0) ? user.addresses[i].id : ""%>
+<div data-id=<%=id%> id="delete-modal-<%=i%>" class="hide modal-container">
+    <div class="modal delete">
+        <button class="close-btn">
+            <i class="fa fa-times"></i>
+        </button>
+        <p id="delete-msg">
+            Estas a punto de eliminar  
+                   <strong>
+                    <%=streetName%> <%=streetNumber%>, Depto <%=apartment%>
+                    <br />Ciudad de <%=city%>, Código postal <%= zipCode%>
+                   </strong> 
+                 como dirección.<br />¿Estás seguro que
+            deseas continuar?
+        </p>
+        <form
+            action="/usuarios/eliminarDireccion/:id?_method=DELETE"
+            method="POST"
+        >
+            <input type="hidden" value="id" />
+            <button type="submit">Eliminar</button>
+        </form>
+    </div>
+</div>
+

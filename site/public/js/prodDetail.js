@@ -12,7 +12,7 @@ form.addEventListener("submit", (event) => {
     } else {
         cart.push({
             id: id,
-            quantity: quantity === 0 ? 1 : quantity,
+            quantity: quantity === 0 ? 1 : Number(quantity),
         });
     }
     localStorage.setItem(localStorageKey, JSON.stringify(cart));

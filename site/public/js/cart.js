@@ -34,9 +34,9 @@ if (cart.length == 0) {
             <p class="unity-price" >$${product.data.price}</p>
         </div>
         <div class="quantity">
-            <input type="button" value="-" class="minus">    
+            <button type="button" class="minus">-</button> 
             <input class="quantity-box" type="number" placeholder=${prod.quantity} min="1" id="quantity" value=${prod.quantity}>
-            <input type="button" value="+" class="plus">
+            <button type="button"  class="plus">+</button>
         </div>
         <div>        
             <p id="partial-price" class="bold partial-price"></p>
@@ -66,34 +66,51 @@ lastPromise.then((something) => {
     const articles = Array.from(productArticles);
 
     articles.forEach((article, index) => {
-        const quantity = article.querySelector(".quantity-box");
+        ////////
         const subtotal = article.querySelector(".partial-price");
         const unityPriceContainer = article.querySelector(".unity-price");
-        const unityPrice = unityPriceContainer.innerText.split("$")[1];
+        const unityPrice = splitPrice(unityPriceContainer);
+        let quantity = article.querySelector(".quantity-box");
+
+        //// MINUS AND PLUS
+        let plus = article.querySelector(".plus");
+        let minus = article.querySelector(".minus");
+        plus.addEventListener("click", () => {
+            quantity.value++;
+        });
+        minus.addEventListener("click", () => {
+            if (quantity.value > 1) {
+                quantity.value--;
+            }
+        });
 
         subtotal.innerText = `$${quantity.value * unityPrice}`;
 
         //Update quantity
-        quantity.addEventListener("change", (event) => {
-            const id = article.querySelector(".prod-id").innerText;
-            const newQuantity = event.target.value;
+        document.addEventListener("click", (e) => {
+            if (e.target.matches(".quantity > *")) {
+                const id = article.querySelector(".prod-id").innerText;
+                const newQuantity = quantity.value;
 
-            // Change quantity in cart
-            const prod = getCartProduct(cart, id);
-            updateProdQuantity(prod, newQuantity);
-            localStorage.setItem(localStorageKey, JSON.stringify(cart));
+                // Change quantity in cart
+                const prod = getCartProduct(cart, id);
+                updateProdQuantity(prod, newQuantity);
+                localStorage.setItem(localStorageKey, JSON.stringify(cart));
 
-            /////Change view quantity values
-            const actualSubTotal = article
-                .querySelector(".partial-price")
-                .innerText.split("$")[1];
-            subtotal.innerText = `$${newQuantity * unityPrice}`;
-            totalPrice.innerText = `$${
-                totalPrice.innerText.split("$")[1] -
-                actualSubTotal +
-                newQuantity * unityPrice
-            }`;
+                /////Change view quantity values
+                const subtotalPrice = article.querySelector(".partial-price");
+                const actualSubTotal = splitPrice(subtotalPrice);
+
+                subtotal.innerText = `$${newQuantity * unityPrice}`;
+                totalPrice.innerText = `$${
+                    splitPrice(totalPrice) -
+                    actualSubTotal +
+                    newQuantity * unityPrice
+                }`;
+            }
         });
+
+       
         ////Delete item from cart
         const deleteBtn = article.querySelector(".delete-btn");
         deleteBtn.addEventListener("click", () => {
@@ -102,6 +119,9 @@ lastPromise.then((something) => {
             const productIndexToRemove = cart.findIndex((element) => {
                 return element.id == productToRemoveId;
             });
+            totalPrice.innerText = `$${
+                splitPrice(totalPrice) - splitPrice(subtotal)
+            }`;
             article.remove();
             cart.splice(productIndexToRemove, 1);
             localStorage.setItem(localStorageKey, JSON.stringify(cart));
@@ -124,7 +144,7 @@ buy.addEventListener("submit", async (event) => {
             },
             body: JSON.stringify(cart),
         });
-        const init_url = await response.json();
+        //const init_url = await response.json();
     } catch (err) {
         console.log(err);
     }

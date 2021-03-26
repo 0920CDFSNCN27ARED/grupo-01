@@ -1,4 +1,5 @@
-const form = document.querySelector("form");
+const form = document.getElementById("signup-form");
+
 let errors;
 
 const validationStructure = [

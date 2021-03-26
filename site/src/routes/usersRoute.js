@@ -28,8 +28,6 @@ async function paramExists(searchParam, paramName, modelUser) {
     }
 }
 ////////////////////////////////////////////
-
-
 router.post(
     "/registro",
     upload.single("image"),
@@ -95,7 +93,6 @@ router.post(
             .withMessage(
                 "Debes colocar el pais en el que se establece tu empresa."
             ),
-
         check("province")
             .notEmpty()
             .withMessage(
@@ -142,6 +139,7 @@ router.post(
     usersController.logIn
 );
 
-router.post("/editarDireccion", isLoggedIn, usersController.editAddress);
-
+router.post("/crearDireccion", isLoggedIn, usersController.newAddress);
+router.put("/editarDireccion/:id", isLoggedIn, usersController.editAddress);
+router.delete("/eliminarDireccion/:id", isLoggedIn, usersController.deleteAddress);
 module.exports = router;

@@ -1,6 +1,6 @@
 function isGuest(req, res, next) {
     if (res.locals.user) {
-        res.redirect("/");
+       return res.redirect("/");
     } else {
         next();
     }
