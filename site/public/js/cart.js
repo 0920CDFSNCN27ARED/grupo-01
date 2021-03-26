@@ -27,7 +27,7 @@ if (cart.length == 0) {
                 alt="wineProduct"
             />
         </div>
-        <div>    
+        <div id="align-left">
             <p class="product-name">${product.data.productName}</p>
         </div>    
         <div id="price-section" class="">

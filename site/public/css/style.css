@@ -557,7 +557,7 @@ section.form h2 {
     font-size: 22px;
 }
 /* perfil */
-.hide, #hide {
+.hide, #hide, #none {
     display: none;
 }
 .profile-image {
