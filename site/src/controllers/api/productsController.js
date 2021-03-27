@@ -1,22 +1,37 @@
-const { Product, Grape } = require("../../database/models");
+const { Product, Grape, Sequelize } = require("../../database/models");
+const sequelize = require("sequelize");
+const QueryTypes = sequelize.QueryTypes;
 
 module.exports = {
     // falta el countByCategory
     showAll: async (req, res) => {
-        const grapes = await Grape.findAll();
-        const productGrapes = await Product.count({ attributes: ["grapeId"] },{group:"grapeId"})
-        console.log(productGrapes)
         const productsCount = await Product.count();
-        const products = await Product.findAll({
-            attributes: ["id", "productName", "description"],
+        const products = await Product.findAll(
+            {
+                attributes: ["id", "productName", "description"],
+                raw: true,
+                include: { model: Grape,as:"grape", required: true },
+            },
+        );
+
+        // Get count by category
+        const countByGrape = await Grape.sequelize.query(
+            `SELECT name as grape, COUNT(*) as "productsPerGrape" FROM grapes right join products on products.grapeId = grapes.id GROUP BY name;`,
+
+            {
+                type: QueryTypes.SELECT,
+            }
+        );
+        let countByGrapeObject = {};
+        countByGrape.forEach((grape) => {
+            countByGrapeObject[grape.grape] = grape.productsPerGrape;
         });
-      
 
         const productsForApi = [];
 
         products.forEach((product) => {
             productsForApi.push({
-                ...product.dataValues,
+                ...product,
                 detail: `http://localhost:3000/api/products/${product.id}`,
             });
         });
@@ -28,6 +43,7 @@ module.exports = {
             },
             data: {
                 count: productsCount,
+                countByGrape: countByGrapeObject,
                 products: productsForApi,
             },
         };
