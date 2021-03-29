@@ -1,9 +1,6 @@
 
 const allActions = document.getElementsByClassName("action");
 
-//const actualPassInput = document.getElementById("actualPassword");
-
-
 /////// Profile
 showOneSection("profile-btn", "personal-data", allActions);
 /////// My items

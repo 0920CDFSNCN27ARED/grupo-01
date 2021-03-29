@@ -2,11 +2,15 @@ const totalPrice = document.getElementById("total-price");
 const prodsSection = document.getElementById("products-section");
 const emptyCartMsg = document.getElementById("empty-cart-msg");
 const completeCartSection = document.getElementById("complete-cart");
+const cartColumns = document.getElementById("cart-columns");
+
 let lastPromise;
 ////// Render products in cart
 if (cart.length == 0) {
     completeCartSection.classList.add("hide");
-} else {
+    cartColumns.style = "display:none"
+    } else {
+     cartColumns.style = "display:grid";
     emptyCartMsg.classList.add("hide");
     async function renderProduct(prod, prodsSection) {
         const response = await fetch(`/api/products/${prod.id}`);
@@ -110,7 +114,6 @@ lastPromise.then((something) => {
             }
         });
 
-       
         ////Delete item from cart
         const deleteBtn = article.querySelector(".delete-btn");
         deleteBtn.addEventListener("click", () => {
