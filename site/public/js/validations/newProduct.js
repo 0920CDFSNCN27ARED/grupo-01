@@ -1,4 +1,5 @@
-const form = document.querySelector("form");
+const form = document.getElementById("newProd-form");
+
 
 const yearSelect = document.getElementById("productYear");
 const actualYear = new Date().getFullYear();
@@ -27,6 +28,7 @@ const validationStructure = [
 ];
 
 form.addEventListener("submit", (event) => {
+
     clearValidateAndCheck(event);
 });
 
