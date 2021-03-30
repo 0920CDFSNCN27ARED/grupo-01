@@ -76,5 +76,5 @@ app.use("/favoritos", favouritesRoute);
 
 // Default route
 app.get("*", (req, res) => {
-    res.status(404).send("Error 404 not found");
+    res.render("error")
 });
