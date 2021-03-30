@@ -8,9 +8,9 @@ let lastPromise;
 ////// Render products in cart
 if (cart.length == 0) {
     completeCartSection.classList.add("hide");
-    cartColumns.style = "display:none"
-    } else {
-     cartColumns.style = "display:grid";
+    cartColumns.style = "display:none";
+} else {
+    cartColumns.style = "display:grid";
     emptyCartMsg.classList.add("hide");
     async function renderProduct(prod, prodsSection) {
         const response = await fetch(`/api/products/${prod.id}`);
@@ -147,7 +147,8 @@ buy.addEventListener("submit", async (event) => {
             },
             body: JSON.stringify(cart),
         });
-        //const init_url = await response.json();
+        const data = await response.json();
+        window.location = data.init_url;
     } catch (err) {
         console.log(err);
     }

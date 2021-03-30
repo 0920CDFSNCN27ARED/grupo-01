@@ -1,21 +1,11 @@
-const { Order, Product, OrderItem } = require("../../database/models");
+const mercadopago = require("mercadopago");
+const { Order, Product, OrderItem, Status } = require("../../database/models");
 
 module.exports = {
     createOrder: async (req, res) => {
         const cart = req.body;
         const userId = res.locals.user.id;
-        let lastOrderId = await Order.findAll({
-            order: [["id", "DESC"]],
-        });
-        ////Check if order exists
-        const existingOrder = await Order.findOne({
-            where: {
-                buyerUserId: userId,
-            },
-        });
-        // Get new orderId
-        const newOrderId = lastOrderId[0] ? lastOrderId[0].id + 1 : 1;
-        const orderId = existingOrder ? existingOrder.id : newOrderId;
+        let newOrderId;
 
         ///// Get totalPrice
         let totalPrice = 0;
@@ -23,67 +13,104 @@ module.exports = {
             const fullProd = await Product.findByPk(cartProd.id);
             totalPrice += Number(fullProd.price * cartProd.quantity);
         }
+        // Get unpaid status row
+        const unpaidStatus = await Status.findOne({
+            where: {
+                name: "unpaid",
+            },
+        });
 
-        // Create/Update order
-        if (existingOrder) {
-            totalPrice += existingOrder.total;
-            await Order.update(
-                {
-                    addressId: 1,
-                    total: totalPrice,
-                },
-                {
-                    where: {
-                        buyerUserId: userId,
-                    },
-                }
-            );
-        } else {
-            await Order.create({
+        // Check for pending order
+        const unpaidOrder = await Order.findOne({
+            where: {
+                statusId: unpaidStatus.id,
                 buyerUserId: userId,
-                addressId: 1,
+            },
+        });
+
+        if (unpaidOrder) {
+            await unpaidOrder.update({
+                updatedAt: Date.now(),
                 total: totalPrice,
             });
-        }
-        //Create orderItems
-        for (const cartProd of cart) {
-            const fullProd = await Product.findByPk(cartProd.id);
-            const orderItemExists = await OrderItem.findOne({
-                where: {
-                    productId: cartProd.id,
-                    orderId: orderId,
-                },
-            });
-            if (orderItemExists) {
-                const newSubTotal =
-                    orderItemExists.subtotal +
-                    fullProd.price * cartProd.quantity;
-                await OrderItem.uCDpdate(
+            newOrderId = unpaidOrder.id;
+            for (const cartProd of cart) {
+                cartProd.fullProd = await Product.findByPk(cartProd.id);
+                await OrderItem.update(
                     {
-                        subtotal: newSubTotal,
-                        quantity:
-                            orderItemExists.quantity +
-                            Number(cartProd.quantity),
+                        orderId: newOrderId,
+                        subtotal: cartProd.fullProd.price * cartProd.quantity,
+                        quantity: cartProd.quantity,
+                        price: cartProd.fullProd.price,
+                        productId: cartProd.id,
+                        discount: cartProd.fullProd.discount,
+                        createdAt: Date.now(),
                     },
                     {
                         where: {
+                            orderId: unpaidOrder.id,
                             productId: cartProd.id,
-                            orderId: orderId,
                         },
                     }
                 );
-            } else {
+            }
+        } else {
+            // Create order
+            const newOrder = await Order.create(
+                {
+                    buyerUserId: userId,
+                    addressId: 1,
+                    total: totalPrice,
+                    statusId: unpaidStatus.id,
+                    createdAt: Date.now(),
+                },
+                {
+                    returning: true,
+                }
+            );
+            newOrderId = newOrder.id;
+            //Create orderItems
+            for (const cartProd of cart) {
+                cartProd.fullProd = await Product.findByPk(cartProd.id);
                 await OrderItem.create({
-                    subtotal: fullProd.price * cartProd.quantity,
+                    subtotal: cartProd.fullProd.price * cartProd.quantity,
                     quantity: cartProd.quantity,
-                    price: fullProd.price,
-                    orderId: orderId,
+                    price: cartProd.fullProd.price,
+                    orderId: newOrderId,
                     productId: cartProd.id,
-                    discount: fullProd.discount,
+                    discount: cartProd.fullProd.discount,
+                    createdAt: Date.now(),
                 });
             }
         }
 
-        res.send(cart);
+        //MERCADO PAGO
+        const preference = {
+            items: cart.map((cartProd) => {
+                return {
+                    title: cartProd.fullProd.productName,
+                    unit_price: Number(cartProd.fullProd.price),
+                    quantity: Number(cartProd.quantity),
+                };
+            }),
+            back_urls: {
+                success: `${process.env.HOST}/orden/mercadopago/exito/${newOrderId}`,
+                pending: `${process.env.HOST}/orden/mercadopago/pendiente/${newOrderId}`,
+                failure: `${process.env.HOST}/mercadopago/rechazada/${newOrderId}`,
+            },
+            payment_methods: {
+                excluded_payment_methods: [
+                    {
+                        id: "ticket",
+                    },
+                    {
+                        id: "atm",
+                    },
+                ],
+            },
+        };
+
+        const result = await mercadopago.preferences.create(preference);
+        res.send({ init_url: result.body.init_point });
     },
 };

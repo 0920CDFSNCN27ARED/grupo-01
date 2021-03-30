@@ -13,3 +13,6 @@ insert into grapes (id, name) values (12, 'Asteraceae');
 insert into grapes (id, name) values (13, 'Cladoniaceae');
 insert into grapes (id, name) values (14, 'Typhaceae');
 insert into grapes (id, name) values (15, 'Oleaceae');
+
+insert into status (id, name) values (1, 'unpaid');
+insert into status (id, name) values (2, 'paid');

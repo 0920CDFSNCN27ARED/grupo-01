@@ -17,6 +17,13 @@ app.listen(3000, () => {
     console.log("Server running in port 3000");
 });
 
+const mercadopago = require("mercadopago")
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN
+mercadopago.configure({
+    access_token: ACCESS_TOKEN,
+});
+
+
 const staticFileRouter = express.static("public");
 app.use(staticFileRouter);
 
@@ -53,6 +60,7 @@ app.use("/api/users", apiUsersRouter);
 const apiOrdersRouter = require("./src/routes/api/ordersRouter");
 app.use("/api/orders", apiOrdersRouter);
 
+
 // RUTAS //
 //home
 const indexRoute = require("./src/routes/indexRoutes");
@@ -69,6 +77,10 @@ app.use("/usuarios", usersRoute);
 // Cart routes
 const cartRoute = require("./src/routes/cartRoutes");
 app.use("/carrito", cartRoute);
+
+// Orders routes
+const ordersRouter = require("./src/routes/ordersRoutes");
+app.use("/orden", ordersRouter);
 
 const favouritesRoute = require("./src/routes/favouritesRoute");
 
