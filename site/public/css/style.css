@@ -6,10 +6,11 @@ body {
     margin: 0;
     padding: 0;
 }
-input{
+
+input {
     outline: none;
 }
-main{
+main {
     min-height: 50vh;
 }
 .error {
@@ -186,6 +187,11 @@ li {
     position: relative;
 }
 
+#items-qtty-form {
+    display: flex;
+    justify-content: end;
+    width: fit-content;
+}
 @keyframes slider {
     10% {
         right: 0%;
@@ -208,12 +214,11 @@ li {
 }
 
 /* fin slider */
-#new-address{
+#new-address {
     width: 100%;
     margin: 2% 0;
     color: black;
     font-weight: bolder;
-
 }
 /*slider de productos*/
 .slideshow-prod {
@@ -235,7 +240,7 @@ li {
     display: grid;
     grid-template-rows: auto auto 30px;
     scroll-snap-align: start;
-    padding: 15px;    
+    padding: 15px;
 }
 
 .previous,
@@ -416,7 +421,7 @@ fieldset > div {
     padding-left: 20px;
 }
 
-.social{
+.social {
     display: grid;
     align-items: center;
 }
@@ -566,7 +571,9 @@ section.form h2 {
     font-size: 22px;
 }
 /* perfil */
-.hide, #hide, #none {
+.hide,
+#hide,
+#none {
     display: none;
 }
 .profile-image {
@@ -575,10 +582,10 @@ section.form h2 {
     box-shadow: 2px 2px 10px grey;
     width: 80%;
     margin: 20px auto;
-    height:fit-content;
+    height: fit-content;
 }
 
-form.newImage{
+form.newImage {
     display: none;
 }
 
@@ -603,13 +610,12 @@ form.newImage{
     padding: 2px;
 }
 
-
 .red {
     color: #d21f57;
     padding: 10px;
 }
 
-input:disabled{
+input:disabled {
     background-color: inherit;
     border: none;
     text-align: center;
@@ -633,8 +639,12 @@ button:disabled:hover + .disable-msg {
     font-size: 14px;
     color: red;
     text-align: center;
-} 
-
+}
+.title-cont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 4%;
+}
 .profile-main {
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -646,7 +656,7 @@ button:disabled:hover + .disable-msg {
     padding-bottom: 0;
 }
 
-.profile-right{
+.profile-right {
     padding: 15px;
     padding-top: 0;
 }
@@ -670,25 +680,25 @@ button:disabled:hover + .disable-msg {
 }
 #change-pass-form {
     display: grid;
-    
 }
 
- #pass-screen{
+#pass-screen {
     padding: 15px;
 }
 
-#pass-screen label{
-    font-size: 12px; 
+#pass-screen label {
+    font-size: 12px;
 }
 
-
-
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin: 2%;
+}
 
 /*tablet*/
 
 @media (min-width: 450px) {
-    
-
     .wine {
         padding-left: 25px;
     }
@@ -731,7 +741,6 @@ button:disabled:hover + .disable-msg {
     .background-text {
         width: 50%;
         top: 10px;
-
     }
 
     .footer-index {
@@ -752,8 +761,6 @@ button:disabled:hover + .disable-msg {
     .footer-index .logo-image img {
         width: 40%;
     }
-    
-   
 }
 
 /*tablet*/
@@ -946,40 +953,37 @@ button:disabled:hover + .disable-msg {
         border-bottom: 1px solid;
     }
 
-    .profile-main{
+    .profile-main {
         display: grid;
         grid-template-columns: 1fr 2fr;
     }
 
-    .profile-right{
+    .profile-right {
         padding-right: 0;
     }
 
-    #pass-screen{
+    #pass-screen {
         padding-left: 0;
         padding-top: 15px;
     }
 
-    #pass-screen label, 
-    .profile-button, 
-    .profile-data{
+    #pass-screen label,
+    .profile-button,
+    .profile-data {
         font-size: 15px;
     }
 
-
     .profile-button:hover {
-    background-color: rgba(128, 128, 128, 0.212);
+        background-color: rgba(128, 128, 128, 0.212);
     }
     .red:hover {
-    color: white;
-    background-color: #d21f57;
+        color: white;
+        background-color: #d21f57;
     }
-    .personal-data{
+    .personal-data {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-
-
 }
 
 @media (min-width: 1000px) {
@@ -1014,7 +1018,6 @@ button:disabled:hover + .disable-msg {
     .round-button {
         font-size: 25px;
     }
-
 
     .logo-links {
         grid-template-rows: 200px;

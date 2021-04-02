@@ -63,4 +63,9 @@ module.exports = {
             data: product,
         });
     },
+    list: async(req, res) => {
+        const products = await Product.findAll()
+        
+        res.send()
+    }
 };
