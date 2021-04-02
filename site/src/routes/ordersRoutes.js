@@ -7,4 +7,6 @@ router.get("/mercadopago/exito/:id", ordersController.success);
 router.get("/mercadopago/pendiente/:id", ordersController.pending);
 router.get("/mercadopago/rechazada/:id", ordersController.failure);
 
+//router.post("/mercadopago/notificaciones", ordersController.paid);
+
 module.exports = router;

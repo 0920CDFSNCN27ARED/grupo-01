@@ -38,7 +38,7 @@ const productsController = {
     },
     showOne: async (req, res) => {
         const oneProd = await Product.findByPk(req.params.id, {
-            include: ["grape"],
+            include: ["grape", "cellaruser"],
         });
         if (oneProd == undefined) {
             return res
