@@ -240,16 +240,9 @@ li {
     scroll-snap-type: x mandatory;
 }
 
-<<<<<<< HEAD
 
 
 article.prodArticle{
-=======
-.prod {
-    display: grid;
-    grid-template-rows: auto auto 30px;
-    scroll-snap-align: start;
->>>>>>> cd6d63d23ee338ff93761b4ee0951a211212d74d
     padding: 15px;
 }
 
@@ -581,7 +574,6 @@ section.form h2 {
     box-shadow: 2px 2px 10px grey;
     width: 50%;
     margin: 20px auto;
-<<<<<<< HEAD
     height: 200px;
 }
 
@@ -589,9 +581,6 @@ section.form h2 {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-=======
-    height: fit-content;
->>>>>>> cd6d63d23ee338ff93761b4ee0951a211212d74d
 }
 
 form.newImage {
@@ -698,19 +687,16 @@ button:disabled:hover + .disable-msg {
     font-size: 12px;
 }
 
-<<<<<<< HEAD
 .action{
     overflow: scroll;
     height: 500px;
 }
 
-=======
 .pagination {
     display: flex;
     justify-content: flex-end;
     margin: 2%;
 }
->>>>>>> cd6d63d23ee338ff93761b4ee0951a211212d74d
 
 /*tablet*/
 
