@@ -6,13 +6,12 @@ module.exports = {
     // falta el countByCategory
     showAll: async (req, res) => {
         const productsCount = await Product.count();
-        const products = await Product.findAll(
-            {
-                attributes: ["id", "productName", "description"],
-                raw: true,
-                include: { model: Grape,as:"grape", required: true },
-            },
-        );
+        const products = await Product.findAll({
+            attributes: ["id", "productName", "description"],
+            raw: true,
+            nest: true,
+            include: { model: Grape, as: "grape", required: true },
+        });
 
         // Get count by category
         const countByGrape = await Grape.sequelize.query(
@@ -51,8 +50,11 @@ module.exports = {
     },
     getById: async (req, res) => {
         const product = await Product.findByPk(req.params.id, {
-            include: { all: true },
+            include: { all: true, attributtes: { exclude: ["grapeId", "GrapeId"] }},
+            nest: true,
+           
         });
+        
         res.send({
             meta: {
                 url: req.originalUrl,
@@ -61,4 +63,9 @@ module.exports = {
             data: product,
         });
     },
+    list: async(req, res) => {
+        const products = await Product.findAll()
+        
+        res.send()
+    }
 };

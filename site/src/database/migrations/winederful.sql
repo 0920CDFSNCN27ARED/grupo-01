@@ -105,6 +105,7 @@ CREATE TABLE IF NOT EXISTS `winederful`.`orders` (
   `updatedAt` TIMESTAMP NULL DEFAULT NULL,
   `deletedAt` TIMESTAMP NULL DEFAULT NULL,
   `addressId` INT(11),
+  `statusId` INT(11) NOT NULL,
   `total` FLOAT(10,2) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_orders_addresses1`
@@ -114,13 +115,29 @@ CREATE TABLE IF NOT EXISTS `winederful`.`orders` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_orders_buyer_users1`
     FOREIGN KEY (`buyerUserId`)
-    REFERENCES `winederful`.`buyer_users` (`id`))
+    REFERENCES `winederful`.`buyer_users` (`id`),
+  CONSTRAINT `fk_orders_status1`
+    FOREIGN KEY (`statusId`)
+    REFERENCES `winederful`.`status` (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 CREATE INDEX `fk_orders_buyer_users1_idx` ON `winederful`.`orders` (`buyerUserId` ASC);
 
 CREATE INDEX `fk_orders_addresses1_idx` ON `winederful`.`orders` (`addressId` ASC);
+
+
+-- -----------------------------------------------------
+-- Table `winederful`.`status`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `winederful`.`status` ;
+
+CREATE TABLE IF NOT EXISTS `winederful`.`status` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------

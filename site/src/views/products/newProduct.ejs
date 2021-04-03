@@ -2,29 +2,38 @@
 <html lang="en">
     <head>
         <%- include("../partials/head.ejs") %>
-        <title>NUEVO PRODUCTO | WINEDERFUL</title>
-        <script src="/js/productPreview.js"></script>
+        <link rel="stylesheet" href="/css/collapseDetails.css" />
+        <link rel="stylesheet" href="/css/productDetail.css" />
+        <script defer src="/js/productPreview.js"></script>
         <script
             type="text/javascript"
             src="/js/validations/validator.min.js"
         ></script>
         <script defer src="/js/validations/validationFunctions.js"></script>
+        <title>NUEVO PRODUCTO | WINEDERFUL</title>
         <script defer src="/js/validations/newProduct.js"></script>
-        
+        <script defer src="/js/prodDetail.js"></script>
     </head>
     <body>
         <%- include("../partials/header.ejs") %>
         <main class="main-newProduct">
             <section class="reveal">
-                
-                <h2 id="title" class="desktop subtitle-wine">Previsualización</h2>
+                <h2 id="title" class="desktop subtitle-wine">
+                    Previsualización
+                </h2>
                 <div class="previewContainer" id="previewContainer">
-                    <img src="" alt="Image Preview" class="imagePreview">
+                    <img src="" alt="Image Preview" class="imagePreview" />
                     <span>Image Preview</span>
                 </div>
 
                 <h2 id="price" class="price">$100</h2>
-                <p id="description" class="pDescription descPreview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, ut culpa dignissimos explicabo nulla fugiat praesentium laboriosam veritatis? Beatae culpa ad deleniti quae qui velit adipisci necessitatibus ipsum officiis laudantium.</p>
+                <p id="description" class="pDescription descPreview">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quos, ut culpa dignissimos explicabo nulla fugiat
+                    praesentium laboriosam veritatis? Beatae culpa ad deleniti
+                    quae qui velit adipisci necessitatibus ipsum officiis
+                    laudantium.
+                </p>
                 <section class="specific">
                     <div id="colapse" class="colapse">
                         <p>ESPECIFICACIONES</p>
@@ -62,7 +71,6 @@
                         </div>
                     </div>
                 </section>
-                
             </section>
             <section class="form form-newProduct">
                 <form
@@ -75,7 +83,12 @@
                     <label for="productName">Nombre del vino</label>
                     <input type="text" name="productName" id="productName" />
                     <label for="productPicture">Foto del producto</label>
-                    <input type="file" name="image" id="productPicture" />
+                    <input
+                        type="file"
+                        name="image"
+                        id="productPicture"
+                        multiple
+                    />
                     <label for="productPrice">Precio</label>
                     <input
                         min="0"

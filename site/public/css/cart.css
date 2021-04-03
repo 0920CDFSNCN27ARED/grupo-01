@@ -146,6 +146,7 @@ a {
 .sad-glass{
     text-align: center;
     padding: 10px 0;
+    margin-top: 5%;
 }
 
 .sad-glass img{
@@ -317,13 +318,13 @@ input::-webkit-inner-spin-button {
 
 
 
-
 @media(min-width:768px){
     #trash-box{
         position: initial;
     }
-    #none{
-        display: grid;
+    #cart-columns{
+        display: none;
+        margin-top: 2%;
     }
     .article{
         display: grid;

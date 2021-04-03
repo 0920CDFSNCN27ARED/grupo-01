@@ -8,10 +8,15 @@ const isAdmin = require("../middlewares/isAdmin");
 
 //listado
 router.get("/", productsController.showAll);
+router.get("/pagina/:pagNmbr", productsController.showPag);
 
 //crear
 router.get("/crear", isAdmin, productsController.newProduct);
-router.post("/crear", upload.single("image"), productsController.createProduct);
+router.post(
+    "/crear",
+    upload.array("image", [6]),
+    productsController.createProduct
+);
 
 //buscar
 router.get("/buscar", productsController.search);

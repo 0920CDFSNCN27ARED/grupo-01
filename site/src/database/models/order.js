@@ -6,17 +6,18 @@ module.exports = (sequelize, DataTypes) => {
             total: DataTypes.FLOAT(10, 2),
             buyerUserId: DataTypes.INTEGER,
             addressId: DataTypes.INTEGER,
+            statusId: DataTypes.INTEGER,
         },
         {
             tablename: "orders",
-            timestamps: false,
+            timestamps: true,
         }
     );
     Order.associate = function (models) {
         Order.belongsTo(models.Address, {
             as: "address",
             foreignKey: "addressId",
-            onDelete: "cascade"
+            onDelete: "cascade",
         });
         Order.belongsTo(models.BuyerUser, {
             as: "buyerUser",
@@ -32,10 +33,9 @@ module.exports = (sequelize, DataTypes) => {
             otherKey: "productId",
             through: "OrderItem",
         });
-        // Order.hasOne(models.PaymentMethod, {
-        //     as: "paymentMethod",
-        //     foreingKey: "idpaymentMethod",
-        // });
+        Order.belongsTo(models.Status, {
+            as: "status",
+        });
     };
     return Order;
 };

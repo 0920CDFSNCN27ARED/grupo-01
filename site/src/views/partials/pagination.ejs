@@ -1,0 +1,19 @@
+<nav class="pagination" aria-label="...">
+    <%if(pagsNmbr > 1) {%>
+
+    <ul class="pagination">
+        <li id="prev-btn" class="page-item">
+            <a class="page-link" tabindex="-1">Previous</a>
+        </li>
+        <% for(let i = 1; i <= pagsNmbr;i++) {%>
+        <li class="page-item">
+            <a class="page-link" href="/productos/pagina/<%=i%>"><%=i%></a>
+        </li>
+        <%}%>
+
+        <li id="next-btn" class="page-item">
+            <a class="page-link">Next</a>
+        </li>
+    </ul>
+    <%}%>
+</nav>

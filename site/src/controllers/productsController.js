@@ -4,15 +4,37 @@ const edit = require("../utils/edit");
 
 const productsController = {
     showAll: async (req, res) => {
+        const itemsPerPage = req.query.itemsPerPage || 10;
         try {
-            const allProds = await Product.findAll();
+            const allProds = await Product.findAll({
+                limit: Number(itemsPerPage) || 25,
+            });
+            const count = await Product.count();
+            const pags = Math.ceil(count / itemsPerPage);
+            pagsNmbr = pags < 1 ? 1 : pags;
+
             res.render("products/products", {
                 products: allProds,
+                pagsNmbr,
             });
         } catch (err) {
             console.log(err);
             res.render("error");
         }
+    },
+    showPag: async (req, res) => {
+        const count = await Product.count();
+        const itemsPerPage = req.query.itemsPerPage || 10;
+        const pagNmbr = req.params.pagNmbr;
+
+        const pags = Math.ceil(count / itemsPerPage);
+        pagsNmbr = pags < 1 ? 1 : pags;
+
+        const products = await Product.findAll({
+            limit: itemsPerPage || 10,
+            offset: itemsPerPage * (pagNmbr - 1),
+        });
+        res.render("products/products", { products, pagsNmbr });
     },
     showOne: async (req, res) => {
         const oneProd = await Product.findByPk(req.params.id, {
@@ -45,7 +67,7 @@ const productsController = {
                 price: req.body.price,
                 stock: req.body.stock,
                 discount: req.body.discount,
-                image: req.file.filename,
+                image: req.files.filename,
                 cellarUserId: req.session.loggedUser.id,
             });
             res.redirect(`/productos/${newProduct.id}`);
@@ -101,12 +123,12 @@ const productsController = {
         });
 
         if (matchedProducts.length == 0) {
-            res.render("products/products", {
-                products: products,
-                matchedProducts: matchedProducts,
-            });
+            res.redirect("/productos")
         } else {
-            res.render("products/products", { products: matchedProducts });
+            res.render("products/products", {
+                products: matchedProducts,
+                pagsNmbr: 2,
+            });
         }
     },
 };
