@@ -73,7 +73,8 @@ const usersControllers = {
                 res.render("users/signUp");
             }
         } catch (err) {
-            res.send(err);
+            console.log(err);
+            res.render("error");
         }
     },
     newUserWineCellar: async (req, res) => {
@@ -98,7 +99,8 @@ const usersControllers = {
                 res.render("users/signupWineCellar");
             }
         } catch (err) {
-            res.send(err);
+            console.log(err);
+            res.render("error");
         }
     },
 
@@ -182,6 +184,7 @@ const usersControllers = {
             );
         } catch (err) {
             console.log(err);
+            res.render("error");
         }
 
         res.redirect("/usuarios/perfil");
@@ -195,6 +198,8 @@ const usersControllers = {
             res.redirect("/usuarios/perfil");
         } catch (err) {
             console.log(err);
+            res.render("error");
+            
         }
     },
     deleteAddress: async (req, res) => {

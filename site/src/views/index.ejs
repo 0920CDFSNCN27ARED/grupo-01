@@ -12,13 +12,46 @@
             <main>
                 <div class="overflow">
                     <div class="slideshow">
-                        
+                        <div>
+                            <img
+                                src="/images/slider/sliderUno.png"
+                                alt=""
+                            />
+                        </div>
+                        <div>
+                            <img
+                                src="/images/slider/sliderDos.png"
+                                alt=""
+                            />
+                        </div>
+                        <div>
+                            <img
+                                src="/images/slider/sliderTres.png"
+                                alt=""
+                            />
+                        </div>
                     </div>
                 </div>
                 <div class="subtitle bestSeller">
                     <div class="background-text"></div>
                     <h2>Los más vendidos</h2>
                 </div>
+                <section class="sliderContainer">
+                    <div class="leftbox center">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="overflow">
+                        <div class="slider">
+                            <% for (let i = 0; i <= 8; i++) { 
+                                 const product = products[i];
+                                <%- include("./partials/productItem.ejs", {product: product}) %>
+                             } %>            
+                        </div>
+                    </div>
+                    <div class="rightbox center">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </section>
                 
                 <div class="subtitle ">
                     <div class="background-text"></div>

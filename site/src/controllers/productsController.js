@@ -10,6 +10,7 @@ const productsController = {
                 products: allProds,
             });
         } catch (err) {
+            console.log(err);
             res.render("error");
         }
     },
@@ -20,7 +21,7 @@ const productsController = {
         if (oneProd == undefined) {
             return res
                 .status(404)
-                .send("404 not found. <br> ¡Houston, poseemos problemas!");
+                .render("error");
         }
 
         res.render("products/productDetail", {
@@ -49,7 +50,8 @@ const productsController = {
             });
             res.redirect(`/productos/${newProduct.id}`);
         } catch (err) {
-            res.send(err);
+            console.log(err);
+            res.render("error");
         }
     },
 
@@ -58,7 +60,7 @@ const productsController = {
         if (product == null) {
             return res
                 .status(404)
-                .send("404 not found. <br> ¡Houston, poseemos problemas!");
+                .render("error");
         }
         res.render("products/editProduct", {
             product: product,
