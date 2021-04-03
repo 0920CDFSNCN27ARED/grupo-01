@@ -16,6 +16,7 @@ articles = Array.from(articles);
 
 let modalNewAddress = document.querySelectorAll("[id*=newAddress-modal]");
 console.log(modalNewAddress)
+
 modalNewAddress = Array.from(modalNewAddress);
 let modalDeleteAddress = document.querySelectorAll("[id*=delete-modal]");
 modalDeleteAddress = Array.from(modalDeleteAddress);
