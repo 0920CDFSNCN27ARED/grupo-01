@@ -7,7 +7,7 @@
 - Crear ordenes de carrito + Mercado Pago 
 - Retocar vistas:
 - Vista carrito 
-1. Tratar de sacar los nombres de las columnas apenas queda el carrito vacio. Gabi
+1. Tratar de sacar los nombres de las columnas apenas queda el carrito vacio. Gabi ✔
 1. Agregar query para mas vendidosSlider pag principal, agregar productos de DB Vero 
 - Vistas de profile (addreses, etc...)
 - Unir cellarUser con addresses Gabi

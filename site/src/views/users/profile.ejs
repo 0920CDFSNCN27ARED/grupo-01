@@ -31,7 +31,7 @@
                         </li>
                         <% if(!user.cuit) {%>
                         <li>
-                            <button class="profile-button">Mis compras</button>
+                            <button id="transactions-btn" class="profile-button">Mis compras</button>
                         </li>
                         <li>
                             <button class="profile-button">
@@ -72,6 +72,7 @@
 
             <%-include("../partials/profile/personalData.ejs")%>
             <%-include("../partials/profile/addresses.ejs")%>
+            <%-include("../partials/profile/transactions.ejs")%>
         </main>
      <%-include("../partials/footer.ejs")%>
     </body>

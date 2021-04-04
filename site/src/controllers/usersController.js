@@ -119,33 +119,31 @@ const usersControllers = {
                 where: {
                     email: req.body.email,
                 },
-                include: ["addresses"],
+                include: ["addresses","orders"],
             });
-
             const cellarUser = await findUser(CellarUser, req);
-
+            
             const user = validateAndStoreInSession(
-                buyerUser || cellarUser,
-                req
-            ); // req.session.loggedUser
-
-            ///////////////////////////////////////
-
-            if (!req.session.loggedUser) {
-                res.render("users/login", {
-                    errorMsg: msg,
-                });
-            } else if (req.body.remember) {
-                res.cookie("remember", req.session.loggedUser.id, {
-                    maxAge: 60 * 1000 * 60 * 24,
-                });
-                if (req.session.loggedUser.dni) {
-                    res.cookie("isUser", true, {
+                buyerUser || cellarUser,req
+                ); // req.session.loggedUser
+                
+                ///////////////////////////////////////
+                
+                if (!req.session.loggedUser) {
+                    res.render("users/login", {
+                        errorMsg: msg,
+                    });
+                } else if (req.body.remember) {
+                    res.cookie("remember", req.session.loggedUser.id, {
                         maxAge: 60 * 1000 * 60 * 24,
                     });
+                    if (req.session.loggedUser.dni) {
+                        res.cookie("isUser", true, {
+                            maxAge: 60 * 1000 * 60 * 24,
+                        });
+                    }
                 }
-            }
-            res.locals.user = req.session.loggedUser;
+                res.locals.user = req.session.loggedUser;
             res.redirect(`/usuarios/perfil`);
         } else {
             res.render("users/login", { errors: errors.errors });

@@ -1,9 +1,12 @@
-
 const allActions = document.getElementsByClassName("action");
+
+
+
 
 /////// Profile
 showOneSection("profile-btn", "personal-data", allActions);
 /////// My items
+showOneSection("transactions-btn", "transactions-screen", allActions);
 ////// Favourites
 
 ////Addreses

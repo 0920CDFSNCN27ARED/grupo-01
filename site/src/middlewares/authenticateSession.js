@@ -8,7 +8,7 @@ async function authenticateSession(req, res, next) {
     }
 
     const loggedUser = await BuyerUser.findByPk(savedUser.id, {
-        include: ["addresses"]
+        include: ["addresses","orders"]
     });
     const loggedCellar = await CellarUser.findByPk(savedUser.id);
 
