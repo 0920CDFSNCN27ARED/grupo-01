@@ -213,6 +213,10 @@ li {
     height: 100%;
 }
 
+.slideshow div{
+    padding: 1%;
+}
+
 /* fin slider */
 #new-address {
     width: 100%;
@@ -220,14 +224,14 @@ li {
     color: black;
     font-weight: bolder;
 }
-/*slider de productos*/
-.slideshow-prod {
+/*product item*/
+.sliderContainer {
     display: grid;
     grid-template-columns: 1% 98% 1%;
     padding: 10px;
 }
 
-.prod-container {
+.slider{
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 100% 100% 100% 100% 100% 100% 100% 100%;
@@ -236,44 +240,31 @@ li {
     scroll-snap-type: x mandatory;
 }
 
-.prod {
-    display: grid;
-    grid-template-rows: auto auto 30px;
-    scroll-snap-align: start;
+
+
+article.prodArticle{
     padding: 15px;
 }
 
-.previous,
-.next {
+
+.center {
     display: grid;
     justify-content: center;
     align-items: center;
 }
 
-.arrow {
-    cursor: pointer;
-}
+
 
 .love {
     font-size: 20px;
     color: #748ac4;
 }
 
-.prod-img-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 20px 0px 20px;
-}
 
 .prod-img-box img {
-    width: 80%;
+    width: 100%;
 }
 
-.prod-name-box {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-}
 
 .prod-name-box p {
     padding-left: 15px;
@@ -556,6 +547,7 @@ section.form h2 {
 /*prods*/
 .showAll {
     display: grid;
+    margin-top: 30px;
 }
 
 .hand {
@@ -580,9 +572,15 @@ section.form h2 {
     border-radius: 50%;
     border: 0;
     box-shadow: 2px 2px 10px grey;
-    width: 80%;
+    width: 50%;
     margin: 20px auto;
-    height: fit-content;
+    height: 200px;
+}
+
+.profile-image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 
 form.newImage {
@@ -652,7 +650,6 @@ button:disabled:hover + .disable-msg {
     margin: 2%;
 }
 .profile-left {
-    display: grid;
     padding: 10px;
     padding-bottom: 0;
 }
@@ -689,6 +686,11 @@ button:disabled:hover + .disable-msg {
 
 #pass-screen label {
     font-size: 12px;
+}
+
+.action{
+    overflow: scroll;
+    height: 500px;
 }
 
 .pagination {
@@ -733,6 +735,7 @@ button:disabled:hover + .disable-msg {
     .showAll {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        margin-top: 50px;
     }
 
     .prod-container {
@@ -798,6 +801,7 @@ button:disabled:hover + .disable-msg {
     .showAll {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+
     }
     .under-nav {
         display: none;
@@ -892,11 +896,6 @@ button:disabled:hover + .disable-msg {
         display: grid;
         grid-template-rows: auto;
         grid-template-columns: 33.3% 33.3% 33.3% 33.3% 33.3% 33.3% 33.3% 33.3%;
-    }
-
-    .prod {
-        display: grid;
-        grid-template-rows: auto auto 30px;
     }
 
     section.values {
