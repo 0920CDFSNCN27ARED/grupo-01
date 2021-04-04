@@ -3,7 +3,7 @@
 - Buscador    ////PRIORITARIO ✔
 - Vista de errores (con info de vinos)/////PRIORITARIO Vero
 - Profile foto de perfil arreglar ✔
-- Paginacion Gabi
+- Paginacion Gabi ✔
 - Crear ordenes de carrito + Mercado Pago 
 - Retocar vistas:
 - Vista carrito 

@@ -130,6 +130,8 @@ lastPromise.then((something) => {
             localStorage.setItem(localStorageKey, JSON.stringify(cart));
             if (cart.length == 0) {
                 emptyCartMsg.classList.remove("hide");
+                cartColumns.style.display = "none";
+                completeCartSection.style.display = "none";
             }
         });
     });
