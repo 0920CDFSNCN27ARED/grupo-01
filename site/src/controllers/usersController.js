@@ -141,9 +141,7 @@ const usersControllers = {
                     },
                 ],
             });
-            console.log(buyerUser.orders, "--------LA COINCHA DE TU MADRE SEQUELIZE");
-         
-            
+
             const cellarUser = await findUser(CellarUser, req);
 
             const user = validateAndStoreInSession(
