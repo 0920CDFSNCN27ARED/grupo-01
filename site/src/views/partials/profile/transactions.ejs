@@ -13,10 +13,14 @@
         { %>
 
         <article id="article-<%=i%>" class="address-article">
-           <p>$<%=orderItems[i].subtotal%></p>
-
-
            
+           <p>Fecha:</p>
+           <%if(orderItems)%>
+           <p></p>
+            <p>$<%=orderItems[i].subtotal%></p>
+
+
+
         </article>
 
         

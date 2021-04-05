@@ -5,6 +5,8 @@ const {
     CellarUser,
     Address,
     OrderItem,
+    Status,
+    Order,
 } = require("../database/models");
 
 ////////FUNCTIONS
@@ -120,13 +122,28 @@ const usersControllers = {
 
         if (errors.isEmpty()) {
             let msg = "Credenciales invalidas.";
+            const paidStatus = await Status.findOne({
+                where: {
+                    name: "paid",
+                },
+            });
+
             const buyerUser = await BuyerUser.findOne({
                 where: {
                     email: req.body.email,
                 },
-                include: ["addresses", "orders"],
+                include: [
+                    "addresses",
+                    {
+                        model: Order,
+                        as: "orders",
+                        where: { statusId: paidStatus.id },
+                    },
+                ],
             });
-
+            console.log(buyerUser.orders, "--------LA COINCHA DE TU MADRE SEQUELIZE");
+         
+            
             const cellarUser = await findUser(CellarUser, req);
 
             const user = validateAndStoreInSession(
@@ -137,7 +154,6 @@ const usersControllers = {
             if (user.orders) {
                 orderItems = await getOrderItems(user, OrderItem);
             }
-            console.log(orderItems)
             ///////////////////////////////////////
 
             if (!req.session.loggedUser) {
