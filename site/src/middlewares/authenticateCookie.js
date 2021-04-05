@@ -1,4 +1,5 @@
-const { CellarUser, BuyerUser } = require("../database/models");
+const { CellarUser, BuyerUser,OrderItem } = require("../database/models");
+const getOrderItems = require("../utils/getOrderItems");
 
 async function authenticateCookie(req, res, next) {
     const cookiedUser = req.cookies.remember;
@@ -11,11 +12,15 @@ async function authenticateCookie(req, res, next) {
     const loggedUser = await BuyerUser.findByPk(cookiedUser, {
         include: ["addresses", "orders"],
     });
+    if (loggedUser) {
+        orderItems = await getOrderItems(loggedUser, OrderItem);
+    }
     const loggedCellar = await CellarUser.findByPk(cookiedUser);
 
     if (loggedUser && isUser) {
         req.session.loggedUser = loggedUser;
         res.locals.user = req.session.loggedUser;
+        res.locals.orderItems = orderItems;
         return next();
     }
     if (loggedCellar) {

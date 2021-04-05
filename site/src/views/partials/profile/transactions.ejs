@@ -9,21 +9,20 @@
        
         <% } %>
          <% if(user.dni) { 
-             for(let i = 0; i < user.orders.length; i++)
+             for(let i = 0; i < orderItems.length; i++)
         { %>
 
         <article id="article-<%=i%>" class="address-article">
-           <p>$<%=user.orders[i].total%></p>
+           <p>$<%=orderItems[i].subtotal%></p>
+
+
+           
         </article>
 
         
         
         <% } %> 
         <%}%> 
-        
-
-
-        
        
     </div>
 </section>
