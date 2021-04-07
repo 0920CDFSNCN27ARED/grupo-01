@@ -1,14 +1,14 @@
 <%let id = (user.addresses.length > 0) ? user.addresses[i].id : "" %>
 
 <div class="modal-container" data-id="<%=id%>" id="newAddress-modal-<%=i%>">
-    <div class="modal">
+    <div class="myModal">
         <button class="close-btn">
             <i class="fa fa-times"></i>
         </button>
         <div  class="modal-header hide edit-hder"><h3>Editar Dirección</h3></div>
         <div  class="modal-header hide new-hder"><h3>Nueva Dirección</h3></div>
          
-        <div class="modal-content">
+        <div class="mod-content">
             <form
                 action=""
                 method="POST"
