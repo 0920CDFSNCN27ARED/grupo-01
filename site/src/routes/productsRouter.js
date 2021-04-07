@@ -14,7 +14,7 @@ router.get("/pagina/:pagNmbr", productsController.showPag);
 router.get("/crear", isAdmin, productsController.newProduct);
 router.post(
     "/crear",
-    upload.array("image", [6]),
+    upload.array("image", 6),
     productsController.createProduct
 );
 
