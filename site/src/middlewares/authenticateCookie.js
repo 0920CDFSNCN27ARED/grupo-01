@@ -1,18 +1,16 @@
 const { CellarUser, BuyerUser } = require("../database/models");
 
-async function authenticateCookie(req, res, next) {
-    const cookiedUser = req.cookies.remember;
-    
+async function authenticateCookie(req, res, next) {   
     const isBuyer = req.cookies.rememberBuyer;
     const isCellar = req.cookies.rememberCellar;
 
-    if (!cookiedUser) {
+    if (!isBuyer && !isCellar) {
         return next();
     }
     //User with orders ordered by status
-    const loggedUser = await BuyerUser.findByPk(cookiedUser);
+    const loggedUser = await BuyerUser.findByPk(isBuyer);
 
-    const loggedCellar = await CellarUser.findByPk(cookiedUser);
+    const loggedCellar = await CellarUser.findByPk(isCellar);
 
     if (loggedUser && isBuyer) {
         req.session.loggedUser = loggedUser;
@@ -28,5 +26,5 @@ async function authenticateCookie(req, res, next) {
     delete req.session.loggedUser;
     return next();
 }
-
 module.exports = authenticateCookie;
+
