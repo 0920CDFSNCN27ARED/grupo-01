@@ -16,3 +16,4 @@ insert into grapes (id, name) values (15, 'Oleaceae');
 
 insert into status (id, name) values (1, 'unpaid');
 insert into status (id, name) values (2, 'paid');
+insert into status (id, name) values (3, 'rejected');

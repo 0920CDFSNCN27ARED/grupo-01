@@ -1,6 +1,6 @@
-const { CellarUser, BuyerUser,OrderItem } = require("../database/models");
+const { CellarUser, BuyerUser, OrderItem, Order } = require("../database/models");
 const getOrderItems = require("../utils/getOrderItems");
-
+const { Op } = require("sequelize");
 async function authenticateCookie(req, res, next) {
     const cookiedUser = req.cookies.remember;
     const isUser = req.cookies.isUser;
@@ -8,9 +8,17 @@ async function authenticateCookie(req, res, next) {
     if (!cookiedUser) {
         return next();
     }
-
+    //User with orders ordered by status
     const loggedUser = await BuyerUser.findByPk(cookiedUser, {
-        include: ["addresses", "orders"],
+        include: [
+            "addresses",
+            {
+                model: Order,
+                as: "orders",
+                where: { statusId: {[Op.lt] : 3} },
+            },
+        ],
+        order: [[["orders", "statusId", "ASC"]]],
     });
     if (loggedUser) {
         orderItems = await getOrderItems(loggedUser, OrderItem);

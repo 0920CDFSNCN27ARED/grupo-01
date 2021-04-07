@@ -13,16 +13,13 @@ const indexController = {
                 { raw: true }
             );
 
-            console.log(bestSellers, "-----------------");
             const bestSellersId = [];
             for (const bestSeller of bestSellers[0]) {
                 bestSellersId.push(bestSeller.productId);
             }
-            console.log(bestSellersId, "-----------------");
             const products = await Product.findAll({
                 where: { id: bestSellersId },
             });
-            //console.log(products, "-----------------");
             res.render("index", {
                 products: products,
             });

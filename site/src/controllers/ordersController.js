@@ -18,12 +18,12 @@ module.exports = {
                 },
             }
         );
-        res.render("success");
+        res.redirect("/");
     },
     pending: (req, res) => {
-        res.render("pending");
+        res.redirect("/usuarios/perfil");
     },
     failure: (req, res) => {
-        res.render("failure");
+        res.redirect("/carrito");
     },
 };

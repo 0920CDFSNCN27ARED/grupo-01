@@ -1,0 +1,98 @@
+.article {
+    display: grid;
+    border: 0.5px solid rgb(212, 212, 212);
+    margin: 10px;
+    padding: 10px;
+    grid-gap: 15px;
+    border-radius: 2px;
+}
+
+.pending-payment-msg{
+    color: orange;
+    font-size: 0.8rem;
+}
+.product {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    margin: 1.5% 1%;
+    justify-items: center
+}
+#columns > p{
+    font-weight: 800;
+
+}
+.product-name{
+    justify-self: start;
+    text-align: left;
+}
+.total-price-item {
+    text-align: end;
+    width: fit-content;
+    font-weight: 800;
+}
+
+@media (min-width: 768px) {
+    #cart-columns {
+        display: none;
+        margin-top: 2%;
+    }
+    .article {
+        display: grid;
+    }
+
+    .article div {
+        display: grid;
+        align-items: center;
+
+        width: 100%;
+    }
+    .categories {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    #wine-logo-box img {
+        width: 30%;
+    }
+    .sad-glass img {
+        width: 15%;
+    }
+
+    .cupon-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1100px) {
+    .categories {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .sad-glass img {
+        width: 10%;
+    }
+
+    .quantity-box,
+    .minus,
+    .plus {
+        height: 47px;
+        font-size: 14px;
+        text-align: center;
+    }
+    .total-price {
+        width: 44%;
+        margin-left: auto;
+        margin-top: 20px;
+    }
+
+    #buy-form {
+        margin-top: 10px;
+    }
+
+    .total-price div p:last-child {
+        text-align: center;
+    }
+}

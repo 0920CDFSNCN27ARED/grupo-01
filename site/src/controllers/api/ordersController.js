@@ -14,26 +14,30 @@ module.exports = {
             totalPrice += Number(fullProd.price * cartProd.quantity);
         }
         // Get unpaid status row
+        const rejectedStatus = await Status.findOne({
+            where: {
+                name: "rejected",
+            },
+        });
         const unpaidStatus = await Status.findOne({
             where: {
                 name: "unpaid",
             },
         });
-
         // Check for pending order
-        const unpaidOrder = await Order.findOne({
+        const rejectedOrder = await Order.findOne({
             where: {
-                statusId: unpaidStatus.id,
+                statusId: rejectedStatus.id,
                 buyerUserId: userId,
             },
         });
 
-        if (unpaidOrder) {
-            await unpaidOrder.update({
+        if (rejectedOrder) {
+            await rejectedOrder.update({
                 updatedAt: Date.now(),
                 total: totalPrice,
             });
-            newOrderId = unpaidOrder.id;
+            newOrderId = rejectedOrder.id;
             for (const cartProd of cart) {
                 cartProd.fullProd = await Product.findByPk(cartProd.id);
                 await OrderItem.update(
@@ -48,7 +52,7 @@ module.exports = {
                     },
                     {
                         where: {
-                            orderId: unpaidOrder.id,
+                            orderId: rejectedOrder.id,
                             productId: cartProd.id,
                         },
                     }

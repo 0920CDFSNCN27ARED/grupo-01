@@ -6,27 +6,56 @@
         <h4 id="noAddressesYet-msg" class="marginY">
             No tienes compras realizadas aún...
         </h4>
-       
-        <% } %>
-         <% if(user.dni) { 
-             for(let i = 0; i < orderItems.length; i++)
-        { %>
+        <% } %> <% if(user.dni) { for(let i = 0; i < user.orders.length; i++) { %>
 
-        <article id="article-<%=i%>" class="address-article">
            
-           <p>Fecha:</p>
-           <%if(orderItems)%>
-           <p></p>
-            <p>$<%=orderItems[i].subtotal%></p>
-
-
-
+        <article id="order" class="article">
+            <div class="item-header" >
+                <p>Fecha: <%=user.orders[i].updatedAt.toLocaleDateString()%></p>
+                <% if(user.orders[i].statusId == 1){ %>
+                    <p class="pending-payment-msg"> Pago en proceso...</p>
+                <% } %>  
+            </div>
+            <ul id="order-items">
+                <li id="columns" class="product">
+                    <p class="product-name">Producto</p>
+                    <p>Precio unitario</p>
+                    <p>Cantidad</p>
+                    <p>Subtotal</p>
+                </li>
+                
+                <%for(let j = 0; j < orderItems.length; j++) { %>
+                    <% if(orderItems[j].orderId == user.orders[i].id) { %> 
+                   
+                    <% let product = orderItems[j].products %>
+                <li  class="product" >
+                    
+                        <p class="product-name"><%=product.productName%></p>
+                    
+                    
+                        <p class="unity-price">$<%=product.price%></p>
+                     <p id="quantity"><%=orderItems[j].quantity%></p>
+                    <!-- <div id="wine-logo-box">
+                        <img
+                            class="wine-logo"
+                            src="/images/Vino-x-prueba.png"
+                            alt="wineProduct"
+                        />
+                    </div> -->
+                  <p id="subtotal">$<%=orderItems[j].quantity * product.price %></p>
+                       
+                    
+                </li>
+                <% } %> 
+                <% } %>
+            </ul>
+            
+            
+            <div>
+                <p class="total-price-item" >Total: $<%=user.orders[i].total%></p>
+            </div>
+            
         </article>
-
-        
-        
-        <% } %> 
-        <%}%> 
-       
+        <% } %> <%}%>
     </div>
 </section>

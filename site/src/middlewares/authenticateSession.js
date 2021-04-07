@@ -1,5 +1,6 @@
-const { CellarUser, BuyerUser, OrderItem } = require("../database/models");
+const { CellarUser, BuyerUser, OrderItem,Order } = require("../database/models");
 const getOrderItems = require("../utils/getOrderItems");
+const {Op} = require("sequelize")
 
 async function authenticateSession(req, res, next) {
     const savedUser = req.session.loggedUser;
@@ -8,8 +9,17 @@ async function authenticateSession(req, res, next) {
         return next();
     }
 
+    //User with orders ordered by status
     const loggedUser = await BuyerUser.findByPk(savedUser.id, {
-        include: ["addresses", "orders"],
+        include: [
+            "addresses",
+            {
+                model: Order,
+                as: "orders",
+                where: { statusId: { [Op.lt]: 3 } },
+            },
+        ],
+        order: [[["orders", "statusId", "ASC"]]],
     });
     if (loggedUser) {
         orderItems = await getOrderItems(loggedUser, OrderItem);
