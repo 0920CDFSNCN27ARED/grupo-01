@@ -18,6 +18,7 @@ async function authenticateSession(req, res, next) {
                 as: "orders",
                 where: { statusId: { [Op.lt]: 3 } },
             },
+            
         ],
         order: [[["orders", "statusId", "ASC"]]],
     });
@@ -25,7 +26,9 @@ async function authenticateSession(req, res, next) {
         orderItems = await getOrderItems(loggedUser, OrderItem);
     }
 
-    const loggedCellar = await CellarUser.findByPk(savedUser.id);
+    const loggedCellar = await CellarUser.findByPk(savedUser.id, {
+        include: ["products"]
+    });
 
     if (loggedUser && savedUser.dni) {
         res.locals.user = loggedUser;

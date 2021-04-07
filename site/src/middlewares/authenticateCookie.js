@@ -23,7 +23,9 @@ async function authenticateCookie(req, res, next) {
     if (loggedUser) {
         orderItems = await getOrderItems(loggedUser, OrderItem);
     }
-    const loggedCellar = await CellarUser.findByPk(cookiedUser);
+    const loggedCellar = await CellarUser.findByPk(cookiedUser, {
+        include:["products"]
+    });
 
     if (loggedUser && isUser) {
         req.session.loggedUser = loggedUser;

@@ -1,19 +1,19 @@
 const allActions = document.getElementsByClassName("action");
-
-
-
+const transactions = document.getElementById("transactions-btn");
 
 /////// Profile
 showOneSection("profile-btn", "personal-data", allActions);
 /////// My items
-showOneSection("transactions-btn", "transactions-screen", allActions);
+if (transactions) {
+    showOneSection("transactions-btn", "transactions-screen", allActions);
+}
+
 ////// Favourites
 
 ////Addreses
 showOneSection("address-btn", "address-screen", allActions);
 let editBtns = document.getElementsByClassName("edit-btn");
-
-
+showOneSection("myPosts-btn", "posts-screen", allActions);
 ////// Functions
 function hideAllActions(allActions) {
     for (const action of allActions) {
