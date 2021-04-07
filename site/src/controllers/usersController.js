@@ -11,6 +11,7 @@ const {
 
 ////////FUNCTIONS
 const getOrderItems = require("../utils/getOrderItems");
+const { Op } = require("sequelize");
 
 function logOut(req, res, redirectPath) {
     res.clearCookie("remember");
@@ -122,51 +123,36 @@ const usersControllers = {
 
         if (errors.isEmpty()) {
             let msg = "Credenciales invalidas.";
-            const paidStatus = await Status.findOne({
-                where: {
-                    name: "paid",
-                },
-            });
 
             const buyerUser = await BuyerUser.findOne({
                 where: {
                     email: req.body.email,
                 },
-                include: [
-                    "addresses",
-                    {
-                        model: Order,
-                        as: "orders",
-                        where: { statusId: paidStatus.id },
-                    },
-                ],
             });
-
             const cellarUser = await findUser(CellarUser, req);
 
             const user = validateAndStoreInSession(
                 buyerUser || cellarUser,
                 req
-            ); // req.session.loggedUser
-            let orderItems;
-            if (user.orders) {
-                orderItems = await getOrderItems(user, OrderItem);
-            }
+            );
             ///////////////////////////////////////
-//CAMBIO
             if (!req.session.loggedUser) {
                 res.render("users/login", {
                     errorMsg: msg,
                 });
-            } else if (req.body.remember) {
-                res.cookie("remember", req.session.loggedUser.id, {
+            } else if (req.body.remember && req.session.loggedUser.dni) {
+                res.cookie("rememberBuyer", req.session.loggedUser.id, {
                     maxAge: 60 * 1000 * 60 * 24,
                 });
-                if (req.session.loggedUser.dni) {
-                    res.cookie("isUser", true, {
-                        maxAge: 60 * 1000 * 60 * 24,
-                    });
-                }
+
+                //if (req.session.loggedUser.dni) {
+                // req.session.loggedUser.isUser = true;
+
+                //}
+            } else if (req.body.remember && req.session.loggedUser.cuit) {
+                res.cookie("rememberCellar", req.session.loggedUser.id, {
+                    maxAge: 60 * 1000 * 60 * 24,
+                });
             }
             res.locals.user = req.session.loggedUser;
             res.redirect(`/usuarios/perfil`);
@@ -177,8 +163,40 @@ const usersControllers = {
     logOut: (req, res) => {
         logOut(req, res, "/");
     },
-    showProfile: (req, res) => {
-        res.render(`users/profile`);
+    showProfile: async (req, res) => {
+        const paidStatus = await Status.findOne({
+            where: {
+                name: "rejected",
+            },
+        });
+        if (req.session.loggedUser.dni) {
+            const userData = await BuyerUser.findByPk(
+                req.session.loggedUser.id,
+                {
+                    include: [
+                        "addresses",
+                        {
+                            model: Order,
+                            as: "orders",
+                            where: { statusId: { [Op.not]: paidStatus } },
+                            required: false,
+                        },
+                    ],
+                    order: [[["orders", "statusId", "ASC"]]],
+                }
+            );
+
+            const orderItems = await getOrderItems(userData, OrderItem);
+            return res.render("users/profile", { user: userData, orderItems });
+        } else {
+            const userData = await CellarUser.findByPk(
+                req.session.loggedUser.id,
+                {
+                    include: ["products"],
+                }
+            );
+            return res.render(`users/profile`, { user: userData });
+        }
     },
 
     changePassword: async (req, res) => {

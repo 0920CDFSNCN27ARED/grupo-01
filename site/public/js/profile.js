@@ -1,6 +1,6 @@
 const allActions = document.getElementsByClassName("action");
 const transactions = document.getElementById("transactions-btn");
-
+const myPosts = document.getElementById("myPosts-btn")
 /////// Profile
 showOneSection("profile-btn", "personal-data", allActions);
 /////// My items
@@ -13,7 +13,7 @@ if (transactions) {
 ////Addreses
 showOneSection("address-btn", "address-screen", allActions);
 let editBtns = document.getElementsByClassName("edit-btn");
-showOneSection("myPosts-btn", "posts-screen", allActions);
+if (myPosts) showOneSection("myPosts-btn", "posts-screen", allActions);
 ////// Functions
 function hideAllActions(allActions) {
     for (const action of allActions) {
