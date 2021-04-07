@@ -153,7 +153,7 @@ const usersControllers = {
                 orderItems = await getOrderItems(user, OrderItem);
             }
             ///////////////////////////////////////
-
+//CAMBIO
             if (!req.session.loggedUser) {
                 res.render("users/login", {
                     errorMsg: msg,
