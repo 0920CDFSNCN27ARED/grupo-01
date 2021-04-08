@@ -4,20 +4,22 @@
         <%- include("../partials/head.ejs") %>
 
         <title>EDITAR PRODUCTO | WINEDERFUL</title>
+        <link rel="stylesheet" href="/css/collapseDetails.css" />
+        <link rel="stylesheet" href="/css/productDetail.css" />
         <script
             type="text/javascript"
             src="/js/validations/validator.min.js"
         ></script>
         <script defer src="/js/validations/validationFunctions.js"></script>
         <script defer src="/js/validations/newProduct.js"></script>
-         <script defer src="/js/productPreview.js"></script>
-       <script defer src="/js/editProd.js"></script>
+        <script defer src="/js/productPreview.js"></script>
+        <script defer src="/js/editProd.js"></script>
     </head>
     <body>
         <%- include("../partials/header.ejs") %>
         <main class="main-newProduct">
-            <%-include("../partials/products/preview.ejs") %> 
-              <%-include("../partials/products/form.ejs") %>
+            <%-include("../partials/products/preview.ejs") %>
+            <%-include("../partials/products/form.ejs") %>
         </main>
         <%- include("../partials/footer.ejs") %>
     </body>

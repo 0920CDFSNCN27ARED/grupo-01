@@ -13,19 +13,19 @@
     >
     <% let prod = (product) ? product : "" %> 
         <label for="productName">Nombre del vino</label>
-        <input type="text" name="productName" id="productName" placeholder=<%=prod.productName || ""%> />
+        <input type="text" name="productName" id="productName" value="<%=prod.productName ||" "%>" />
         <label for="productPicture">Foto del producto</label>
-        <input type="file" name="image" id="productPicture" multiple />
+        <input type="file" name="image" id="productPicture" multiple  />
         <label for="productPrice">Precio</label>
-        <input min="0" type="number" name="price" id="productPrice" />
+        <input min="0" type="number" name="price" id="productPrice"value=<%=prod.price || ""%> />
         <label for="productDescription">Descripción</label>
         <textarea
             name="description"
             id="productDescription"
             cols="30"
             rows="10"
-            placeholder="Agregue detalles que se aprecien a la vista, olores y sabores en boca."
-        ></textarea>
+            
+        ><%=prod.description || ""%></textarea>
         <label for="productGrape">Varietal </label>
         <!-- <input type="text" name="grape" id="productGrape" /> -->
         <select name="grape" id="productGrape">
@@ -35,17 +35,17 @@
         </select>
         <label for="productYear">Añada</label>
         <select name="year" id="productYear">
-            <option value="">Selecciona un año</option>
+            <option selected >Selecciona un año</option>
         </select>
-        <label for="productTemperature">Temperatura de servicio</label>
-        <input type="number" name="temperature" id="productTemperature" />
+        <label for="productTemperature">Temperatura de servicio (Cº)</label>
+        <input type="number" name="temperature" id="productTemperature" value=<%=prod.temperature || ""%> />
         <label for="productAged">Crianza</label>
-        <input type="number" name="aged" id="productAged" />
+        <input type="number" name="aged" id="productAged" value=<%=prod.aged || ""%> />
         <label for="productStock">Stock</label>
-        <input type="number" min="0" name="stock" id="productStock" />
+        <input type="number" min="0" name="stock" id="productStock" value= "<%=prod.stock || ""%>"/>
 
         <label for="productDiscount">Descuento</label>
-        <input type="number" min="0" name="discount" id="productDiscount" />
+        <input type="number" min="0" name="discount" id="productDiscount"value=<%=prod.discount || ""%> />
 
         <% if(url.includes("crear")) { %>
         <button type="submit" class="button create margin">

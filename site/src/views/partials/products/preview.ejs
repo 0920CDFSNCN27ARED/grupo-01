@@ -1,19 +1,17 @@
  <section class="reveal">
+      <% let prod = (product) ? product : "" %> 
                 <h2 id="title" class="desktop subtitle-wine">
-                    Previsualización
+                    <%=prod.productName || ""%>
                 </h2>
                 <div class="previewContainer" id="previewContainer">
-                    <img src="" alt="Image Preview" class="imagePreview" />
-                    <span>Image Preview</span>
+                    <%let image = prod ? prod.image[0] :"" %> 
+                    <img src="/images/products/<%=image%>" alt="Image Preview" class="imagePreview"/>
+                    <span class="defaultTextImg">Image Preview</span>
                 </div>
 
-                <h2 id="price" class="price">$100</h2>
+                <h2 id="price" class="price">$<%=prod.price || "" %> </h2>
                 <p id="description" class="pDescription descPreview">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quos, ut culpa dignissimos explicabo nulla fugiat
-                    praesentium laboriosam veritatis? Beatae culpa ad deleniti
-                    quae qui velit adipisci necessitatibus ipsum officiis
-                    laudantium.
+                    <%= prod.description || "Descripcion del producto..." %> 
                 </p>
                 <section class="specific">
                     <div id="colapse" class="colapse">
@@ -24,7 +22,7 @@
                     <div id="inside" class="description font-description">
                         <div>
                             <p>UVA:</p>
-                            <p id="grape" class="data"></p>
+                            <p id="grape" class="data"> </p>
                         </div>
                         <div>
                             <p>COSECHA:</p>

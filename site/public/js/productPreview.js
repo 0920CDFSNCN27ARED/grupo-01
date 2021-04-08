@@ -7,13 +7,20 @@ window.onload = () => {
     });
 
     //image
+   
     const inputImage = document.getElementById("productPicture");
     const previewContainer = document.getElementById("previewContainer");
     const previewImage = document.querySelector(".imagePreview");
+
     const defaultText = previewContainer.querySelector("span");
+     if (window.location.href.includes("crear")){
+         defaultText.style.display = "block";
+         previewImage.style.display = "none";
+        
+}
     inputImage.addEventListener("change", () => {
         const file = inputImage.files[0];
-        console.log(file);
+       
         if (file) {
             const reader = new FileReader();
             defaultText.style.display = "none";
