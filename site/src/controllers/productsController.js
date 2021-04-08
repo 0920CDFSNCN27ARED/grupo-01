@@ -60,10 +60,13 @@ const productsController = {
             return res.status(404).render("error");
         }
         //const images = oneProd.image.split(",");
+        console.log(oneProd);
         res.render("products/productDetail", {
             product: oneProd,
             //images,
+            
         });
+        
     },
 
     newProduct: async (req, res) => {

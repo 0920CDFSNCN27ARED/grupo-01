@@ -10,9 +10,14 @@
                 
         <% if(user && user.dni){ %> 
             <form action="/carrito/agregar/<%= product.id %>" method="POST">
-                <button type="submit" class="button create">
-                    <i class="fas fa-shopping-cart"></i>
-                </button>
+                
+                    <div class="buttons">
+                        <a href="/usuarios/login" class="button">
+                            Agregar al carrito
+                            <i class="fas fa-shopping-cart cart-button"></i>
+                        </a>
+                   
+            </div>
             </form>  
         <% } %> 
         <div class="prod-name-box">

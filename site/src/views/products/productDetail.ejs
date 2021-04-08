@@ -58,21 +58,25 @@
                             </div>
                       <%  } %>
                   </div>
-                  <div class="colorLayer"></div>
-                  <div class="preview">
-                    <h1 class="brand"><%= product.productName %></h1>
-                    <div id="imgs" class="imgs">
+                  
+                  <div class="sliderDetail">
+
+                    <ul class="sliderBox">
                         <% for(let i = 0; i < product.image.length;i++) {%> 
-                     
-                      <img src="/images/products/<%=product.image[i]%>" alt="img<%=i%>">
+                      <li id="slide<%=i%>">
+                        <img src="/images/products/<%=product.image[i] %>"/>
+                      </li>
                       <% } %> 
-                    </div>
-                    <div class="zoomControl"></div>
-                    <div class="closePreview"></div>
-                    <div class="movControls">
-                      <div class="movControl left"></div>
-                      <div class="movControl right"></div>
-                    </div>
+
+                    </ul>
+                    
+                    <ul class="sliderMenu">
+                        <% for(let i = 0; i < product.image.length;i++) {%>
+                      <li>
+                        <a href="#slide<%=i%>"></a>
+                      </li>
+                      <% } %> 
+                    </ul>
                   </div>
                 </div>
               </section>
@@ -87,7 +91,7 @@
                         </div>
                         <div>
                             <p>UVA:</p>
-                            <!-- <p class="data"><%= product.grape.name %></p> -->
+                            <p class="data"><%= product.grape.name %></p>
                         </div>
                         <!-- <div>
                             <p>PAIS:</p>

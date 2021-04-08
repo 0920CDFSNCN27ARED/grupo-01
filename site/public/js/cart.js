@@ -27,7 +27,7 @@ if (cart.length == 0) {
         <div id="wine-logo-box">
             <img
                 class="wine-logo"
-                src=${product.data.image}
+                src=/images/products/${product.data.image[0]}
                 alt="wineProduct"
             />
         </div>

@@ -8,7 +8,7 @@ const indexController = {
                 `select productId, COUNT(*)
                 FROM order_items
                 GROUP BY productId
-                LIMIT 3;`,
+                LIMIT 4;`,
                 { raw: true }
             );
 
