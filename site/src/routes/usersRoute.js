@@ -40,7 +40,7 @@ router.post(
             .custom(async (value) => {
                 await paramExists(value, "dni", BuyerUser);
             }),
-         check("email")
+        check("email")
             .isEmail()
             .withMessage("Debes ingresar un mail valido.")
             .custom(async (value) => {
@@ -55,7 +55,7 @@ router.post(
         check("image")
             .custom((value, { req }) => {
                 if (!req.file) {
-                    return false
+                    return false;
                 }
                 return true;
             })
@@ -69,8 +69,6 @@ router.post(
 );
 
 router.get("/registroBodega", isGuest, usersController.showRegisterWineCellar);
-
-
 
 router.post(
     "/registroBodega",
@@ -88,16 +86,23 @@ router.post(
             .custom(async (value) => {
                 await paramExists(value, "cuit", CellarUser);
             }),
-        check("country")
-            .notEmpty()
-            .withMessage(
-                "Debes colocar el pais en el que se establece tu empresa."
-            ),
-        check("province")
-            .notEmpty()
-            .withMessage(
-                "Debes colocar la provincia en la que se establece tu empresa."
-            ),
+        check("countries").custom((value, { req }) => {
+            if (!req.body.countries) {
+                throw new Error(
+                    "Debes colocar el pais en el que se establece tu empresa."
+                );
+            }
+            return true;
+        }),
+
+        check("province").custom((value, { req }) => {
+            if (!req.body.provinces) {
+                throw new Error(
+                    "Debes colocar la provincia en el que se establece tu empresa."
+                );
+            }
+            return true;
+        }),
         check("email")
             .isEmail()
             .withMessage("Debes ingresar un mail valido.")
@@ -113,7 +118,7 @@ router.post(
         check("image")
             .custom((value, { req }) => {
                 if (!req.file) {
-                   return false
+                    return false;
                 }
                 return true;
             })
@@ -141,5 +146,9 @@ router.post(
 
 router.post("/crearDireccion", isLoggedIn, usersController.newAddress);
 router.put("/editarDireccion/:id", isLoggedIn, usersController.editAddress);
-router.delete("/eliminarDireccion/:id", isLoggedIn, usersController.deleteAddress);
+router.delete(
+    "/eliminarDireccion/:id",
+    isLoggedIn,
+    usersController.deleteAddress
+);
 module.exports = router;

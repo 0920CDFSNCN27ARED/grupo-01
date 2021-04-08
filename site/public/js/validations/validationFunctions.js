@@ -90,6 +90,15 @@ function intValidation(min, max) {
 
     return isInt;
 }
+function lessThan(max) {
+    let isInt = [
+        validator.isInt,
+        { max: max },
+        `El campo no puede ser mayor a ${max}`,
+    ];
+
+    return isInt;
+}
 ///////////////////////
 
 /////////  FUNCTIONS

@@ -24,7 +24,7 @@ const validationStructure = [
     ["productTemperature", [intValidation(-49, 41)]],
     ["productAged", [intValidation(1, 401)]],
     ["productStock", [intValidation(1)]],
-    ["productDiscount", [intValidation(1, 100)]],
+    ["productDiscount", [lessThan(100)]],
 ];
 
 form.addEventListener("submit", (event) => {

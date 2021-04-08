@@ -256,6 +256,7 @@ body li {
 .productCard .container .preview .imgs img.activ {
   opacity: 1;
   transform: none;
+  max-height: 60vh;
 }
 .productCard .container .preview .zoomControl {
   display: flex;

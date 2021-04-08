@@ -11,8 +11,13 @@ $(function () {
         $(this).parents(".productCard").removeClass("morph");
         $("body").removeClass("noScroll");
     });
+    
     $(".movControl").click(function () {
         let imgActiv = $(this).parents(".preview").find(".imgs img.activ");
+
+        if ($(".imgs img").length == 1) {
+            return;
+        }
         if ($(this).hasClass("left")) {
             imgActiv.index() == 0
                 ? $(".imgs img").last().addClass("activ")

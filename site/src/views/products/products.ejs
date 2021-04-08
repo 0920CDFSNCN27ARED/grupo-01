@@ -24,9 +24,9 @@
                 <%-include("../partials/pagination.ejs",{pagsNmbr: pagsNmbr})%>
             </div>
             <form id="items-qtty-form" action="/productos" method="GET">
-                <label for="itemsPerPage">Productos por página</label>
+                <!-- <label id="items-qtty-label" for="itemsPerPage">Mostrar </label> -->
                 <select name="itemsPerPage" id="itemsPerPage">
-                    <option selected value="10">10</option>
+                    <option  selected value="10">10</option>
                     <option  value="25">25</option>
                     <option value="50">50</option>
                     <option value="100">100</option>

@@ -108,8 +108,20 @@
     font-size: 20px;
 }
 
+img{
+    width: auto;
+}
+/* .prod-img-box{
+    height: 29vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-
+}
+.prod-img{
+    width: auto;
+} */
 
 /* .prod > a{
     height: 37vh;

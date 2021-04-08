@@ -186,11 +186,18 @@ li {
     animation: slider 30s infinite;
     position: relative;
 }
+#items-qtty-label{
+    margin-bottom:0;
+    margin-right: 2%; 
+}
 
 #items-qtty-form {
     display: flex;
-    justify-content: end;
-    width: fit-content;
+    justify-content: flex-end;
+    padding-right: 2.5%;
+}
+#itemsPerPage{
+    width: 32.5%;
 }
 @keyframes slider {
     10% {
@@ -260,9 +267,15 @@ article.prodArticle{
     color: #748ac4;
 }
 
-
+.prod-img-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .prod-img-box img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
+    height: 25vh;
 }
 
 
