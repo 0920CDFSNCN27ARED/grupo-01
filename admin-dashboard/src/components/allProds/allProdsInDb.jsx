@@ -33,6 +33,22 @@ function AllProdsInDb() {
               </tr>
             </tfoot>
             <tbody>
+              {this.state.smallCardValues.map((element, i) => {
+                return (
+                  <AllProdsRow
+                    name="Tiger Nison"
+                    description="System Architect"
+                    price="$320.800"
+                    categories={["Category 01", "Category 02", "Category 03"]}
+                    colors={[
+                      { color: "Red", classText: "danger" },
+                      { color: "Blue", classText: "primary" },
+                      { color: "Green", classText: "success" },
+                    ]}
+                    stock="245"
+                  />
+                );
+              })}
               <AllProdsRow
                 name="Tiger Nison"
                 description="System Architect"
