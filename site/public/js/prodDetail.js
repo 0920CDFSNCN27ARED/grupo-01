@@ -46,3 +46,6 @@ if (form) {
         localStorage.setItem(localStorageKey, JSON.stringify(cart));
     });
 }
+
+const firstImage = document.getElementById("imgs").firstElementChild;
+firstImage.classList.add("activ");

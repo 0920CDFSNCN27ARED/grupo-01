@@ -51,10 +51,11 @@
                   <div class="colorLayer"></div>
                   <div class="preview">
                     <h1 class="brand"><%= product.productName %></h1>
-                    <div class="imgs">
-                      <img class="activ" src="<%= product.image %>" alt="img 1">
-                      <img src="<%= product.image %>" alt="img 2">
-                      <img src="<%= product.image %>" alt="img 3">
+                    <div id="imgs" class="imgs">
+                        <% for(let i = 0; i < images.length;i++) {%> 
+                     
+                      <img src="/images/products/<%=images[i] %>" alt="img<%=i%>">
+                      <% } %> 
                     </div>
                     <div class="zoomControl"></div>
                     <div class="closePreview"></div>

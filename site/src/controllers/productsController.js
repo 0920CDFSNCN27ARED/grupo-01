@@ -43,9 +43,10 @@ const productsController = {
         if (oneProd == undefined) {
             return res.status(404).render("error");
         }
-
+        const images = oneProd.image.split(",");
         res.render("products/productDetail", {
             product: oneProd,
+            images,
         });
     },
 
@@ -55,6 +56,12 @@ const productsController = {
     },
     createProduct: async (req, res) => {
         try {
+            let images = [];
+            for (const image of req.files) {
+                images.push(image.filename);
+            }
+            const imagesString = images.join(",");
+           
             const newProduct = await Product.create({
                 productName: req.body.productName,
                 grapeId: req.body.grape,
@@ -65,10 +72,9 @@ const productsController = {
                 price: req.body.price,
                 stock: req.body.stock,
                 discount: req.body.discount,
-                image: req.files.filename,
+                image: imagesString,
                 cellarUserId: req.session.loggedUser.id,
             });
-            console.log(req.files.filename, "imagen  -----------");
             res.redirect(`/productos/${newProduct.id}`);
         } catch (err) {
             console.log(err);
