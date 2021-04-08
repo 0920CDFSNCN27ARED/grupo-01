@@ -1,4 +1,5 @@
 <section class="form form-newProduct">
+    <% let populateInputs = "" %> 
     <form
     <% if(url.includes("crear")) {%> 
         action="/productos/crear"
@@ -10,8 +11,9 @@
         class="form"
         id="newProd-form"
     >
+    <% let prod = (product) ? product : "" %> 
         <label for="productName">Nombre del vino</label>
-        <input type="text" name="productName" id="productName" />
+        <input type="text" name="productName" id="productName" placeholder=<%=prod.productName || ""%> />
         <label for="productPicture">Foto del producto</label>
         <input type="file" name="image" id="productPicture" multiple />
         <label for="productPrice">Precio</label>

@@ -13,6 +13,7 @@ const getUrl = require("./src/middlewares/getUrl")
 
 //views variables
 app.locals.user = null;
+app.locals.product = null;
 app.locals.url = "/"
 app.use(getUrl)
 app.use(cors())
