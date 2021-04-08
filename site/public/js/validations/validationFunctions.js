@@ -1,9 +1,9 @@
 // VALIDATION VARS
-const noNumberValidation = [
-    validator.isAlpha,
-    ["en-US"],
-    "El campo debe estar compuesto unicamente por letras, no numeros",
-];
+// const noNumberValidation = [
+//     validator.isAlpha,
+//     ["en-US"],
+//     "El campo debe estar compuesto unicamente por letras, no numeros",
+// ];
 
 const isLength = (minNmbr, maxNmbr) => {
     let options;

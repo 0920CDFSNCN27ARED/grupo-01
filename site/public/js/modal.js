@@ -34,10 +34,9 @@ open.addEventListener("click", () => {
         input.placeholder = "";
         input.value = "";
         validationStructure = [
-            [`streetName-0`, [isLength(3), noNumberValidation]],
+            [`streetName-0`, [isLength(3)]],
             [`streetNumber-0`, [isLength(2), onlyNumbers]],
-            [`apartment-0`, [isLength(2), onlyNumbers]],
-            [`city-0`, [isLength(3), noNumberValidation]],
+            // [`city-0`, [isLength(3), noNumberValidation]],
             [`zipCode-0`, [isLength(2, 8), onlyNumbers]],
         ];
     }
@@ -54,10 +53,8 @@ for (const btn of editBtns) {
     btn.addEventListener("click", () => {
         const index = getIdIndex(btn);
         validationStructure = [
-            [`streetName-${index}`, [isLength(3), noNumberValidation]],
+            [`streetName-${index}`, [isLength(3)]],
             [`streetNumber-${index}`, [isLength(2), onlyNumbers]],
-            [`apartment-${index}`, [isLength(2), onlyNumbers]],
-            [`city-${index}`, [isLength(3), noNumberValidation]],
             [`zipCode-${index}`, [isLength(2, 8), onlyNumbers]],
         ];
 
