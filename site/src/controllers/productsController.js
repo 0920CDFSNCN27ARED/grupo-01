@@ -1,4 +1,4 @@
-const { Product, CellarUser } = require("../database/models");
+const { Product, CellarUser, Grape } = require("../database/models");
 const erase = require("../utils/delete");
 const edit = require("../utils/edit");
 
@@ -41,25 +41,30 @@ const productsController = {
             include: ["grape", "cellaruser"],
         });
         if (oneProd == undefined) {
-            return res
-                .status(404)
-                .render("error");
+            return res.status(404).render("error");
         }
-
+        const images = oneProd.image.split(",");
         res.render("products/productDetail", {
             product: oneProd,
+            images,
         });
     },
 
-    newProduct: (req, res) => {
-        res.render("products/newProduct");
+    newProduct: async (req, res) => {
+        const grapes = await Grape.findAll();
+        res.render("products/newProduct", { grapes });
     },
     createProduct: async (req, res) => {
-        console.log(req.file.filename, "imagen  -----------");
         try {
+            let images = [];
+            for (const image of req.files) {
+                images.push(image.filename);
+            }
+            const imagesString = images.join(",");
+           
             const newProduct = await Product.create({
                 productName: req.body.productName,
-                grape: req.body.grape,
+                grapeId: req.body.grape,
                 description: req.body.description,
                 year: req.body.year,
                 aged: req.body.aged,
@@ -67,7 +72,7 @@ const productsController = {
                 price: req.body.price,
                 stock: req.body.stock,
                 discount: req.body.discount,
-                image: req.files.filename,
+                image: imagesString,
                 cellarUserId: req.session.loggedUser.id,
             });
             res.redirect(`/productos/${newProduct.id}`);
@@ -80,9 +85,7 @@ const productsController = {
     editProduct: async (req, res) => {
         const product = await Product.findByPk(req.params.id);
         if (product == null) {
-            return res
-                .status(404)
-                .render("error");
+            return res.status(404).render("error");
         }
         res.render("products/editProduct", {
             product: product,
@@ -123,7 +126,7 @@ const productsController = {
         });
 
         if (matchedProducts.length == 0) {
-            res.redirect("/productos")
+            res.redirect("/productos");
         } else {
             res.render("products/products", {
                 products: matchedProducts,

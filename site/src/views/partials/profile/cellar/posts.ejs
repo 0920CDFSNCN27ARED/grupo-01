@@ -1,59 +1,34 @@
 <section class="action hide" id="posts-screen">
     <div class="profile-right">
         <div class="background-text"></div>
-        <h2>Mis compras</h2>
+        <h2>Mis publicaciones</h2>
         <% if(user.products.length == 0) {%>
         <h4 id="noAddressesYet-msg" class="marginY">
             No tienes compras realizadas aún...
         </h4>
-        <% } %> 
-
-           <% for(let i = 0; i < user.products.length;i++) { %> 
+        <% } %> <% for(let i = 0; i < user.products.length;i++) { %>
         <article id="order" class="article">
-            <div class="item-header" >
-                <p>Nombre: <%=user.products[i].productName%></p>
-            
-            </div>
+           
             <ul id="order-items">
-                <li id="columns" class="product">
-                    <p class="product-name">Producto</p>
-                    <p>Precio unitario</p>
-                    <p>Cantidad</p>
-                    <p>Subtotal</p>
-                </li>
-                
-                   
-                   
-                    <% let product = user.products[i] %>
-                <li  class="product" >
-                    
-                        <p class="product-name"></p>
-                    
-                    
-                        <p class="unity-price">$</p>
-                     <p id="quantity">%></p>
-                    <!-- <div id="wine-logo-box">
+                <% let product = user.products[i] %>
+                <li class="product">
+                    <p class="product-name"><%= product.productName %></p>
+
+                    <p class="unity-price">$<%=product.price %> </p>
+                    <!-- <p id="description"><%=product.description%></p> -->
+                    <div id="wine-logo-box">
                         <img
                             class="wine-logo"
-                            src="/images/Vino-x-prueba.png"
+                            src="<%=product.image %> "
                             alt="wineProduct"
                         />
-                    </div> -->
-                  <p id="subtotal">$</p>
-                       
-                    
+                    </div>
+                  <a href="/productos/<%=product.id%> ">Ver publicación</a>
                 </li>
-            
-                
             </ul>
-            
-            
-            <div>
-                <p class="total-price-item" >Total: $<%=product.description%></p>
-            </div>
-            
+
+         
         </article>
-        <% } %> 
-   
+        <% } %>
     </div>
 </section>

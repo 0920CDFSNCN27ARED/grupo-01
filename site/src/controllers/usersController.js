@@ -14,8 +14,8 @@ const getOrderItems = require("../utils/getOrderItems");
 const { Op } = require("sequelize");
 
 function logOut(req, res, redirectPath) {
-    res.clearCookie("remember");
-    res.clearCookie("isUser");
+    res.clearCookie("rememberBuyer");
+    res.clearCookie("rememberCellar");
     res.locals.user = null;
     req.session.destroy((err) => {
         res.redirect(redirectPath);

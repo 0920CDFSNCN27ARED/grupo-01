@@ -11,6 +11,12 @@
     color: orange;
     font-size: 0.8rem;
 }
+p{
+    margin:0
+}
+ul{
+    margin:0
+}
 .product {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

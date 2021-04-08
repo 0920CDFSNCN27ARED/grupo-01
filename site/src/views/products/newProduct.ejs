@@ -105,7 +105,12 @@
                         placeholder="Agregue detalles que se aprecien a la vista, olores y sabores en boca."
                     ></textarea>
                     <label for="productGrape">Varietal </label>
-                    <input type="text" name="grape" id="productGrape" />
+                    <!-- <input type="text" name="grape" id="productGrape" /> -->
+                    <select name="grape" id="productGrape">
+                        <% for(let i = 0; i < grapes.length;i++) { %> 
+                        <option value="<%=grapes[i].id %> "><%= grapes[i].name%> </option>
+                        <% } %> 
+                    </select>
                     <label for="productYear">Añada</label>
                     <select name="year" id="productYear">
                         <option value="">Selecciona un año</option>
