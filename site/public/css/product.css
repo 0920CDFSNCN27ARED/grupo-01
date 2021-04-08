@@ -167,9 +167,12 @@ img{
     }
 
     .imagePreview{
-        display: none;
+        
         width: 100%;
         height: 100%;
+    }
+    .defaultTextImg{
+        display:none
     }
 
     .fav-share {
