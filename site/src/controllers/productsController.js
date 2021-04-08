@@ -15,6 +15,7 @@ const productsController = {
             res.render("products/products", {
                 products: allProds,
                 pagsNmbr,
+                itemsPerPage,
             });
         } catch (err) {
             console.log(err);
@@ -27,16 +28,16 @@ const productsController = {
             const itemsPerPage = req.query.itemsPerPage || 10;
             const pagNmbr = Number(req.params.pagNmbr);
 
-           
+           console.log(itemsPerPage, "ITEMS -------")
             const pags = Math.ceil(count / itemsPerPage);
             pagsNmbr = pags < 1 ? 1 : pags;
             
             const products = await Product.findAll({
-                limit: itemsPerPage,
+                limit: Number(itemsPerPage),
                 offset: (itemsPerPage) * ((pagNmbr) - 1),
                
             });
-            res.render("products/products", { products, pagsNmbr });
+            res.render("products/products", { products, pagsNmbr,itemsPerPage });
         } catch (err) {
             console.log(err)
         }
