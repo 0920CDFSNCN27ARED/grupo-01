@@ -54,4 +54,10 @@ module.exports = {
             data: user,
         });
     },
+    count: async (req, res) => {
+        const countCellars = await CellarUser.count();
+        const countBuyers = await BuyerUser.count();
+        const finalCount = countBuyers + countCellars;
+        res.send({ finalCount });
+    },
 };

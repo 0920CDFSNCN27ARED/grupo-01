@@ -67,19 +67,19 @@ class App extends Component {
     const smallCardValues = [
       {
         title: "Products in Data Base",
-        value: (await this.getProductsCount()).toString(),
+        value: (await this.getProductsCount("count")).toString(),
         icon: "fa-clipboard-list",
         color: "primary",
       },
       {
         title: "Amount in products",
-        value: "$"+ (await this.getProductsTotalPrice()).toString(),
+        value: "$" + (await this.getProductsTotalPrice("totalPrice")).toString(),
         icon: "fa-dollar-sign",
         color: "success",
       },
       {
         title: "Users quantity",
-        value: (await this.getUsersCount()).toString(),
+        value: (await this.getUsersCount("count")).toString(),
         icon: "fa-user-check",
         color: "warning",
       },
