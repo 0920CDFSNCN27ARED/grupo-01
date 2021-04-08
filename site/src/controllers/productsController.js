@@ -103,7 +103,7 @@ const productsController = {
         if (product.cellarUserId == req.session.loggedUser.id) {
             return res.render("products/editProduct", {
                 product: product,
-                grapes
+                grapes,
             });
         }
         res.redirect("/");
@@ -112,21 +112,24 @@ const productsController = {
     edit: async (req, res) => {
         try {
             const imagesString = imagesToArray(req.files);
-            const editedProduct = await Product.update({
-                productName: req.body.productName,
-                description: req.body.description,
-                grapeId: req.body.grape,
-                year: req.body.year,
-                aged: req.body.aged,
-                temperature: req.body.temperature,
-                price: req.body.price,
-                stock: req.body.stock,
-                discount: req.body.discount,
-                image: imagesString,
-                cellarUserId: req.session.loggedUser.id,
-            });
+            const editedProduct = await Product.update(
+                {
+                    productName: req.body.productName,
+                    description: req.body.description,
+                    grapeId: req.body.grape,
+                    year: req.body.year,
+                    aged: req.body.aged,
+                    temperature: req.body.temperature,
+                    price: req.body.price,
+                    stock: req.body.stock,
+                    discount: req.body.discount,
+                    image: imagesString,
+                    cellarUserId: req.session.loggedUser.id,
+                },
+                { where: { id: req.params.id } }
+            );
 
-            res.redirect(`/productos/${id}`);
+            res.redirect(`/productos/${req.params.id}`);
         } catch (err) {
             console.log(err);
         }

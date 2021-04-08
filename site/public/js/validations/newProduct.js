@@ -1,6 +1,4 @@
 const form = document.getElementById("newProd-form");
-
-
 const yearSelect = document.getElementById("productYear");
 const actualYear = new Date().getFullYear();
 

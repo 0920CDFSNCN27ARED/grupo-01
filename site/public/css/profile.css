@@ -6,7 +6,11 @@
     grid-gap: 15px;
     border-radius: 2px;
 }
-
+ .wine-logo-box img {
+        width: auto;
+        max-height: 15vh;
+        max-width: 30%;
+    }
 .pending-payment-msg {
     color: orange;
     font-size: 0.8rem;
@@ -57,11 +61,7 @@ ul {
         margin-bottom: 2%;
     }
 
-    #wine-logo-box img {
-        width: auto;
-        max-height: 15vh;
-        max-width: 30%;
-    }
+   
     .sad-glass img {
         width: 15%;
     }

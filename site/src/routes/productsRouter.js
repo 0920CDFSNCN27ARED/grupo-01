@@ -27,7 +27,7 @@ router.get("/:id", productsController.showOne);
 
 //editar
 router.get("/:id/editar", isAdmin, productsController.editProduct);
-router.put("/:id/editar", upload.single("image"), productsController.edit);
+router.put("/:id/editar", uploadMany.array("image",6), productsController.edit);
 
 //eliminar
 router.delete("/:id/eliminar", isAdmin, productsController.deleteProduct);
