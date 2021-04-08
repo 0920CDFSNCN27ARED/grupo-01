@@ -40,7 +40,7 @@
                                 </button>
                             </div>
                         </form>
-                        <% } else if (user && user.cuit) { %>   
+                        <% } else if (user && user.cuit && user.id == product.cellarUserId) { %>   
                             <a class="button create" href="/productos/<%= product.id %>/editar">
                                     Editar
                                     <i class="fas fa-edit"></i></i>

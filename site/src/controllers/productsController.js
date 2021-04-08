@@ -7,7 +7,7 @@ const productsController = {
         const itemsPerPage = req.query.itemsPerPage || 10;
         try {
             const allProds = await Product.findAll({
-               // limit: Number(itemsPerPage) ,
+                // limit: Number(itemsPerPage) ,
             });
             const count = await Product.count();
             const pags = Math.ceil(count / itemsPerPage);
@@ -28,18 +28,21 @@ const productsController = {
             const itemsPerPage = req.query.itemsPerPage || 10;
             const pagNmbr = Number(req.params.pagNmbr);
 
-           console.log(itemsPerPage, "ITEMS -------")
+            console.log(itemsPerPage, "ITEMS -------");
             const pags = Math.ceil(count / itemsPerPage);
             pagsNmbr = pags < 1 ? 1 : pags;
-            
+
             const products = await Product.findAll({
                 limit: Number(itemsPerPage),
-                offset: (itemsPerPage) * ((pagNmbr) - 1),
-               
+                offset: itemsPerPage * (pagNmbr - 1),
             });
-            res.render("products/products", { products, pagsNmbr,itemsPerPage });
+            res.render("products/products", {
+                products,
+                pagsNmbr,
+                itemsPerPage,
+            });
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
     },
     showOne: async (req, res) => {
@@ -93,9 +96,12 @@ const productsController = {
         if (product == null) {
             return res.status(404).render("error");
         }
-        res.render("products/editProduct", {
-            product: product,
-        });
+        if (product.cellarUserId == req.session.loggedUser.id) {
+            return res.render("products/editProduct", {
+                product: product,
+            });
+        }
+        res.redirect("/");
     },
 
     edit: async (req, res) => {

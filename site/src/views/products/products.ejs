@@ -23,6 +23,7 @@
 
                 <%-include("../partials/pagination.ejs",{pagsNmbr: pagsNmbr})%>
             </div>
+             <%if(pagsNmbr > 1) {%>
             <form id="items-qtty-form" action="/productos" method="GET">
                 <!-- <label id="items-qtty-label" for="itemsPerPage">Mostrar </label> -->
                 <select name="itemsPerPage" id="itemsPerPage">
@@ -32,6 +33,7 @@
                     <option value="100">100</option>
                 </select>
             </form>
+            <% } %> 
             <section class="showAll">
                 <% products.forEach((product,i)=>{%> <%-
                 include("../partials/productItem", {product: product}) %> <%})
