@@ -96,7 +96,7 @@ router.post(
         }),
 
         check("province").custom((value, { req }) => {
-            if (!req.body.provinces) {
+            if (!req.body.province) {
                 throw new Error(
                     "Debes colocar la provincia en el que se establece tu empresa."
                 );

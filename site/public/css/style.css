@@ -233,18 +233,14 @@ li {
 }
 /*product item*/
 .sliderContainer {
-    display: grid;
-    grid-template-columns: 1% 98% 1%;
+   
     padding: 10px;
 }
 
 .slider{
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: 100% 100% 100% 100% 100% 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
+    grid-template-columns: 25% 25% 25% 25%;
 }
 
 
@@ -273,9 +269,9 @@ article.prodArticle{
     align-items: center;
 }
 .prod-img-box img {
-    width: auto;
+    width: 60%;
     max-width: 100%;
-    height: 25vh;
+    height: 270px;
 }
 
 
@@ -295,17 +291,36 @@ article.prodArticle{
 }
 
 .prod-price-cart-box button,
-.button {
+.button, .buttons .button {
     display: block;
     width: 100%;
     color: white;
     border: 0;
     border-radius: 5px;
-    font-size: 19px;
+    font-size: 13px;
     padding: 10px 5px;
     margin: 2% 0;
     text-align: center;
-}
+    margin: 20px 20px 0 0;
+    min-width: 120px;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: #3a3a31;
+    user-select: none;
+    cursor: pointer;
+    transition: ease all 0.3s;
+    text-decoration: none;
+  }
+   .buttons .button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+  }
+
 #buy-form {
     width: 90%;
     margin: auto;
@@ -345,6 +360,7 @@ section.values {
     width: 60%;
     position: relative;
     top: 8px;
+    z-index: -1;
 }
 
 .value-img-box {
