@@ -9,9 +9,12 @@ const cookieParser = require("cookie-parser");
 const authenticateSession = require("./src/middlewares/authenticateSession");
 const authenticateCookie = require("./src/middlewares/authenticateCookie");
 const isAdmin = require("./src/middlewares/isAdmin");
+const getUrl = require("./src/middlewares/getUrl")
 
 //views variables
 app.locals.user = null;
+app.locals.url = "/"
+app.use(getUrl)
 app.use(cors())
 app.listen(3000, () => {
     console.log("Server running in port 3000");

@@ -1,6 +1,13 @@
 const { Product, CellarUser, Grape } = require("../database/models");
 const erase = require("../utils/delete");
 const edit = require("../utils/edit");
+function imagesToArray(stringImages) {
+    let images = [];
+    for (const image of stringImages) {
+        images.push(image.filename);
+    }
+    return images.join(",");
+}
 
 const productsController = {
     showAll: async (req, res) => {
@@ -65,11 +72,7 @@ const productsController = {
     },
     createProduct: async (req, res) => {
         try {
-            let images = [];
-            for (const image of req.files) {
-                images.push(image.filename);
-            }
-            const imagesString = images.join(",");
+            const imagesString = imagesToArray(req.files);
 
             const newProduct = await Product.create({
                 productName: req.body.productName,
@@ -92,6 +95,7 @@ const productsController = {
     },
 
     editProduct: async (req, res) => {
+        const grapes = await Grape.findAll();
         const product = await Product.findByPk(req.params.id);
         if (product == null) {
             return res.status(404).render("error");
@@ -99,16 +103,32 @@ const productsController = {
         if (product.cellarUserId == req.session.loggedUser.id) {
             return res.render("products/editProduct", {
                 product: product,
+                grapes
             });
         }
         res.redirect("/");
     },
 
     edit: async (req, res) => {
-        const id = req.params.id;
-        const stat = await edit(Product, id, req);
-        if (stat === "Updated") {
+        try {
+            const imagesString = imagesToArray(req.files);
+            const editedProduct = await Product.update({
+                productName: req.body.productName,
+                description: req.body.description,
+                grapeId: req.body.grape,
+                year: req.body.year,
+                aged: req.body.aged,
+                temperature: req.body.temperature,
+                price: req.body.price,
+                stock: req.body.stock,
+                discount: req.body.discount,
+                image: imagesString,
+                cellarUserId: req.session.loggedUser.id,
+            });
+
             res.redirect(`/productos/${id}`);
+        } catch (err) {
+            console.log(err);
         }
     },
 
