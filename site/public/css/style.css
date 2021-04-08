@@ -241,7 +241,7 @@ li {
 .slider{
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: 100% 100% 100% 100% 100% 100% 100% 100%;
+    grid-template-columns: 100% 100% 100% 100% 100% 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
@@ -341,7 +341,6 @@ section.values {
 
 .background-text {
     background-color: #d4c0dc;
-    z-index: -1;
     height: 25px;
     width: 60%;
     position: relative;
