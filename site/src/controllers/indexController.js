@@ -5,23 +5,29 @@ const indexController = {
     showIndex: async (req, res) => {
         try {
             const bestSellers = await OrderItem.sequelize.query(
-                `
-                    select productId, COUNT(*)
-                    FROM order_items
-                    GROUP BY productId
-                    LIMIT 3;`,
+                `select productId, COUNT(*)
+                FROM order_items
+                GROUP BY productId
+                LIMIT 3;`,
                 { raw: true }
             );
+
+            const allProds = await Product.sequelize.query(`select *
+            FROM products
+            LIMIT 6;`,
+            { raw: true })
 
             const bestSellersId = [];
             for (const bestSeller of bestSellers[0]) {
                 bestSellersId.push(bestSeller.productId);
             }
-            const products = await Product.findAll({
+            const bsproducts = await Product.findAll({
                 where: { id: bestSellersId },
             });
+
+            console.log(bsproducts);
             res.render("index", {
-                products: products,
+                bsproducts, allProds: allProds
             });
         } catch (err) {
             console.log(err, "----------------------------------");
