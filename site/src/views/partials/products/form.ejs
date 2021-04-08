@@ -13,7 +13,7 @@
     >
     <% let prod = (product) ? product : "" %> 
         <label for="productName">Nombre del vino</label>
-        <input type="text" name="productName" id="productName" value=<%=prod.productName || ""%> />
+        <input type="text" name="productName" id="productName" value="<%=prod.productName ||" "%>" />
         <label for="productPicture">Foto del producto</label>
         <input type="file" name="image" id="productPicture" multiple  />
         <label for="productPrice">Precio</label>
@@ -42,7 +42,7 @@
         <label for="productAged">Crianza</label>
         <input type="number" name="aged" id="productAged" value=<%=prod.aged || ""%> />
         <label for="productStock">Stock</label>
-        <input type="number" min="0" name="stock" id="productStock" value= <%=prod.stock || ""%>/>
+        <input type="number" min="0" name="stock" id="productStock" value= "<%=prod.stock || ""%>"/>
 
         <label for="productDiscount">Descuento</label>
         <input type="number" min="0" name="discount" id="productDiscount"value=<%=prod.discount || ""%> />

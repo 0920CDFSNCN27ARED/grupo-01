@@ -145,6 +145,10 @@ const usersControllers = {
                     maxAge: 60 * 1000 * 60 * 24,
                 });
 
+                //if (req.session.loggedUser.dni) {
+                // req.session.loggedUser.isUser = true;
+
+                //}
             } else if (req.body.remember && req.session.loggedUser.cuit) {
                 res.cookie("rememberCellar", req.session.loggedUser.id, {
                     maxAge: 60 * 1000 * 60 * 24,
