@@ -52,9 +52,9 @@
                   <div class="preview">
                     <h1 class="brand"><%= product.productName %></h1>
                     <div id="imgs" class="imgs">
-                        <% for(let i = 0; i < images.length;i++) {%> 
+                        <% for(let i = 0; i < product.image.length;i++) {%> 
                      
-                      <img src="/images/products/<%=images[i] %>" alt="img<%=i%>">
+                      <img src="/images/products/<%=product.image[i]%>" alt="img<%=i%>">
                       <% } %> 
                     </div>
                     <div class="zoomControl"></div>

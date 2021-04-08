@@ -13,7 +13,7 @@ if (nextBtn) {
 
 const url = window.location.href.split("/");
 
-const pagNmbr = Number(url[url.length - 1]);
+const pagNmbr = Number(url[url.length - 1]) || 1;
 for (const btn of allBtns) {
     if (btn.children[0].innerText == pagNmbr) {
         btn.classList.add("active");
@@ -40,8 +40,9 @@ const itemsPerPage = document.getElementById("itemsPerPage");
 itemsPerPage.addEventListener("change", () => {
     itemsPerPageForm.submit();
 });
-
+let selectedPagination = 10;
 for (const option of itemsPerPage) {
+ 
     if (numberSelected) {
         if (numberSelected == option.value) {
             option.selected = "on";

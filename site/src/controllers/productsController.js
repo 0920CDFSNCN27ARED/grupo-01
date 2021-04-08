@@ -7,12 +7,11 @@ const productsController = {
         const itemsPerPage = req.query.itemsPerPage || 10;
         try {
             const allProds = await Product.findAll({
-                limit: Number(itemsPerPage) || 25,
+               // limit: Number(itemsPerPage) ,
             });
             const count = await Product.count();
             const pags = Math.ceil(count / itemsPerPage);
             pagsNmbr = pags < 1 ? 1 : pags;
-
             res.render("products/products", {
                 products: allProds,
                 pagsNmbr,
@@ -23,18 +22,24 @@ const productsController = {
         }
     },
     showPag: async (req, res) => {
-        const count = await Product.count();
-        const itemsPerPage = req.query.itemsPerPage || 10;
-        const pagNmbr = req.params.pagNmbr;
+        try {
+            const count = await Product.count();
+            const itemsPerPage = req.query.itemsPerPage || 10;
+            const pagNmbr = Number(req.params.pagNmbr);
 
-        const pags = Math.ceil(count / itemsPerPage);
-        pagsNmbr = pags < 1 ? 1 : pags;
-
-        const products = await Product.findAll({
-            limit: itemsPerPage || 10,
-            offset: itemsPerPage * (pagNmbr - 1),
-        });
-        res.render("products/products", { products, pagsNmbr });
+           
+            const pags = Math.ceil(count / itemsPerPage);
+            pagsNmbr = pags < 1 ? 1 : pags;
+            
+            const products = await Product.findAll({
+                limit: itemsPerPage,
+                offset: (itemsPerPage) * ((pagNmbr) - 1),
+               
+            });
+            res.render("products/products", { products, pagsNmbr });
+        } catch (err) {
+            console.log(err)
+        }
     },
     showOne: async (req, res) => {
         const oneProd = await Product.findByPk(req.params.id, {
@@ -43,10 +48,10 @@ const productsController = {
         if (oneProd == undefined) {
             return res.status(404).render("error");
         }
-        const images = oneProd.image.split(",");
+        //const images = oneProd.image.split(",");
         res.render("products/productDetail", {
             product: oneProd,
-            images,
+            //images,
         });
     },
 
@@ -61,7 +66,7 @@ const productsController = {
                 images.push(image.filename);
             }
             const imagesString = images.join(",");
-           
+
             const newProduct = await Product.create({
                 productName: req.body.productName,
                 grapeId: req.body.grape,
