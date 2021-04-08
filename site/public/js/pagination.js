@@ -6,7 +6,7 @@ const itemsPerPageForm = document.getElementById("items-qtty-form");
 const allBtns = document.querySelectorAll(".page-item");
 let highestNmbrBtn;
 if (nextBtn) {
-     highestNmbrBtn = Number(
+    highestNmbrBtn = Number(
         nextBtn.previousElementSibling.children[0].innerText
     );
 }
@@ -40,15 +40,16 @@ if (pagNmbr > 1) {
 }
 
 const itemsPerPage = document.getElementById("itemsPerPage");
-itemsPerPage.addEventListener("change", () => {
-    itemsPerPageForm.submit();
-});
-
-for (const option of itemsPerPage) {
- 
-    if (numberSelected) {
-        if (numberSelected == option.value) {
-            option.selected = "on";
+if (itemsPerPage) {
+    itemsPerPage.addEventListener("change", () => {
+        itemsPerPageForm.submit();
+    });
+    for (const option of itemsPerPage) {
+        if (numberSelected) {
+            if (numberSelected == option.value) {
+                option.selected = "on";
+            }
         }
     }
 }
+

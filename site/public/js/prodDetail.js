@@ -31,6 +31,7 @@ $(function () {
     });
 });
 
+
 const form = document.getElementById("cart-form");
 
 const id = getIdFromUrl();

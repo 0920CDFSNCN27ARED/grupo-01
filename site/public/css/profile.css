@@ -7,28 +7,27 @@
     border-radius: 2px;
 }
 
-.pending-payment-msg{
+.pending-payment-msg {
     color: orange;
     font-size: 0.8rem;
 }
-p{
-    margin:0
+p {
+    margin: 0;
 }
-ul{
-    margin:0
+ul {
+    margin: 0;
 }
 .product {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
     margin: 1.5% 1%;
-    justify-items: center
+    justify-items: center;
 }
-#columns > p{
+#columns > p {
     font-weight: 800;
-
 }
-.product-name{
+.product-name {
     justify-self: start;
     text-align: left;
 }
@@ -50,7 +49,7 @@ ul{
     .article div {
         display: grid;
         align-items: center;
-
+        justify-items: center;
         width: 100%;
     }
     .categories {
@@ -59,7 +58,9 @@ ul{
     }
 
     #wine-logo-box img {
-        width: 30%;
+        width: auto;
+        max-height: 15vh;
+        max-width: 30%;
     }
     .sad-glass img {
         width: 15%;
